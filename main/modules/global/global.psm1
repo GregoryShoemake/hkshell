@@ -105,7 +105,7 @@ function g_nullemptystr ($nullable) {
     if ($null -eq $nullable) { return $true }
     if ($nullable -isnot [string]) { return $false }
     if ($nullable.length -eq 0) { return $true }
-    return g_for $nullable.length 1 1 '$null' 'if(($nullable[$i] -ne " ") -and ($nullable[$i] -ne "`n")){return $false} elseif($i -eq ($nullable.length - 1)) { return $true}' '$null'
+    return g_for $nullable.length 1 1 '$result = $true' 'if(($nullable[$i] -ne " ") -and ($nullable[$i] -ne "`n")){ $result = $false}' 'return $result'
 }
 function g_nonnull {
     [CmdletBinding()]
@@ -401,7 +401,7 @@ if ($null -eq $global:_content_host ) { $global:_content_host = "" }
 
 <# USER NETWORK CONTENTS#>
 function init_user_network {
-    $global:_network_global_cfg_user = (g_match "$($global:_content_user | select-string networkLocation)" "(?![\[a-zA-Z]]+)(?:=)(.+)" -getMatch) -replace "=", ""
+    $global:_network_global_cfg_user = g_getVal (g_getLine $global:_content_user networkLocation)
     if ($null -ne $global:_network_global_cfg_user) {
         $global:_network_global_cfg_user = "$global:_network_global_cfg_user\global.cfg"
         if (g_npath $global:_network_global_cfg_user) { $null = new-item $global:_network_global_cfg_user -Force }
@@ -414,7 +414,7 @@ init_user_network
 
 <# INSTANCE NETWORK CONTENTS#>
 function init_instance_network {
-    $global:_network_global_cfg_instance = (g_match "$($global:_content_instance | select-string networkLocation)" "(?![\[a-zA-Z]]+)(?:=)(.+)" -getMatch) -replace "=", ""
+    $global:_network_global_cfg_instance = (g_match "$($global:_content_instance | select-string networkLocation)" "(?![\\w]+)(?:=)(.+)" -getMatch) -replace "=", ""
     if ($null -ne $global:_network_global_cfg_instance) {
         $global:_network_global_cfg_instance = "$global:_network_global_cfg_instance\global.cfg"
         if (g_npath $global:_network_global_cfg_instance) { $null = new-item $global:_network_global_cfg_instance -Force }
@@ -428,7 +428,7 @@ init_instance_network
 <# USER NETWORK CONTENTS#>
 function init_host_network {
     if (g_elevated) {
-        $global:_network_global_cfg_host = (g_match "$($global:_content_host | select-string networkLocation)" "(?![\[a-zA-Z]]+)(?:=)(.+)" -getMatch) -replace "=", ""
+        $global:_network_global_cfg_host = (g_match "$($global:_content_host | select-string networkLocation)" "(?![\\w]+)(?:=)(.+)" -getMatch) -replace "=", ""
         if ($null -ne $global:_network_global_cfg_host) {
             $global:_network_global_cfg_host = "$global:_network_global_cfg_host\global.cfg"
             if (g_npath $global:_network_global_cfg_host) { $null = new-item $global:_network_global_cfg_host -Force }
@@ -448,87 +448,104 @@ function g_set_scope_user {
     g_push
     $global:_scope = $global:_scope_user
     $a_ = $args -join " "
-    if ($global:_debug_) { Write-Host "g_set_scope_user => args: $a_" -ForegroundColor Green }
+    if ($global:prolix) { Write-Host "g_set_scope_user => args: $a_" -ForegroundColor Green }
     if (g_nullemptystr $a_) { return }
     return Invoke-Expression $a_
 }
+Set-Alias -Name user -Value g_set_scope_user -Scope Global -Force
 
 function g_set_scope_instance {
     g_push
     $global:_scope = $global:_scope_instance
     $a_ = $args -join " "
-    if ($global:_debug_) { Write-Host "g_set_scope_instance => args: $a_" -ForegroundColor Green }
+    if ($global:prolix) { Write-Host "g_set_scope_instance => args: $a_" -ForegroundColor Green }
     if (g_nullemptystr $a_) { return }
     return Invoke-Expression $a_
 }
+Set-Alias -Name instance -Value g_set_scope_instance -Scope Global -Force
 
 function g_set_scope_host {
     g_push
     $global:_scope = $global:_scope_host
     $a_ = $args -join " "
-    if ($global:_debug_) { Write-Host "g_set_scope_host => args: $a_" -ForegroundColor Green }
+    if ($global:prolix) { Write-Host "g_set_scope_host => args: $a_" -ForegroundColor Green }
     if (g_nullemptystr $a_) { return }
     return Invoke-Expression $a_
 }
+Set-Alias -Name host -Value g_set_scope_host -Scope Global -Force
 
 function g_set_scope_network {
     g_push
     if ($global:_scope -ne $global:_scope_network) {
+        g
         $global:_network_scope_parent = $global:_scope
     }
     $global:_scope = $global:_scope_network
     $a_ = $args -join " "
-    if ($global:_debug_) { Write-Host "g_set_scope_network => args: $a_" -ForegroundColor Green }
+    if ($global:prolix) { Write-Host "g_set_scope_network => args: $a_" -ForegroundColor Green }
     if (g_nullemptystr $a_) { return }
     return Invoke-Expression $a_
 }
+Set-Alias -Name network -Value g_set_scope_network -Scope Global -Force
 
-function g_foo ($function, $parameters) {
-    if ($global:_debug_) { Write-Host "g_foo : $function :: $parameters" -ForegroundColor DarkRed -BackgroundColor Black }
-    switch ($function) {
-        "remove" {
-            $removeReg = "(`n)?(\[[a-z]+])?$parameters=.+"
-            $content = g_content
-            if ($global:_debug_) { Write-Host "  \ content: $content`n   \ regex : $removeReg" -ForegroundColor DarkRed -BackgroundColor Black }
-            switch ($global:_scope) {
-                $global:_scope_user { 
-                    $global:_content_user = $content -replace $removeReg, ""
-                }
-                $global:_scope_instance { 
-                    $global:_content_instance = $content -replace $removeReg, ""
-                }
-                $global:_scope_host { 
-                    $global:_content_host = $content -replace $removeReg, ""
-                }
-                $global:_scope_network { 
-                    switch ($global:_network_scope_parent) {
-                        $global:_scope_user {
-                            if ($null -eq $global:_network_global_cfg_user) { Write-Error 'user network location has not been initialized. Call > g_set_scope_user global networkLocation = \\network\share to initialize' } else {                    
-                                $global:_content_user_network = $content -replace $removeReg, ""
-                            } 
-                        }
-                        $global:_scope_instance {
-                            if ($null -eq $global:_network_global_cfg_instance) { Write-Error 'instance network location has not been initialized. Call > g_set_scope_instance global networkLocation = \\network\share to initialize' } else {                    
-                                $global:_content_instance_network = $content -replace $removeReg, ""
-                            } 
-                        }
-                        $global:_scope_host {
-                            if (g_elevated) {
-                                if ($null -eq $global:_network_global_cfg_host) { Write-Error 'host network location has not been initialized. Call > g_set_scope_host global networkLocation = \\network\share to initialize' } else {                    
-                                    $global:_content_host_network = $content -replace $removeReg, ""
-                                }  
-                            }
-                            else { g_ehe } 
-                        }
-                        Default {}
+function g_foo_remove ($parameters) {
+    if ($parameters -match "~") { $parameters = $parameters -split "~" }
+    if ($parameters -is [System.Array]) {
+        foreach ($p in $parameters) {
+            g_foo_remove $p
+        }
+        return
+    }
+    $removeReg = "(`n)?(\[[a-z]+])?$parameters=.+"
+    $content = g_content
+    if ($global:prolix) { Write-Host "  \ content: $content`n   \ regex : $removeReg" -ForegroundColor DarkRed -BackgroundColor Black }
+    switch ($global:_scope) {
+        $global:_scope_user { 
+            $global:_content_user = $content -replace $removeReg, ""
+        }
+        $global:_scope_instance { 
+            $global:_content_instance = $content -replace $removeReg, ""
+        }
+        $global:_scope_host { 
+            $global:_content_host = $content -replace $removeReg, ""
+        }
+        $global:_scope_network { 
+            switch ($global:_network_scope_parent) {
+                $global:_scope_user {
+                    if ($null -eq $global:_network_global_cfg_user) { Write-Error 'user network location has not been initialized. Call > g_set_scope_user global networkLocation = \\network\share to initialize' } else {                    
+                        $global:_content_user_network = $content -replace $removeReg, ""
                     } 
                 }
+                $global:_scope_instance {
+                    if ($null -eq $global:_network_global_cfg_instance) { Write-Error 'instance network location has not been initialized. Call > g_set_scope_instance global networkLocation = \\network\share to initialize' } else {                    
+                        $global:_content_instance_network = $content -replace $removeReg, ""
+                    } 
+                }
+                $global:_scope_host {
+                    if (g_elevated) {
+                        if ($null -eq $global:_network_global_cfg_host) { Write-Error 'host network location has not been initialized. Call > g_set_scope_host global networkLocation = \\network\share to initialize' } else {                    
+                            $global:_content_host_network = $content -replace $removeReg, ""
+                        }  
+                    }
+                    else { g_ehe } 
+                }
                 Default {}
-            }
+            } 
         }
-        "search" {
-            return g_content | Select-String $parameters
-        }
+        Default {}
+    }
+}
+
+function g_foo_search ($parameters) {
+    $content = (g_content) -split "`n"
+    return $($content | Where-Object { $_ -match $parameters })
+}
+
+function g_foo ($function, $parameters) {
+    if ($global:prolix) { Write-Host "g_foo : $function :: $parameters" -ForegroundColor DarkRed -BackgroundColor Black }
+    switch ($function) {
+        "remove" { g_foo_remove $parameters }
+        "search" { return g_foo_search $parameters }
     }
 }
 
@@ -567,16 +584,16 @@ function g_content {
     )
     if ($null -eq $scope) { $scope = $global:_scope }
     if ($null -eq $networkScopeParent) { $networkScopeParent = $global:_network_scope_parent }
-    if ($global:_debug_) { Write-Host "g_content:" -ForegroundColor DarkCyan }
+    if ($global:prolix) { Write-Host "g_content:" -ForegroundColor DarkCyan }
     switch ($scope) {
         $global:_scope_user { 
-            if ($global:_debug_) { Write-Host "    \ user:$global:_content_user" -ForegroundColor DarkCyan }; return $global:_content_user 
+            if ($global:prolix) { Write-Host "    \ user:$global:_content_user" -ForegroundColor DarkCyan }; return $global:_content_user 
         }
         $global:_scope_instance {
-            if ($global:_debug_) { Write-Host "    \ instance:$global:_content_instance" -ForegroundColor DarkCyan }; return $global:_content_instance 
+            if ($global:prolix) { Write-Host "    \ instance:$global:_content_instance" -ForegroundColor DarkCyan }; return $global:_content_instance 
         }
         $global:_scope_host { 
-            if (g_elevated) { if ($global:_debug_) { Write-Host "    \ host:$global:_content_host" -ForegroundColor DarkCyan }; return $global:_content_host } else { g_ehe } 
+            if (g_elevated) { if ($global:prolix) { Write-Host "    \ host:$global:_content_host" -ForegroundColor DarkCyan }; return $global:_content_host } else { g_ehe } 
         }
         $global:_scope_network {
             switch ($networkScopeParent) {
@@ -599,16 +616,16 @@ function g_push {
     )
     if ($null -eq $scope) { $scope = $global:_scope }
     if ($null -eq $networkScopeParent) { $networkScopeParent = $global:_network_scope_parent }
-    if ($global:_debug_) { Write-Host "g_push `n  \ scope: $scope ~ netScopeParent: $networkScopeParent" -ForegroundColor Yellow }
+    if ($global:prolix) { Write-Host "g_push `n  \ scope: $scope ~ netScopeParent: $networkScopeParent" -ForegroundColor Yellow }
     $c_ = g_content $scope $networkScopeParent
     $i_ = g_item $scope $networkScopeParent
-    if ($global:_debug_) { Write-Host "     \ item: $i_" -ForegroundColor Yellow }
+    if ($global:prolix) { Write-Host "     \ item: $i_" -ForegroundColor Yellow }
     try {
         Set-Content $i_.fullname $c_ -ErrorAction Stop
     }
     catch {
         Write-Host " << Failed to write to cfg file" -ForegroundColor Red
-        if ($global:_debug_) { Write-Host "    $_" -ForegroundColor Red }
+        if ($global:prolix) { Write-Host "    $_" -ForegroundColor Red }
     }
 }
 
@@ -636,7 +653,7 @@ function g_get {
                 $m = g_getLine $c $var
                 if ($null -ne $m) { $g_ += $m }
             }
-            if ($global:_debug_) { Write-Host "g_get : _SEARCH_ : $cast `n$($g_)" -ForegroundColor DarkYellow }
+            if ($global:prolix) { Write-Host "g_get : _SEARCH_ : $cast `n$($g_)" -ForegroundColor DarkYellow }
             if (g_match $flags "_NOT_") { return $g_.length -eq 0 }
             if (g_match $flags "_BOOL_") { return $g_.length -gt 0 }
             if ($null -ne $cast) { $g_ = g_cast $cast $g_ }
@@ -645,7 +662,7 @@ function g_get {
         else {
             $get = g_getVal $match
             $cast = if ($null -eq $cast) { g_getCast $match } else { $cast }
-            if ($global:_debug_) { Write-Host "g_get : $cast $get" -ForegroundColor DarkYellow }
+            if ($global:prolix) { Write-Host "g_get : $cast $get" -ForegroundColor DarkYellow }
             if (g_match $flags "_NOT_") { if ($null -eq $get) { $get = $true } else { $get = !(g_parseBool $get) } }
             if (g_match $flags "_BOOL_") { if ($null -eq $get) { $get = $false } else { $get = g_parseBool $get } }
             if ($null -ne $cast) { $get = g_cast $cast $get }
@@ -674,13 +691,13 @@ function g_assign {
         g_ehe
         return
     }
-    if ($global:_debug_) { Write-Host "g_assign: $val => $var" -ForegroundColor Magenta }
+    if ($global:prolix) { Write-Host "g_assign: $val => $var" -ForegroundColor Magenta }
     $content = g_content
     $line = g_getLine $content $var
     $replace = "$cast$var=$val"
-    if ($global:_debug_) { Write-Host "  \ $line => $replace" -ForegroundColor Magenta }
+    if ($global:prolix) { Write-Host "  \ $line => $replace" -ForegroundColor Magenta }
     if ($null -ne $line) {
-        if ($global:_debug_) { Write-Host "    ~ replacing" -ForegroundColor Magenta }
+        if ($global:prolix) { Write-Host "    ~ replacing" -ForegroundColor Magenta }
         switch ($global:_scope) {
             $global:_scope_user { 
                 $global:_content_user = $content -replace "$line", $replace
@@ -718,32 +735,38 @@ function g_assign {
         }
     }
     else {
-        if ($global:_debug_) { Write-Host "    ~ adding" -ForegroundColor Magenta }
+        if ($global:prolix) { Write-Host "    ~ adding" -ForegroundColor Magenta }
         switch ($global:_scope) {
             $global:_scope_user { 
+                if ($global:_content_user[$global:_content_user.length - 1] -ne "`n") { $global:_content_user += "`n" }
                 $global:_content_user += "$replace" 
             }
             $global:_scope_instance { 
+                if ($global:_content_instance[$global:_content_instance.length - 1] -ne "`n") { $global:_content_instance += "`n" }
                 $global:_content_instance += "$replace" 
             }
             $global:_scope_host { 
+                if ($global:_content_host[$global:_content_host.length - 1] -ne "`n") { $global:_content_host += "`n" }
                 $global:_content_host += "$replace" 
             }
             $global:_scope_network { 
                 switch ($global:_network_scope_parent) {
                     $global:_scope_user {
-                        if ($null -eq $global:_network_global_cfg_user) { Write-Error 'user network location has not been initialized. Call > g_set_scope_user global networkLocation = \\network\share to initialize' } else {                    
+                        if ($null -eq $global:_network_global_cfg_user) { Write-Error 'user network location has not been initialized. Call > g_set_scope_user global networkLocation = \\network\share to initialize' } else {    
+                            if ($global:_content_user_network[$global:_content_user_network.length - 1] -ne "`n") { $global:_content_user_network += "`n" }                
                             $global:_content_user_network += "$replace" 
                         } 
                     }
                     $global:_scope_instance {
                         if ($null -eq $global:_network_global_cfg_instance) { Write-Error 'instance network location has not been initialized. Call > g_set_scope_instance global networkLocation = \\network\share to initialize' } else {                    
+                            if ($global:_content_instance_network[$global:_content_instance_network.length - 1] -ne "`n") { $global:_content_instance_network += "`n" }
                             $global:_content_instance_network += "$replace" 
                         } 
                     }
                     $global:_scope_host {
                         if (g_elevated) {
-                            if ($null -eq $global:_network_global_cfg_host) { Write-Error 'host network location has not been initialized. Call > g_set_scope_host global networkLocation = \\network\share to initialize' } else {                    
+                            if ($null -eq $global:_network_global_cfg_host) { Write-Error 'host network location has not been initialized. Call > g_set_scope_host global networkLocation = \\network\share to initialize' } else {  
+                                if ($global:_content_host_network[$global:_content_host_network.length - 1] -ne "`n") { $global:_content_host_network += "`n" }                  
                                 $global:_content_host_network += "$replace" 
                             }  
                         }
@@ -772,7 +795,7 @@ function g_assign {
 
 function global {
     
-    if ($global:_debug_) { Write-Host "global: $args" -ForegroundColor White }
+    if ($global:prolix) { Write-Host "global: $args" -ForegroundColor White }
 
     $flags = ""
     $a_ = $args -join ""
@@ -785,7 +808,7 @@ function global {
     $prop = $null
 
     # Regex for scope changes
-    if ($a_ -match "->( )?([a-zA-Z]+)?") {
+    if ($a_ -match "->( )?(\w+)?") {
         $scope = $matches[0] -replace "->", ""
         switch ($scope) {
             "user" { g_set_scope_user }
@@ -833,10 +856,10 @@ function global {
         $split = $var -split "<"
         $var = ""
         foreach ($s in $split) {
-            $var += "$s[a-zA-Z]+"
+            $var += "$s\w+"
         }
     }
-    elseif ($a_ -match "((^\[[a-z]+])?(!)?[a-zA-Z]+)([\$])?") {
+    elseif ($a_ -match "((^\[[a-z]+])?(!)?\w+)([\$])?") {
         $var = $matches[0]
         if ($cast) {
             $var = $var -replace "\$cast", ''
@@ -853,9 +876,9 @@ function global {
         }
     }
     # Regex for property
-    if ($a_ -match "(^\[[a-z]+])?(!)?[a-zA-Z]+\.[a-zA-Z]+") {
+    if ($a_ -match "(^\[[a-z]+])?(!)?\w+\.\w+") {
         $prop = $matches[0]
-        $prop = (g_match $prop "\.[a-zA-Z]+" -getMatch) -replace "\.", ""
+        $prop = (g_match $prop "\.\w+" -getMatch) -replace "\.", ""
     }
     # Regex for value
     if (($a_ -match '[!~=+\-*\/?^]+') -or ($a_ -match "\[([0-9]+)?]")) {
@@ -969,10 +992,10 @@ function global {
         }
     }
 
-    if ($global:_debug_) { Write-Host "cast:$cast`nvar:$var`nproperty:$prop`naction:$act`nvalue:$val`nflags:$flags`nscope:$global:_scope" -ForegroundColor Cyan }
+    if ($global:prolix) { Write-Host "cast:$cast`nvar:$var`nproperty:$prop`naction:$act`nvalue:$val`nflags:$flags`nscope:$global:_scope" -ForegroundColor Cyan }
 
     if (g_null @($var, $cast, $act)) {
-        if ($global:_debug_) { Write-Host "retrieving global content ~`n  network_scope_parent:$global:_network_scope_parent" -ForegroundColor Cyan }
+        if ($global:prolix) { Write-Host "retrieving global content ~`n  network_scope_parent:$global:_network_scope_parent" -ForegroundColor Cyan }
         return g_content
     }
     if (g_nonnull @($var, $act, $val)) {
@@ -1229,7 +1252,7 @@ function global {
         return
     }
     if (g_nonnull @($var, $prop)) {
-        if ($global:_debug_) { Write-Host "Executioning property: $prop on $v_" -ForegroundColor Cyan }
+        if ($global:prolix) { Write-Host "Executioning property: $prop on $v_" -ForegroundColor Cyan }
         $g = g_get $var
         if (($flags -match "_PSVAR_") -and ($g -is [string])) {
             $g = g_for $g.length 1 1 '$g = $g -replace "\$","#$"; $g = $g -split "#"' 'if($g[$i] -match "\$"){$g[$i] = $g[$i] -replace "\$",""; $g[$i] = (get-variable "$($g[$i])").value }' 'return $($g) -join ""'

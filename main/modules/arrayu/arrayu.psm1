@@ -62,3 +62,4 @@ function TruncateArray {
     }
     return $res
 }
+New-Alias -Name truncate -Value TruncateArray -Scope Global -Force

@@ -256,6 +256,35 @@ function n_match {
     return $false
 }
 
+function q_log {
+    [CmdletBinding()]
+    param (
+        [Parameter()]
+        $variable,
+        [Parameter()]
+        [int]
+        $columns = 1,
+        [Parameter()]
+        $ForegroundColor = 1
+    )
+    if ($variable -is [System.Array]) {
+        for ($i = 1; $i -le $variable.length; $i++) {
+            $width = 30
+            $item = "$($variable[$i - 1])"
+            while ($item.Length -lt $width) {
+                $item += " "
+            }
+            $item = $item.Substring(0, $width)
+            if ($i % $columns -eq 0) {
+                Write-Host $item -ForegroundColor $ForegroundColor
+            }
+            else {
+                Write-Host -NoNewline $item -ForegroundColor $ForegroundColor
+            }
+        }
+    }
+}
+
 function Go {
     [CmdletBinding()]
     param (
@@ -270,10 +299,16 @@ function Go {
         $A
     )
     $D = !$A
+    if ($global:prolix) { write-host " GO => $path`n  \ Create Missing Path? $C`n  \ Show All Item Types? $A" -ForegroundColor DarkRed }
     if ($path -eq "..") {
         $path = ..
     }
-    else {
+    elseif (!(test-path $path)) {
+        if ($global:prolix) {
+            write-host "`n~~~~~~~~~~`nShortcuts:`n" -ForegroundColor DarkCyan 
+            q_log -columns 3 $global:shortcuts -ForegroundColor DarkGray 
+            write-host "`n~~~~~~~~~~`n" -ForegroundColor DarkCyan 
+        }
         foreach ($s in $global:shortcuts) {
             if ($s -match $path) {
                 if ($null -eq $arr) { $arr = @($s) }
