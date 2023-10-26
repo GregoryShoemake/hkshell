@@ -307,7 +307,7 @@ function Go {
         if ($global:prolix) {
             write-host "`n~~~~~~~~~~`nShortcuts:`n" -ForegroundColor DarkCyan 
             q_log -columns 3 $global:shortcuts -ForegroundColor DarkGray 
-            write-host "`n~~~~~~~~~~`n" -ForegroundColor DarkCyan 
+            write-host "`n~~~~~~~~~~    `n" -ForegroundColor DarkCyan 
         }
         foreach ($s in $global:shortcuts) {
             if ($s -match $path) {
