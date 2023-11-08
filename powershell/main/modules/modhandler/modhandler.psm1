@@ -42,11 +42,12 @@ function reimport {
 
         if (test-path $m) {
             try {
+                Remove-Module $module -Force -ErrorAction Stop
                 Import-Module $m -Force -Scope GLobal -ErrorAction Stop
                 $script:loadedModules += $m
             }
             catch {
-            
+                Write-Error $_
             }
         }
         else {

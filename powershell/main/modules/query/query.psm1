@@ -54,6 +54,19 @@ function q_int_eq {
     }
     return $false
 }
+
+function q_parseString ($stringable) {
+    if ($stringable -is [string]) { return $stringable }
+    if ($null -eq $stringable) { return "" }
+    if ($PSVersionTable.PSVersion.Major -ge 3) {
+        return Out-String -InputObject $stringable -Width 100
+    }
+    elseif ($stringable -is [System.Array]) {
+        return $stringable -join "`n"
+    }
+    else { return "$stringable" }
+}
+
 function q_truncate {
     [CmdletBinding()]
     param (
@@ -753,3 +766,221 @@ function get-pastcommand {
     
 }
 New-Alias -Name pastcmd -Value get-pastcommand -Scope Global -Force
+
+function q_get_sysinfo {
+
+    [CmdletBinding()]
+    param (
+        [Parameter()]
+        [switch]
+        $quick = $false,
+        [Parameter()]
+        [switch]
+        $out
+    )
+
+    $ErrorActionPreference = 'STOP'
+    if ($prolix) { Write-Host "Logging System Information" -ForegroundColor DarkCyan } 
+  
+    $select = @("OS name", "Version", "Registered Owner", "Original Install Date", "System", "Physical Memory")
+    if ($null -eq $global:systeminfo) { $global:systemInfo = SystemInfo }
+    $osversion = ([string]($global:systemInfo | Select-String "OS Version")[0])
+    $length = $osversion.length
+    $versionNumber = $osversion.substring(($length - 5), 5)
+    $versionInfo = $versionNumber
+    if ($prolix) { Write-Host "    << Version Build: $VersionInfo >>" -ForegroundColor DarkGray } 
+
+    $qsysInfo = $global:systemInfo | Select-String $select
+    $qsysInfo = q_parseString $qsysInfo
+    $userInfo = net users
+    $userInfo = q_parseString $userInfo 
+    $selectn = @("DNS Suffix Search List", "IPv4 Address", "Physical Address", "Connection-specific DNS Suffix", "adapter", "Media State", "lmco.com")
+    if ($prolix) { Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~`n    Getting Network Info >>" -ForegroundColor DarkGray } 
+    $networkInfo = ipconfig /all 
+    $qnetworkInfo = $networkInfo | Select-String $selectn
+    $qnetworkInfo = q_parseString $qnetworkInfo 
+    if ($prolix) { Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~`n    Getting CPU Info >>" -ForegroundColor DarkGray } 
+    $cpuinfo = GET-wmiobject -class Win32_Processor | Select-Object *
+    $qcpuinfo = $cpuinfo | Select-Object MaxClockSpeed, Name, NumberOfCores
+    $qcpuinfo = q_parseString $qcpuinfo 
+    if ($prolix) { Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~`n    Getting Disk Info >>" -ForegroundColor DarkGray } 
+    try {
+        $diskInfo = Get-Partition | Where-Object { $_.DriveLetter -match "[a-zA-Z]" } | `
+            Where-Object { $_.DiskID -NotMatch "apricorn" } | `
+            Select-Object DriveLetter, @{n = "Capacity [GB]"; e = { [math]::Round($_.size / 1GB, 3) } }
+        $diskInfo = q_parseString $diskInfo 
+        $sumItems = Get-Partition | Where-Object { $_.DriveLetter -match "[a-zA-Z]" } | `
+            Where-Object { $_.DiskID -NotMatch "apricorn" }
+        [long]$sum = 0
+        if ($PSVersionTable.PSVersion.Major -ge 3) {
+            try {
+                foreach ($item in $sumItems) { [long]$sum += [long]$item.size }
+            }
+            catch {
+                Write-Host 'q_get_sysinfo ! System does not support automated conversion from int64 to int32' -ForegroundColor Red
+            }
+        }
+    }
+    catch {
+        $diskItems = Get-WmiObject -class win32_diskdrive | Where-Object { $_.Model -NotMatch "apricorn" }
+        $diskInfo = $diskItems | Select-Object DeviceId, Model, @{n = "Capacity [GB]"; e = { [math]::Round($_.size / 1GB, 3) } }
+        $diskInfo = q_parseString $diskInfo 
+        [long]$sum = 0
+        foreach ($item in $diskItems) { 
+            try {
+                $itemSum = $item | Select-Object -expand size
+                [long]$sum += [long]$itemSum 
+            }
+            catch {
+            }
+        }
+    }
+    
+  
+    $quickInfo = "
+    $($qsysInfo)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Friendly Version Name :: $($versionInfo)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    $($userInfo)
+    $($qnetworkInfo)
+    $($qcpuinfo)
+    $($diskInfo)
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+    Sum Capacity For All Disks :: $([math]::Round(($sum / 1GB), 3)) GB
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    From global.cfg :: 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    //TODO
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    System Notes ::
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    //TODO
+
+    "
+
+    if ($quick) {
+        $ErrorActionPreference = 'Continue'
+        return $quickInfo
+    }
+  
+    if ($prolix) { Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~`n    Getting Detailed Info >>" -ForegroundColor DarkGray } 
+    $sysInfo = q_parseString $sysInfo 
+    $networkInfo = q_parseString $networkInfo 
+    $cpuinfo = q_parseString $cpuinfo 
+    $userInfo = Get-WmiObject win32_UserAccount -Filter { LocalAccount="True" } | Select-Object *
+    $userInfo = q_parseString $userInfo 
+    $boardinfo = Get-WmiObject win32_baseboard  | Select-Object *
+    $boardinfo = q_parseString $boardinfo 
+    try {
+        $volInfo = Get-Partition | `
+            Where-Object { $_.DiskID -NotMatch "apricorn" } | `
+            Select-Object `
+            DriveLetter, `
+            Type, `
+        @{n = "Capacity [GB]"; e = { [math]::Round($_.size / 1GB, 3) } }, `
+            DiskId
+    }
+    catch {
+        $volInfo = Get-WmiObject -class win32_volume | `
+            Where-Object { $_.Label -notmatch "apricorn" } | `
+            Select-Object `
+            Name, `
+            Label, `
+            FileSystem, `
+        @{n = "Capacity [GB]"; e = { [math]::Round($_.capacity / 1GB, 3) } }, `
+        @{n = "Freespace [GB]"; e = { [math]::Round($_.freespace / 1GB, 3) } }
+    }
+    $ErrorActionPreference = 'Continue'
+    $volInfo = q_parseString $volInfo 0
+    $driveInfo = "`n ~ DISK INFO ~`n"
+    $driveInfo += $diskInfo
+    $driveInfo += "`n ~ VOLUME INFO ~"
+    $driveInfo += $volInfo
+    $peripheralInfo = Get-WMIObject -Class Win32_PnPEntity | Select-Object Name, Status, PNPClass
+    $peripheralInfo = q_parseString $peripheralInfo 
+    
+  
+    $content = 
+    "
+    $(Get-Date)
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // QUICK INFO: $($env:ComputerName) //////////////////////////////////////////////////////////////////////
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    $($quickInfo)
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // SYSINFO: $($env:ComputerName) //////////////////////////////////////////////////////////////////////
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    $($sysInfo)
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // LOCAL USER INFO: $($env:ComputerName) //////////////////////////////////////////////////////////////
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    $($userInfo)
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // NETINFO: $($env:ComputerName) //////////////////////////////////////////////////////////////////////
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    $($networkInfo)
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // DISK/VOLUME INFO: $($env:ComputerName) /////////////////////////////////////////////////////////////
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    $($driveInfo)
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // PROCESSOR INFO: $($env:ComputerName) ///////////////////////////////////////////////////////////////
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    $($cpuinfo)
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // MOTHERBOARD INFO: $($env:ComputerName) /////////////////////////////////////////////////////////////
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    $($boardinfo)
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // PERIPHERAL INFO: $($env:ComputerName) //////////////////////////////////////////////////////////////
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    $($peripheralInfo)
+    "
+
+    if ($out) {
+        $paths = @(
+            "C:\Users\$ENV:USERNAME\.Powershell"
+        )
+
+        $date = (Get-Date).toString('ddMMMyyyy')
+        $logdate = "sysinfo-$date.log"
+
+        foreach ($p in $paths) {
+            $logDir = "$p\$ENV:COMPUTERNAME"
+            $log = new-item "$logDir\$logdate" -ErrorAction SilentlyContinue -force
+            if ($null -eq $log) { $log = get-item  "$logDir\$logdate" }
+        }
+    }
+
+    $ErrorActionPreference = 'Continue'
+    if (!$prolix) {
+        $global:logsys = $content
+        return
+    }
+  
+    return $content
+}
+New-Alias -Name logsys -Value q_get_sysinfo -Scope Global -Force
