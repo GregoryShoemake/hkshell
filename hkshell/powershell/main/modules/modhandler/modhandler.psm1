@@ -1,0 +1,41 @@
+$global:_module_location_modhandler = Split-Path -Parent $MyInvocation.MyCommand.Definition
+
+function Import-HKShell {
+    [CmdletBinding()]
+    param (
+        [Parameter()]
+        [string]
+        $module,
+        [Parameter()]
+        $moduleDirectory,
+        [Parameter()]
+        [switch]
+        $force
+    )
+
+    if ($null -eq $moduleDirectory) {
+        $global:moduleDirectory = Split-Path $global:_module_location_modhandler
+    }
+
+    $path_ = "$global:moduleDirectory\$module"
+    
+    if (test-path $path_) {
+        if(!$force -and $($global:loadedModules -contains $path_)) { 
+            return "Module $Module is already imported"
+        }
+        try {
+            Import-Module $path_ -Force -Scope GLobal
+            $global:loadedModules += $path_
+        }
+        catch {
+            Write-Error $_
+            Write-Host "Exception thrown while importing module: $_" -ForegroundColor Red
+        }
+    }
+    else {
+        Write-Host Path to module: $path_ :does not exist -ForegroundColor Red
+    }
+}
+New-Alias -Name importhks -Value Import-HKShell -Scope Global -Force
+
+$global:loadedModules = @("$moduleDirectory\modhandler")
