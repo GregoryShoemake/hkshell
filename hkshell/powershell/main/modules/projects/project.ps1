@@ -1,12 +1,12 @@
-if ($null -eq $global:_MODNAME_module_location ) {
+if ($null -eq $global:_PRJ_module_location ) {
     if ($PSVersionTable.PSVersion.Major -ge 3) {
-        $global:_MODNAME_module_location = $PSScriptRoot
+        $global:_PRJ_module_location = $PSScriptRoot
     }
     else {
-        $global:_MODNAME_module_location = Split-Path -Parent $MyInvocation.MyCommand.Definition
+        $global:_PRJ_module_location = Split-Path -Parent $MyInvocation.MyCommand.Definition
     }
 }
-function __debug ($message, $messageColor, $meta) {
+function prj_debug ($message, $messageColor, $meta) {
     if (!$global:_debug_) { return }
     if ($null -eq $messageColor) { $messageColor = "DarkYellow" }
     Write-Host "    \\$message" -ForegroundColor $messageColor
@@ -14,20 +14,20 @@ function __debug ($message, $messageColor, $meta) {
         write-Host -NoNewline " $meta " -ForegroundColor Yellow
     }
 }
-function __debug_function ($function, $messageColor, $meta) {
-    if (!$global:__debug_) { return }
+function prj_debug_function ($function, $messageColor, $meta) {
+    if (!$global:prj_debug_) { return }
     if ($null -eq $messageColor) { $messageColor = "Yellow" }
     Write-Host ">_ $function" -ForegroundColor $messageColor
     if ($null -ne $meta) {
         write-Host -NoNewline " $meta " -ForegroundColor Yellow
     }
 }
-function __prolix ($message, $messageColor) {
+function prj_prolix ($message, $messageColor) {
     if (!$global:prolix) { return }
     if ($null -eq $messageColor) { $messageColor = "Cyan" }
     Write-Host $message -ForegroundColor $messageColor
 }
-function __choice ($prompt) {
+function prj_choice ($prompt) {
     while((Read-Host $prompt) -notmatch "[Yy]([EeSs])?|[Nn]([Oo])?") {
             $prompt = ""
             Write-Host "Please input a [Y]es or [N]o answer" -ForegroundColor yellow
@@ -35,7 +35,7 @@ function __choice ($prompt) {
     if($MATCHES[0] -match "[Yy]"){ return $true }
     return $false
 }
-function __int_equal {
+function prj_int_equal {
     [CmdletBinding()]
     param (
         [Parameter()]
@@ -51,7 +51,7 @@ function __int_equal {
     }
     return $false
 }
-function __truncate {
+function prj_truncate {
     [CmdletBinding()]
     param (
         # Array object passed to truncate
@@ -67,8 +67,8 @@ function __truncate {
         [int[]]
         $indexAndDepth
     )
-    __debug_function "_truncate"
-    __debug "array:
+    prj_debug_function "_truncate"
+    prj_debug "array:
 $(Out-String -inputObject $array)//"
 
     $l = $array.Length
@@ -86,7 +86,7 @@ $(Out-String -inputObject $array)//"
         $l = $l - $indexAndDepth[1]
     }
     if ($l -le 0) {
-        __debug_return empty array
+        prj_debug_return empty array
         return @()
     }
     $res = @()
@@ -97,24 +97,24 @@ $(Out-String -inputObject $array)//"
         $middle = $middleStart..$middleEnd
     }
     for ($i = 0; $i -lt $array.Length; $i ++) {
-        if (($i -gt $fromStart) -and !(__int_equal $i $middle ) -and ($i -lt $fromEnd)) {
+        if (($i -gt $fromStart) -and !(prj_int_equal $i $middle ) -and ($i -lt $fromEnd)) {
             $res += $array[$i]
         }
     }
-    __debug_return $(Out-String -inputObject $res)
+    prj_debug_return $(Out-String -inputObject $res)
     return $res
 }
-function __search_args
+function prj_search_args ($a_, $param, [switch]$switch)
 {
-    __debug_function "_search_args"    
-    $c_ = $a_.Count
-    __debug "args:$a_ | len:$c_"
-    __debug "param:$param"
-    __debug "switch:$switch"
+    prj_debug_function "_search_args"    
+    $c_ = $a_.County
+    prj_debug "args:$a_ | len:$c_"
+    prj_debug "param:$param"
+    prj_debug "switch:$switch"
     if($switch) { 
         for ($i = 0; $i -lt $c_; $i++) {
             $a = $a_[$i]
-            __debug "a[$i]:$a"
+            prj_debug "a[$i]:$a"
             if ($a -ne $param) { continue }
             if($null -eq $res) { 
                 $res = $true 
@@ -125,15 +125,15 @@ function __search_args
             }
         }
         $res = $res -and $true
-        __debug_return
+        prj_debug_return
         return @{
             RES = $res
             ARGS = $a_
         }
     } else {
-        for ($i = 0; $i -lt $a__.length; $i++) {
+        for ($i = 0; $i -lt $aprj_.length; $i++) {
             $a = $a_[$i]
-            __debug "a[$i]:$a"
+            prj_debug "a[$i]:$a"
             if ($a -ne $param) { continue }
             if(($null -eq $res) -and ($i -lt ($c_ - 1))) { 
                 $res = $a_[$i + 1]
@@ -146,32 +146,32 @@ function __search_args
                 throw [System.ArgumentException] "Duplicate argument passed: $param"
             }
         }
-        __debug_return
+        prj_debug_return
         return @{
             RES = $res
             ARGS = $a_
         }
     }
 }
-function __default ($variable, $value) {
-    __debug_function "e_default"
+function prj_default ($variable, $value) {
+    prj_debug_function "e_default"
     if ($null -eq $variable) { 
-        __debug_return variable is null
+        prj_debug_return variable is null
         return $value 
     }
     switch ($variable.GetType().name) {
         String { 
             if($variable -eq "") {
-                __debug_return
+                prj_debug_return
                 return $value
             } else {
-                __debug_return
+                prj_debug_return
                 return $variable
             }
         }
     }
 }
-function __match {
+function prj_match {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $false, Position = 0)]
@@ -184,14 +184,14 @@ function __match {
         [Parameter()]
         $logic = "OR"
     )
-    __debug_function "__match"
+    prj_debug_function "__match"
     if ($null -eq $string) {
-        __debug_return string is null
+        prj_debug_return string is null
         if ($getMatch) { return $null }
         return $false
     }
     if ($null -eq $regex) {
-        __debug_return regex is null
+        prj_debug_return regex is null
         if ($getMatch) { return $null }
         return $false
     }
@@ -205,20 +205,49 @@ function __match {
             if (($logic -eq "AND") -and !$f) { return $false }
             if (($logic -eq "NOT") -and $f) { return $false }
         }
-        __debug_return
+        prj_debug_return
         return ($logic -eq "AND") -or ($logic -eq "NOT")
     }
     $found = $string -match $regex
     if ($found) {
         if ($getMatch) {
-            __debug_return
+            prj_debug_return
             return $Matches[0]
         }
-        __debug_return
+        prj_debug_return
         return $logic -ne "NOT"
     }
-    __debug_return
+    prj_debug_return
     if ($logic -eq "NOT") { return $true }
     if ($getMatch) { return $null }
     return $false
 }
+
+$hash = prj_search_args $args "-name"
+$PRJ_NAME = $hash.RES
+if($null -eq $PRJ_NAME) { exit }
+$hash = prj_search_args $hash.ARGS "-method"
+$res = prj_default $hash.RES "NULL"
+$PRJ_STATE = if($res.toLower() -match "start") { "STARTING" } elseif ($res.toLower() -match "END") { "ENDING" } else { exit }
+
+
+
+function Start {
+    
+}
+
+function Loop {
+
+}
+
+function End {
+
+}
+
+switch ($PRJ_STATE) {
+    Start { Start }
+    End { End }
+    Default {}
+}
+
+

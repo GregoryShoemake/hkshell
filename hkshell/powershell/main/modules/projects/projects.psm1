@@ -20,6 +20,14 @@ function pr_prolix ($message, $messageColor) {
     if ($null -eq $messageColor) { $messageColor = "Cyan" }
     Write-Host $message -ForegroundColor $messageColor
 }
+function pr_choice ($prompt) {
+    while((Read-Host $prompt) -notmatch "[Yy]([EeSs])?|[Nn]([Oo])?") {
+            $prompt = ""
+            Write-Host "Please input a [Y]es or [N]o answer" -ForegroundColor yellow
+        }
+    if($MATCHES[0] -match "[Yy]"){ return $true }
+    return $false
+}
 if ($null -eq $global:_projects_module_location ) {
     if ($PSVersionTable.PSVersion.Major -ge 3) {
         $global:_projects_module_location = $PSScriptRoot
@@ -39,13 +47,30 @@ function pr_choice ($prompt) {
     return $false
 }
 
-
-
-
 $global:projectsPath = (((Get-Content "$global:_projects_module_location\projects.cfg") | Select-String "projects-root") -split "=")[1]
 pr_debug "Populating user PROJECTS global projects path variable ->
     global:projectsPath=$global:projectsPath"
 $global:originalPath = $ENV:PATH
+
+function New-Project ($name) {
+    $null = importhks nav
+    Set-Location $projectsPath
+    if($null -eq $name) { $name = Read-Host "Project Name: " }
+    mkdir ".\$name" 
+    Invoke-Go ".\$name"
+    New-Item ".\$name\project.cfg" | Set-Content "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project' }"
+    Copy-Item "$global:_projects_module_location\project.ps1" ".\$name"
+    git init
+    git add .
+    git commit -m "initial commit"
+    if(pr_choice "Push to a repo?") {
+        git remote add origin $(Read-Host "Input")
+        git push -u origin main
+    }
+    if(pr_choice "Start project now?"){
+        Start-Project $name
+    }
+}
 
 function Get-Project ($get = "all"){
     if($null -ne $global:project) {
@@ -55,7 +80,7 @@ function Get-Project ($get = "all"){
             Default { return Invoke-Expression $('$global:project.' + $get) }
         }
     }
-    $null = import nav
+    $null = importhks nav
     n_dir $(Get-ChildItem $projectsPath -depth 1 -force -ErrorAction SilentlyContinue)
 }
 New-Alias -name gprj -value Get-Project -Scope Global -Force
@@ -73,7 +98,7 @@ function Start-Project ($name, [switch]$loadlast) {
         pr_debug "name:$name | subname:$subName"
     }
     if($name -eq "last"){
-        $null = import persist
+        $null = importhks persist
         Start-Project $(persist project) -loadlast
     }
     $found = $false
@@ -83,9 +108,9 @@ function Start-Project ($name, [switch]$loadlast) {
             pr_debug "Project $name found. Starting ~"
             $found = $true;
             if($null -ne $subName) { $name = "$name\$subName" }
-            $null = import nav
-            $null = import query
-            $null = import persist
+            $null = importhks nav
+            $null = importhks query
+            $null = importhks persist
             $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-file $global:projectsPath\$name\project.ps1" -Passthru
             $global:project = Invoke-Expression (Get-Content "$global:projectsPath\$name\project.cfg")
             pull; Start-Sleep -Milliseconds 100; push persist _>_project=.$name; 
@@ -93,11 +118,11 @@ function Start-Project ($name, [switch]$loadlast) {
 
             if($null -eq $subName) {
                 $ENV:PATH += ";$($_.fullname)"
-                Go $_.fullname 
+                Invoke-Go $_.fullname 
             } 
             else { 
                 $ENV:PATH += ";$($_.fullname)\$subname"
-                Go "$($_.fullname)\$subname" 
+                Invoke-Go "$($_.fullname)\$subname" 
             }
             if ($loadLast) { vi $(persist last) }
             return
@@ -108,7 +133,7 @@ function Start-Project ($name, [switch]$loadlast) {
     $prompt =  "Project $name not found, create project in $global:projectsPath?"
     if(pr_choice $prompt) {
         mkdir "$global:projectsPath\$name"
-        New-Item "$global:projectsPath\$name\project.cfg" | Set-Content "@{ Name='$name'; Path='$global:projectsPath\$name';Description='a new project' }"
+        New-Item "$global:projectsPath\$name\project.cfg" | Set-Content "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project' }"
         Copy-Item "$global:_projects_module_location\project.ps1" "$global:projectsPath\$name"
         if(pr_choice "Start project $name now?") {
             Start-Project $name
@@ -129,6 +154,6 @@ No project is currently loaded
     $Script:projectLoop | Stop-Process
     $global:project = $null
     $ENV:PATH = $global:originalPath
-    Go "C:\Users\$ENV:USERNAME"
+    Invoke-Go "C:\Users\$ENV:USERNAME"
 }
 New-Alias -name eprj -value Exit-Project -Scope Global -Force
