@@ -297,7 +297,7 @@ function Get-AllVolumes {
         return $hash
     }
     try {
-        $volumes = Get-Volume | Where-Object { ($_.driveLetter -match "[A-Z]") -and ($_.DriveType -eq "Fixed") }
+        $volumes = Get-Volume | Where-Object { ($_.driveLetter -match "[A-Z]") -and ($_.DriveType -match "Fixed|Removable") }
         $hash = @{ Function = "Get-Volume"; Volumes = $volumes }
         if($expand.toLower() -match "v(s)?$|vol(s)?$|volume(s)?$") { return $hash.Volumes }
         elseif ($expand.toLower() -match "f$|fn$|fun$|func$|foo$|function$") { return $hash.Function }
@@ -643,7 +643,7 @@ function installed {
     )
 
     if ($allDrives) {
-        $drives = (AllVolumes).volumes.driveLetter | ForEach-Object { return "$($_[0]):" }
+        $drives = (Get-AllVolumes).volumes.driveLetter | ForEach-Object { return "$($_[0]):" }
     }
     else { $drives = @("C:") }
 
@@ -733,7 +733,7 @@ function installedBulk {
     )
 
     if ($allDrives) {
-        $drives = (AllVolumes).volumes.driveLetter | ForEach-Object { return "$($_[0]):" }
+        $drives = (Get-AllVolumes).volumes.driveLetter | ForEach-Object { return "$($_[0]):" }
     }
     else { $drives = @("C:") }
 

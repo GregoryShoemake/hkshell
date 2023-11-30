@@ -1,4 +1,4 @@
-
+$null = importhks nav
 function pr_debug ($message, $messageColor, $meta) {
     if (!$global:_debug_) { return }
     if ($null -eq $messageColor) { $messageColor = "DarkYellow" }
@@ -48,6 +48,7 @@ function pr_choice ($prompt) {
 }
 
 $global:projectsPath = (((Get-Content "$global:_projects_module_location\projects.cfg") | Select-String "projects-root") -split "=")[1]
+$global:projectsPath = Get-Path $global:projectsPath
 pr_debug "Populating user PROJECTS global projects path variable ->
     global:projectsPath=$global:projectsPath"
 $global:originalPath = $ENV:PATH

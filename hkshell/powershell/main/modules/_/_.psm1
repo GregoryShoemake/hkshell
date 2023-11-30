@@ -22,6 +22,12 @@ function __debug_function ($function, $messageColor, $meta) {
         write-Host -NoNewline " $meta " -ForegroundColor Yellow
     }
 }
+function __debug_return {
+    if (!$global:_debug_) { return }
+    Write-Host "#return# $($args -join " ")" -ForegroundColor Black -BackgroundColor DarkGray
+    return
+}
+
 function __prolix ($message, $messageColor) {
     if (!$global:prolix) { return }
     if ($null -eq $messageColor) { $messageColor = "Cyan" }
