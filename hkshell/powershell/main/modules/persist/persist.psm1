@@ -481,27 +481,23 @@ $global:SCOPES_PATH = "$global:_persist_module_location\persist.scopes.conf"
 $global:INSTANCE_PATH = "$global:_persist_module_location\persist.cfg"
 $global:INSTANCE_SCOPE = "INSTANCE::$global:INSTANCE_PATH"
 
-function Start-Scopes ([switch]$rebuild){
+function Invoke-Scopes ([switch]$rebuild){
     if(!(Test-Path $global:SCOPES_PATH) -or $rebuild) {
         p_debug "creating persist scopes file at $global:SCOPES_PATH"
         New-Item $global:SCOPES_PATH -ItemType File -Force
         p_debug "populating persist scopes file with default scopes"
         if(!(test-path "C:\Users\$ENV:USERNAME\contacts" )) { mkdir "C:\Users\$ENV:USERNAME\contacts" }
         if(!(test-path "C:\Users\$ENV:USERNAME\.ssh"  )) { mkdir "C:\Users\$ENV:USERNAME\.ssh" }
-        Set-Content -Path $global:SCOPES_PATH -Value "USER::C:\Users\$ENV:USERNAME\.powershell\persist.cfg"
-        Set-Content -Path $global:SCOPES_PATH -Value "USER::C:\Users\$ENV:USERNAME\.powershell\persist.cfg
-    INSTANCE::$global:_persist_module_location\persist.cfg
-    HOST::C:\Windows\System32\WindowsPowerShell\v1.0\persist.cfg
-    CONTACTS::C:\Users\$ENV:USERNAME\contacts\persist.cfg
-    SSH::C:\Users\$ENV:USERNAME\.ssh\persist.cfg"
-        p_debug 'pushing content to memory in variable $global:SCOPES'
-        $global:SCOPES = Get-Content -Path $global:SCOPES_PATH
-    } else { 
-        $global:SCOPES = Get-Content -Path $global:SCOPES_PATH
-        $global:SCOPES += $global:INSTANCE_SCOPE
+        Set-Content -Path $global:SCOPES_PATH -Value 'USER::C:\Users\$ENV:USERNAME\.powershell\persist.cfg
+HOST::C:\Windows\System32\WindowsPowerShell\v1.0\persist.cfg
+CONTACTS::C:\Users\$ENV:USERNAME\contacts\persist.cfg
+SSH::C:\Users\$ENV:USERNAME\.ssh\persist.cfg'
     }
+    p_debug 'pushing content to memory in variable $global:SCOPES'
+    $global:SCOPES = Get-Content -Path $global:SCOPES_PATH
+    $global:SCOPES += $global:INSTANCE_SCOPE
 }
-Start-Scopes
+Invoke-Scopes
 
 <#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#>
 #           Initializer Functions                 #
@@ -525,6 +521,10 @@ function Set-Scope ([string]$scope="USER") {
         $global:SCOPE = p_match $global:SCOPES "$scope.+" -getMatch
     }
     $spl = $global:SCOPE -split "::"
+    $spl[1] = Invoke-Expression "$('"'+$spl[1]+'"')"
+    $spl = $spl -join "::"
+    $global:SCOPE = $spl
+    $spl = $spl -split "::"
     if(!(Test-Path $spl[1])) { $null = New-Item $spl[1] -ItemType File -Force }
     $global:PERSIST = Get-Content $spl[1]
 }
@@ -697,23 +697,22 @@ function p_foo.old ($function, $parameters) {
     }
 }
 
-function Get-PersistItem ($sc){
-    if ($null -eq $sc) { $sc = $global:SCOPE }
-    $sc = ($sc -split "::")[0] 
-    $scope_ = p_match $global:SCOPES "$sc.+" -getMatch
-    $spl_ = $scope_ -split "::"
-    return Get-Item $spl_[1]
+function Get-PersistItem ($inputScope){
+    if ($null -eq $inputScope) { $inputScope = $global:SCOPE }
+    Invoke-Scopes
+    $name = ($inputScope -split "::")[0] 
+    $freshScope = p_match $global:SCOPES "$name.+" -getMatch
+    $spl = $freshScope -split "::"
+    $path = Invoke-Expression "$('"'+$spl[1]+'"')"
+    return Get-Item $path
 }
 New-Alias -name p_item -Value Get-PersistItem -Scope Global -Force
 
-function Get-PersistContent ($sc) {
-    if($null -eq $sc) {
+function Get-PersistContent ($inputScope) {
+    if($null -eq $inputScope) {
         return $global:PERSIST
     } else {
-        $sc = ($sc -split "::")[0] 
-        $scope_ = p_match $global:SCOPES "$sc.+" -getMatch
-        $spl_ = $scope_ -split "::"
-        return Get-Content $spl_[1]
+        return Get-Content (Get-PersistItem $inputScope).fullname
     }
 }
 
@@ -1599,7 +1598,7 @@ function p_foo ($name, $params) {
             }
             Add-Content $global:SCOPES_PATH "$name::$path"
             Add-Content $path "[string]scopeInfo=$name::$path`n"
-            Start-Scopes
+            Invoke-Scopes
             Set-Scope $spl[0]
         }
         Default {}

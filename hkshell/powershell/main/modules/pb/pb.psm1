@@ -320,6 +320,7 @@ function Get-Text ($who,$expand) {
     $apiKey = persist pushBulletApiKey
     
     while($null -eq $apiKey) {
+        $push = $true
         if (pb_choice "You don't appear to have setup an api key. Input one now? ") {
                $apiKey = Read-Host "Input Pushbullet API key"
                if($null -ne $apiKey) { persist pushBulletApiKey=.$apiKey }
@@ -327,9 +328,10 @@ function Get-Text ($who,$expand) {
             return
         }
     }
-    push
+    if($push) { push; $push = $false }
     $deviceID = persist MyPhone
     while($null -eq $deviceID) {
+        $push = $true
         Write-Host "You don't appear to have setup a deviceID to request texts from. Pulling device list..."
         $hash = Get-Devices -apiKey $apiKey | Where-Object {"$($_.nickname)" -ne ""} | Select-Object nickname, iden
         $str = @("|__Name_______","|__IDEN_______")
@@ -343,7 +345,7 @@ function Get-Text ($who,$expand) {
         $deviceID = $device.iden
         persist myPhone=.$deviceID
     }
-    push
+    if($push) { push; $push = $false }
     $res = https "GET /v2/permanents/$($deviceID)_threads" "api.pushbullet.com" "Access-Token: $apiKey"
     $jsonString = p_match $res "{.+}" -g
     try {
@@ -376,13 +378,14 @@ function Get-Text ($who,$expand) {
         }
     }
 }
-function Watch-Thread ($who,$skipSent) {
+function Watch-Thread ($who,[switch]$skipSent,[int]$frequency = 750) {
+    $frequency = [Math]::Max(750,$frequency)
     $new = Get-Text $who
     $direction = if($new.direction -eq "incoming"){"from"}else{"to"}
     $last = $new.body
     Write-Host "Last message $direction $who - $last"
     While($true){
-        Start-Sleep 60
+        Start-Sleep -Milliseconds $frequency
         $new = Get-Text $who
         if($new.body -ne $last){
             $last = $new.body
