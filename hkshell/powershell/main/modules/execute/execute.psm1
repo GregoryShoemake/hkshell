@@ -257,7 +257,7 @@ $methods = @{
     RUN = "RUN"
 }
 
-function execute ()
+function Start-Execute ()
 {
     e_debug_function "execute"
     $hash = e_search_args $args "-method"
@@ -274,7 +274,7 @@ function execute ()
         Default {}
     }
 }
-New-Alias -name ex -value execute -scope Global -Force
+New-Alias -name ex -value "Start-Execute" -scope Global -Force
 
 function run ($params) {
     e_debug_function "run"
@@ -318,7 +318,11 @@ function run ($params) {
     switch($ext) {
         ps1 {
             $noExit = if($style -ne "hidden") { "-noexit" } else { "" }
-            return Start-Process powershell -Verb $verb -WindowStyle $style -ArgumentList " -executionPolicy Bypass $noexit -file $($target.fullname) $arguments" -Wait:$wait -PassThru:$passthru
+            try {
+                return Start-Process pwsh.exe -Verb $verb -WindowStyle $style -ArgumentList " -executionPolicy Bypass $noexit -file $($target.fullname) $arguments" -Wait:$wait -PassThru:$passthru -ErrorAction Stop
+            } catch {
+                return Start-Process powershell.exe -Verb $verb -WindowStyle $style -ArgumentList " -executionPolicy Bypass $noexit -file $($target.fullname) $arguments" -Wait:$wait -PassThru:$passthru
+            }
         }
         bat {
             if($null -eq $arguments) {

@@ -265,6 +265,7 @@ function Show-Directories {
     if (n_nullemptystr $path) {
         $path = "$(Get-Location)"
     }
+    $path = Get-Path $path
     $depth = Get-PathDepth $path
     if ($depth -eq 1) {
         <#
@@ -406,7 +407,7 @@ function n_log {
         [int]
         $columns = 1,
         [Parameter()]
-        $ForegroundColor = 1
+        $ForegroundColor = "Gray"
     )
     if ($variable -is [System.Array]) {
         for ($i = 1; $i -le $variable.length; $i++) {
@@ -545,11 +546,11 @@ function Invoke-Go {
                 }
                 $i = [int](Read-Host "Pick index of desired path")
                 $in = $arr[$i]
-                $in = $(if($in -match "vol::(.+)::(.+)?") { "$(Get-Volume | Where-Object {$_.FileSystemLabel -eq $MATCHES[1] } | Select-Object -ExpandProperty DriveLetter ):$($MATCHES[2])" } else { $in })
-                Set-PSDebug -trace 0
             }
         }
     }
+
+    $in = Get-Path $in
     if (Test-Path $in) {
         Set-Location $in
         D -D:$D
@@ -583,6 +584,14 @@ function Get-Path ([switch]$clip) {
             $res = $(Get-ChildItem $l_)[$([int]$_)]
             if ($clip) { Set-Clipboard $res.fullname } else { return $res.fullname }
         }
+        { $_ -match "vol::(.+)::(.+)"} {
+            n_debug "parsing volume"
+            $null = $a_ -match  "vol::(.+)::(.+)"
+            $res =  "$(Get-Volume | Where-Object {$_.FileSystemLabel -eq $MATCHES[1] } | Select-Object -ExpandProperty DriveLetter ):$($MATCHES[2])"
+            n_debug "res:$res"
+            return $res
+        }
+        { Test-Path $_ } { return $_ }
         Default { if($clip) { Set-Clipboard $l_ } else { return $l_ } }
     }
 }
