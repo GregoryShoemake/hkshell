@@ -296,7 +296,7 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
                 pr_debug "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
             }
             $msg = pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)"
-
+            git add .
             git commit -a -m $msg
             If(Invoke-Git -Action Remote) {
                 git push

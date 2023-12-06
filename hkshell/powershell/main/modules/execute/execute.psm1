@@ -324,6 +324,9 @@ function run ($params) {
                 return Start-Process powershell.exe -Verb $verb -WindowStyle $style -ArgumentList " -executionPolicy Bypass $noexit -file $($target.fullname) $arguments" -Wait:$wait -PassThru:$passthru
             }
         }
+        sh  {
+            return Start-Process bash -Verb $verb -WindowStyle $style -ArgumentList "$($target.fullname)" -Wait:$wait -PassThru:$passthru -ErrorAction Stop
+        }
         bat {
             if($null -eq $arguments) {
                 return Start-Process $target.fullname -Verb $verb -WindowStyle $style -Wait:$wait -PassThru:$passthru
