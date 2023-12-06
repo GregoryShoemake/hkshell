@@ -223,6 +223,7 @@ function Start-Project ($name) {
 New-Alias -name sprj -value Start-Project -Scope Global -Force
 
 function Exit-Project {
+    $null = importhks nav
     if($null -eq $global:project) {
         Write-Host "
 No project is currently loaded
@@ -232,11 +233,12 @@ No project is currently loaded
     $Script:projectLoop | Stop-Process
     $name = $project.Name
     Set-Content -Path $(Get-Item "$global:projectsPath\$name\project.cfg" -Force).FullName -Value "@{ Name='$($global:project.Name)'; Path='$($global:project.Path)'; Description='$($global:project.Description)'; LastDirectory='$($global:project.LastDirectory)'; LastFile='$($global:project.LastFile)' }"
+    Set-Location $(Get-Path $global:project.Path)
     $global:project = $null
-    $ENV:PATH = $global:originalPath
     if(pr_choice "Commit changes?") {
         Invoke-Git -Action Save
     }
+    $ENV:PATH = $global:originalPath
     Invoke-Go "C:\Users\$ENV:USERNAME"
 }
 New-Alias -name eprj -value Exit-Project -Scope Global -Force
@@ -257,7 +259,13 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
             return !$(Invoke-Git -Path $path -Action $action)
         }
         {$_ -eq "REMOTE-TEST"} {
-            $exists = $(Invoke-Git -Path $path -Action Exists)   
+            $p_ = $path
+            pr_debug "Testing: $p_"
+            while(($p_ -ne "") -and (!(Test-Path "$p_\.git"))){
+                pr_debug "Testing: $p_"
+                $p_ = Split-Path $p_
+            }
+            $exists = Test-Path "$p_\.git"   
             if(!$exists) { return $false }
             $res = $(git ls-remote)
             return $res -notmatch "No remote configured"
@@ -296,7 +304,7 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
                 pr_debug "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
             }
             $msg = pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)"
-            git add .
+            git add ,
             git commit -a -m $msg
             If(Invoke-Git -Action Remote) {
                 git push
