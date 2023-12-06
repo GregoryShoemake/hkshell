@@ -20,7 +20,9 @@ function Import-HKShell {
     $path_ = "$global:moduleDirectory\$module"
     
     if (test-path $path_) {
-        if(!$force -and $($global:loadedModules -contains $path_)) { 
+        
+        $moduleLoaded = ($global:loadedModules -contains $path_) -or ($null -ne (Get-Module | Where-Object { $_.name -eq $module }))
+        if($moduleLoaded -and !$force) { 
             return "Module $Module is already imported"
         }
         try {

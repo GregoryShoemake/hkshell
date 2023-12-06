@@ -298,3 +298,16 @@ function https {
    $response = Invoke-Expression "$global:_net_module_location\https.exe '$method' '$client' '$arguments'"
    return $response
 }
+function Test-Port ($target='localHost',$port=80,$timeout=100) {
+  $requestCallback = $state = $null
+  $client = New-Object System.Net.Sockets.TcpClient
+  $null = $client.BeginConnect($target,$port,$requestCallback,$state)
+  while($timeout -gt 0) {
+    if($client.Connected) { return [pscustomobject]@{hostname=$hostname;port=$port;open=$true} }
+    Start-Sleep -Milliseconds 1
+    $timeout--
+  }
+  if ($client.Connected) { $open = $true } else { $open = $false }
+  $client.Close()
+  [pscustomobject]@{target=$target;port=$port;open=$open}
+}

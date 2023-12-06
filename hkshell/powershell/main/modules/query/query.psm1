@@ -341,8 +341,15 @@ function Invoke-Query {
         [Parameter()]
         $name,
         [Parameter()]
-        $content
+        $content,
+        [Parameter()]
+        [switch]$reverse
     )
+
+    if($vertical -and $reverse) {
+        Write-Host "Cannot accept -vertical and -reverse switches together" -ForegroundColor Red;
+        return
+    }
 
     $global:QueryResult = $null
     
@@ -362,6 +369,7 @@ function Invoke-Query {
     if(($null -ne $name)-or($null -ne $content)){
         if($null -eq $set) {
             $set =  if ($vertical)  { vquery -Path $path -Filter $filter -Recurse:$recurse -Depth $depth }
+                    elseif($reverse){ rquery -Path $path -Filter $filter }
                     else            { hquery -Path $path -Depth $depth -Filter $filter }
         }
         q_debug "Set ~|
@@ -418,9 +426,30 @@ function Invoke-Query {
     }
 
     if  ($vertical) { vquery -Path $path -Filter $filter -Recurse:$recurse -Depth $depth }
+    elseif  ($reverse) { rquery -Path $path -Filter $filter }
     else            { hquery -Path $path -Depth $depth -Filter $filter }
 }
 New-Alias -Name query -Value Invoke-Query -Scope Global -Force
+function rquery {
+    [CmdletBinding()]
+    param (
+        [Parameter()]
+        [string]$path,
+        [Parameter()]
+        [string]$filter = "*"
+    )
+    if ($path -eq "") { $path = "$(Get-Location)" }
+    q_debug_function "vquery" DarkCyan
+    q_debug "Parameters ~|
+        path:$path 
+        filter:$filter"
+    $res = @()
+    while($path -ne ""){
+        $res += Get-ChildItem $path -Filter $filter
+        $path = Split-Path $path
+    }
+    return $res
+}
 
 function vquery {
     [CmdletBinding()]
@@ -431,6 +460,7 @@ function vquery {
         $filter,
         [Parameter()] [switch]
         $recurse,
+
         [Parameter()] [int]
         $depth = 0
     )
