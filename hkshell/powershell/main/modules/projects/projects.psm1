@@ -15,6 +15,11 @@ function pr_debug_function ($function, $messageColor, $meta) {
         write-Host -NoNewline " $meta " -ForegroundColor Yellow
     }
 }
+function pr_debug_return {
+    if (!$global:_debug_) { return }
+    Write-Host "#return# $($args -join " ")" -ForegroundColor Black -BackgroundColor DarkGray
+    return
+}
 function pr_prolix ($message, $messageColor) {
     if (!$global:prolix) { return }
     if ($null -eq $messageColor) { $messageColor = "Cyan" }
@@ -27,6 +32,25 @@ function pr_choice ($prompt) {
         }
     if($MATCHES[0] -match "[Yy]"){ return $true }
     return $false
+}
+function pr_default ($variable, $value) {
+    pr_debug_function "e_default"
+    if ($null -eq $variable) { 
+        pr_debug_return variable is null
+        return $value 
+    }
+    switch ($variable.GetType().name) {
+        String { 
+            if($variable -eq "") {
+                pr_debug_return
+                return $value
+            } else {
+                pr_debug_return
+                return $variable
+            }
+
+        }
+    }
 }
 if ($null -eq $global:_projects_module_location ) {
     if ($PSVersionTable.PSVersion.Major -ge 3) {
@@ -46,7 +70,57 @@ function pr_choice ($prompt) {
     if($MATCHES[0] -match "[Yy]"){ return $true }
     return $false
 }
-
+function pr_match {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $false, Position = 0)]
+        $string,
+        [Parameter(Mandatory = $false, Position = 1)]
+        $regex,
+        [Parameter()]
+        [switch]
+        $getMatch = $false,
+        [Parameter()]
+        $logic = "OR"
+    )
+    pr_debug_function "pr_match"
+    if ($null -eq $string) {
+        pr_debug_return string is null
+        if ($getMatch) { return $null }
+        return $false
+    }
+    if ($null -eq $regex) {
+        pr_debug_return regex is null
+        if ($getMatch) { return $null }
+        return $false
+    }
+    if (($string -is [System.Array])) {
+        $string = $string -join "`n"
+    }
+    if ($regex -is [System.Array]) {
+        foreach ($r in $regex) {
+            $f = p_match $string $r
+            if (($logic -eq "OR") -and $f) { return $true }
+            if (($logic -eq "AND") -and !$f) { return $false }
+            if (($logic -eq "NOT") -and $f) { return $false }
+        }
+        pr_debug_return
+        return ($logic -eq "AND") -or ($logic -eq "NOT")
+    }
+    $found = $string -match $regex
+    if ($found) {
+        if ($getMatch) {
+            pr_debug_return
+            return $Matches[0]
+        }
+        pr_debug_return
+        return $logic -ne "NOT"
+    }
+    pr_debug_return
+    if ($logic -eq "NOT") { return $true }
+    if ($getMatch) { return $null }
+    return $false
+}
 $global:projectsPath = (((Get-Content "$global:_projects_module_location\projects.cfg") | Select-String "projects-root") -split "=")[1]
 $global:projectsPath = Get-Path $global:projectsPath
 pr_debug "Populating user PROJECTS global projects path variable ->
@@ -54,22 +128,23 @@ pr_debug "Populating user PROJECTS global projects path variable ->
 $global:originalPath = $ENV:PATH
 
 function New-Project ($name) {
+    pr_debug_function "New-Project"
+    pr_debug "args:$args"
     $null = importhks nav
-    Set-Location $projectsPath
-    if($null -eq $name) { $name = Read-Host "Project Name: " }
-    mkdir ".\$name" 
-    Invoke-Go ".\$name"
-    New-Item ".\$name\project.cfg" | Set-Content "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project' }"
-    Copy-Item "$global:_projects_module_location\project.ps1" ".\$name"
-    git init
-    git add .
-    git commit -m "initial commit"
-    if(pr_choice "Push to a repo?") {
-        git remote add origin $(Read-Host "Input")
-        git push -u origin main
-    }
-    if(pr_choice "Start project now?"){
-        Start-Project $name
+    pr_debug "pwd:$pwd"
+    Set-Location $global:projectsPath
+    pr_debug "pwd:$pwd"
+    if($null -eq $name) { $name = Read-Host "Project Name" }
+    mkdir "$global:projectsPath\$name" 
+    Set-Location ".\$name"
+    pr_debug "pwd:$pwd"
+    Set-Content -Path $(New-Item "$global:projectsPath\$name\project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project'; LastDirectory='$global:projectsPath\$name'; LastFile='$global:projectsPath\$name\project.cfg' }"
+    if($global:_debug_){Write-Host "$(Get-Content "$global:projectsPath\$name\project.cfg")"}
+    Copy-Item "$global:_projects_module_location\project.ps1" "$global:projectsPath\$name"
+    if(Invoke-Git -Path "$global:projectsPath\$name" -Action Initialize) {
+        if(pr_choice "Start project now?"){
+            Start-Project $name
+        }
     }
 }
 
@@ -86,11 +161,11 @@ function Get-Project ($get = "all"){
 }
 New-Alias -name gprj -value Get-Project -Scope Global -Force
 
-function Start-Project ($name, [switch]$loadlast) {
+function Start-Project ($name) {
     pr_debug_function "Start-Project"
     pr_debug "args:$args"
     pr_debug "name:$name"
-    pr_debug "loadLast:$loadlast"
+    persist -> user
     if($name -match "\\") {
         pr_debug "Split project '\\' requested"
         $split = $name -split "\\"
@@ -100,7 +175,7 @@ function Start-Project ($name, [switch]$loadlast) {
     }
     if($name -eq "last"){
         $null = importhks persist
-        Start-Project $(persist project) -loadlast
+        Start-Project $(persist project)
     }
     $found = $false
     Get-ChildItem $projectsPath | Foreach-Object {
@@ -115,17 +190,19 @@ function Start-Project ($name, [switch]$loadlast) {
             $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-file $global:projectsPath\$name\project.ps1" -Passthru
             $global:project = Invoke-Expression (Get-Content "$global:projectsPath\$name\project.cfg")
             pull; Start-Sleep -Milliseconds 100; push persist _>_project=.$name; 
-            if(!$loadLast) { push persist rm>_last }
-
             if($null -eq $subName) {
                 $ENV:PATH += ";$($_.fullname)"
-                Invoke-Go $_.fullname 
+                $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
+                Invoke-Go $startDir
+                If(pr_choice "Open last file?: $($global:project.LastFile)") {
+                    nvim.exe -n $global:project.LastFile
+                }
             } 
             else { 
                 $ENV:PATH += ";$($_.fullname)\$subname"
-                Invoke-Go "$($_.fullname)\$subname" 
+                $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
+                Invoke-Go $startDir
             }
-            if ($loadLast) { vi $(persist last) }
             return
         }
     }
@@ -134,7 +211,7 @@ function Start-Project ($name, [switch]$loadlast) {
     $prompt =  "Project $name not found, create project in $global:projectsPath?"
     if(pr_choice $prompt) {
         mkdir "$global:projectsPath\$name"
-        New-Item "$global:projectsPath\$name\project.cfg" | Set-Content "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project' }"
+        Set-Content -Path $(New-Item "$global:projectsPath\$name\project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project'; LastDirectory='$global:projectsPath\$name'; LastFile='$global:projectsPath\$name\project.cfg' }"
         Copy-Item "$global:_projects_module_location\project.ps1" "$global:projectsPath\$name"
         if(pr_choice "Start project $name now?") {
             Start-Project $name
@@ -153,8 +230,97 @@ No project is currently loaded
         return
     }
     $Script:projectLoop | Stop-Process
+    $name = $project.Name
+    Set-Content -Path $(Get-Item "$global:projectsPath\$name\project.cfg" -Force).FullName -Value "@{ Name='$($global:project.Name)'; Path='$($global:project.Path)'; Description='$($global:project.Description)'; LastDirectory='$($global:project.LastDirectory)'; LastFile='$($global:project.LastFile)' }"
     $global:project = $null
     $ENV:PATH = $global:originalPath
+    if(pr_choice "Commit changes?") {
+        Invoke-Git -Action Save
+    }
     Invoke-Go "C:\Users\$ENV:USERNAME"
 }
 New-Alias -name eprj -value Exit-Project -Scope Global -Force
+function Invoke-Git ([string]$path,[string]$action = "status") {
+    pr_debug_function Invoke-Git
+    $path = pr_default $path "$pwd"    
+    switch ($action.ToLower()) {
+        {$_ -match "^e$|^exists$"} {
+            $p_ = $path
+            pr_debug "Testing: $p_"
+            while(($p_ -ne "") -and (!(Test-Path "$p_\.git"))){
+                pr_debug "Testing: $p_"
+                $p_ = Split-Path $p_
+            }
+            return Test-Path "$p_\.git"
+        }
+        {$_ -match "^ne$|^notexists$"} {
+            return !$(Invoke-Git -Path $path -Action $action)
+        }
+        {$_ -eq "REMOTE-TEST"} {
+            $exists = $(Invoke-Git -Path $path -Action Exists)   
+            if(!$exists) { return $false }
+            $res = $(git ls-remote)
+            return $res -notmatch "No remote configured"
+        }
+        {$_ -match "^r$|^remote$"} {
+            return !$(!$(Invoke-Git -Path $path -Action REMOTE-TEST))
+        }
+        {$_ -match "^nr$|^notremote$"} {
+            return !$(Invoke-Git -Path $path -Action REMOTE-TEST)
+        }
+        {$_ -match "^i$|^init$|^initialize$"} {
+            pr_debug "initializing git"
+            pr_debug "pwd:$pwd"
+            pr_debug "path:$path"
+            $bak = "$pwd"
+            Set-Location $path
+            if(Invoke-Git -Action Exists) { 
+                Write-Host "Existing git repository already exists!" -ForegroundColor Red; return $false
+            }
+            pr_prolix "Initializing Git"
+            git init
+            pr_prolix "Adding $(Get-Location) to safe directories"
+            git config --global --add safe.directory .\
+            pr_prolix "Adding all files in project directory"
+            git add .
+            pr_prolix "Commiting"
+            git commit -a -m "Initial Commit $(Get-Date)"
+            If(pr_choice "Push to a remote repository?") {
+                git remote add origin "$(Read-Host "Input URL to remote repository")"
+                git push -u origin master
+            }
+            Set-Location $bak
+            return $true
+        }
+        {$_ -match "^sa$|^save$"} { if(Invoke-Git -Action NotExists) { 
+                pr_debug "Git repository at $path doesn't exist!" -ForegroundColor Red; git-status; return 
+            }
+            $msg = pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)"
+
+            git commit -a -m $msg
+            If(Invoke-Git -Action Remote) {
+                git push
+            }
+        }
+        Default { git status }
+    }
+}
+New-Alias -name igit -Value Invoke-Git -Scope Global -Force
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

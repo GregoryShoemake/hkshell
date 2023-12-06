@@ -178,6 +178,8 @@ function Get-ParentDirectory {
         [Parameter()]
         $path,
         [Parameter()]
+        $until,
+        [Parameter()]
         [int]$count = 0
     )
     if (n_nullemptystr $path) {
@@ -552,11 +554,31 @@ function Invoke-Go {
 
     $in = Get-Path $in
     if (Test-Path $in) {
+        if($null -ne $global:project){
+            if($null -eq $global:project.LastDirectory) {
+                $global:project.add("LastDirectory",$in)
+            } else {
+                $global:project.LastDirectory = $in
+            }
+        }
         Set-Location $in
         D -D:$D
     }
     elseif ($C) {
-        New-Item $in -ItemType Directory -force
+        try {
+            New-Item $in -ItemType Directory -force -ErrorAction Stop
+            Set-Location $in -ErrorAction Stop
+            D -D:$D
+            if($null -ne $global:project){
+                if($null -eq $global:project.LastDirectory) {
+                    $global:project.add("LastDirectory",$in)
+                } else {
+                    $global:project.LastDirectory = $in
+                }
+            }
+        } catch {
+            Write-Error $_
+        }
     }
     else {
         Write-Host Path: $in :does not exist -ForegroundColor Red

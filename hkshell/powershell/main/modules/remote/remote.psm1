@@ -47,9 +47,9 @@ function Open-SSHConnection ($target, $user) {
                 if (($null -ne $ip) -and ($ip -match "([0-9]{1,2}|[0-9]{3})\.([0-9]{1,2}|[0-9]{3})\.([0-9]{1,2}|[0-9]{3})\.([0-9]{1,2}|[0-9]{3})")) {
                     r_debug "Connecting SSH remote shell to target: $target | With Ip: $ip | With User: $user" Blue 
                     
-                    $process = Start-Process ssh -ArgumentList ("-o BatchMode=yes -o ConnectTimeout=2 $user@$ip exit") -NoNewWindow -PassThru -Wait
-                    r_debug "Connect result: $($process.ExitCode)"
-                    if($process.ExitCode -eq 0) {
+                    $port = Test-Port -Target $ip -Port 22 -Timeout 1000
+                    r_debug "Connect result: $($port.Open)"
+                    if($port.Open) {
                         if($null -eq $key) { ssh $user@$ip }
                         else { ssh -i ~/.ssh/$key $user@$ip }
                         return
@@ -93,9 +93,9 @@ function Open-SFTPConnection ($target, $user, $command) {
                 if (($null -ne $ip) -and ($ip -match "([0-9]{1,2}|[0-9]{3})\.([0-9]{1,2}|[0-9]{3})\.([0-9]{1,2}|[0-9]{3})\.([0-9]{1,2}|[0-9]{3})")) {
                     r_debug "Connecting SFTP remote shell to target: $target | With Ip: $ip | With User: $user | Command: $command" Blue 
                   
-                    $process = Start-Process ssh -ArgumentList ("-o BatchMode=yes -o ConnectTimeout=2 $user@$ip exit") -NoNewWindow -PassThru -Wait
-                    r_debug "Connect result: $($process.ExitCode)"
-                    if($process.ExitCode -eq 0) {
+                    $port = Test-Port -Target $ip -Port 22 -Timeout 1000
+                    r_debug "Connect result: $($port.Open)"
+                    if($port.Open) {
                         if($null -eq $key) { sftp $user@$ip }
                         else { sftp -i ~/.ssh/$key $user@$ip }
                         return
