@@ -194,7 +194,7 @@ function Start-Project ($name) {
                 $ENV:PATH += ";$($_.fullname)"
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
                 Invoke-Go $startDir
-                If(pr_choice "Open last file?: $($global:project.LastFile)") {
+                If(pr_choice "Open last file [$($global:project.LastFile)]") {
                     nvim.exe -n $global:project.LastFile
                 }
             } 
@@ -293,7 +293,7 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
             return $true
         }
         {$_ -match "^sa$|^save$"} { if(Invoke-Git -Action NotExists) { 
-                pr_debug "Git repository at $path doesn't exist!" -ForegroundColor Red; git-status; return 
+                pr_debug "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
             }
             $msg = pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)"
 

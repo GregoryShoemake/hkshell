@@ -1053,9 +1053,16 @@ function p_add {
     $n = $params.Value
     $l_ = p_getLine $global:c_ $var
     $val = p_getVal $l_
-    $val = p_parseNumber $val
-    $n = p_parseNumber $n
-    $res = $val + $n
+    switch ($cast) {
+        {$_ -match "^array$|^\[array]$"}{ 
+            $res = "$($val):$n"
+        }
+        Default {
+            $val = p_parseNumber $val
+            $n = p_parseNumber $n
+            $res = $val + $n
+        }
+    }
     if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
 }
 
@@ -1423,46 +1430,96 @@ function p_foo ($name, $params) {
         }
         add { 
             $split = $params -split ":"
+            if ($split.length -gt 3) {
+                for ($i = 3; $i -lt $split.length; $i++) {
+                    $split[2] += "$(':' + $split[$i])"
+                }
+            }
             return p_add @{Cast = $split[0]; Name = $split[1]; Value = $split[2] }
         }
         add_assign { 
             $split = $params -split ":"
+            if ($split.length -gt 3) {
+                for ($i = 3; $i -lt $split.length; $i++) {
+                    $split[2] += "$(':' + $split[$i])"
+                }
+            }
             $val = p_add @{Cast = $split[0]; Name = $split[1]; Value = $split[2] }
             return Set-PersistContent @{Cast = $split[0]; Name = $split[1]; Value = $val }
         }
         minus { 
             $split = $params -split ":"
+            if ($split.length -gt 3) {
+                for ($i = 3; $i -lt $split.length; $i++) {
+                    $split[2] += "$(':' + $split[$i])"
+                }
+            }
             return p_minus @{Cast = $split[0]; Name = $split[1]; Value = $split[2] }
         }
         minus_assign { 
             $split = $params -split ":"
+            if ($split.length -gt 3) {
+                for ($i = 3; $i -lt $split.length; $i++) {
+                    $split[2] += "$(':' + $split[$i])"
+                }
+            }
             $val = p_minus @{Cast = $split[0]; Name = $split[1]; Value = $split[2] }
             return Set-PersistContent @{Cast = $split[0]; Name = $split[1]; Value = $val }
         }
         multiply { 
             $split = $params -split ":"
+            if ($split.length -gt 3) {
+                for ($i = 3; $i -lt $split.length; $i++) {
+                    $split[2] += "$(':' + $split[$i])"
+                }
+            }
             return p_multiply @{Cast = $split[0]; Name = $split[1]; Value = $split[2] }
         }
         multiply_assign { 
             $split = $params -split ":"
+            if ($split.length -gt 3) {
+                for ($i = 3; $i -lt $split.length; $i++) {
+                    $split[2] += "$(':' + $split[$i])"
+                }
+            }
             $val = p_multiply @{ Cast = $split[0]; Name = $split[1]; Value = $split[2] }
             return Set-PersistContent @{Cast = $split[0]; Name = $split[1]; Value = $val }
         }
         divide { 
             $split = $params -split ":"
+            if ($split.length -gt 3) {
+                for ($i = 3; $i -lt $split.length; $i++) {
+                    $split[2] += "$(':' + $split[$i])"
+                }
+            }
             return p_divide @{Cast = $split[0]; Name = $split[1]; Value = $split[2] }
         }
         divide_assign { 
             $split = $params -split ":"
+            if ($split.length -gt 3) {
+                for ($i = 3; $i -lt $split.length; $i++) {
+                    $split[2] += "$(':' + $split[$i])"
+                }
+            }
             $val = p_divide @{Cast = $split[0]; Name = $split[1]; Value = $split[2] }
             return Set-PersistContent @{Cast = $split[0]; Name = $split[1]; Value = $val }
         }
         exponentiate { 
             $split = $params -split ":"
+            if ($split.length -gt 3) {
+                for ($i = 3; $i -lt $split.length; $i++) {
+                    $split[2] += "$(':' + $split[$i])"
+                }
+            }
             return p_exponentiate @{ Cast = $split[0]; Name = $split[1]; Value = $split[2] }
         }
         exponentiate_assign { 
             $split = $params -split ":"
+            if ($split.length -gt 3) {
+                for ($i = 3; $i -lt $split.length; $i++) {
+                    $split[2] += "$(':' + $split[$i])"
+                }
+            }
             $val = p_exponentiate @{Cast = $split[0]; Name = $split[1]; Value = $split[2] }
             return Set-PersistContent @{Cast = $split[0]; Name = $split[1]; Value = $val }
         }
