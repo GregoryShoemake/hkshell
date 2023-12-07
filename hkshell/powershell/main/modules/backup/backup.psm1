@@ -251,7 +251,7 @@ function Format-BackupConfiguration {
             }
         }
         Invoke-Persist backupDirectory=.$location
-    } elseif (bk_choice "Modify backup directory: $(Invoke-Persist backupDirectory)?" {
+    } elseif (bk_choice "Modify backup directory: $(Invoke-Persist backupDirectory)?") {
         $location = Read-Host "Input the desired directory to direct your backup targets to"
         while(!(Test-Path $location)) {
             if($location -notmatch "^(\\\\.+?\|[a-zA-Z]:\\).+$") {
