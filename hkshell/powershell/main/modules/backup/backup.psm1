@@ -228,35 +228,66 @@ function bk_match {
     if ($getMatch) { return $null }
     return $false
 }
-$null = importhks persist
+$null = importhks Invoke-Persist
 function Format-BackupConfiguration {
     if($global:scopes.ToLower() -notmatch "^backup") {
         $backupPath = "C:\users\$ENV:USERNAME\.powershell\scopes\backup"
         if(!(Test-Path $backupPath)) { mkdir $backupPath } 
-        persist addScope>_backup::$backupPath\persist.cfg::yes
+        Invoke-Persist addScope>_backup::$backupPath\persist.cfg::yes
     }
-    persist -> backup
-    if(bk_choice "Set a backup location:") {
-        persist _>_[boolean]bareMetalBackup=true
+    Invoke-Persist -> backup
+    
+    if(Invoke-Persist backupDirectory!?) {
+        $location = Read-Host "Input the desired directory to direct your backup targets to"
+        while(!(Test-Path $location)) {
+            if($location -notmatch "^(\\\\.+?\|[a-zA-Z]:\\).+$") {
+                $location = Read-Host "Input a valid directory syntax"
+            }
+            elseif(bk_choice "$location does not exist, attempt to create?"){
+                mkdir $location
+            }
+            else {
+                $location = Read-Host "$location does not exist, input an existing directory"
+            }
+        }
+        Invoke-Persist backupDirectory=.$location
+    } elseif (bk_choice "Modify backup directory: $(Invoke-Persist backupDirectory)?" {
+        $location = Read-Host "Input the desired directory to direct your backup targets to"
+        while(!(Test-Path $location)) {
+            if($location -notmatch "^(\\\\.+?\|[a-zA-Z]:\\).+$") {
+                $location = Read-Host "Input a valid directory syntax"
+            }
+            elseif(bk_choice "$location does not exist, attempt to create?"){
+                mkdir $location
+            }
+            else {
+                $location = Read-Host "$location does not exist, input an existing directory"
+            }
+        }
+        Invoke-Persist backupDirectory=.$location
     }
+
+
     if(persist nullOrEmpty>_bareMetalBackup) {  
-        if(bk_choice "Authorize full image backups?") {
-            persist _>_[boolean]bareMetalBackup=true
+        if(bk_choice "Authorize full image recoveries?") {
+            Invoke-Persist _>_[boolean]bareMetalBackup=true
             bk_prolix "Input the drive letter or volume name of the desired backup volume. NOTE: Do not make this on the same DISK that contains the C: drive" Cyan
             Write-Host "$(Get-AllVolumes -Expand Volumes | Out-String -width 100)"
             $volLet = Read-Host " "
             while(($volLet -notmatch "^([a-zA-Z]:\\)$") -or !(Test-Path $volLet)) {
                 $volLet = Read-Host "Drive letter must match the format [A-Z]:\ and be accessible"
             }
-            persist bareMetalBackupVolume=.$volLet
+            Invoke-Persist bareMetalBackupVolume=.$volLet
         } else {
-            persist _>_[boolean]bareMetalBackup=false
-            persist remove>_bareMetalBackupVolume
+            Invoke-Persist _>_[boolean]bareMetalBackup=false
+            Invoke-Persist remove>_bareMetalBackupVolume
         }
-    } else { if(bk_choice "Modify full image backup settings?") {
-        push persist remove>_bareMetalBackup
-        return Format-BackupConfiguration
+    } else { 
+        if(bk_choice "Modify full image backup settings?") {
+            push Invoke-Persist remove>_bareMetalBackup
+            return Format-BackupConfiguration
+        }
     }
- }
+}
 
 

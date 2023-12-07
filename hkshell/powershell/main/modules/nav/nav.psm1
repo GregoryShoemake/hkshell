@@ -488,9 +488,9 @@ function Invoke-Go {
             if ($replaced.name -match $in) {
                 if ($null -eq $arr) { $arr = @($s) }
                 else { $arr += $s }
-                p_debug "   \ true"
+                n_debug "   \ true"
             } else {
-                p_debug "   \ false"
+                n_debug "   \ false"
             }
         }
         if ($null -ne $arr) {
@@ -518,7 +518,7 @@ function Invoke-Go {
 
         if($in -match "^([0-9]+|f)$"){
             if($in -match "^f$"){$in = 0} 
-            p_debug "Parsing index: $in"
+            n_debug "Parsing index: $in"
                 $children = Get-ChildItem $(Get-Location) | Where-Object { $_.PSIsContainer }
                 $in = $([int]$in) 
                 $in = $children[$in]
@@ -526,14 +526,14 @@ function Invoke-Go {
         }
 
         foreach ($s in $global:shortcuts) {
-            p_debug "Checking shortcut: $s ~? $in"
+            n_debug "Checking shortcut: $s ~? $in"
             if ($s -match $in) {
                 
                 if ($null -eq $arr) { $arr = @($s) }
                 else { $arr += $s }
-                p_debug "   \ true"
+                n_debug "   \ true"
             } else {
-                p_debug "   \ false"
+                n_debug "   \ false"
             }
         }
 
