@@ -187,7 +187,7 @@ function Start-Project ($name) {
             $null = importhks nav
             $null = importhks query
             $null = importhks persist
-            $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-file $global:projectsPath\$name\project.ps1" -Passthru
+            $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $global:projectsPath\$name\project.ps1" -Passthru
             $global:project = Invoke-Expression (Get-Content "$global:projectsPath\$name\project.cfg")
             pull; Start-Sleep -Milliseconds 100; push persist _>_project=.$name; 
             if($null -eq $subName) {
@@ -221,7 +221,14 @@ function Start-Project ($name) {
     }
 }
 New-Alias -name sprj -value Start-Project -Scope Global -Force
-
+function Format-ProjectConfigurationString {
+    $stringBuilder = @()
+    foreach ($k in $global:project.keys){
+        $val = Invoke-Expression ('$global:project.' + $k)
+        $stringBuilder += " $k='$val'"
+    }
+    return '@{' + ($stringBuilder -join ";") + ' }'
+}
 function Exit-Project {
     $null = importhks nav
     if($null -eq $global:project) {
@@ -232,19 +239,27 @@ No project is currently loaded
     }
     $Script:projectLoop | Stop-Process
     $name = $project.Name
-    Set-Content -Path $(Get-Item "$global:projectsPath\$name\project.cfg" -Force).FullName -Value "@{ Name='$($global:project.Name)'; Path='$($global:project.Path)'; Description='$($global:project.Description)'; LastDirectory='$($global:project.LastDirectory)'; LastFile='$($global:project.LastFile)' }"
     Set-Location $(Get-Path $global:project.Path)
-    $global:project = $null
-    if(pr_choice "Commit changes?") {
-        Invoke-Git -Action Save
+    $global:project.GitExitAction = pr_default $global:project.GitExitAction "prompt"
+    switch ($global:project.GitExitAction) {
+        {$_.toLower() -match "^(prompt|ask|request)$" }{ 
+            if(pr_choice "Add, Commit, and Push changes to Master?") {
+                Invoke-Git -Action Save
+            }
+        }
+        { $_.toLower() -match "add" } { Invoke-Git -Action Add }
+        { $_.toLower() -match "commit" } { Invoke-Git -Action Commit }
+        { $_.toLower() -match "push" } { Invoke-Git -Action Push }
+        { $_.toLower() -match "save" } { Invoke-Git -Action Save }
     }
+    Set-Content -Path $(Get-Item "$global:projectsPath\$name\project.cfg" -Force).FullName -Value "$(Format-ProjectConfigurationString)"
+    $global:project = $null
     $ENV:PATH = $global:originalPath
-    Invoke-Go "C:\Users\$ENV:USERNAME"
 }
 New-Alias -name eprj -value Exit-Project -Scope Global -Force
 function Invoke-Git ([string]$path,[string]$action = "status") {
     pr_debug_function Invoke-Git
-    $path = pr_default $path "$pwd"    
+    $path = Get-Path $global:project.Path    
     switch ($action.ToLower()) {
         {$_ -match "^e$|^exists$"} {
             $p_ = $path
@@ -256,7 +271,7 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
             return Test-Path "$p_\.git"
         }
         {$_ -match "^ne$|^notexists$"} {
-            return !$(Invoke-Git -Path $path -Action $action)
+            return !$(Invoke-Git -Path $path -Action Exists)
         }
         {$_ -eq "REMOTE-TEST"} {
             $p_ = $path
@@ -301,14 +316,36 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
             return $true
         }
         {$_ -match "^sa$|^save$"} { if(Invoke-Git -Action NotExists) { 
-                pr_debug "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
             }
             $msg = pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)"
-            git add ,
+            git add .
             git commit -a -m $msg
             If(Invoke-Git -Action Remote) {
                 git push
             }
+        }
+        {$_ -match "^(add)$"} { 
+            if(Invoke-Git -Action NotExists) { 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+            }
+            git add .
+        }
+        {$_ -match "^(commit)$"} { 
+            if(Invoke-Git -Action NotExists) { 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+            }
+            $msg = pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)"
+            git commit -a -m $msg
+        }
+        {$_ -match "^(push)$"} { 
+            if(Invoke-Git -Action NotExists) { 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+            }
+            if(Invoke-Git -Action NotRemote) { 
+                Write-Host "Git repository at $path does not have a remote repository!" -ForegroundColor Red; git status; return 
+            }
+            git push
         }
         Default { git status }
     }

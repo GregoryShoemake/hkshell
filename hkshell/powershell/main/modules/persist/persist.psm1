@@ -32,7 +32,29 @@ function p_debug_function ($function, $messageColor, $meta) {
         write-Host -NoNewline " #$meta# " -ForegroundColor Yellow
     }
 }
-
+function p_debug_return {
+    if (!$global:_debug_) { return }
+    Write-Host "#return# $($args -join " ")" -ForegroundColor Black -BackgroundColor DarkGray
+    return
+}
+function p_default ($variable, $value) {
+    p_debug_function "e_default"
+    if ($null -eq $variable) { 
+        p_debug_return variable is null
+        return $value 
+    }
+    switch ($variable.GetType().name) {
+        String { 
+            if($variable -eq "") {
+                p_debug_return
+                return $value
+            } else {
+                p_debug_return
+                return $variable
+            }
+        }
+    }
+}
 function p_hash_to_string {
     [CmdletBinding()]
     param(
@@ -507,9 +529,9 @@ function Set-Scope ([string]$scope="USER") {
     p_debug_function "Set-Scope"
     p_debug "scope:$scope"
     if($scope -eq "NETWORK"){
-        $netScope = persist networkLocation
+        $netScope = Invoke-Persist networkLocation
         if($null -eq $netScope) {
-            Write-Host "A network location has not been set for $Global:SCOPE. Use the persist setNetworkDir>_ command to set a network location." -ForegroundColor Yellow
+            Write-Host "A network location has not been set for $Global:SCOPE. Use the Invoke-Persist setNetworkDir>_ command to set a network location." -ForegroundColor Yellow
             return
         }
         if($netScope -notmatch "persist\.cfg$") {
@@ -527,6 +549,7 @@ function Set-Scope ([string]$scope="USER") {
     $spl = $spl -split "::"
     if(!(Test-Path $spl[1])) { $null = New-Item $spl[1] -ItemType File -Force }
     $global:PERSIST = Get-Content $spl[1]
+    if($global:PERSIST -is [System.Array]) { $global:PERSIST = $global:PERSIST -join "`n"}
 }
 p_debug "defaulting scope to user: $ENV:USERNAME"
 Set-Scope
@@ -589,7 +612,7 @@ function p_foo_remove ($parameters) {
     }
     switch ($parameters) {
             networkLocation { 
-            write-host 'p_foo_remove ! Cannot remove networkLocation with remove:: command, use: > persist clearNetworkDir::' -ForegroundColor Yellow
+            write-host 'p_foo_remove ! Cannot remove networkLocation with remove:: command, use: > Invoke-Persist clearNetworkDir::' -ForegroundColor Yellow
             return
         }
         Default {
@@ -611,7 +634,7 @@ function p_foo_setNetworkDir ($parameters) {
     p_debug "params:$parameters"
     $path = $parameters
     if (persist nonnull>_networkLocation) {
-        write-host 'p_foo_setNetworkDir ! networkLocation already assigned ! clear with command first: > persist clearNetworkDir>_' -ForegroundColor Yellow
+        write-host 'p_foo_setNetworkDir ! networkLocation already assigned ! clear with command first: > Invoke-Persist clearNetworkDir>_' -ForegroundColor Yellow
         return
     }
     if (!(test-path $path)) {
@@ -662,7 +685,7 @@ function p_foo_upToDate ($parameters) {
 }
 function p_foo_writeToday ($parameters) {
     $todayString = $((Get-Date).toString('ddMMMyyyy@HHmm'))
-    persist [datetime]$parameters='''"'$todayString'"'''
+    Invoke-Persist [datetime]$parameters='''"'$todayString'"'''
 }
 
 function p_foo_writeDate ($parameters) {
@@ -676,7 +699,7 @@ function p_foo_writeDate ($parameters) {
 
     $date = p_castDateTime $dateString
     $dateString = $(($date).toString('ddMMMyyyy@HHmm'))
-    persist [datetime]$variable='''"'$dateString'"'''
+    Invoke-Persist [datetime]$variable='''"'$dateString'"'''
 }
 
 function p_foo.old ($function, $parameters) {
@@ -895,9 +918,9 @@ function p_get {
 
 function p_network_wrapper {
     $scope_bak = ("$SCOPE" -split "::")[0]
-    persist -> network
+    Invoke-Persist -> network
     $res = Invoke-Expression "$args"
-    persist -> $scope_bak
+    Invoke-Persist -> $scope_bak
     return $res
 }
 New-Alias -Name network -Value p_network_wrapper -Scope Global -Force
@@ -912,7 +935,7 @@ function Set-PersistContent ($params) {
     p_debug "val:$val"
     switch ($var) {
         networkLocation {         
-            write-host 'Cannot set networkLocation with persist command directly, use: > persit setNetworkDir>_`"@{scope=$SCOPE;path=$PATH}"`' -ForegroundColor Yellow
+            write-host 'Cannot set networkLocation with Invoke-Persist command directly, use: > persit setNetworkDir>_`"@{scope=$SCOPE;path=$PATH}"`' -ForegroundColor Yellow
         return
  }
         Default {
@@ -925,6 +948,7 @@ function Set-PersistContent ($params) {
                 $global:PERSIST = $content -replace $line, $replace
             } else {
                 p_debug "adding: $replace"
+                if($global:PERSIST.Length -gt 0) { $global:PERSIST += "`n" }
                 $global:PERSIST += $replace
             }
         }
@@ -947,7 +971,7 @@ function p_assign {
     }
     p_debug "p_assign: $val => $var" Magenta
     if ($var -eq "networkLocation") {
-        write-host 'Cannot set networkLocation with persist command directly, use: > persit setNetworkDir>_`"@{scope=$SCOPE;path=$PATH}"`' -ForegroundColor Yellow
+        write-host 'Cannot set networkLocation with Invoke-Persist command directly, use: > persit setNetworkDir>_`"@{scope=$SCOPE;path=$PATH}"`' -ForegroundColor Yellow
         return
     }
     $content = $global:c_
@@ -1632,23 +1656,29 @@ function p_foo ($name, $params) {
         addScope {
             p_debug_function "addScope"
             $spl = $params -split "::"
-            if($spl.count -ne 2) {
-                return p_throw IllegalArgumentException "[SCOPE]::[PATH]" $params
+            if(($spl.count -ne 2) -and ($spl.count -ne 3)) {
+                return p_throw IllegalArgumentException "[SCOPE]::[PATH](::[(Y)es])?" $params
             }
             $name = $spl[0]
             $path = $spl[1]
+            $yesno = p_default $spl[2] "no"
+            p_debug "split: [0]$($spl[0]) [1]$($spl[1]) [2]$($yesno)"
+            $yesno = if($yesno.toLower() -match "^(y|yes)$") { $true } else { $false }
             if($path -notmatch "persist\.cfg$") {
                 if($path -notmatch "\\$") { $path += "\" }
                 $path += "persist.cfg"
             }
+            p_debug "YesNo:$yesNo"
             if(!(Test-Path $path)) {
-                $prompt = "`n$path doesn't exist, create it?"
-                while("$(Read-Host $prompt)"  -notmatch "([Yy]|[Yy][Ee][Ss])|([Nn]|[Nn][Oo])"
-) { Write-Host "Please provide a [y]es or [n]o answer"; $prompt = "`n" } 
-                if($matches[0] -match "[Yy]|[Yy][Ee][Ss]") {
-                    $null = New-Item -Path $path -Force
+                if($yesno)
+                { 
+                    $null = New-Item -Path $path -Force 
                 }
-                else {
+                elseif(p_choice "`n$path doesn't exist, create it?")
+                { 
+                    $null = New-Item -Path $path -Force 
+                }
+                else { 
                     Write-Host "$path does not exist" -ForegroundColor Red
                     return
                 }
@@ -1662,9 +1692,9 @@ function p_foo ($name, $params) {
     }
 }
 
-function persist {
+function Invoke-Persist {
 
-    p_debug_function persist White
+    p_debug_function Invoke-Persist White
     
     if ($global:_debug_) {
         for ($i = 0; $i -lt $args.length; $i++) {
@@ -2142,3 +2172,5 @@ function persist {
   
 
 }
+New-Alias -Name persist -Value Invoke-Persist -Scope Global -Force
+New-Alias -Name Get-PersistentVariable -Value Invoke-Persist -Scope Global -Force
