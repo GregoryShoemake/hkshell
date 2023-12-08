@@ -428,7 +428,7 @@ function p_compareVar ([string]$line, [string]$compare) {
     $j = 0;
     for ($i = 0; $i -lt $line.Length; $i++) {
         $letter = $line[$i]
-        p_debug "line[$i]=$letter <> compare[$j]=$($compare[$j]) | await:$await"
+        #p_debug "line[$i]=$letter <> compare[$j]=$($compare[$j]) | await:$await"
         if($letter -eq $await) { $await = $null; continue }
         if($null -ne $await) { continue }
         if($letter -eq "=") { return $compare.length -eq $j }
@@ -717,6 +717,29 @@ function p_foo.old ($function, $parameters) {
         "writeDate" { p_foo_writeDate $parameters }
         "parse" { p_foo_parse $parameters }
         Default { Write-Host "Function: $function :is not a recognized command" }
+    }
+}
+
+function Get-Scope ([string]$scope, [switch]$exists) {
+    $s_ = $global:scopes
+    if($s_ -isnot [System.Array]) { $s_ = $s_ -split "`n" }
+    if($scope -eq "") {
+        return $global:scopes
+    }
+    foreach ($s in $global:scopes) {
+        if($s -match "^$scope") {
+            if($exists) {
+                return $true       
+            } else {
+                return $s
+            }
+        }
+    }
+    if($exists) {
+        return $false
+    }
+    else {
+        return $null
     }
 }
 
@@ -1655,12 +1678,21 @@ function p_foo ($name, $params) {
         }
         addScope {
             p_debug_function "addScope"
+            if($params -match "vol::") {
+                $null = importhks nav
+                $appendVol = $true
+                $params = $params -replace "vol::",""
+            }
             $spl = $params -split "::"
             if(($spl.count -ne 2) -and ($spl.count -ne 3)) {
                 return p_throw IllegalArgumentException "[SCOPE]::[PATH](::[(Y)es])?" $params
             }
             $name = $spl[0]
             $path = $spl[1]
+            if($appendVol) { 
+                [string]$path = "vol::" + $path 
+                $path = Get-Path $path
+            }
             $yesno = p_default $spl[2] "no"
             p_debug "split: [0]$($spl[0]) [1]$($spl[1]) [2]$($yesno)"
             $yesno = if($yesno.toLower() -match "^(y|yes)$") { $true } else { $false }

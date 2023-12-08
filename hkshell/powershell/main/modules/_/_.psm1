@@ -15,7 +15,7 @@ function __debug ($message, $messageColor, $meta) {
     }
 }
 function __debug_function ($function, $messageColor, $meta) {
-    if (!$global:__debug_) { return }
+    if (!$global:_debug_) { return }
     if ($null -eq $messageColor) { $messageColor = "Yellow" }
     Write-Host ">_ $function" -ForegroundColor $messageColor
     if ($null -ne $meta) {
@@ -110,8 +110,7 @@ $(Out-String -inputObject $array)//"
     __debug_return $(Out-String -inputObject $res)
     return $res
 }
-function __search_args
-{
+function __search_args ($a_, $param, [switch]$switch) {
     __debug_function "_search_args"    
     $c_ = $a_.Count
     __debug "args:$a_ | len:$c_"
@@ -124,7 +123,7 @@ function __search_args
             if ($a -ne $param) { continue }
             if($null -eq $res) { 
                 $res = $true 
-                $a_ = _truncate $a_ -indexAndDepth @($i,1)
+                $a_ = __truncate $a_ -indexAndDepth @($i,1)
             }
             else {
                 throw [System.ArgumentException] "Duplicate argument passed: $param"
@@ -137,7 +136,7 @@ function __search_args
             ARGS = $a_
         }
     } else {
-        for ($i = 0; $i -lt $a__.length; $i++) {
+        for ($i = 0; $i -lt $a_.length; $i++) {
             $a = $a_[$i]
             __debug "a[$i]:$a"
             if ($a -ne $param) { continue }
@@ -152,7 +151,7 @@ function __search_args
                 throw [System.ArgumentException] "Duplicate argument passed: $param"
             }
         }
-        __debug_return
+        __debug_return "RES: $res | ARGS: $a_"
         return @{
             RES = $res
             ARGS = $a_

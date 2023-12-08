@@ -464,12 +464,13 @@ function Invoke-Go {
 
     }
 
-    if($null -eq $in){$path = "$(Get-Location)"}
+    if($null -eq $in){$in = "$(Get-Location)"}
     $D = !$A
     if ($global:_debug_) { write-host " GO => $in`n  \ Create Missing Path? $C`n  \ Show All Item Types? $A" -ForegroundColor DarkGray }
     if ($in -eq "..") {
         $in = ..
     }
+    elseif ($in -match "vol::(.+)::(.+)$") { $in = Get-Path $in }
     elseif ($null -ne $global:QueryResult) {
         n_debug "Parsing Query Results"
         if($in -match "^([0-9]+|f)$"){
@@ -499,7 +500,7 @@ function Invoke-Go {
                 Write-Host `nMultiple matches found:
                 $i = 0
                 foreach ($p in $arr) {
-                    Write-Host "'[$i] $($p.fullname)"
+                    Write-Host "[$i] $($p.fullname)"
                     $i++
                 }
                 $i = [int](Read-Host "Pick index of desired path")
@@ -610,10 +611,14 @@ function Get-Path ([switch]$clip) {
             n_debug "parsing volume"
             $null = $a_ -match  "vol::(.+)::(.+)"
             $res =  "$(Get-Volume | Where-Object {$_.FileSystemLabel -eq $MATCHES[1] } | Select-Object -ExpandProperty DriveLetter ):$($MATCHES[2])"
+            $res = $res -replace "(?!^)\\\\","\"
             n_debug "res:$res"
             return $res
         }
         { Test-Path $_ } { return $_ }
+        { !(Test-Path $_) } { 
+            return $_ -replace "(?!^)\\\\","\"
+        }
         Default { if($clip) { Set-Clipboard $l_ } else { return $l_ } }
     }
 }

@@ -15,7 +15,7 @@ function bk_debug ($message, $messageColor, $meta) {
     }
 }
 function bk_debug_function ($function, $messageColor, $meta) {
-    if (!$global:bk_debug_) { return }
+    if (!$global:_debug_) { return }
     if ($null -eq $messageColor) { $messageColor = "Yellow" }
     Write-Host ">_ $function" -ForegroundColor $messageColor
     if ($null -ne $meta) {
@@ -73,7 +73,7 @@ function bk_truncate {
         [int[]]
         $indexAndDepth
     )
-    bk_debug_function "_truncate"
+    bk_debug_function "bk_truncate"
     bk_debug "array:
 $(Out-String -inputObject $array)//"
 
@@ -110,9 +110,8 @@ $(Out-String -inputObject $array)//"
     bk_debug_return $(Out-String -inputObject $res)
     return $res
 }
-function bk_search_args
-{
-    bk_debug_function "_search_args"    
+function bk_search_args ($a_, $param, [switch]$switch) {
+    bk_debug_function "_search_args"
     $c_ = $a_.Count
     bk_debug "args:$a_ | len:$c_"
     bk_debug "param:$param"
@@ -124,7 +123,7 @@ function bk_search_args
             if ($a -ne $param) { continue }
             if($null -eq $res) { 
                 $res = $true 
-                $a_ = _truncate $a_ -indexAndDepth @($i,1)
+                $a_ = bk_truncate $a_ -indexAndDepth @($i,1)
             }
             else {
                 throw [System.ArgumentException] "Duplicate argument passed: $param"
@@ -137,13 +136,13 @@ function bk_search_args
             ARGS = $a_
         }
     } else {
-        for ($i = 0; $i -lt $abk_.length; $i++) {
+        for ($i = 0; $i -lt $a_.length; $i++) {
             $a = $a_[$i]
             bk_debug "a[$i]:$a"
             if ($a -ne $param) { continue }
             if(($null -eq $res) -and ($i -lt ($c_ - 1))) { 
                 $res = $a_[$i + 1]
-                $a_ = _truncate $a_ -indexAndDepth @($i,2)
+                $a_ = bk_truncate $a_ -indexAndDepth @($i,2)
             }
             elseif ($i -ge ($c_ - 1)) {
                  throw [System.ArgumentOutOfRangeException] "Argument value at position $($i + 1) out of $c_ does not exist for param $param"
@@ -152,7 +151,7 @@ function bk_search_args
                 throw [System.ArgumentException] "Duplicate argument passed: $param"
             }
         }
-        bk_debug_return
+        bk_debug_return "RES: $res | ARGS: $a_"
         return @{
             RES = $res
             ARGS = $a_
@@ -182,7 +181,7 @@ function bk_match {
     param (
         [Parameter(Mandatory = $false, Position = 0)]
         $string,
-        [Parameter(Mandatory = $false, Position = 1)]
+       [Parameter(Mandatory = $false, Position = 1)]
         $regex,
         [Parameter()]
         [switch]
@@ -228,66 +227,117 @@ function bk_match {
     if ($getMatch) { return $null }
     return $false
 }
-$null = importhks Invoke-Persist
-function Format-BackupConfiguration {
-    if($global:scopes.ToLower() -notmatch "^backup") {
+
+$null = importhks persist
+$null = importhks nav
+
+function Invoke-EnsureBackupScope {
+    if(!(Get-Scope backup -exists)) {
         $backupPath = "C:\users\$ENV:USERNAME\.powershell\scopes\backup"
         if(!(Test-Path $backupPath)) { mkdir $backupPath } 
         Invoke-Persist addScope>_backup::$backupPath\persist.cfg::yes
     }
+}
+
+function Format-BackupConfiguration {
+    bk_debug_function "Format-BackupConfiguration"
+    bk_debug "args:$args"
+    $hash = bk_search_args $args "-goto"
+    $goto = $hash.RES
+    bk_debug "goto:$goto"
+
+    Invoke-EnsureBackupScope
+
     Invoke-Persist -> backup
     
-    if(Invoke-Persist backupDirectory!?) {
-        $location = Read-Host "Input the desired directory to direct your backup targets to"
-        while(!(Test-Path $location)) {
-            if($location -notmatch "^(\\\\.+?\|[a-zA-Z]:\\).+$") {
-                $location = Read-Host "Input a valid directory syntax"
+    $goto = bk_default $goto "standardbackup"
+    if($goto -eq "standardbackup") {
+        if(Invoke-Persist backupDirectory!?) {
+            $location = Read-Host "Input the desired directory to direct your backup targets to"
+            $location = Get-Path $location
+            while(!(Test-Path $location)) {
+                if($location -notmatch "^(\\\\.+?\|[a-zA-Z]:\\).+$") {
+                    $location = Read-Host "Input a valid directory syntax"
+                }
+                elseif(bk_choice "$location does not exist, attempt to create?"){
+                    mkdir $location
+                }
+                else {
+                    $location = Read-Host "$location does not exist, input an existing directory"
+                }
             }
-            elseif(bk_choice "$location does not exist, attempt to create?"){
-                mkdir $location
+            Invoke-Persist backupDirectory=.$location
+        } elseif (bk_choice "Modify backup directory: $(Invoke-Persist backupDirectory)?") {
+            $location = Read-Host "Input the desired directory to direct your backup targets to"
+            while(!(Test-Path $location)) {
+                if($location -notmatch "^(\\\\.+?\|[a-zA-Z]:\\).+$") {
+                    $location = Read-Host "Input a valid directory syntax"
+                }
+                elseif(bk_choice "$location does not exist, attempt to create?"){
+                    mkdir $location
+                }
+                else {
+                    $location = Read-Host "$location does not exist, input an existing directory"
+                }
             }
-            else {
-                $location = Read-Host "$location does not exist, input an existing directory"
-            }
+            Invoke-Persist backupDirectory=.$location
         }
-        Invoke-Persist backupDirectory=.$location
-    } elseif (bk_choice "Modify backup directory: $(Invoke-Persist backupDirectory)?") {
-        $location = Read-Host "Input the desired directory to direct your backup targets to"
-        while(!(Test-Path $location)) {
-            if($location -notmatch "^(\\\\.+?\|[a-zA-Z]:\\).+$") {
-                $location = Read-Host "Input a valid directory syntax"
-            }
-            elseif(bk_choice "$location does not exist, attempt to create?"){
-                mkdir $location
-            }
-            else {
-                $location = Read-Host "$location does not exist, input an existing directory"
-            }
-        }
-        Invoke-Persist backupDirectory=.$location
+        $goto = $null
     }
 
-
-    if(persist nullOrEmpty>_bareMetalBackup) {  
-        if(bk_choice "Authorize full image recoveries?") {
-            Invoke-Persist _>_[boolean]bareMetalBackup=true
-            bk_prolix "Input the drive letter or volume name of the desired backup volume. NOTE: Do not make this on the same DISK that contains the C: drive" Cyan
-            Write-Host "$(Get-AllVolumes -Expand Volumes | Out-String -width 100)"
-            $volLet = Read-Host " "
-            while(($volLet -notmatch "^([a-zA-Z]:\\)$") -or !(Test-Path $volLet)) {
-                $volLet = Read-Host "Drive letter must match the format [A-Z]:\ and be accessible"
+    $goto = bk_default $goto "baremetalbackup"
+    if($goto -eq "baremetalbackup") {
+        if(persist nullOrEmpty>_bareMetalBackup) {  
+            if(bk_choice "Authorize full image recoveries?") {
+                Invoke-Persist _>_[boolean]bareMetalBackup=true
+                bk_prolix "Input the drive letter or volume name of the desired backup volume. NOTE: Do not make this on the same DISK that contains the C: drive" Cyan
+                Write-Host "$(Get-AllVolumes -Expand Volumes | Out-String -width 100)"
+                $volLet = Read-Host " "
+                while(($volLet -notmatch "^[a-zA-Z]:\\$") -or !(Test-Path $volLet)) {
+                    $volLet = Read-Host "Drive letter must match the format [A-Z]:\ and be accessible"
+                }
+                Invoke-Persist bareMetalBackupVolume=.$volLet
+            } else {
+                Invoke-Persist _>_[boolean]bareMetalBackup=false
+                Invoke-Persist remove>_bareMetalBackupVolume
             }
-            Invoke-Persist bareMetalBackupVolume=.$volLet
-        } else {
-            Invoke-Persist _>_[boolean]bareMetalBackup=false
-            Invoke-Persist remove>_bareMetalBackupVolume
+        } else { 
+            if(bk_choice "Modify full image backup settings?") {
+                push Invoke-Persist remove>_bareMetalBackup
+                return Format-BackupConfiguration -goto baremetalbackup
+            }
         }
-    } else { 
-        if(bk_choice "Modify full image backup settings?") {
-            push Invoke-Persist remove>_bareMetalBackup
-            return Format-BackupConfiguration
-        }
+        $goto = $null
+    }
+    push
+}
+
+function Start-Backup {
+    bk_debug_function "Start-Backup"
+    bk_debug "args:$args"
+    $hash = bk_search_args $args "-auto" -Switch
+    $auto = $hash.RES
+    bk_debug "auto:$auto"
+
+    Invoke-EnsureBackupScope
+
+    $scopeBak = ($scope -split "::")[0]
+
+    Invoke-Persist -> backup
+
+    if(Invoke-Persist) {
+        
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 

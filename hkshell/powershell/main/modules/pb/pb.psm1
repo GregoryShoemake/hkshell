@@ -17,7 +17,7 @@ function pb_debug ($message, $messageColor, $meta) {
     }
 }
 function pb_debug_function ($function, $messageColor, $meta) {
-    if (!$global:pb_debug_) { return }
+    if (!$global:_debug_) { return }
     if ($null -eq $messageColor) { $messageColor = "Yellow" }
     Write-Host ">_ $function" -ForegroundColor $messageColor
     if ($null -ne $meta) {
