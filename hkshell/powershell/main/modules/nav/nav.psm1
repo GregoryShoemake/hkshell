@@ -623,3 +623,16 @@ function Get-Path ([switch]$clip) {
     }
 }
 New-Alias -Name gtp -Value Get-Path -Scope Global -Force
+function Get-Root ($inputObject) {
+    if($null -eq $inputObject) { $inputObject = "$(Get-Location)" } 
+    if($inputObject -is [string]) {
+        $inputObject = $inputObject -replace ".+::\\\\","\\"
+        $pathLast = $inputObject
+        $path = Split-Path $pathLast
+        while(($path -ne "") -and ($path -notmatch "\\\\.+?(?!\\)")) {
+            $pathLast = $path
+            $path = Split-Path $pathLast
+        }
+        return $pathLast
+    }
+}

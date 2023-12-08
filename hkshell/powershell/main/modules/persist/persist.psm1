@@ -418,7 +418,7 @@ function p_getCast ([string]$line) {
     for ($i = 0; $i -lt $line.Length; $i++) {
         $cast += $line[$i]
         if ($line[$i] -eq "]") { 
-            p_debug "    \ cast: $cast" darkGray
+            p_debug "cast: $cast" darkGray
             return $cast 
         }
     }
@@ -453,7 +453,7 @@ function p_getVal ($line) {
         }
         elseif ($line[$i] -eq "=") { $d = 1 }
     }
-    p_debug "    \ val: $val" darkGray
+    p_debug "val: $val" darkGray
     return $val
 }
 
@@ -464,7 +464,7 @@ function p_getLine ($content, $var) {
         if ($null -eq $c) { continue }
         if ($c.trim() -eq "") { continue }
         if (p_compareVar $c $var) { 
-            p_debug "    \ line: $c" darkGray
+            p_debug "line: $c" darkGray
             return $c 
         }
     }
@@ -656,6 +656,8 @@ function p_foo_clearNetworkDir {
 }
 
 function p_foo_outOfDate ($parameters) {
+    p_debug_function "p_foo_outOfDate"
+    p_debug "params:$parameters"
     if ($parameters -notmatch ":") {
         write-host 'p_foo_outOfDate ! Expected ":" between arguments' -ForegroundColor Red
         return
@@ -666,7 +668,7 @@ function p_foo_outOfDate ($parameters) {
     $l_ = p_getLine $global:c_ $variable
     $v_ = p_getVal $l_
     if ($null -eq $v_) { return $true }
-    $date = p_foo_parse "$variable":[datetime]
+    $date = p_foo_parse "$($variable):[datetime]"
     return (($date.AddDays($DaysWithin)) -lt $(Get-Date))
 }
 function p_foo_upToDate ($parameters) {
@@ -702,24 +704,6 @@ function p_foo_writeDate ($parameters) {
     Invoke-Persist [datetime]$variable='''"'$dateString'"'''
 }
 
-function p_foo.old ($function, $parameters) {
-    if ($global:_debug_) { Write-Host "g_foo : $function :: $parameters" -ForegroundColor DarkRed -BackgroundColor Black }
-    switch ($function) {
-        "remove" { p_foo_remove $parameters }
-        "search" { return p_foo_search $parameters }
-        "nullOrEmpty" { return $null -eq (persist $parameters) }
-        "nonnull" { return $null -ne (persist $parameters) }
-        "setNetworkDir" { p_foo_setNetworkDir $parameters }
-        "clearNetworkDir" { p_foo_clearNetworkDir $parameters }
-        "outOfDate" { p_foo_outOfDate $parameters }
-        "upToDate" { p_foo_upToDate $parameters }
-        "writeToday" { p_foo_writeToday $parameters }
-        "writeDate" { p_foo_writeDate $parameters }
-        "parse" { p_foo_parse $parameters }
-        Default { Write-Host "Function: $function :is not a recognized command" }
-    }
-}
-
 function Get-Scope ([string]$scope, [switch]$exists) {
     $s_ = $global:scopes
     if($s_ -isnot [System.Array]) { $s_ = $s_ -split "`n" }
@@ -745,7 +729,6 @@ function Get-Scope ([string]$scope, [switch]$exists) {
 
 function Get-PersistItem ($inputScope){
     if ($null -eq $inputScope) { $inputScope = $global:SCOPE }
-    Invoke-Scopes
     $name = ($inputScope -split "::")[0] 
     $freshScope = p_match $global:SCOPES "$name.+" -getMatch
     $spl = $freshScope -split "::"
@@ -754,43 +737,15 @@ function Get-PersistItem ($inputScope){
 }
 New-Alias -name p_item -Value Get-PersistItem -Scope Global -Force
 
-function Get-PersistContent ($inputScope) {
+function Get-PersistContent ($inputScope, [switch]$fromItem) {
     if($null -eq $inputScope) {
-        return $global:PERSIST
+        if($fromItem)
+        {
+            return Get-Content (Get-PersistItem).fullname
+        }
+        else { return $global:PERSIST } 
     } else {
         return Get-Content (Get-PersistItem $inputScope).fullname
-    }
-}
-
-function p_content {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        $scope,
-        [Parameter()]
-        $networkScopeParent
-    )
-    if ($null -eq $scope) { $scope = $global:_scope }
-    if ($null -eq $networkScopeParent) { $networkScopeParent = $global:_network_scope_parent }
-    if ($global:_debug_) { Write-Host "p_content:" -ForegroundColor Cyan }
-    switch ($scope) {
-        $global:_scope_user { 
-            if ($global:_debug_) { Write-Host "    \ user:$global:_content_user" -ForegroundColor DarkCyan }; return $global:_content_user 
-        }
-        $global:_scope_instance {
-            if ($global:_debug_) { Write-Host "    \ instance:$global:_content_instance" -ForegroundColor DarkCyan }; return $global:_content_instance 
-        }
-        $global:_scope_host { 
-            if (p_elevated) { if ($global:_debug_) { Write-Host "    \ host:$global:_content_host" -ForegroundColor DarkCyan }; return $global:_content_host } else { p_ehe } 
-        }
-        $global:_scope_network {
-            switch ($networkScopeParent) {
-                $global:_scope_user { if ($null -eq $global:_network_persist_cfg_user) { Write-Error 'user network location has not been initialized. Call > p_set_scope_user global networkLocation = \\network\share to initialize' } else { return $global:_content_user_network } }
-                $global:_scope_instance { if ($null -eq $global:_network_persist_cfg_instance) { Write-Error 'instance network location has not been initialized. Call > p_set_scope_instance global networkLocation = \\network\share to initialize' } else { return $global:_content_instance_network } }
-                $global:_scope_host { if (p_elevated) { if ($null -eq $global:_network_persist_cfg_host) { Write-Error 'host network location has not been initialized. Call > p_set_scope_host global networkLocation = \\network\share to initialize' } else { return $global:_content_host_network } } else { p_ehe } }
-                Default {}
-            } 
-        }
     }
 }
 
@@ -823,120 +778,9 @@ function Invoke-Push {
     }
 }
 
-function p_push {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        $scope,
-        [Parameter()]
-        $networkScopeParent
-    )
-    if ($null -eq $scope) { $scope = $global:_scope }
-    if ($null -eq $networkScopeParent) { $networkScopeParent = $global:_network_scope_parent }
-    if ($global:_debug_) { Write-Host "p_push `n  \ scope: $scope ~ netScopeParent: $networkScopeParent" -ForegroundColor Yellow }
-    $c_ = p_content $scope $networkScopeParent
-    $i_ = p_item $scope $networkScopeParent
-    if ($global:_debug_) { Write-Host "     \ item: $i_" -ForegroundColor Yellow }
-    try {
-        Set-Content $i_.fullname $c_ -ErrorAction Stop
-    }
-    catch {
-        Write-Host " << Failed to write to cfg file" -ForegroundColor Red
-        if ($global:_debug_) { Write-Host "    $_" -ForegroundColor Red }
-    }
-}
-
 function Invoke-Pull {
     $spl = $global:SCOPE -split "::"
     $global:PERSIST = Get-Content -Path $spl[1]
-}
-
-function p_pull {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        $scope,
-        [Parameter()]
-        $networkScopeParent
-    )
-    p_debug_function p_pull yellow
-    if ($null -eq $scope) {
-        p_init_scope -pull $true
-    }
-    else {
-        switch ($scope) {
-            instance { p_init_scope instance -pull $true }
-            user { p_init_scope user -pull $true }
-            host { p_init_scope host -pull $true }
-            network { 
-                if ($null -eq $networkScopeParent) {
-                    p_init_scope network_instance -pull $true
-                    p_init_scope network_user -pull $true
-                    p_init_scope network_host -pull $true
-                }
-                else {
-                    switch ($networkScopeParent) {
-                        instance {  
-                            p_init_scope network_instance -pull $true
-                        }
-                        user { 
-                            p_init_scope network_user -pull $true
-                        }
-                        host { 
-                            p_init_scope network_host -pull $true
-                        }
-                        Default {}
-                    } 
-                }
-            }
-            Default {}
-        }
-    }
-}
-
-function p_get {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        [string]
-        $var,
-        [Parameter()]
-        $cast,
-        [Parameter()]
-        $flags,
-        [Parameter()]
-        $content
-    )
-    $content = if ($null -eq $content) { if ($null -ne $global:c_) { $global:c_ } else { p_content } } else { $content }
-    $match = p_getLine $content $var
-    if ($null -ne $match) {
-
-        if (p_match $flags "_SEARCH_") {
-            $c_ = $content -split "`n"
-            $g_ = @()
-            foreach ($c in $c_) {
-                $m = p_getLine $c $var
-                if ($null -ne $m) { $g_ += $m }
-            }
-            if ($global:_debug_) { Write-Host "g_get : _SEARCH_ : $cast `n$($g_)" -ForegroundColor DarkYellow }
-            if (p_match $flags "_NOT_") { return $g_.length -eq 0 }
-            if (p_match $flags "_BOOL_") { return $g_.length -gt 0 }
-            if ($null -ne $cast) { $g_ = p_cast $cast $g_ }
-            return $g_
-        }
-        else {
-            $get = p_getVal $match
-            $cast = if ($null -eq $cast) { p_getCast $match } else { $cast }
-            if ($global:_debug_) { Write-Host "g_get : $cast $get" -ForegroundColor DarkYellow }
-            if (p_match $flags "_NOT_") { if ($null -eq $get) { $get = $true } else { $get = !(p_castBool $get) } }
-            if (p_match $flags "_BOOL_") { if ($null -eq $get) { $get = $false } else { $get = p_castBool $get } }
-            if ($null -ne $cast) { $get = p_cast $cast $get }
-            return $get
-        }
-    }
-    else {
-        
-    }
 }
 
 function p_network_wrapper {
@@ -976,117 +820,9 @@ function Set-PersistContent ($params) {
             }
         }
     }
-    return p_getLine (p_content) $var
+    return p_getLine $global:PERSIST $var
 }
 
-function p_assign {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        $params
-    )
-    $cast = $params.Cast
-    $var = $params.Name
-    $val = $params.Value
-    if (($global:_scope -eq $global:_scope_host) -and !(p_elevated)) {
-        p_ehe
-        return
-    }
-    p_debug "p_assign: $val => $var" Magenta
-    if ($var -eq "networkLocation") {
-        write-host 'Cannot set networkLocation with Invoke-Persist command directly, use: > persit setNetworkDir>_`"@{scope=$SCOPE;path=$PATH}"`' -ForegroundColor Yellow
-        return
-    }
-    $content = $global:c_
-    $line = p_getLine $content $var
-    $replace = "$cast$var=$val"
-    if ($null -ne $line) {
-        $line = p_stringify_regex $line
-        if ($global:_debug_) { Write-Host "  \ $line => $replace" -ForegroundColor Magenta }
-        if ($global:_debug_) { Write-Host "    ~ replacing" -ForegroundColor Magenta }
-        switch ($global:_scope) {
-            $global:_scope_user { 
-                $global:_content_user = $content -replace "$line", $replace
-            }
-            $global:_scope_instance { 
-                $global:_content_instance = $content -replace "$line", $replace 
-            }
-            $global:_scope_host { 
-                $global:_content_host = $content -replace "$line", $replace 
-            }
-            $global:_scope_network { 
-                switch ($global:_network_scope_parent) {
-                    $global:_scope_user {
-                        if ($null -eq $global:_network_persist_cfg_user) { Write-Error 'user network location has not been initialized. Call > p_set_scope_user global networkLocation = \\network\share to initialize' } else {                    
-                            $global:_content_user_network = $content -replace "$line", $replace 
-                        } 
-                    }
-                    $global:_scope_instance {
-                        if ($null -eq $global:_network_persist_cfg_instance) { Write-Error 'instance network location has not been initialized. Call > p_set_scope_instance global networkLocation = \\network\share to initialize' } else {                    
-                            $global:_content_instance_network = $content -replace "$line", $replace 
-                        } 
-                    }
-                    $global:_scope_host {
-                        if (p_elevated) {
-                            if ($null -eq $global:_network_persist_cfg_host) { Write-Error 'host network location has not been initialized. Call > p_set_scope_host global networkLocation = \\network\share to initialize' } else {                    
-                                $global:_content_host_network = $content -replace "$line", $replace 
-                            }  
-                        }
-                        else { p_ehe } 
-                    }
-                    Default {}
-                } 
-            }
-            Default {}
-        }
-    }
-    else {
-        if ($global:_debug_) { Write-Host "  \ $line => $replace" -ForegroundColor Magenta }
-        if ($global:_debug_) { Write-Host "    ~ adding" -ForegroundColor Magenta }
-        switch ($global:_scope) {
-            $global:_scope_user { 
-                if ($global:_content_user[$global:_content_user.length - 1] -ne "`n") { $global:_content_user += "`n" }
-                $global:_content_user += "$replace" 
-            }
-            $global:_scope_instance { 
-                if ($global:_content_instance[$global:_content_instance.length - 1] -ne "`n") { $global:_content_instance += "`n" }
-                $global:_content_instance += "$replace" 
-            }
-            $global:_scope_host { 
-                if ($global:_content_host[$global:_content_host.length - 1] -ne "`n") { $global:_content_host += "`n" }
-                $global:_content_host += "$replace" 
-            }
-            $global:_scope_network { 
-                switch ($global:_network_scope_parent) {
-                    $global:_scope_user {
-                        if ($null -eq $global:_network_persist_cfg_user) { Write-Error 'user network location has not been initialized. Call > p_set_scope_user global networkLocation = \\network\share to initialize' } else {    
-                            if ($global:_content_user_network[$global:_content_user_network.length - 1] -ne "`n") { $global:_content_user_network += "`n" }                
-                            $global:_content_user_network += "$replace" 
-                        } 
-                    }
-                    $global:_scope_instance {
-                        if ($null -eq $global:_network_persist_cfg_instance) { Write-Error 'instance network location has not been initialized. Call > p_set_scope_instance global networkLocation = \\network\share to initialize' } else {                    
-                            if ($global:_content_instance_network[$global:_content_instance_network.length - 1] -ne "`n") { $global:_content_instance_network += "`n" }
-                            $global:_content_instance_network += "$replace" 
-                        } 
-                    }
-                    $global:_scope_host {
-                        if (p_elevated) {
-                            if ($null -eq $global:_network_persist_cfg_host) { Write-Error 'host network location has not been initialized. Call > p_set_scope_host global networkLocation = \\network\share to initialize' } else {  
-                                if ($global:_content_host_network[$global:_content_host_network.length - 1] -ne "`n") { $global:_content_host_network += "`n" }                  
-                                $global:_content_host_network += "$replace" 
-                            }  
-                        }
-                        else { p_ehe } 
-                    }
-                    Default {}
-                } 
-            }
-            Default {}
-        }
-    }
-    return p_getLine (p_content) $var
-}
 function p_add {
     [CmdletBinding()]
     param (
@@ -1094,11 +830,11 @@ function p_add {
         $params
     )
     p_debug_function p_add Blue
-    p_debug "    \ params:$(p_hash_to_string $params)" darkGray
-    $cast = $params.Cast
+    p_debug "params:$(p_hash_to_string $params)" darkGray
     $var = $params.Name
     $n = $params.Value
     $l_ = p_getLine $global:c_ $var
+    $cast = p_default $params.Cast $(p_getCast $l_) 
     $val = p_getVal $l_
     switch ($cast) {
         {$_ -match "^array$|^\[array]$"}{ 
@@ -1110,6 +846,8 @@ function p_add {
             $res = $val + $n
         }
     }
+    p_debug "original value: $val | additive: $n | result:$res | cast:$cast" DarkGray
+    p_debug_return
     if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
 }
 
@@ -1120,15 +858,21 @@ function p_minus {
         $params
     )
     p_debug_function p_minus Blue
-    p_debug "    \ params:$(p_hash_to_string $params)" darkGray
-    $cast = $params.Cast
+    p_debug "params:$(p_hash_to_string $params)" darkGray
     $var = $params.Name
     $n = $params.Value
     $l_ = p_getLine $global:c_ $var
+    $cast = p_default $params.Cast $(p_getCast $l_) 
     $val = p_getVal $l_
     $val = p_parseNumber $val
     $n = p_parseNumber $n
-    $res = $val - $n
+    if($val -match ".+?:.+?") {
+        $res = $val -replace $n,""
+        $res = $res -replace "::",":"
+    } else {
+        $res = $val - $n
+    }
+    p_debug "original value: $val | reductive: $n | result:$res | cast:$cast" DarkGray
     if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
 }
 
@@ -1139,15 +883,16 @@ function p_multiply {
         $params
     )
     p_debug_function p_multiply Blue
-    p_debug "    \ params:$(p_hash_to_string $params)" darkGray
-    $cast = $params.Cast
+    p_debug "params:$(p_hash_to_string $params)" darkGray
     $var = $params.Name
     $n = $params.Value
     $l_ = p_getLine $global:c_ $var
+    $cast = p_default $params.Cast $(p_getCast $l_) 
     $val = p_getVal $l_
     $val = p_parseNumber $val
     $n = p_parseNumber $n
     $res = $val * $n
+    p_debug "original value: $val | multiplier: $n | result:$res | cast:$cast" DarkGray
     if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
 }
 
@@ -1158,15 +903,16 @@ function p_divide {
         $params
     )
     p_debug_function p_divide Blue
-    p_debug "    \ params:$(p_hash_to_string $params)" darkGray
-    $cast = $params.Cast
+    p_debug "params:$(p_hash_to_string $params)" darkGray
     $var = $params.Name
     $n = $params.Value
     $l_ = p_getLine $global:c_ $var
+    $cast = p_default $params.Cast $(p_getCast $l_) 
     $val = p_getVal $l_
     $val = p_parseNumber $val
     $n = p_parseNumber $n
     $res = $val / $n
+    p_debug "original value: $val | dividend: $n | result:$res | cast:$cast" DarkGray
     if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
 }
 
@@ -1177,19 +923,20 @@ function p_exponentiate {
         $params
     )
     p_debug_function p_exponentiate Blue
-    p_debug "    \ params:$(p_hash_to_string $params)" darkGray
-    $cast = $params.Cast
+    p_debug "params:$(p_hash_to_string $params)" darkGray
     $var = $params.Name
     $n = $params.Value
     $l_ = p_getLine $global:c_ $var
+    $cast = p_default $params.Cast $(p_getCast $l_) 
     $val = p_getVal $l_
     $val = p_parseNumber $val
     $n = p_parseNumber $n
     $res = [Math]::Pow($val, $n)
+    p_debug "original value: $val | exponent: $n | result:$res | cast:$cast" DarkGray
     if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
 }
 
-function eept ($set) {
+function eep ($set) {
     if ($set -eq "stop") {
         $global:ErrorActionPreference = "Stop" 
     }
@@ -1220,251 +967,10 @@ function p_choice ($msg, $y, $n) {
     return $res -eq $y
 }
 
-function p_throw ($code, $message, $meta ) {
-    if ($global:p_error_action -eq "SilentlyContinue") { return 0 }
-    write-host "| persist.psm1 |" -ForegroundColor RED
-    switch ($code) {
-        { ($_ -eq -1) -or ($_ -eq "SyntaxParseFailure") } { $code = -1; write-host "Syntax parse failed with code ($message)" -ForegroundColor Red }
-        { ($_ -eq 1) -or ($_ -eq "ElementAlreadyAssigned") } { $code = 1; write-host "[$message] already assigned" -ForegroundColor Red }
-        { ($_ -eq 10) -or ($_ -eq "IllegalValueAssignment") } { $code = 10; write-host "illegal character: $message :when trying to record [$meta]"  -ForegroundColor Red }
-        { ($_ -eq 20) -or ($_ -eq "IllegalRecordBefore") } { $code = 20; write-host "Cannot record [$message] before [$meta] has been defined"  -ForegroundColor Red }
-        { ($_ -eq 21) -or ($_ -eq "IllegalRecordAfter") } { $code = 21; write-host "Cannot record [$message] after [$meta] has been defined"  -ForegroundColor Red }
-        { ($_ -eq 22) -or ($_ -eq "IllegalRecordOrder") } { $code = 22; write-host "Cannot record in the order: $message"  -ForegroundColor Red }
-        { ($_ -eq 30) -or ($_ -eq "IllegalArrayRead") } { $code = 30; write-host "Illegal attempt to index array: $message"  -ForegroundColor Red }
-        { ($_ -eq 40) -or ($_ -eq "IllegalOperationSyntax") } { $code = 30; write-host "IllegalOperationSyntax: $message"  -ForegroundColor Red }
-        { ($_ -eq 50) -or ($_ -eq "IllegalArgumentException") } { $code = 50; write-host "IllegalArgumentException: Expected the format: $message | Received the form: $meta" -ForegroundColor Red }
-    }
-    if ($global:p_error_action -eq "Stop") {
-        if (p_not_choice) { exit }
-    }
-    return $code
-}
-
-function p_parse_syntax ($a_) {
-    p_debug_function p_parse_syntax Green
-    $symbols = @(
-        ">"
-        "_"
-        "="
-        "\+"
-        "-"
-        "\*"
-        "/"
-        "\^"
-        "!"
-        "~"
-        "\?"
-        "\."
-    )
-    $aL = $a_.Length
-    $cast = $null
-    $name = $null
-    $operator = $null
-    $parameters = $null
-    $index = $null 
-    $recording = $null
-    for ($i = 0; $i -lt $aL; $i++) {
-        $a = $a_[$i]
-        if ($global:_debug_) { write-host ":: a_[i]: $a ::" -foregroundcolor darkyellow }
-        if ($null -ne $recording) {
-            if (($a -eq " ") -and ($recording -ne "STRING")) { continue }
-            switch ($recording) {
-                "CAST" {
-                    if ($a -eq "]") { 
-                        $recording = $null
-                        p_debug "    \recording stopped:$cast" DarkRed 
-                    } 
-                    elseif ($a -notmatch "[a-z]") 
-                    { return p_throw IllegalValueAssignment $a "cast" } 
-                    $cast += $a 
-                }
-                "NAME" { 
-                    if ($a -notmatch "[0-9a-zA-Z_]") {
-                        $recording = $null
-                        p_debug "    \recording stopped:$name" DarkRed
-                        $i-- 
-                    } 
-                    else { $name += $a } 
-                }
-                "OPERATOR" { 
-                    if (p_match $a $symbols -logic NOT) {
-                        $recording = $null
-                        $i--
-                        if ($null -eq $name) { $operator += '|' }
-                        p_debug "    \recording stopped:$operator" DarkRed 
-                    } 
-                    else { $operator += $a } 
-                }
-                "PARAMETERS" { 
-                    if ($a -notmatch "[a-zA-Z0-9:]") {
-                        $recording = $null
-                        $i--
-                        p_debug "    \recording stopped:$parameters" DarkRed 
-                    } 
-                    else { $parameters += $a } 
-                }
-                "STRING" { 
-                    if ($a -eq '"') { 
-                        $recording = $null 
-                    } 
-                    $parameters += $a
-                    if ($null -eq $recording) { 
-                        $parameters = $parameters -replace '"', ""
-                        p_debug "    \recording stopped:$parameters" DarkRed 
-                    } 
-                }
-                "INDEX" { 
-                    if ($a -eq "]") {
-                        $recording = $null
-                        p_debug "    \recording stopped:$index" DarkRed 
-                    } 
-                    elseif ($a -notmatch "[0-9]") { return p_throw IllegalValueAssignment $a "index" } $index += $a 
-                }
-                "COMMAND" {
-                    if ($a -eq '"') { $recording = $null } 
-                    $parameters += $a
-                    if ($null -eq $recording) { 
-                        $parameters = $parameters -replace '"', ""
-                        p_debug "    \recording stopped:$parameters" DarkRed 
-                    } 
-                }
-            }
-        }
-        else {
-            if ($a -eq " ") { 
-                continue 
-            }
-            elseif ($null -ne $operator -and (($operator -eq ">_") -or ($operator -eq "=."))) {
-                if ($operator -eq ">_") {
-                    $recording = "COMMAND"
-                    $parameters = $a
-                    p_debug "    \recording [param] as command arguments" DarkGreen
-                }
-                if ($operator -eq "=.") {
-                    $recording = "STRING"
-                    $parameters = $a
-                    p_debug "    \recording [param] as string" DarkGreen
-                    $operator = "="
-                }
-            }
-            elseif ($a -eq "[") {
-                if ($null -ne $cast) { 
-                    #Attempt to record [index]
-                    if ($null -eq $name) { 
-                        return p_throw IllegalRecordBefore "index" "name" 
-                    } 
-                    # elseif ($null -ne $operator) { return p_throw IllegalRecordAfter "index" "operator" } 
-                    else { 
-                        $index = "["
-                        $recording = "INDEX"; p_debug "    \recording [index]" DarkGreen 
-                    } 
-                }
-                elseif ($null -ne $name) {
-                    #Attempt to record [index] 
-                    if ($null -ne $index) { 
-                        return p_throw ElementAlreadyAssigned "index" 
-                    }
-                    $index = "["
-                    $recording = "INDEX" 
-                    p_debug "    \recording [index]" DarkGreen 
-                }
-                #Attempt to record [cast]
-                else {
-                    $cast = "["
-                    $recording = "CAST"
-                    p_debug "    \recording [cast]" DarkGreen 
-                } 
-            }
-            elseif ($a -match "[a-zA-Z0-9_]") { 
-                #Attempt to record [name]
-                if ($null -eq $name) {
-                    $name = $a
-                    $recording = "NAME"
-                    p_debug "    \recording [name]" DarkGreen 
-                }  
-                
-                #Attempt to record [param] 
-                elseif ($null -eq $operator) { 
-                    return p_throw IllegalRecordBefore "parameter" "operator" 
-                }
-                elseif (p_nonnull @($operator, $index)) {
-                    $oR = p_stringify_regex $operator
-                    $iR = p_stringify_regex $index
-                    if ($a_ -match "(.+)?$oR(.+)?$iR") {
-                        return p_throw IllegalRecordOrder "[op][index][param]"
-                    }
-                    else {
-                        $parameters = $a
-                        $recording = "parameters"
-                        p_debug "    \recording [param]" DarkGreen 
-                    }
-                }
-                elseif ($null -eq $parameters) {
-                    $parameters = $a
-                    $recording = "parameters"
-                    p_debug "    \recording [param]" DarkGreen 
-                }
-                else { return p_throw 1 "parameters" }
-                
-            }
-            elseif (($a -eq '"') -or ($a -eq ':')) { 
-                #Attempt to record [param] as string
-                if ($null -eq $name) { 
-                    return p_throw IllegalRecordBefore "parameter" "name" 
-                } 
-                elseif ($null -eq $operator) { 
-                    return p_throw IllegalRecordBefore "parameter" "operator" 
-                } 
-                elseif ($operator -match "\|") { 
-                    return p_throw IllegalRecordOrder "[op][name][param]" 
-                } 
-                elseif ($null -eq $parameters) {
-                    $parameters = $a; $recording = "string"
-                    p_debug "    \recording [param] as string" DarkGreen 
-                } 
-                else {
-                    return p_throw ElementAlreadyAssigned "parameters" 
-                } 
-            }
-            elseif (p_match $a $symbols) { 
-                #Attempt to record [op] 
-                if ($null -ne $operator) { 
-                    return p_throw 1 "operator" 
-                } 
-                else { 
-                    $operator = $a
-                    $recording = "operator"
-                    p_debug "    \recording [op]" DarkGreen 
-                } 
-            }
-        }
-    }
-    return @($cast, $name, $operator, $parameters, $index)
-}
-
-function p_index ($indexable, $index) {
-    p_debug_function p_foo DarkMagenta
-    p_debug "    \ index:$index" darkGray
-    $index = p_replace $index @("\[", "]")
-    if ($indexable -is [string]) {
-        if ($indexable -match ":") {
-            $indexable = $indexable -split ":"
-        }
-        else {
-            return $indexable[$index]
-        }
-    } if ($indexable -is [System.Array]) {
-        return $indexable[$index]
-    }
-    else {
-        p_throw IllegalArrayRead "Not an indexable" 
-    }
-}
-
 function p_foo ($name, $params) {
     p_debug_function p_foo Magenta
-    p_debug "    \ name:$name" darkGray
-    p_debug "    \ params:$params" darkGray
+    p_debug "name:$name" darkGray
+    p_debug "params:$params" darkGray
     switch ($name) {
         assign { 
             $split = $params -split ":"
@@ -1492,6 +998,7 @@ function p_foo ($name, $params) {
                 }
             }
             $val = p_add @{Cast = $split[0]; Name = $split[1]; Value = $split[2] }
+            if($val -is [System.Array]) { $val = $val -join ":" } 
             return Set-PersistContent @{Cast = $split[0]; Name = $split[1]; Value = $val }
         }
         minus { 
@@ -1660,7 +1167,7 @@ function p_foo ($name, $params) {
             $split = $params -split ":"
             $l_ = p_getLine $global:c_ $split[0]
             $v_ = p_getVal $l_
-            if ($null -eq $v_) {
+            if (($null -eq $v_) -or ($v_ -eq "")) {
                 $ct_ = p_getCast $split[0]
                 $nm_ = $split[0] -replace $ct_, ""
                 $v_ = $split[1]
@@ -1724,6 +1231,247 @@ function p_foo ($name, $params) {
     }
 }
 
+function p_throw ($code, $message, $meta ) {
+    if ($global:p_error_action -eq "SilentlyContinue") { return 0 }
+    write-host "| persist.psm1 |" -ForegroundColor RED
+    switch ($code) {
+        { ($_ -eq -1) -or ($_ -eq "SyntaxParseFailure") } { $code = -1; write-host "Syntax parse failed with code ($message)" -ForegroundColor Red }
+        { ($_ -eq 1) -or ($_ -eq "ElementAlreadyAssigned") } { $code = 1; write-host "[$message] already assigned" -ForegroundColor Red }
+        { ($_ -eq 10) -or ($_ -eq "IllegalValueAssignment") } { $code = 10; write-host "illegal character: $message :when trying to record [$meta]"  -ForegroundColor Red }
+        { ($_ -eq 20) -or ($_ -eq "IllegalRecordBefore") } { $code = 20; write-host "Cannot record [$message] before [$meta] has been defined"  -ForegroundColor Red }
+        { ($_ -eq 21) -or ($_ -eq "IllegalRecordAfter") } { $code = 21; write-host "Cannot record [$message] after [$meta] has been defined"  -ForegroundColor Red }
+        { ($_ -eq 22) -or ($_ -eq "IllegalRecordOrder") } { $code = 22; write-host "Cannot record in the order: $message"  -ForegroundColor Red }
+        { ($_ -eq 30) -or ($_ -eq "IllegalArrayRead") } { $code = 30; write-host "Illegal attempt to index array: $message"  -ForegroundColor Red }
+        { ($_ -eq 40) -or ($_ -eq "IllegalOperationSyntax") } { $code = 30; write-host "IllegalOperationSyntax: $message"  -ForegroundColor Red }
+        { ($_ -eq 50) -or ($_ -eq "IllegalArgumentException") } { $code = 50; write-host "IllegalArgumentException: Expected the format: $message | Received the form: $meta" -ForegroundColor Red }
+    }
+    if ($global:p_error_action -eq "Stop") {
+        if (p_not_choice) { exit }
+    }
+    return $code
+}
+
+function p_parse_syntax ($a_) {
+    p_debug_function p_parse_syntax Green
+    $symbols = @(
+        ">"
+        "_"
+        "="
+        "\+"
+        "-"
+        "\*"
+        "/"
+        "\^"
+        "!"
+        "~"
+        "\?"
+        "\."
+    )
+    $aL = $a_.Length
+    $cast = $null
+    $name = $null
+    $operator = $null
+    $parameters = $null
+    $index = $null 
+    $recording = $null
+    for ($i = 0; $i -lt $aL; $i++) {
+        $a = $a_[$i]
+        #if ($global:_debug_) { write-host ":: a_[i]: $a ::" -foregroundcolor darkyellow }
+        if ($null -ne $recording) {
+            if (($a -eq " ") -and ($recording -ne "STRING")) { continue }
+            switch ($recording) {
+                "CAST" {
+                    if ($a -eq "]") { 
+                        $recording = $null
+                        p_debug "recording stopped:$cast" DarkRed 
+                    } 
+                    elseif ($a -notmatch "[a-z]") 
+                    { return p_throw IllegalValueAssignment $a "cast" } 
+                    $cast += $a 
+                }
+                "NAME" { 
+                    if ($a -notmatch "[0-9a-zA-Z_]") {
+                        $recording = $null
+                        p_debug "recording stopped:$name" DarkRed
+                        $i-- 
+                    } 
+                    else { $name += $a } 
+                }
+                "OPERATOR" { 
+                    if (p_match $a $symbols -logic NOT) {
+                        $recording = $null
+                        $i--
+                        if ($null -eq $name) { $operator += '|' }
+                        p_debug "recording stopped:$operator" DarkRed 
+                    } 
+                    else { $operator += $a } 
+                }
+                "PARAMETERS" { 
+                    if ($a -notmatch "[a-zA-Z0-9:]") {
+                        $recording = $null
+                        $i--
+                        p_debug "recording stopped:$parameters" DarkRed 
+                    } 
+                    else { $parameters += $a } 
+                }
+                "STRING" { 
+                    if ($a -eq '"') { 
+                        $recording = $null 
+                    } 
+                    $parameters += $a
+                    if ($null -eq $recording) { 
+                        $parameters = $parameters -replace '"', ""
+                        p_debug "recording stopped:$parameters" DarkRed 
+                    } 
+                }
+                "INDEX" { 
+                    if ($a -eq "]") {
+                        $recording = $null
+                        p_debug "recording stopped:$index" DarkRed 
+                    } 
+                    elseif ($a -notmatch "[0-9]") { return p_throw IllegalValueAssignment $a "index" } $index += $a 
+                }
+                "COMMAND" {
+                    if ($a -eq '"') { $recording = $null } 
+                    $parameters += $a
+                    if ($null -eq $recording) { 
+                        $parameters = $parameters -replace '"', ""
+                        p_debug "recording stopped:$parameters" DarkRed 
+                    } 
+                }
+            }
+        }
+        else {
+            if ($a -eq " ") { 
+                continue 
+            }
+            elseif ($null -ne $operator -and (($operator -eq ">_") -or ($operator -eq "=."))) {
+                if ($operator -eq ">_") {
+                    $recording = "COMMAND"
+                    $parameters = $a
+                    p_debug "recording [param] as command arguments" DarkGreen
+                }
+                if ($operator -eq "=.") {
+                    $recording = "STRING"
+                    $parameters = $a
+                    p_debug "recording [param] as string" DarkGreen
+                    $operator = "="
+                }
+            }
+            elseif ($a -eq "[") {
+                if ($null -ne $cast) { 
+                    #Attempt to record [index]
+                    if ($null -eq $name) { 
+                        return p_throw IllegalRecordBefore "index" "name" 
+                    } 
+                    # elseif ($null -ne $operator) { return p_throw IllegalRecordAfter "index" "operator" } 
+                    else { 
+                        $index = "["
+                        $recording = "INDEX"; p_debug "recording [index]" DarkGreen 
+                    } 
+                }
+                elseif ($null -ne $name) {
+                    #Attempt to record [index] 
+                    if ($null -ne $index) { 
+                        return p_throw ElementAlreadyAssigned "index" 
+                    }
+                    $index = "["
+                    $recording = "INDEX" 
+                    p_debug "recording [index]" DarkGreen 
+                }
+                #Attempt to record [cast]
+                else {
+                    $cast = "["
+                    $recording = "CAST"
+                    p_debug "recording [cast]" DarkGreen 
+                } 
+            }
+            elseif ($a -match "[a-zA-Z0-9_]") { 
+                #Attempt to record [name]
+                if ($null -eq $name) {
+                    $name = $a
+                    $recording = "NAME"
+                    p_debug "recording [name]" DarkGreen 
+                }  
+                
+                #Attempt to record [param] 
+                elseif ($null -eq $operator) { 
+                    return p_throw IllegalRecordBefore "parameter" "operator" 
+                }
+                elseif (p_nonnull @($operator, $index)) {
+                    $oR = p_stringify_regex $operator
+                    $iR = p_stringify_regex $index
+                    if ($a_ -match "(.+)?$oR(.+)?$iR") {
+                        return p_throw IllegalRecordOrder "[op][index][param]"
+                    }
+                    else {
+                        $parameters = $a
+                        $recording = "parameters"
+                        p_debug "recording [param]" DarkGreen 
+                    }
+                }
+                elseif ($null -eq $parameters) {
+                    $parameters = $a
+                    $recording = "parameters"
+                    p_debug "recording [param]" DarkGreen 
+                }
+                else { return p_throw 1 "parameters" }
+                
+            }
+            elseif (($a -eq '"') -or ($a -eq ':')) { 
+                #Attempt to record [param] as string
+                if ($null -eq $name) { 
+                    return p_throw IllegalRecordBefore "parameter" "name" 
+                } 
+                elseif ($null -eq $operator) { 
+                    return p_throw IllegalRecordBefore "parameter" "operator" 
+                } 
+                elseif ($operator -match "\|") { 
+                    return p_throw IllegalRecordOrder "[op][name][param]" 
+                } 
+                elseif ($null -eq $parameters) {
+                    $parameters = $a; $recording = "string"
+                    p_debug "recording [param] as string" DarkGreen 
+                } 
+                else {
+                    return p_throw ElementAlreadyAssigned "parameters" 
+                } 
+            }
+            elseif (p_match $a $symbols) { 
+                #Attempt to record [op] 
+                if ($null -ne $operator) { 
+                    return p_throw 1 "operator" 
+                } 
+                else { 
+                    $operator = $a
+                    $recording = "operator"
+                    p_debug "recording [op]" DarkGreen 
+                } 
+            }
+        }
+    }
+    return @($cast, $name, $operator, $parameters, $index)
+}
+
+function p_index ($indexable, $index) {
+    p_debug_function p_foo DarkMagenta
+    p_debug "index:$index" darkGray
+    $index = p_replace $index @("\[", "]")
+    if ($indexable -is [string]) {
+        if ($indexable -match ":") {
+            $indexable = $indexable -split ":"
+        }
+        else {
+            return $indexable[$index]
+        }
+    } if ($indexable -is [System.Array]) {
+        return $indexable[$index]
+    }
+    else {
+        p_throw IllegalArrayRead "Not an indexable" 
+    }
+}
+
 function Invoke-Persist {
 
     p_debug_function Invoke-Persist White
@@ -1731,7 +1479,7 @@ function Invoke-Persist {
     if ($global:_debug_) {
         for ($i = 0; $i -lt $args.length; $i++) {
             $a = $args[$i]
-            p_debug "    \$a" darkgray
+            p_debug "$a" darkgray
         }
     }
 
@@ -1748,11 +1496,11 @@ function Invoke-Persist {
     $inde = $s_[4]
 
 
-    $prompt = "    \ cast:         $cast
-    \ name:         $name
-    \ operator:     $oper
-    \ parameter:    $para
-    \ index:        $inde"
+    $prompt = "cast:         $cast
+    \\ name:         $name
+    \\ operator:     $oper
+    \\ parameter:    $para
+    \\ index:        $inde"
     p_debug $prompt darkgray
    
     <#
@@ -2054,7 +1802,7 @@ function Invoke-Persist {
     }   
 
     if ($null -ne $name) {
-        p_debug "    \ content | p_getLine $name | p_getVal" darkGray
+        p_debug "content | p_getLine $name | p_getVal" darkGray
         $l_ = p_getLine $global:c_ $name
         $v_ = p_getVal $l_
         if (P_null @($oper, $inde, $cast, $para)) {
@@ -2069,7 +1817,7 @@ function Invoke-Persist {
     }
 
     if ($Null -ne $inde) {
-        p_debug "    \ indexing" darkGray
+        p_debug "indexing" darkGray
         if (($null -ne $para) -and (p_match $a_ "$para\[[0-9]+]")) {
             p_debug "      % param: $para" darkGray
             $para = p_index $para $inde

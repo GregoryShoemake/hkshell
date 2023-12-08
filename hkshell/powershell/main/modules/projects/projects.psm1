@@ -121,7 +121,7 @@ function pr_match {
     if ($getMatch) { return $null }
     return $false
 }
-$global:projectsPath = (((Get-Content "$global:_projects_module_location\projects.cfg") | Select-String "projects-root") -split "=")[1]
+$global:projectsPath = (((Get-Content "$global:_projects_module_location\projects.conf") | Select-String "projects-root") -split "=")[1]
 $global:projectsPath = Get-Path $global:projectsPath
 pr_debug "Populating user PROJECTS global projects path variable ->
     global:projectsPath=$global:projectsPath"

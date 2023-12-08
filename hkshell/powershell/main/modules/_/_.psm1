@@ -110,8 +110,8 @@ $(Out-String -inputObject $array)//"
     __debug_return $(Out-String -inputObject $res)
     return $res
 }
-function __search_args ($a_, $param, [switch]$switch) {
-    __debug_function "_search_args"    
+function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$untilSwitch) {
+    __debug_function "__search_args"    
     $c_ = $a_.Count
     __debug "args:$a_ | len:$c_"
     __debug "param:$param"
@@ -130,7 +130,7 @@ function __search_args ($a_, $param, [switch]$switch) {
             }
         }
         $res = $res -and $true
-        __debug_return
+        __debug_return "@{ RES=$res ; ARGS=$a_ }"
         return @{
             RES = $res
             ARGS = $a_
@@ -140,9 +140,30 @@ function __search_args ($a_, $param, [switch]$switch) {
             $a = $a_[$i]
             __debug "a[$i]:$a"
             if ($a -ne $param) { continue }
-            if(($null -eq $res) -and ($i -lt ($c_ - 1))) { 
-                $res = $a_[$i + 1]
-                $a_ = _truncate $a_ -indexAndDepth @($i,2)
+            if(($null -eq $res) -and ($i -lt ($c_ - 1))) {
+                if($all) {
+                    $ibak = $i
+                    $res = @()
+                    $remove = 1
+                    for ($i = $i + 1; $i -lt ($c_); $i++) {
+                        if($untilSwitch -and ($a_[$i] -match "^-")) {
+                            __debug "[-untilSwitch] next switch found"
+                            break
+                        }
+                        $res += $a_[$i]
+                        $remove++
+                    }
+                    $res = $res -join " "
+                    $a_ = __truncate $a_ -indexAndDepth @($ibak, $remove)
+                } else {
+                    $res = $a_[$i + 1]
+                    if($res -match "^-") { 
+                        $res = $null 
+                        __debug "switch argument expected, not found" Red
+                    } else {
+                        $a_ = __truncate $a_ -indexAndDepth @($i,2)
+                    }
+                }
             }
             elseif ($i -ge ($c_ - 1)) {
                  throw [System.ArgumentOutOfRangeException] "Argument value at position $($i + 1) out of $c_ does not exist for param $param"
@@ -151,7 +172,7 @@ function __search_args ($a_, $param, [switch]$switch) {
                 throw [System.ArgumentException] "Duplicate argument passed: $param"
             }
         }
-        __debug_return "RES: $res | ARGS: $a_"
+        __debug_return "@{ RES=$res ; ARGS=$a_ }"
         return @{
             RES = $res
             ARGS = $a_
