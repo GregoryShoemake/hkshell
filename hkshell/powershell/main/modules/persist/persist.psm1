@@ -69,7 +69,144 @@ function p_hash_to_string {
         }
     }
 }
+function p_int_equal {
+    [CmdletBinding()]
+    param (
+        [Parameter()]
+        [int]
+        $int,
+        # single int or array of ints to compare
+        [Parameter()]
+        $ints
+    )
+    if ($null -eq $ints) { return $false }
+    foreach ($i in $ints) {
+        if ($int -eq $i) { return $true }
+    }
+    return $false
+}
+function p_truncate {
+    [CmdletBinding()]
+    param (
+        # Array object passed to truncate
+        [Parameter(Mandatory = $false, Position = 0)]
+        [System.Array]
+        $array,
+        [Parameter()]
+        [int]
+        $fromStart = 0,
+        [Parameter()]
+        [int]
+        $fromEnd = 0,
+        [int[]]
+        $indexAndDepth
+    )
+    p_debug_function "p_truncate"
+    p_debug "array:
+$(Out-String -inputObject $array)//"
 
+    $l = $array.Length
+    if ($fromStart -gt 0) {
+        $l = $l - $fromStart
+    }
+    if ($fromEnd -gt 0) {
+        $l = $l - $fromEnd
+    }
+    elseif(($fromStart -eq 0) -and ($null -eq $indexAndDepth)) {
+        $fromEnd = 1
+    }
+    $fromEnd = $array.Length - $fromEnd
+    if (($null -ne $indexAndDepth) -and ($indexAndDepth[1] -gt 0)) {
+        $l = $l - $indexAndDepth[1]
+    }
+    if ($l -le 0) {
+        p_debug_return empty array
+        return @()
+    }
+    $res = @()
+    $fromStart--
+    if ($null -ne $indexAndDepth) {
+        $middleStart = $indexAndDepth[0]
+        $middleEnd = $indexAndDepth[0] + $indexAndDepth[1] - 1
+        $middle = $middleStart..$middleEnd
+    }
+    for ($i = 0; $i -lt $array.Length; $i ++) {
+        if (($i -gt $fromStart) -and !(p_int_equal $i $middle ) -and ($i -lt $fromEnd)) {
+            $res += $array[$i]
+        }
+    }
+    p_debug_return $(Out-String -inputObject $res)
+    return $res
+}
+function p_search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$untilSwitch) {
+    p_debug_function "p_search_args"    
+    $c_ = $a_.Count
+    p_debug "args:$a_ | len:$c_"
+    p_debug "param:$param"
+    p_debug "switch:$switch"
+    if($switch) { 
+        for ($i = 0; $i -lt $c_; $i++) {
+            $a = $a_[$i]
+            p_debug "a[$i]:$a"
+            if ($a -ne $param) { continue }
+            if($null -eq $res) { 
+                $res = $true 
+                $a_ = p_truncate $a_ -indexAndDepth @($i,1)
+            }
+            else {
+                throw [System.ArgumentException] "Duplicate argument passed: $param"
+            }
+        }
+        $res = $res -and $true
+        p_debug_return "@{ RES=$res ; ARGS=$a_ }"
+        return @{
+            RES = $res
+            ARGS = $a_
+        }
+    } else {
+        for ($i = 0; $i -lt $a_.length; $i++) {
+            $a = $a_[$i]
+            p_debug "a[$i]:$a"
+            if ($a -ne $param) { continue }
+            if(($null -eq $res) -and ($i -lt ($c_ - 1))) {
+                if($all) {
+                    $ibak = $i
+                    $res = @()
+                    $remove = 1
+                    for ($i = $i + 1; $i -lt ($c_); $i++) {
+                        if($untilSwitch -and ($a_[$i] -match "^-")) {
+                            p_debug "[-untilSwitch] next switch found"
+                            break
+                        }
+                        $res += $a_[$i]
+                        $remove++
+                    }
+                    $res = $res -join " "
+                    $a_ = p_truncate $a_ -indexAndDepth @($ibak, $remove)
+                } else {
+                    $res = $a_[$i + 1]
+                    if($res -match "^-") { 
+                        $res = $null 
+                        p_debug "switch argument expected, not found" Red
+                    } else {
+                        $a_ = p_truncate $a_ -indexAndDepth @($i,2)
+                    }
+                }
+            }
+            elseif ($i -ge ($c_ - 1)) {
+                 throw [System.ArgumentOutOfRangeException] "Argument value at position $($i + 1) out of $c_ does not exist for param $param"
+            }
+            elseif ($null -ne $res) {
+                throw [System.ArgumentException] "Duplicate argument passed: $param"
+            }
+        }
+        p_debug_return "@{ RES=$res ; ARGS=$a_ }"
+        return @{
+            RES = $res
+            ARGS = $a_
+        }
+    }
+}
 function p_stringify_regex ($regex) {
     if ($null -eq $regex) { return $regex }
     $needReplace = @(
@@ -782,7 +919,6 @@ function Invoke-Pull {
     $spl = $global:SCOPE -split "::"
     $global:PERSIST = Get-Content -Path $spl[1]
 }
-
 function p_network_wrapper {
     $scope_bak = ("$SCOPE" -split "::")[0]
     Invoke-Persist -> network
@@ -790,8 +926,19 @@ function p_network_wrapper {
     Invoke-Persist -> $scope_bak
     return $res
 }
-New-Alias -Name network -Value p_network_wrapper -Scope Global -Force
-
+New-Alias -Name Use-Network -Value p_network_wrapper -Scope Global -Force
+function p_scope_wrapper {
+    $wrapper = $args[0]
+    $argz = p_truncate $args -FromStart 1
+    if(Get-Scope $wrapper -Exists) {
+        $scope_bak = ("$SCOPE" -split "::")[0]
+        Invoke-Persist -> $wrapper
+        $res = Invoke-Expression "$argz"
+        Invoke-Persist -> $scope_bak
+        return $res
+    }
+}
+New-Alias -Name Use-Scope -Value p_scope_wrapper -Scope Global -Force -ErrorAction SilentlyContinue
 function Set-PersistContent ($params) {
     p_debug_function "Set-PersistContent"
     $cast = $params.Cast
@@ -1504,7 +1651,7 @@ function Invoke-Persist {
     p_debug $prompt darkgray
    
     <#
-    Based on the available variables [cast][name][op][param], the follow up operations are decided
+    Based on the available variables [cast][name][op][param][index], the follow up operations are decided
 
     __________________________________________________________________________________________________
     ////////////// 1 /////////////////////////////////////////////////////////////////////////////////

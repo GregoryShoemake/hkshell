@@ -376,6 +376,8 @@ function Get-Text ($who,$expand) {
                 Default {return $thread.latest}
             }
         }
+    } else {
+        return $threads
     }
 }
 function Watch-Thread ($who,[switch]$skipSent,[int]$frequency = 750) {
