@@ -121,6 +121,147 @@ function pr_match {
     if ($getMatch) { return $null }
     return $false
 }
+function __int_equal {
+    [CmdletBinding()]
+    param (
+        [Parameter()]
+        [int]
+        $int,
+        # single int or array of ints to compare
+        [Parameter()]
+        $ints
+    )
+    if ($null -eq $ints) { return $false }
+    foreach ($i in $ints) {
+        if ($int -eq $i) { return $true }
+    }
+    return $false
+}
+function __truncate {
+    [CmdletBinding()]
+    param (
+        # Array object passed to truncate
+        [Parameter(Mandatory = $false, Position = 0)]
+        [System.Array]
+        $array,
+        [Parameter()]
+        [int]
+        $fromStart = 0,
+        [Parameter()]
+        [int]
+        $fromEnd = 0,
+        [int[]]
+        $indexAndDepth
+    )
+    __debug_function "_truncate"
+    __debug "array:
+$(Out-String -inputObject $array)//"
+
+    $l = $array.Length
+    if ($fromStart -gt 0) {
+        $l = $l - $fromStart
+    }
+    if ($fromEnd -gt 0) {
+        $l = $l - $fromEnd
+    }
+    elseif(($fromStart -eq 0) -and ($null -eq $indexAndDepth)) {
+        $fromEnd = 1
+    }
+    $fromEnd = $array.Length - $fromEnd
+    if (($null -ne $indexAndDepth) -and ($indexAndDepth[1] -gt 0)) {
+        $l = $l - $indexAndDepth[1]
+    }
+    if ($l -le 0) {
+        __debug_return empty array
+        return @()
+    }
+    $res = @()
+    $fromStart--
+    if ($null -ne $indexAndDepth) {
+        $middleStart = $indexAndDepth[0]
+        $middleEnd = $indexAndDepth[0] + $indexAndDepth[1] - 1
+        $middle = $middleStart..$middleEnd
+    }
+    for ($i = 0; $i -lt $array.Length; $i ++) {
+        if (($i -gt $fromStart) -and !(__int_equal $i $middle ) -and ($i -lt $fromEnd)) {
+            $res += $array[$i]
+        }
+    }
+    __debug_return $(Out-String -inputObject $res)
+    return $res
+}
+function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$untilSwitch) {
+    __debug_function "__search_args"    
+    $c_ = $a_.Count
+    __debug "args:$a_ | len:$c_"
+    __debug "param:$param"
+    __debug "switch:$switch"
+    if($switch) { 
+        for ($i = 0; $i -lt $c_; $i++) {
+            $a = $a_[$i]
+            __debug "a[$i]:$a"
+            if ($a -ne $param) { continue }
+            if($null -eq $res) { 
+                $res = $true 
+                $a_ = __truncate $a_ -indexAndDepth @($i,1)
+            }
+            else {
+                throw [System.ArgumentException] "Duplicate argument passed: $param"
+            }
+        }
+        $res = $res -and $true
+        __debug_return "@{ RES=$res ; ARGS=$a_ }"
+        return @{
+            RES = $res
+            ARGS = $a_
+        }
+    } else {
+        for ($i = 0; $i -lt $a_.length; $i++) {
+            $a = $a_[$i]
+            __debug "a[$i]:$a"
+            if ($a -ne $param) { continue }
+            if(($null -eq $res) -and ($i -lt ($c_ - 1))) {
+                if($all) {
+                    $ibak = $i
+                    $res = @()
+                    $remove = 1
+                    for ($i = $i + 1; $i -lt ($c_); $i++) {
+                        if($untilSwitch -and ($a_[$i] -match "^-")) {
+                            __debug "[-untilSwitch] next switch found"
+                            break
+                        }
+                        $res += $a_[$i]
+                        $remove++
+                    }
+                    $res = $res -join " "
+                    $a_ = __truncate $a_ -indexAndDepth @($ibak, $remove)
+                } else {
+                    $res = $a_[$i + 1]
+                    if($res -match "^-") { 
+                        $res = $null 
+                        __debug "switch argument expected, not found" Red
+                    } else {
+                        $a_ = __truncate $a_ -indexAndDepth @($i,2)
+                    }
+                }
+            }
+            elseif ($i -ge ($c_ - 1)) {
+                 throw [System.ArgumentOutOfRangeException] "Argument value at position $($i + 1) out of $c_ does not exist for param $param"
+            }
+            elseif ($null -ne $res) {
+                throw [System.ArgumentException] "Duplicate argument passed: $param"
+            }
+        }
+        __debug_return "@{ RES=$res ; ARGS=$a_ }"
+        return @{
+            RES = $res
+            ARGS = $a_
+        }
+    }
+}
+
+
+
 
 $global:projectsPath = (((Get-Content "$global:_projects_module_location\projects.conf") | Select-String "projects-root") -split "=")[1]
 $global:projectsPath = Get-Path $global:projectsPath
@@ -131,6 +272,9 @@ $global:originalPath = $ENV:PATH
 $global:editor = (((Get-Content "$global:_projects_module_location\projects.conf") | Select-String "default-editor") -split "=")[1]
 pr_debug "Populated user defined preferred editor ->
     global:editor=$global:editor"
+
+
+
 
 function New-Project ($name) {
     pr_debug_function "New-Project"
@@ -356,7 +500,19 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
     }
 }
 New-Alias -name igit -Value Invoke-Git -Scope Global -Force
-
+function Start-Edit ($item) {
+    $path = Get-Path $item
+    if($null -ne $global:project){
+        if($path -notmatch "([a-zA-Z]:\\|\\\\.+?\\)") { $p = "$(Get-Location)\$path" } else { $p = $path }
+        if($null -eq $global:project.LastFile) {
+            $global:project.add("LastFile",$p)
+        } else {
+            $global:project.LastFile = $p
+        }
+    }
+    Invoke-Expression "$global:editor $path"
+}
+New-Alias -Name ed -Value Start-Edit -Scope Global -Force -ErrorAction SilentlyContinue
 
 
 

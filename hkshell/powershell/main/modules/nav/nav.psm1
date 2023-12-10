@@ -594,6 +594,9 @@ function Get-Path ([switch]$clip) {
     n_debug "argsJoined:$a_."
     $l_ = "$(Get-Location)"
     switch ($a_) {
+        { ($_ -is [System.IO.FileInfo]) -or ($_ -is [System.IO.DirectoryInfo]) } {
+            if ($clip) { Set-Clipboard $_.FullName } else { return $_.FullName }
+        }
         { $_ -match "^match:.+$" } { 
 
             $regex = $($_ -split ":")[1]
@@ -613,11 +616,15 @@ function Get-Path ([switch]$clip) {
             $res =  "$(Get-Volume | Where-Object {$_.FileSystemLabel -eq $MATCHES[1] } | Select-Object -ExpandProperty DriveLetter ):$($MATCHES[2])"
             $res = $res -replace "(?!^)\\\\","\"
             n_debug "res:$res"
-            return $res
+            if ($clip) { Set-Clipboard $res } else { return $res }
         }
-        { Test-Path $_ } { return $_ }
+        { Test-Path $_ } { 
+            $res = $_ 
+            if ($clip) { Set-Clipboard $res } else { return $res }
+        }
         { !(Test-Path $_) } { 
-            return $_ -replace "(?!^)\\\\","\"
+            $res =  $_ -replace "(?!^)\\\\","\"
+            if ($clip) { Set-Clipboard $res } else { return $res }
         }
         Default { if($clip) { Set-Clipboard $l_ } else { return $l_ } }
     }
