@@ -500,9 +500,12 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
     }
 }
 New-Alias -name igit -Value Invoke-Git -Scope Global -Force
-function Start-Edit ($item) {
+function Start-Edit ($item, [switch]$last) {
     $path = Get-Path $item
     if($null -ne $global:project){
+        if($last) {
+            return Start-Edit $global:project.LastFile
+        }
         if($path -notmatch "([a-zA-Z]:\\|\\\\.+?\\)") { $p = "$(Get-Location)\$path" } else { $p = $path }
         if($null -eq $global:project.LastFile) {
             $global:project.add("LastFile",$p)
@@ -513,7 +516,7 @@ function Start-Edit ($item) {
     Invoke-Expression "$global:editor $path"
 }
 New-Alias -Name ed -Value Start-Edit -Scope Global -Force -ErrorAction SilentlyContinue
-
+function edl { Start-Edit -last }
 
 
 
