@@ -390,6 +390,7 @@ No project is currently loaded
     $name = $project.Name
     Set-Location $(Get-Path $global:project.Path)
     $global:project.GitExitAction = pr_default $global:project.GitExitAction "prompt"
+    Set-Content -Path $(Get-Item "$global:projectsPath\$name\project.cfg" -Force).FullName -Value "$(Format-ProjectConfigurationString)"
     switch ($global:project.GitExitAction) {
         {$_.toLower() -match "^(prompt|ask|request)$" }{ 
             if(pr_choice "Add, Commit, and Push changes to Master?") {
@@ -401,14 +402,13 @@ No project is currently loaded
         { $_.toLower() -match "push" } { Invoke-Git -Action Push }
         { $_.toLower() -match "save" } { Invoke-Git -Action Save }
     }
-    Set-Content -Path $(Get-Item "$global:projectsPath\$name\project.cfg" -Force).FullName -Value "$(Format-ProjectConfigurationString)"
     $global:project = $null
     $ENV:PATH = $global:originalPath
 }
 New-Alias -name eprj -value Exit-Project -Scope Global -Force
 function Invoke-Git ([string]$path,[string]$action = "status") {
     pr_debug_function Invoke-Git
-    $path = Get-Path $global:project.Path    
+    $path = pr_default $(Get-Path $global:project.Path) "$pwd"
     switch ($action.ToLower()) {
         {$_ -match "^e$|^exists$"} {
             $p_ = $path
