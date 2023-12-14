@@ -190,12 +190,13 @@ function e_array_tostring ($a_) {
     }
     write-host ""
 }
-function e_search_args ($a_, $param, [switch]$switch) {
+function e_search_args ($a_, $param, [switch]$switch, [switch]$all) {
     e_debug_function "e_search_args"    
     $c_ = $a_.Count
     e_debug "args:$a_ | len:$c_"
     e_debug "param:$param"
     e_debug "switch:$switch"
+    e_debug "all:$all"
     if($switch) { 
         for ($i = 0; $i -lt $c_; $i++) {
             $a = $a_[$i]
@@ -220,9 +221,26 @@ function e_search_args ($a_, $param, [switch]$switch) {
             $a = $a_[$i]
             e_debug "a[$i]:$a"
             if ($a -ne $param) { continue }
-            if(($null -eq $res) -and ($i -lt ($c_ - 1))) { 
-                $res = $a_[$i + 1]
-                $a_ = e_truncate $a_ -indexAndDepth @($i,2)
+            if(($null -eq $res) -and ($i -lt ($c_ - 1))) {
+                if($all) {
+                    $ibak = $i
+                    $res = @()
+                    $counter = 0
+                    for ($i = $i + 1; $i -lt ($c_); $i++) {
+                        $res += $a_[$i]
+                        $counter++
+                    }
+                    $res = $res -join " "
+                    $a_ = e_truncate $a_ -indexAndDepth @($ibak, $counter)
+                } else {
+                    $res = $a_[$i + 1]
+                    if($res -match "^-") { 
+                        $res = $null 
+                        e_debug "switch argument expected, not found" Red
+                    } else {
+                        $a_ = e_truncate $a_ -indexAndDepth @($i,2)
+                    }
+                }
             }
             elseif ($i -ge ($c_ - 1)) {
                  throw [System.ArgumentOutOfRangeException] "Argument value at position $($i + 1) out of $c_ does not exist for param $param"
@@ -305,7 +323,7 @@ function run ($params) {
     $passthru = $hash.RES
     $hash = e_search_args $hash.ARGS "-style" 
     $style = e_default $hash.RES "Normal"
-    $hash = e_search_args $hash.ARGS "-argumentList"
+    $hash = e_search_args $hash.ARGS "-argumentList" -all
     $arguments = $hash.RES
 
     e_debug "target:$($target.fullname)"
@@ -314,15 +332,19 @@ function run ($params) {
     e_debug "style:$style"
     e_debug "wait:$wait"
     e_debug "passthru:$passthru"
+    e_debug "arguments:$passthru"
 
     switch($ext) {
         ps1 {
             $noExit = if($style -ne "hidden") { "-noexit" } else { "" }
             try {
-                return Start-Process pwsh.exe -Verb $verb -WindowStyle $style -ArgumentList " -executionPolicy Bypass $noexit -file $($target.fullname) $arguments" -Wait:$wait -PassThru:$passthru -ErrorAction Stop
+                return Start-Process pwsh.exe -Verb $verb -WindowStyle $style -ArgumentList "$arguments -executionPolicy Bypass $noexit -file $($target.fullname)" -Wait:$wait -PassThru:$passthru -ErrorAction Stop
             } catch {
-                return Start-Process powershell.exe -Verb $verb -WindowStyle $style -ArgumentList " -executionPolicy Bypass $noexit -file $($target.fullname) $arguments" -Wait:$wait -PassThru:$passthru
+                return Start-Process powershell.exe -Verb $verb -WindowStyle $style -ArgumentList " $arguments -executionPolicy Bypass $noexit -file $($target.fullname)" -Wait:$wait -PassThru:$passthru
             }
+        }
+        sh  {
+            return Start-Process bash -Verb $verb -WindowStyle $style -ArgumentList "$($target.fullname)" -Wait:$wait -PassThru:$passthru -ErrorAction Stop
         }
         bat {
             if($null -eq $arguments) {

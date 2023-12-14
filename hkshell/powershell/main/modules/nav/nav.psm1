@@ -464,12 +464,13 @@ function Invoke-Go {
 
     }
 
-    if($null -eq $in){$path = "$(Get-Location)"}
+    if($null -eq $in){$in = "$(Get-Location)"}
     $D = !$A
     if ($global:_debug_) { write-host " GO => $in`n  \ Create Missing Path? $C`n  \ Show All Item Types? $A" -ForegroundColor DarkGray }
     if ($in -eq "..") {
         $in = ..
     }
+    elseif ($in -match "vol::(.+)::(.+)$") { $in = Get-Path $in }
     elseif ($null -ne $global:QueryResult) {
         n_debug "Parsing Query Results"
         if($in -match "^([0-9]+|f)$"){
@@ -488,9 +489,9 @@ function Invoke-Go {
             if ($replaced.name -match $in) {
                 if ($null -eq $arr) { $arr = @($s) }
                 else { $arr += $s }
-                p_debug "   \ true"
+                n_debug "   \ true"
             } else {
-                p_debug "   \ false"
+                n_debug "   \ false"
             }
         }
         if ($null -ne $arr) {
@@ -499,7 +500,7 @@ function Invoke-Go {
                 Write-Host `nMultiple matches found:
                 $i = 0
                 foreach ($p in $arr) {
-                    Write-Host "'[$i] $($p.fullname)"
+                    Write-Host "[$i] $($p.fullname)"
                     $i++
                 }
                 $i = [int](Read-Host "Pick index of desired path")
@@ -518,7 +519,7 @@ function Invoke-Go {
 
         if($in -match "^([0-9]+|f)$"){
             if($in -match "^f$"){$in = 0} 
-            p_debug "Parsing index: $in"
+            n_debug "Parsing index: $in"
                 $children = Get-ChildItem $(Get-Location) | Where-Object { $_.PSIsContainer }
                 $in = $([int]$in) 
                 $in = $children[$in]
@@ -526,14 +527,14 @@ function Invoke-Go {
         }
 
         foreach ($s in $global:shortcuts) {
-            p_debug "Checking shortcut: $s ~? $in"
+            n_debug "Checking shortcut: $s ~? $in"
             if ($s -match $in) {
                 
                 if ($null -eq $arr) { $arr = @($s) }
                 else { $arr += $s }
-                p_debug "   \ true"
+                n_debug "   \ true"
             } else {
-                p_debug "   \ false"
+                n_debug "   \ false"
             }
         }
 
@@ -593,6 +594,9 @@ function Get-Path ([switch]$clip) {
     n_debug "argsJoined:$a_."
     $l_ = "$(Get-Location)"
     switch ($a_) {
+        { ($_ -is [System.IO.FileInfo]) -or ($_ -is [System.IO.DirectoryInfo]) } {
+            if ($clip) { Set-Clipboard $_.FullName } else { return $_.FullName }
+        }
         { $_ -match "^match:.+$" } { 
 
             $regex = $($_ -split ":")[1]
@@ -610,11 +614,32 @@ function Get-Path ([switch]$clip) {
             n_debug "parsing volume"
             $null = $a_ -match  "vol::(.+)::(.+)"
             $res =  "$(Get-Volume | Where-Object {$_.FileSystemLabel -eq $MATCHES[1] } | Select-Object -ExpandProperty DriveLetter ):$($MATCHES[2])"
+            $res = $res -replace "(?!^)\\\\","\"
             n_debug "res:$res"
-            return $res
+            if ($clip) { Set-Clipboard $res } else { return $res }
         }
-        { Test-Path $_ } { return $_ }
+        { Test-Path $_ } { 
+            $res = (Get-Item $_).fullname
+            if ($clip) { Set-Clipboard $res } else { return $res }
+        }
+        { !(Test-Path $_) } { 
+            $res =  $_ -replace "(?!^)\\\\","\"
+            if ($clip) { Set-Clipboard $res } else { return $res }
+        }
         Default { if($clip) { Set-Clipboard $l_ } else { return $l_ } }
     }
 }
 New-Alias -Name gtp -Value Get-Path -Scope Global -Force
+function Get-Root ($inputObject) {
+    if($null -eq $inputObject) { $inputObject = "$(Get-Location)" } 
+    if($inputObject -is [string]) {
+        $inputObject = $inputObject -replace ".+::\\\\","\\"
+        $pathLast = $inputObject
+        $path = Split-Path $pathLast
+        while(($path -ne "") -and ($path -notmatch "\\\\.+?(?!\\)")) {
+            $pathLast = $path
+            $path = Split-Path $pathLast
+        }
+        return $pathLast
+    }
+}

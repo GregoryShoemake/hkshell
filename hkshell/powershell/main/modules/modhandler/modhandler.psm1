@@ -12,17 +12,22 @@ function Import-HKShell {
         [switch]
         $force
     )
+    if($global:_debug_) { Write-Host ">_ Import-HKShell" -ForegroundColor Magenta }
+
 
     if ($null -eq $moduleDirectory) {
         $global:moduleDirectory = Split-Path $global:_module_location_modhandler
     }
 
     $path_ = "$global:moduleDirectory\$module"
+
+    if($global:_debug_) { Write-Host "    \\ module:$path_" -ForegroundColor DarkMagenta }
     
     if (test-path $path_) {
         
         $moduleLoaded = ($global:loadedModules -contains $path_) -or ($null -ne (Get-Module | Where-Object { $_.name -eq $module }))
         if($moduleLoaded -and !$force) { 
+            if($global:_debug_) { Write-Host "    \\ module:$path_ -- already imported" -ForegroundColor Red }
             return "Module $Module is already imported"
         }
         try {

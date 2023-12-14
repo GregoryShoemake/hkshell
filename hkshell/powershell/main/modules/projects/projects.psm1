@@ -121,11 +121,160 @@ function pr_match {
     if ($getMatch) { return $null }
     return $false
 }
-$global:projectsPath = (((Get-Content "$global:_projects_module_location\projects.cfg") | Select-String "projects-root") -split "=")[1]
+function __int_equal {
+    [CmdletBinding()]
+    param (
+        [Parameter()]
+        [int]
+        $int,
+        # single int or array of ints to compare
+        [Parameter()]
+        $ints
+    )
+    if ($null -eq $ints) { return $false }
+    foreach ($i in $ints) {
+        if ($int -eq $i) { return $true }
+    }
+    return $false
+}
+function __truncate {
+    [CmdletBinding()]
+    param (
+        # Array object passed to truncate
+        [Parameter(Mandatory = $false, Position = 0)]
+        [System.Array]
+        $array,
+        [Parameter()]
+        [int]
+        $fromStart = 0,
+        [Parameter()]
+        [int]
+        $fromEnd = 0,
+        [int[]]
+        $indexAndDepth
+    )
+    __debug_function "_truncate"
+    __debug "array:
+$(Out-String -inputObject $array)//"
+
+    $l = $array.Length
+    if ($fromStart -gt 0) {
+        $l = $l - $fromStart
+    }
+    if ($fromEnd -gt 0) {
+        $l = $l - $fromEnd
+    }
+    elseif(($fromStart -eq 0) -and ($null -eq $indexAndDepth)) {
+        $fromEnd = 1
+    }
+    $fromEnd = $array.Length - $fromEnd
+    if (($null -ne $indexAndDepth) -and ($indexAndDepth[1] -gt 0)) {
+        $l = $l - $indexAndDepth[1]
+    }
+    if ($l -le 0) {
+        __debug_return empty array
+        return @()
+    }
+    $res = @()
+    $fromStart--
+    if ($null -ne $indexAndDepth) {
+        $middleStart = $indexAndDepth[0]
+        $middleEnd = $indexAndDepth[0] + $indexAndDepth[1] - 1
+        $middle = $middleStart..$middleEnd
+    }
+    for ($i = 0; $i -lt $array.Length; $i ++) {
+        if (($i -gt $fromStart) -and !(__int_equal $i $middle ) -and ($i -lt $fromEnd)) {
+            $res += $array[$i]
+        }
+    }
+    __debug_return $(Out-String -inputObject $res)
+    return $res
+}
+function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$untilSwitch) {
+    __debug_function "__search_args"    
+    $c_ = $a_.Count
+    __debug "args:$a_ | len:$c_"
+    __debug "param:$param"
+    __debug "switch:$switch"
+    if($switch) { 
+        for ($i = 0; $i -lt $c_; $i++) {
+            $a = $a_[$i]
+            __debug "a[$i]:$a"
+            if ($a -ne $param) { continue }
+            if($null -eq $res) { 
+                $res = $true 
+                $a_ = __truncate $a_ -indexAndDepth @($i,1)
+            }
+            else {
+                throw [System.ArgumentException] "Duplicate argument passed: $param"
+            }
+        }
+        $res = $res -and $true
+        __debug_return "@{ RES=$res ; ARGS=$a_ }"
+        return @{
+            RES = $res
+            ARGS = $a_
+        }
+    } else {
+        for ($i = 0; $i -lt $a_.length; $i++) {
+            $a = $a_[$i]
+            __debug "a[$i]:$a"
+            if ($a -ne $param) { continue }
+            if(($null -eq $res) -and ($i -lt ($c_ - 1))) {
+                if($all) {
+                    $ibak = $i
+                    $res = @()
+                    $remove = 1
+                    for ($i = $i + 1; $i -lt ($c_); $i++) {
+                        if($untilSwitch -and ($a_[$i] -match "^-")) {
+                            __debug "[-untilSwitch] next switch found"
+                            break
+                        }
+                        $res += $a_[$i]
+                        $remove++
+                    }
+                    $res = $res -join " "
+                    $a_ = __truncate $a_ -indexAndDepth @($ibak, $remove)
+                } else {
+                    $res = $a_[$i + 1]
+                    if($res -match "^-") { 
+                        $res = $null 
+                        __debug "switch argument expected, not found" Red
+                    } else {
+                        $a_ = __truncate $a_ -indexAndDepth @($i,2)
+                    }
+                }
+            }
+            elseif ($i -ge ($c_ - 1)) {
+                 throw [System.ArgumentOutOfRangeException] "Argument value at position $($i + 1) out of $c_ does not exist for param $param"
+            }
+            elseif ($null -ne $res) {
+                throw [System.ArgumentException] "Duplicate argument passed: $param"
+            }
+        }
+        __debug_return "@{ RES=$res ; ARGS=$a_ }"
+        return @{
+            RES = $res
+            ARGS = $a_
+        }
+    }
+}
+
+
+
+
+$global:projectsPath = (((Get-Content "$global:_projects_module_location\projects.conf") | Select-String "projects-root") -split "=")[1]
 $global:projectsPath = Get-Path $global:projectsPath
 pr_debug "Populating user PROJECTS global projects path variable ->
     global:projectsPath=$global:projectsPath"
 $global:originalPath = $ENV:PATH
+
+$global:editor = (((Get-Content "$global:_projects_module_location\projects.conf") | Select-String "default-editor") -split "=")[1]
+pr_debug "Populated user defined preferred editor ->
+    global:editor=$global:editor"
+
+
+
 
 function New-Project ($name) {
     pr_debug_function "New-Project"
@@ -187,15 +336,15 @@ function Start-Project ($name) {
             $null = importhks nav
             $null = importhks query
             $null = importhks persist
-            $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-file $global:projectsPath\$name\project.ps1" -Passthru
+            $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $global:projectsPath\$name\project.ps1" -Passthru
             $global:project = Invoke-Expression (Get-Content "$global:projectsPath\$name\project.cfg")
             pull; Start-Sleep -Milliseconds 100; push persist _>_project=.$name; 
             if($null -eq $subName) {
                 $ENV:PATH += ";$($_.fullname)"
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
                 Invoke-Go $startDir
-                If(pr_choice "Open last file?: $($global:project.LastFile)") {
-                    nvim.exe -n $global:project.LastFile
+                If(pr_choice "Open last file [$($global:project.LastFile)]") {
+                    Invoke-Expression $("$global:editor" + ' $global:project.LastFile')
                 }
             } 
             else { 
@@ -221,8 +370,16 @@ function Start-Project ($name) {
     }
 }
 New-Alias -name sprj -value Start-Project -Scope Global -Force
-
+function Format-ProjectConfigurationString {
+    $stringBuilder = @()
+    foreach ($k in $global:project.keys){
+        $val = Invoke-Expression ('$global:project.' + $k)
+        $stringBuilder += " $k='$val'"
+    }
+    return '@{' + ($stringBuilder -join ";") + ' }'
+}
 function Exit-Project {
+    $null = importhks nav
     if($null -eq $global:project) {
         Write-Host "
 No project is currently loaded
@@ -231,18 +388,27 @@ No project is currently loaded
     }
     $Script:projectLoop | Stop-Process
     $name = $project.Name
-    Set-Content -Path $(Get-Item "$global:projectsPath\$name\project.cfg" -Force).FullName -Value "@{ Name='$($global:project.Name)'; Path='$($global:project.Path)'; Description='$($global:project.Description)'; LastDirectory='$($global:project.LastDirectory)'; LastFile='$($global:project.LastFile)' }"
+    Set-Location $(Get-Path $global:project.Path)
+    $global:project.GitExitAction = pr_default $global:project.GitExitAction "prompt"
+    Set-Content -Path $(Get-Item "$global:projectsPath\$name\project.cfg" -Force).FullName -Value "$(Format-ProjectConfigurationString)"
+    switch ($global:project.GitExitAction) {
+        {$_.toLower() -match "^(prompt|ask|request)$" }{ 
+            if(pr_choice "Add, Commit, and Push changes to Master?") {
+                Invoke-Git -Action Save
+            }
+        }
+        { $_.toLower() -match "add" } { Invoke-Git -Action Add }
+        { $_.toLower() -match "commit" } { Invoke-Git -Action Commit }
+        { $_.toLower() -match "push" } { Invoke-Git -Action Push }
+        { $_.toLower() -match "save" } { Invoke-Git -Action Save }
+    }
     $global:project = $null
     $ENV:PATH = $global:originalPath
-    if(pr_choice "Commit changes?") {
-        Invoke-Git -Action Save
-    }
-    Invoke-Go "C:\Users\$ENV:USERNAME"
 }
 New-Alias -name eprj -value Exit-Project -Scope Global -Force
 function Invoke-Git ([string]$path,[string]$action = "status") {
     pr_debug_function Invoke-Git
-    $path = pr_default $path "$pwd"    
+    $path = pr_default $(Get-Path $global:project.Path) "$pwd"
     switch ($action.ToLower()) {
         {$_ -match "^e$|^exists$"} {
             $p_ = $path
@@ -254,10 +420,16 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
             return Test-Path "$p_\.git"
         }
         {$_ -match "^ne$|^notexists$"} {
-            return !$(Invoke-Git -Path $path -Action $action)
+            return !$(Invoke-Git -Path $path -Action Exists)
         }
         {$_ -eq "REMOTE-TEST"} {
-            $exists = $(Invoke-Git -Path $path -Action Exists)   
+            $p_ = $path
+            pr_debug "Testing: $p_"
+            while(($p_ -ne "") -and (!(Test-Path "$p_\.git"))){
+                pr_debug "Testing: $p_"
+                $p_ = Split-Path $p_
+            }
+            $exists = Test-Path "$p_\.git"   
             if(!$exists) { return $false }
             $res = $(git ls-remote)
             return $res -notmatch "No remote configured"
@@ -293,21 +465,58 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
             return $true
         }
         {$_ -match "^sa$|^save$"} { if(Invoke-Git -Action NotExists) { 
-                pr_debug "Git repository at $path doesn't exist!" -ForegroundColor Red; git-status; return 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
             }
             $msg = pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)"
-
+            git add .
             git commit -a -m $msg
             If(Invoke-Git -Action Remote) {
                 git push
             }
         }
+        {$_ -match "^(add)$"} { 
+            if(Invoke-Git -Action NotExists) { 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+            }
+            git add .
+        }
+        {$_ -match "^(commit)$"} { 
+            if(Invoke-Git -Action NotExists) { 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+            }
+            $msg = pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)"
+            git commit -a -m $msg
+        }
+        {$_ -match "^(push)$"} { 
+            if(Invoke-Git -Action NotExists) { 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+            }
+            if(Invoke-Git -Action NotRemote) { 
+                Write-Host "Git repository at $path does not have a remote repository!" -ForegroundColor Red; git status; return 
+            }
+            git push
+        }
         Default { git status }
     }
 }
 New-Alias -name igit -Value Invoke-Git -Scope Global -Force
-
-
+function Start-Edit ($item, [switch]$last) {
+    $path = Get-Path $item
+    if($null -ne $global:project){
+        if($last) {
+            return Start-Edit $global:project.LastFile
+        }
+        if($path -notmatch "([a-zA-Z]:\\|\\\\.+?\\)") { $p = "$(Get-Location)\$path" } else { $p = $path }
+        if($null -eq $global:project.LastFile) {
+            $global:project.add("LastFile",$p)
+        } else {
+            $global:project.LastFile = $p
+        }
+    }
+    Invoke-Expression "$global:editor $path"
+}
+New-Alias -Name ed -Value Start-Edit -Scope Global -Force -ErrorAction SilentlyContinue
+function edl { Start-Edit -last }
 
 
 

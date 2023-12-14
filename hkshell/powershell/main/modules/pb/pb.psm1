@@ -17,7 +17,7 @@ function pb_debug ($message, $messageColor, $meta) {
     }
 }
 function pb_debug_function ($function, $messageColor, $meta) {
-    if (!$global:pb_debug_) { return }
+    if (!$global:_debug_) { return }
     if ($null -eq $messageColor) { $messageColor = "Yellow" }
     Write-Host ">_ $function" -ForegroundColor $messageColor
     if ($null -ne $meta) {
@@ -254,12 +254,19 @@ function Get-Devices ($apiKey) {
     $json = (ConvertFrom-Json $jsonString)
     return $json.devices
 }
-function Send-PushbulletSMS ($contact = "7574703149", [string]$message = "testing...") {
+function Send-PushbulletSMS ([string]$message = "testing...", $contact) {
     $SCOPEbak = ($global:SCOPE -split "::")[0]
     persist -> contacts
     pb_debug_function Send-PushbulletSMS DarkCyan
     pb_debug "Contact: $contact" DarkGray
     pb_debug "Message: $message" DarkGray
+    if($null -eq $contact) {
+        $contact = Use-Scope contacts Get-PersistentVariable lastRecipient
+    }
+    if($null -eq $contact) {
+        Write-Host "Contact is null" -ForegroundColor Yellow
+        return
+    }
     if ($contact -is [System.Array]) {
         foreach ($c in $contact) {
             Send-PushbulletSMS $c $message
@@ -281,6 +288,8 @@ function Send-PushbulletSMS ($contact = "7574703149", [string]$message = "testin
         pb_prolix "Sending message to contact: $contact" Blue 
         pb_prolix "    \ Message contents: $message" 
         pb sms -d 0 -n $contactNumber $message
+
+        Push Invoke-Persist _>_lastRecipient=.$contact
     }
     persist -> $SCOPEbak
 } 
@@ -376,6 +385,8 @@ function Get-Text ($who,$expand) {
                 Default {return $thread.latest}
             }
         }
+    } else {
+        return $threads
     }
 }
 function Watch-Thread ($who,[switch]$skipSent,[int]$frequency = 750) {
