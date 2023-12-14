@@ -254,7 +254,7 @@ function Get-Devices ($apiKey) {
     $json = (ConvertFrom-Json $jsonString)
     return $json.devices
 }
-function Send-PushbulletSMS ($contact = "7574703149", [string]$message = "testing...") {
+function Send-PushbulletSMS ([string]$message = "testing...", $contact) {
     $SCOPEbak = ($global:SCOPE -split "::")[0]
     persist -> contacts
     pb_debug_function Send-PushbulletSMS DarkCyan
@@ -289,7 +289,7 @@ function Send-PushbulletSMS ($contact = "7574703149", [string]$message = "testin
         pb_prolix "    \ Message contents: $message" 
         pb sms -d 0 -n $contactNumber $message
 
-        Use-Scope contacts Invoke-Persist _>_lastRecipient=.$contact
+        Push Invoke-Persist _>_lastRecipient=.$contact
     }
     persist -> $SCOPEbak
 } 

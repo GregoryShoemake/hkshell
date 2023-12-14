@@ -252,6 +252,9 @@ function bk_match {
 $null = importhks persist
 $null = importhks nav
 
+$global:backupLogsPath = "$global:_backup_module_location\logs"
+if(!(Test-Path $global:backupLogsPath)) { $null = mkdir $global:backupLogsPath }
+
 function Invoke-EnsureBackupScope {
     if(!(Get-Scope backup -exists)) {
         $backupPath = "C:\users\$ENV:USERNAME\.powershell\scopes\backup"
@@ -421,15 +424,16 @@ function Start-Backup {
                     $item = Get-item $i -Force -ErrorAction Stop
                     if($item.PsIsContainer) {
                         $loginfo = "$(Get-Date -Format "dMMMy@H:m:s:fff") <::> Backing up directory: $i  =>  $backupDirectory"
-                        $loginfo = "$(Get-Date -Format "dMMMy@H:m:s:fff") <::> Backing up directory: $i  =>  $backupDirectory"
                         bk_debug $loginfo
                         $source = $item.fullname
                         $destination = "$backupDirectory\$($item.name)"
                         if($null -ne $logPath) {
                             Add-Content -Path $logPath -Value $loginfo
                         }
-                        Robocopy.exe $source $destination /mir /mt /nfl /ndl /njh /njs /ns /nc
-                    } else {
+                        $robocopyLogPath = "$global:backupLogsPath\robocopy-$($item.name)-$(Get-Date -Format dMMMy).log"
+                        if(!(Test-Path $robocopyLogPath )) { New-Item $robocopyLogPath -ItemType File }
+                        $null = Robocopy.exe $source $destination /mir /mt /log+:$robocopyLogPath } 
+                    else {
                         $loginfo = "$(Get-Date -Format "dMMMy@H:m:s:fff") <::> Backing up file: $i  =>  $backupDirectory"
                         bk_debug $loginfo
                         if($null -ne $logPath) {
