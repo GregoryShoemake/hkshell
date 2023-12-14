@@ -290,7 +290,8 @@ function New-Project ($name) {
     Set-Content -Path $(New-Item "$global:projectsPath\$name\project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project'; LastDirectory='$global:projectsPath\$name'; LastFile='$global:projectsPath\$name\project.cfg' }"
     if($global:_debug_){Write-Host "$(Get-Content "$global:projectsPath\$name\project.cfg")"}
     Copy-Item "$global:_projects_module_location\project.ps1" "$global:projectsPath\$name"
-    if(Invoke-Git -Path "$global:projectsPath\$name" -Action Initialize) {
+    New-Item "$global:_projects_module_location\$name\runone.ps1" -ItemType File -Force
+    if(Invoke-Git -Path "$global:projectsPath\$name" -Action Initialize) { 
         if(pr_choice "Start project now?"){
             Start-Project $name
         }
@@ -331,12 +332,12 @@ function Start-Project ($name) {
         pr_debug "Comparing $($_.name) -> $name"
         if ($_.name -eq $name) {
             pr_debug "Project $name found. Starting ~"
-            $found = $true;
+            $found = $true
+            $null = $found  #Keep getting powershell lint errors saying I don't use it
             if($null -ne $subName) { $name = "$name\$subName" }
             $null = importhks nav
             $null = importhks query
             $null = importhks persist
-            $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $global:projectsPath\$name\project.ps1" -Passthru
             $global:project = Invoke-Expression (Get-Content "$global:projectsPath\$name\project.cfg")
             pull; Start-Sleep -Milliseconds 100; push persist _>_project=.$name; 
             if($null -eq $subName) {
@@ -351,6 +352,12 @@ function Start-Project ($name) {
                 $ENV:PATH += ";$($_.fullname)\$subname"
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
                 Invoke-Go $startDir
+            }
+            if(Test-Path "$($global:project.Path)\project.ps1") {
+                $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $($global:project.Path)\project.ps1" -Passthru
+            }
+            if(Test-Path "$($global:project.Path)\runone.ps1") {
+                . "$($global:project.Path)\runone.ps1"
             }
             return
         }
