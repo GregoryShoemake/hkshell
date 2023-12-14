@@ -923,3 +923,78 @@
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
    Ended : Thursday, December 14, 2023 1:16:42 PM
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Thursday, December 14, 2023 1:22:03 PM
+   Source : I:\EasyHKS\
+     Dest : E:\realtime_backups\EasyHKS\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       472       472       472         0         0         0
+   Files :      1897         0      1897         0         0         0
+   Bytes :   33.24 m         0   33.24 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Thursday, December 14, 2023 1:22:03 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Thursday, December 14, 2023 1:27:49 PM
+   Source : I:\EasyHKS\
+     Dest : E:\realtime_backups\EasyHKS\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       472       472       472         0         0         0
+   Files :      1896         0      1897         0         0         0
+   Bytes :   33.24 m         0   33.24 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Thursday, December 14, 2023 1:27:49 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Thursday, December 14, 2023 1:33:37 PM
+   Source : I:\EasyHKS\
+     Dest : E:\realtime_backups\EasyHKS\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       472       472       472         0         0         0
+   Files :      1897         0      1896         0         0         0
+   Bytes :   33.24 m         0   33.24 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Thursday, December 14, 2023 1:33:37 PM
+

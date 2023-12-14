@@ -349,15 +349,23 @@ function Start-Project ($name) {
                 }
             } 
             else { 
+                pr_debug "adding project directory to env:path"
                 $ENV:PATH += ";$($_.fullname)\$subname"
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
-                Invoke-Go $startDir
+                try {
+                    Invoke-Go $startDir -ErrorAction Stop
+                } catch {
+                    Write-Host "__!!__Failed to enter project directory___`n`n$_`n" -ForegroundColor Red -BackgroundColor DarkGray
+                    return
+                }
             }
-            if(Test-Path "$($global:project.Path)\project.ps1") {
-                $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $($global:project.Path)\project.ps1" -Passthru
+            if(Test-Path project.ps1) {
+                pr_debug "running project loop script"
+                $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file project.ps1" -Passthru
             }
-            if(Test-Path "$($global:project.Path)\runone.ps1") {
-                . "$($global:project.Path)\runone.ps1"
+            if(Test-Path runone.ps1) {
+                pr_debug "sourcing run once script"
+                . runone.ps1
             }
             return
         }
