@@ -619,8 +619,7 @@ function Get-Path ([switch]$clip) {
             if ($clip) { Set-Clipboard $res } else { return $res }
         }
         { Test-Path $_ } { 
-            $res = $_ 
-            if($res -notmatch "^(\\\\|[a-zA-Z]:\\)") { $res = "$pwd\$res" -replace "(?!^)\\\\","\" }
+            $res = (Get-Item $_).fullname
             if ($clip) { Set-Clipboard $res } else { return $res }
         }
         { !(Test-Path $_) } { 

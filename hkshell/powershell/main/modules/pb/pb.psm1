@@ -260,6 +260,13 @@ function Send-PushbulletSMS ($contact = "7574703149", [string]$message = "testin
     pb_debug_function Send-PushbulletSMS DarkCyan
     pb_debug "Contact: $contact" DarkGray
     pb_debug "Message: $message" DarkGray
+    if($null -eq $contact) {
+        $contact = Use-Scope contacts Get-PersistentVariable lastRecipient
+    }
+    if($null -eq $contact) {
+        Write-Host "Contact is null" -ForegroundColor Yellow
+        return
+    }
     if ($contact -is [System.Array]) {
         foreach ($c in $contact) {
             Send-PushbulletSMS $c $message
@@ -281,6 +288,8 @@ function Send-PushbulletSMS ($contact = "7574703149", [string]$message = "testin
         pb_prolix "Sending message to contact: $contact" Blue 
         pb_prolix "    \ Message contents: $message" 
         pb sms -d 0 -n $contactNumber $message
+
+        Use-Scope contacts Invoke-Persist _>_lastRecipient=.$contact
     }
     persist -> $SCOPEbak
 } 
