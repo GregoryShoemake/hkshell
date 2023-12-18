@@ -290,7 +290,7 @@ function New-Project ($name) {
     Set-Content -Path $(New-Item "$global:projectsPath\$name\project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project'; LastDirectory='$global:projectsPath\$name'; LastFile='$global:projectsPath\$name\project.cfg' }"
     if($global:_debug_){Write-Host "$(Get-Content "$global:projectsPath\$name\project.cfg")"}
     Copy-Item "$global:_projects_module_location\project.ps1" "$global:projectsPath\$name"
-    New-Item "$global:_projects_module_location\$name\runone.ps1" -ItemType File -Force
+   #New-Item "$global:_projects_module_location\$name\runone.ps1" -ItemType File -Force
     if(Invoke-Git -Path "$global:projectsPath\$name" -Action Initialize) { 
         if(pr_choice "Start project now?"){
             Start-Project $name
@@ -359,13 +359,10 @@ function Start-Project ($name) {
                     return
                 }
             }
-            if(Test-Path project.ps1) {
+            $prjpth = $global:project.Path -replace "(?!^)\\\\","\" -replace "\\$",""
+            if(Test-Path $prjpth\project.ps1) {
                 pr_debug "running project loop script"
-                $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file project.ps1" -Passthru
-            }
-            if(Test-Path runone.ps1) {
-                pr_debug "sourcing run once script"
-                . runone.ps1
+                $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $prjpth\project.ps1" -Passthru
             }
             return
         }

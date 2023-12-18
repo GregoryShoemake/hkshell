@@ -349,10 +349,6 @@ ChildItems of $path
     write-host "
 
 
-
-
-
-
     "
 }
 New-Alias -Name 'D' -Value 'Show-Directories' -Scope Global -Force
@@ -368,7 +364,9 @@ function n_match {
         [switch]
         $getMatch = $false,
         [Parameter()]
-        $logic = "OR"
+        $logic = "OR",
+        [Parameter()]
+        [int]$index = 0
     )
     if ($null -eq $string) {
         if ($getMatch) { return $null }
@@ -392,7 +390,7 @@ function n_match {
     $found = $string -match $regex
     if ($found) {
         if ($getMatch) {
-            return $Matches[0]
+            return $Matches[$index]
         }
         return $true
     }
@@ -587,10 +585,27 @@ function Invoke-Go {
 }
 New-Alias -Name 'G' -Value 'Invoke-Go' -Scope Global -Force
 
-function Get-Path ([switch]$clip) {
+function Get-PathPipe {
+    [CmdletBinding()]
+    param (
+        [Parameter(ValueFromPipeline)]
+        $pipe
+    )
+
+    return Get-Path $pipe
+}
+
+function Get-Path {
+    [CmdletBinding()]
+    param (
+        [Parameter()]
+        [switch]$clip,
+        [Parameter(ValueFromPipeline,ValueFromRemainingArguments)]
+        $a_
+    )
     n_debug_function "Get-Path"
     n_debug "args:$args | argsLen:$($args.length)"
-    $a_ = $args -join ""
+    if($a_ -is [System.Array]) { $a_ = $a_ -join " " }
     n_debug "argsJoined:$a_."
     $l_ = "$(Get-Location)"
     switch ($a_) {
@@ -612,8 +627,9 @@ function Get-Path ([switch]$clip) {
         }
         { $_ -match "vol::(.+)::(.+)"} {
             n_debug "parsing volume"
-            $null = $a_ -match  "vol::(.+)::(.+)"
-            $res =  "$(Get-Volume | Where-Object {$_.FileSystemLabel -eq $MATCHES[1] } | Select-Object -ExpandProperty DriveLetter ):$($MATCHES[2])"
+            $vol = n_match $_ "vol::(.+)::(.+)" -getMatch -index 1
+            $path = n_match $_ "vol::(.+)::(.+)" -getMatch -index 2
+            $res =  "$(Get-Volume | Where-Object {$_.FileSystemLabel -eq $vol } | Select-Object -ExpandProperty DriveLetter ):$path"
             $res = $res -replace "(?!^)\\\\","\"
             n_debug "res:$res"
             if ($clip) { Set-Clipboard $res } else { return $res }
