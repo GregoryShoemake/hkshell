@@ -278,6 +278,10 @@ pr_debug "Populated user defined preferred editor ->
 
 function New-Project ($name) {
     pr_debug_function "New-Project"
+    if($null -ne $global:project){
+        Write-Host "$($global:project.name) is currently active. Run Exit-Project (eprj) to start a new project" -ForegroundColor Yellow
+        return
+    }
     pr_debug "args:$args"
     $null = importhks nav
     pr_debug "pwd:$pwd"
