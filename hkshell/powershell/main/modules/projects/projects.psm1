@@ -403,6 +403,7 @@ No project is currently loaded
     Set-Location $(Get-Path $global:project.Path)
     $global:project.GitExitAction = pr_default $global:project.GitExitAction "prompt"
     Set-Content -Path $(Get-Item "$global:projectsPath\$name\project.cfg" -Force).FullName -Value "$(Format-ProjectConfigurationString)"
+    git diff
     switch ($global:project.GitExitAction) {
         {$_.toLower() -match "^(prompt|ask|request)$" }{ 
             if(pr_choice "Add, Commit, and Push changes to Master?") {

@@ -1,0 +1,37 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:47:23 AM
+   Source : I:\hkshell\
+     Dest : E:\realtime_backups\hkshell\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    New File  		    1231	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-20Dec23.log100%  
+	    New File  		    1058	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-20Dec23.log100%  
+	    New File  		    1056	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-20Dec23.log100%  
+	    Newer     		   37819	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-19Dec23.log100%  
+	    New File  		       0	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-20Dec23.log100%  
+	    Newer     		   10586	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-19Dec23.log100%  
+	    Newer     		   10587	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-19Dec23.log100%  
+	    Newer     		   10506	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-19Dec23.log100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       255       255       255         0         0         0
+   Files :       548         8       540         0         0         0
+   Bytes :    2.57 m    71.1 k    2.50 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           1,968,729 Bytes/sec.
+   Speed :             112.652 MegaBytes/min.
+   Ended : Wednesday, December 20, 2023 1:47:23 AM
+

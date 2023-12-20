@@ -1,0 +1,25 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:47:23 AM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:47:23 AM
+

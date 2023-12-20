@@ -1,0 +1,255 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 19, 2023 4:33:06 PM
+   Source : I:\android\
+     Dest : E:\monthly_backups\Dec\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2600      2600      2600         0         0         0
+   Files :      9434         0      9434         0         0         0
+   Bytes :   1.221 g         0   1.221 g         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 19, 2023 4:33:07 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 19, 2023 4:33:09 PM
+   Source : I:\android\
+     Dest : \\hksCenter\hks\backup\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2600      2600      2600         0         0         0
+   Files :      9430         0      9431         0         0         0
+   Bytes :   1.221 g         0   1.221 g         0         0         0
+   Times :   0:00:13   0:00:00                       0:00:00   0:00:13
+   Ended : Tuesday, December 19, 2023 4:33:23 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 19, 2023 7:18:39 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		       9	I:\android\APKs\planner\11.22.2023\version.txt100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2600      2600      2600         0         0         0
+   Files :      9434         1      9433         0         0         0
+   Bytes :   1.221 g         9   1.221 g         0         0         0
+   Times :   0:00:01   0:00:00                       0:00:00   0:00:01
+
+
+   Speed :               4,500 Bytes/sec.
+   Speed :               0.257 MegaBytes/min.
+   Ended : Tuesday, December 19, 2023 7:18:40 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 19, 2023 7:24:06 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2600      2600      2600         0         0         0
+   Files :      9427         0      9428         0         0         0
+   Bytes :   1.221 g         0   1.221 g         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 19, 2023 7:24:06 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 19, 2023 7:29:27 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2600      2600      2600         0         0         0
+   Files :      9428         0      9427         0         0         0
+   Bytes :   1.221 g         0   1.221 g         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 19, 2023 7:29:27 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 19, 2023 7:34:48 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2600      2600      2600         0         0         0
+   Files :      9429         0      9427         0         0         0
+   Bytes :   1.221 g         0   1.221 g         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 19, 2023 7:34:48 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 19, 2023 7:40:08 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2600      2600      2600         0         0         0
+   Files :      9432         0      9432         0         0         0
+   Bytes :   1.221 g         0   1.221 g         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 19, 2023 7:40:08 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 19, 2023 7:45:29 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2600      2600      2600         0         0         0
+   Files :      9431         0      9432         0         0         0
+   Bytes :   1.221 g         0   1.221 g         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 19, 2023 7:45:29 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 19, 2023 7:50:50 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2600      2600      2600         0         0         0
+   Files :      9426         0      9425         0         0         0
+   Bytes :   1.221 g         0   1.221 g         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 19, 2023 7:50:50 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 19, 2023 7:56:10 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2600      2600      2600         0         0         0
+   Files :      9433         0      9432         0         0         0
+   Bytes :   1.221 g         0   1.221 g         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 19, 2023 7:56:10 PM
+

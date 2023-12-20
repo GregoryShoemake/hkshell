@@ -755,7 +755,7 @@ function p_foo_remove ($parameters) {
             return
         }
         Default {
-            $removeReg = "(`n)?(\[[a-z]+])?$parameters=.+"
+            $removeReg = "(^|`n)(\[[a-z]+])?$parameters=.+?(`n|$)"
             $content = $global:c_
             $global:PERSIST = $content -replace $removeReg, ""
         }
