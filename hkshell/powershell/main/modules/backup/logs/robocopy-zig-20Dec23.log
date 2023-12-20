@@ -562,3 +562,645 @@
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
    Ended : Wednesday, December 20, 2023 11:49:07 AM
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:54:28 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		     137	I:\zig\project.cfg100%  
+	    Newer     		      26	I:\zig\.git\COMMIT_EDITMSG100%  
+	    Newer     		    6383	I:\zig\.git\index100%  
+	    Newer     		    1317	I:\zig\.git\logs\HEAD100%  
+	    Newer     		    1317	I:\zig\.git\logs\refs\heads\master100%  
+	    Newer     		      41	I:\zig\.git\refs\heads\master100%  
+	    New File  		      41	I:\zig\.git\refs\remotes\origin\master100%  
+	    New File  		      48	I:\zig\.git\objects\0c\de8b305ba121c120008bc7b0d1a2a008d2f19c100%  
+	    New File  		     120	I:\zig\.git\objects\03\e58cb29b5ab0b77ac957243a8f0a4912d7ca74100%  
+	    New File  		      81	I:\zig\.git\objects\2d\6e86a3c834a411b8242056f6736148961c9809100%  
+	    New File  		    1474	I:\zig\.git\objects\2e\db2f68ec514e6b217f966627130e950131234b100%  
+	    New File  		     171	I:\zig\.git\objects\47\eb3b55cfc241a58fb74c6435f85607b44e78b5100%  
+	    New File  		    1064	I:\zig\.git\objects\31\729e4f6fad0089526a316508b6ae68dbccd96b100%  
+	    New File  		    5386	I:\zig\.git\objects\33\174d1521705d3c1d840a9f38688c790d2ecc2a100%  
+	    New File  		     111	I:\zig\.git\objects\4a\caefc0c8b37bbd416c38de172981551ae13fcf100%  
+	    New File  		   68890	I:\zig\.git\objects\51\7e877f5e17e18eef759782922d76ded14a486c100%  
+	    New File  		     109	I:\zig\.git\objects\50\67095512bf43bf0fbef6264fabf053d0539390100%  
+	    New File  		    2704	I:\zig\.git\objects\57\a4d045dc2ecf2a8d69bb1ab3ac9937eeafeec0100%  
+	    New File  		      56	I:\zig\.git\objects\68\b262324a18fd83f8ddc3847b46f7973e66f52f100%  
+	    New File  		      72	I:\zig\.git\objects\58\7823e03450bd15cefe8787e8ece434da0160ae100%  
+	    New File  		  610406	I:\zig\.git\objects\70\63c49d8f8a1947166f24731709d05a53532f9e100%  
+	    New File  		     448	I:\zig\.git\objects\5d\3ad2fcaa605a029e9a1926526d4d76921bdb69100%  
+	    Newer     		     316	I:\zig\.git\logs\refs\remotes\origin\master100%  
+	    New File  		      83	I:\zig\.git\objects\72\e4e833be1ccf6801e70242cd909e171dffd096100%  
+	    New File  		  469008	I:\zig\.git\objects\75\23b354c60d01f827c95b28353f003a984be8f7100%  
+	    New File  		     110	I:\zig\.git\objects\7a\4e55044364cea7172687ad719616fe03036275100%  
+	    New File  		    1257	I:\zig\.git\objects\80\465775d85b85bcd8ba3b5c8e880f41ffdd72bc100%  
+	    New File  		      50	I:\zig\.git\objects\7d\1c2ff42ee09e66ed4628d23c9961da85cf4f3f100%  
+	    New File  		  264384	I:\zig\.git\objects\87\76add15ab0d8043ef15d53ab111525d6882a1d100%  
+	    New File  		      61	I:\zig\.git\objects\81\bd5ee90a8010fccf9754664db0e4ab45ce5391100%  
+	    New File  		    3051	I:\zig\.git\objects\8d\22e49112acbbc6316f5987866e8f39404924dd100%  
+	    New File  		      55	I:\zig\.git\objects\94\515b125eee873c288653b052634f214e2e1c3b100%  
+	    New File  		  486544	I:\zig\.git\objects\94\bbc2ce07c979dbb46595a5814aa34f24d6a667100%  
+	    New File  		    1475	I:\zig\.git\objects\90\58da2d1a84ea6c46fd0a3a49da31dae9b940e1100%  
+	    New File  		   1.7 m	I:\zig\.git\objects\9e\1f9c0e3fb637e06629567c4f9601bb665d6b89100%  
+	    New File  		  420934	I:\zig\.git\objects\9e\a8f166d58f84d19a0243096991b347e65adb40100%  
+	    New File  		     523	I:\zig\.git\objects\a0\fa67ad18dd6d90bca54f57e726929baaa7ae88100%  
+	    New File  		  479111	I:\zig\.git\objects\a1\1b1630d3d39bf915f3836433e8744ae34a3dc5100%  
+	    New File  		    1258	I:\zig\.git\objects\9f\f5b0a7f91f606fe1eabd05433acd5367f87cf7100%  
+	    New File  		  317205	I:\zig\.git\objects\aa\0fdf6055a51532b60fa19c5e8b2e6a4faa6524100%  
+	    New File  		  854680	I:\zig\.git\objects\b0\bc8e2dca46b43cdceaef6ba9e3aa08ef2a474c100%  
+	    New File  		     704	I:\zig\.git\objects\b2\bb0cd6b8347262dbecc5e75177055b3364339f100%  
+	    New File  		     188	I:\zig\.git\objects\c3\1e6c5fbfb179e8348dc354ad66221d519e9b07100%  
+	    New File  		  469190	I:\zig\.git\objects\b5\84ec1690cb381f86d36fa17564dca9f3d36b18100%  
+	    New File  		      56	I:\zig\.git\objects\be\f6846ffec78068b15255d7619055d40b4ff752100%  
+	    New File  		      82	I:\zig\.git\objects\c9\65af600342a40baad6dad535806e7f1d38f4fa100%  
+	    New File  		     110	I:\zig\.git\objects\c7\8f7e239daeeca3de2f1da8c26101ad5e8ae079100%  
+	    New File  		     113	I:\zig\.git\objects\cd\03573385b1b535e9f1d9d6d0d24597402d89bb100%  
+	    New File  		    2584	I:\zig\.git\objects\d2\8ec9e56265f6c756b57b042d5057e4c0234518100%  
+	    New File  		    1124	I:\zig\.git\objects\e0\764f327056612fde74625ebbbbc3ff5f094c5c100%  
+	    New File  		  982042	I:\zig\.git\objects\dc\976b80a233a133c8f62bc42d70511a02658a99100%  
+	    New File  		     107	I:\zig\.git\objects\dc\a859eac205e8fc458fc4d3ab32ee47aa388ea5100%  
+	    New File  		    1063	I:\zig\.git\objects\d6\316915a2343694a40468901e09f6d83e6fd2e4100%  
+	    New File  		      50	I:\zig\.git\objects\e5\e9b4e7cebc787bf311dfef7aa711edecc3e558100%  
+	    New File  		     110	I:\zig\.git\objects\eb\4cc047ba4b48eed9079cce8705543772d8be24100%  
+	    Newer     		  71.9 m	I:\zig\.git\objects\pack\pack-fb63666063731dbee8a583bfda19307aa316e620.pack100%  
+	    New File  		     126	I:\zig\.git\objects\f5\7de5073f11cd1ac51c9e0c5e0607ea65ecf5da100%  
+	    New File  		     202	I:\zig\.git\objects\f5\e7dcdaa703ed6092d430ffd9c9adc84c2f7912100%  
+	    New File  		     213	I:\zig\.git\objects\f9\80ae81e5961f31c27ec9a0e98629a165e37ff4100%  
+	    New File  		      27	I:\zig\.git\objects\f8\0fddc3ae327d1a1e86e64ee89b578fe76f91c7100%  
+	    New File  		      54	I:\zig\.git\objects\fc\6333bdeafddb4e4458a0479907d0ad444d2ce9100%  
+	    New File  		      93	I:\zig\.git\objects\ff\58a1838a610f83d8e8a7992815caa4157db1cc100%  
+	    New File  		    1400	I:\zig\.git\objects\ff\b32a30dee476c54c8750f0e0d277ebf77fd4ea100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        46         0         0         0
+   Files :       136        63        73         0         0         0
+   Bytes :  253.33 m   78.96 m  174.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           3,184,808,192 Bytes/sec.
+   Speed :             182,236.188 MegaBytes/min.
+   Ended : Wednesday, December 20, 2023 11:54:28 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:56:46 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:56:46 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 12:02:07 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 12:02:07 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 12:07:29 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 12:07:29 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 12:13:07 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 12:13:07 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 12:18:28 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 12:18:28 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 12:23:50 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 12:23:50 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 12:29:38 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 12:29:38 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 12:34:59 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 12:34:59 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 12:40:20 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 12:40:20 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 12:45:42 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 12:45:42 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 12:51:03 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 12:51:03 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 12:56:24 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 12:56:24 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:01:45 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:01:45 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:07:06 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:07:06 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:12:27 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:12:27 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:17:50 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:17:50 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:23:30 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:23:30 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:28:52 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:28:52 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:34:41 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:34:41 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:40:01 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:40:01 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:45:22 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:45:22 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:50:44 PM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        95        95        95         0         0         0
+   Files :       136         0       136         0         0         0
+   Bytes :  253.33 m         0  253.33 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:50:44 PM
+
