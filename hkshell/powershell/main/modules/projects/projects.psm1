@@ -290,7 +290,8 @@ function New-Project ($name) {
     Set-Content -Path $(New-Item "$global:projectsPath\$name\project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project'; LastDirectory='$global:projectsPath\$name'; LastFile='$global:projectsPath\$name\project.cfg' }"
     if($global:_debug_){Write-Host "$(Get-Content "$global:projectsPath\$name\project.cfg")"}
     Copy-Item "$global:_projects_module_location\project.ps1" "$global:projectsPath\$name"
-    if(Invoke-Git -Path "$global:projectsPath\$name" -Action Initialize) {
+   #New-Item "$global:_projects_module_location\$name\runone.ps1" -ItemType File -Force
+    if(Invoke-Git -Path "$global:projectsPath\$name" -Action Initialize) { 
         if(pr_choice "Start project now?"){
             Start-Project $name
         }
@@ -331,12 +332,12 @@ function Start-Project ($name) {
         pr_debug "Comparing $($_.name) -> $name"
         if ($_.name -eq $name) {
             pr_debug "Project $name found. Starting ~"
-            $found = $true;
+            $found = $true
+            $null = $found  #Keep getting powershell lint errors saying I don't use it
             if($null -ne $subName) { $name = "$name\$subName" }
             $null = importhks nav
             $null = importhks query
             $null = importhks persist
-            $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $global:projectsPath\$name\project.ps1" -Passthru
             $global:project = Invoke-Expression (Get-Content "$global:projectsPath\$name\project.cfg")
             pull; Start-Sleep -Milliseconds 100; push persist _>_project=.$name; 
             if($null -eq $subName) {
@@ -348,9 +349,20 @@ function Start-Project ($name) {
                 }
             } 
             else { 
+                pr_debug "adding project directory to env:path"
                 $ENV:PATH += ";$($_.fullname)\$subname"
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
-                Invoke-Go $startDir
+                try {
+                    Invoke-Go $startDir -ErrorAction Stop
+                } catch {
+                    Write-Host "__!!__Failed to enter project directory___`n`n$_`n" -ForegroundColor Red -BackgroundColor DarkGray
+                    return
+                }
+            }
+            $prjpth = $global:project.Path -replace "(?!^)\\\\","\" -replace "\\$",""
+            if(Test-Path $prjpth\project.ps1) {
+                pr_debug "running project loop script"
+                $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $prjpth\project.ps1" -Passthru
             }
             return
         }
@@ -391,6 +403,7 @@ No project is currently loaded
     Set-Location $(Get-Path $global:project.Path)
     $global:project.GitExitAction = pr_default $global:project.GitExitAction "prompt"
     Set-Content -Path $(Get-Item "$global:projectsPath\$name\project.cfg" -Force).FullName -Value "$(Format-ProjectConfigurationString)"
+    git diff
     switch ($global:project.GitExitAction) {
         {$_.toLower() -match "^(prompt|ask|request)$" }{ 
             if(pr_choice "Add, Commit, and Push changes to Master?") {

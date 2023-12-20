@@ -1,0 +1,25 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:47:23 AM
+   Source : I:\NavyFedApi\
+     Dest : E:\realtime_backups\NavyFedApi\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        25        25        25         0         0         0
+   Files :        34         0        34         0         0         0
+   Bytes :    37.2 k         0    37.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:47:23 AM
+

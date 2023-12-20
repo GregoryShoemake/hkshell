@@ -371,7 +371,9 @@ function p_match {
         [switch]
         $getMatch = $false,
         [Parameter()]
-        $logic = "OR"
+        $logic = "OR", 
+        [Parameter()]
+        $index = 0
     )
     if ($null -eq $string) {
         if ($getMatch) { return $null }
@@ -396,7 +398,7 @@ function p_match {
     $found = $string -match $regex
     if ($found) {
         if ($getMatch) {
-            return $Matches[0]
+            return $Matches[$index]
         }
         return $logic -ne "NOT"
     }
@@ -753,7 +755,7 @@ function p_foo_remove ($parameters) {
             return
         }
         Default {
-            $removeReg = "(`n)?(\[[a-z]+])?$parameters=.+"
+            $removeReg = "(^|`n)(\[[a-z]+])?$parameters=.+?(`n|$)"
             $content = $global:c_
             $global:PERSIST = $content -replace $removeReg, ""
         }
@@ -1335,7 +1337,9 @@ function p_foo ($name, $params) {
             if($params -match "vol::") {
                 $null = importhks nav
                 $appendVol = $true
-                $params = $params -replace "vol::",""
+                $volSyn = p_match $params "(vol::.+?::\\.+?)(::|$)" -getmatch -index 1
+                $volPath = Get-Path $volSyn
+                $params = $params -replace (p_stringify_regex $volSyn),"vol"
             }
             $spl = $params -split "::"
             if(($spl.count -ne 2) -and ($spl.count -ne 3)) {
@@ -1344,8 +1348,7 @@ function p_foo ($name, $params) {
             $name = $spl[0]
             $path = $spl[1]
             if($appendVol) { 
-                [string]$path = "vol::" + $path 
-                $path = Get-Path $path
+                [string]$path = $volPath
             }
             $yesno = p_default $spl[2] "no"
             p_debug "split: [0]$($spl[0]) [1]$($spl[1]) [2]$($yesno)"
@@ -1374,6 +1377,25 @@ function p_foo ($name, $params) {
             Invoke-Scopes
             Set-Scope $spl[0]
         }
+        { $_ -match "^(cat|content|get-content)$"} {
+            $l_ = p_getLine $global:c_ $params
+            $v_ = (p_getVal $l_) -replace "(?!^)\\\\","\" -replace "\\$",""
+            if($v_ -match "^vol::") {
+                try {
+                    $null = Import-HKShell nav -ErrorAction Stop
+                } catch {
+                    Write-Host "!__Failed to import hkshell navigation module___!`n`n$_`n" -ForegroundColor Red
+                    return
+                }
+                $v_ = Get-Path $v_
+            }
+            try {
+                return Get-Content $v_ -Force -ErrorAction Stop
+            } catch {
+                Write-Host "!___Failed to get content from $($v_)___!`n`n$_`n" -ForegroundColor Red
+                return
+            }
+        }
         Default {}
     }
 }
@@ -1383,7 +1405,7 @@ function p_throw ($code, $message, $meta ) {
     write-host "| persist.psm1 |" -ForegroundColor RED
     switch ($code) {
         { ($_ -eq -1) -or ($_ -eq "SyntaxParseFailure") } { $code = -1; write-host "Syntax parse failed with code ($message)" -ForegroundColor Red }
-        { ($_ -eq 1) -or ($_ -eq "ElementAlreadyAssigned") } { $code = 1; write-host "[$message] already assigned" -ForegroundColor Red }
+        { ($_ -eq 01) -or ($_ -eq "ElementAlreadyAssigned") } { $code = 1; write-host "[$message] already assigned" -ForegroundColor Red }
         { ($_ -eq 10) -or ($_ -eq "IllegalValueAssignment") } { $code = 10; write-host "illegal character: $message :when trying to record [$meta]"  -ForegroundColor Red }
         { ($_ -eq 20) -or ($_ -eq "IllegalRecordBefore") } { $code = 20; write-host "Cannot record [$message] before [$meta] has been defined"  -ForegroundColor Red }
         { ($_ -eq 21) -or ($_ -eq "IllegalRecordAfter") } { $code = 21; write-host "Cannot record [$message] after [$meta] has been defined"  -ForegroundColor Red }
