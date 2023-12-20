@@ -1,0 +1,564 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:32:54 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    New File  		     119	I:\zig\project.cfg100%  
+	    New File  		    7277	I:\zig\project.ps1100%  
+	    New File  		     915	I:\zig\source.zig100%  
+	    New File  		 148.2 m	I:\zig\zig.exe 18%   38%   56%  100%  
+	    New File  		      17	I:\zig\.git\COMMIT_EDITMSG100%  
+	    New File  		     275	I:\zig\.git\config100%  
+	    New File  		      73	I:\zig\.git\description100%  
+	    New File  		      92	I:\zig\.git\FETCH_HEAD100%  
+	    New File  		      23	I:\zig\.git\HEAD100%  
+	    New File  		     225	I:\zig\.git\index100%  
+	    New File  		      41	I:\zig\.git\ORIG_HEAD100%  
+	    New File  		     173	I:\zig\.git\packed-refs100%  
+	    New File  		    3851	I:\zig\.active\hello\build.zig100%  
+	    New File  		    2861	I:\zig\.active\hello\build.zig.zon100%  
+	    New File  		       0	I:\zig\.active\hello\hello.zig100%  
+	    New File  		    1140	I:\zig\.git\logs\HEAD100%  
+	    New File  		     240	I:\zig\.git\info\exclude100%  
+	    New File  		     127	I:\zig\.git\info\refs100%  
+	    New File  		     478	I:\zig\.git\hooks\applypatch-msg.sample100%  
+	    New File  		     896	I:\zig\.git\hooks\commit-msg.sample100%  
+	    New File  		    4726	I:\zig\.git\hooks\fsmonitor-watchman.sample100%  
+	    New File  		     189	I:\zig\.git\hooks\post-update.sample100%  
+	    New File  		     424	I:\zig\.git\hooks\pre-applypatch.sample100%  
+	    New File  		    1643	I:\zig\.git\hooks\pre-commit.sample100%  
+	    New File  		     416	I:\zig\.git\hooks\pre-merge-commit.sample100%  
+	    New File  		    1374	I:\zig\.git\hooks\pre-push.sample100%  
+	    New File  		    4898	I:\zig\.git\hooks\pre-rebase.sample100%  
+	    New File  		     544	I:\zig\.git\hooks\pre-receive.sample100%  
+	    New File  		    1492	I:\zig\.git\hooks\prepare-commit-msg.sample100%  
+	    New File  		    2783	I:\zig\.git\hooks\push-to-checkout.sample100%  
+	    New File  		    2308	I:\zig\.git\hooks\sendemail-validate.sample100%  
+	    New File  		    3650	I:\zig\.git\hooks\update.sample100%  
+	    New File  		     915	I:\zig\.active\hello\src\main.zig100%  
+	    New File  		     191	I:\zig\.active\hello\src\root.zig100%  
+	    New File  		      41	I:\zig\.git\refs\heads\master100%  
+	    New File  		     166	I:\zig\.git\objects\44\3e4ec310e95842315610d2a820f2095daa4bbb100%  
+	    New File  		      83	I:\zig\.git\objects\f4\fc2a93e48c8429fce15c7335db7942c50ac74a100%  
+	    New File  		    1232	I:\zig\.git\objects\info\commit-graph100%  
+	    New File  		      54	I:\zig\.git\objects\info\packs100%  
+	    New File  		  351548	I:\zig\.git\objects\pack\pack-fb63666063731dbee8a583bfda19307aa316e620.idx100%  
+	    New File  		  71.9 m	I:\zig\.git\objects\pack\pack-fb63666063731dbee8a583bfda19307aa316e620.pack100%  
+	    New File  		   50120	I:\zig\.git\objects\pack\pack-fb63666063731dbee8a583bfda19307aa316e620.rev100%  
+	    New File  		    1140	I:\zig\.git\logs\refs\heads\master100%  
+	    New File  		   1.4 m	I:\zig\.active\hello\zig-out\lib\hello.lib100%  
+	    New File  		    1283	I:\zig\.active\hello\zig-cache\z\0e3cf9a9533a15fd14188c64981386a6100%  
+	    New File  		  162430	I:\zig\.active\hello\zig-cache\z\31d58ffa9815698d4286aa0ddd17e1d8100%  
+	    New File  		    2859	I:\zig\.active\hello\zig-cache\z\938db439b8693570da19f73dcb4e421f100%  
+	    New File  		  716800	I:\zig\.active\hello\zig-out\bin\hello.exe100%  
+	    New File  		   1.2 m	I:\zig\.active\hello\zig-out\bin\hello.pdb100%  
+	    New File  		       0	I:\zig\.active\hello\zig-cache\h\0a146b57c57fbf136d80fc308fcd262b.txt100%  
+	    New File  		     114	I:\zig\.active\hello\zig-cache\h\18c4bebc1747758b6927fadffe5b460c.txt100%  
+	    New File  		   13532	I:\zig\.active\hello\zig-cache\h\4997898652aad6dc52f067d1a55548d3.txt100%  
+	    New File  		     117	I:\zig\.active\hello\zig-cache\h\a2df9ffc718447347639c6e84fc4fb88.txt100%  
+	    New File  		    6511	I:\zig\.active\hello\zig-cache\h\acb1d08409807211f97ba2f4a75f60f4.txt100%  
+	    New File  		     117	I:\zig\.active\hello\zig-cache\h\c3d4aabdc875d08ae1fc67edb2af5e52.txt100%  
+	    New File  		    7661	I:\zig\.active\hello\zig-cache\h\d5ced2606319252863867fe8589f5edc.txt100%  
+	    New File  		    6804	I:\zig\.active\hello\zig-cache\h\df0dd6d9531e89fe61b670e0290c88b5.txt100%  
+	    New File  		     135	I:\zig\.active\hello\zig-cache\h\fc615c50b49376eb7430503379e67765.txt100%  
+	    New File  		       0	I:\zig\.active\hello\zig-cache\h\fcc4804e1078749f8a7a24377d90c811.txt100%  
+	    New File  		       0	I:\zig\.active\hello\zig-cache\h\timestamp100%  
+	    New File  		     158	I:\zig\.git\logs\refs\remotes\origin\master100%  
+	    New File  		  839168	I:\zig\.active\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.exe100%  
+	    New File  		   1.9 m	I:\zig\.active\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.exe.obj100%  
+	    New File  		   1.4 m	I:\zig\.active\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.pdb100%  
+	    New File  		    2708	I:\zig\.active\hello\zig-cache\o\08c1406c042ac94295141e73c20d7d28\builtin.zig100%  
+	    New File  		   1.4 m	I:\zig\.active\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\hello.lib100%  
+	    New File  		   1.4 m	I:\zig\.active\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\hello.lib.obj100%  
+	    New File  		   2.3 m	I:\zig\.active\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.exe100%  
+	    New File  		   6.0 m	I:\zig\.active\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.exe.obj100%  
+	    New File  		   3.0 m	I:\zig\.active\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.pdb100%  
+	    New File  		    2828	I:\zig\.active\hello\zig-cache\o\4c86a4c61ba5d9028958b3470a07f1dc\builtin.zig100%  
+	    New File  		     103	I:\zig\.active\hello\zig-cache\o\6e5995b18c0351a390f22c125ce837a2\dependencies.zig100%  
+	    New File  		    2708	I:\zig\.active\hello\zig-cache\o\a5d01d2e1fdd6ccbadb58d624bcb0988\builtin.zig100%  
+	    New File  		  716800	I:\zig\.active\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.exe100%  
+	    New File  		   1.4 m	I:\zig\.active\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.exe.obj100%  
+	    New File  		   1.2 m	I:\zig\.active\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.pdb100%  
+	    New File  		    2708	I:\zig\.active\hello\zig-cache\o\45295e2e5d2045f89e09dad6459c7b04\builtin.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44         0         0         0         0
+   Files :        77        77         0         0         0         0
+   Bytes :  246.36 m  246.36 m         0         0         0         0
+   Times :   0:00:04   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           363,845,764 Bytes/sec.
+   Speed :            20,819.422 MegaBytes/min.
+   Ended : Wednesday, December 20, 2023 10:32:55 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:38:16 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44        44         0         0         0
+   Files :        77         0        77         0         0         0
+   Bytes :  246.36 m         0  246.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:38:16 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:43:36 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44        44         0         0         0
+   Files :        77         0        77         0         0         0
+   Bytes :  246.36 m         0  246.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:43:36 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:48:58 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44        44         0         0         0
+   Files :        77         0        77         0         0         0
+   Bytes :  246.36 m         0  246.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:48:58 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:54:19 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44        44         0         0         0
+   Files :        77         0        77         0         0         0
+   Bytes :  246.36 m         0  246.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:54:19 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:59:45 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44        44         0         0         0
+   Files :        77         0        77         0         0         0
+   Bytes :  246.36 m         0  246.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:59:45 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:05:06 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44        44         0         0         0
+   Files :        77         0        77         0         0         0
+   Bytes :  246.36 m         0  246.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:05:06 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:10:27 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44        44         0         0         0
+   Files :        77         0        77         0         0         0
+   Bytes :  246.36 m         0  246.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:10:27 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:15:47 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44        44         0         0         0
+   Files :        77         0        77         0         0         0
+   Bytes :  246.36 m         0  246.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:15:47 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:21:08 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44        44         0         0         0
+   Files :        77         0        77         0         0         0
+   Bytes :  246.36 m         0  246.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:21:08 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:26:57 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44        44         0         0         0
+   Files :        77         0        77         0         0         0
+   Bytes :  246.36 m         0  246.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:26:57 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:32:45 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        44        44        44         0         0         0
+   Files :        77         0        77         0         0         0
+   Bytes :  246.36 m         0  246.36 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:32:45 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:38:05 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		     915	I:\zig\source.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\
+100%  	  *EXTRA File 		    3851	E:\realtime_backups\zig\.active\hello\build.zig
+	  *EXTRA File 		    2861	E:\realtime_backups\zig\.active\hello\build.zig.zon
+	  *EXTRA File 		       0	E:\realtime_backups\zig\.active\hello\hello.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\src\
+	  *EXTRA File 		     915	E:\realtime_backups\zig\.active\hello\src\main.zig
+	  *EXTRA File 		     191	E:\realtime_backups\zig\.active\hello\src\root.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\h\
+	  *EXTRA File 		       0	E:\realtime_backups\zig\.active\hello\zig-cache\h\0a146b57c57fbf136d80fc308fcd262b.txt
+	  *EXTRA File 		     114	E:\realtime_backups\zig\.active\hello\zig-cache\h\18c4bebc1747758b6927fadffe5b460c.txt
+	  *EXTRA File 		   13532	E:\realtime_backups\zig\.active\hello\zig-cache\h\4997898652aad6dc52f067d1a55548d3.txt
+	  *EXTRA File 		     117	E:\realtime_backups\zig\.active\hello\zig-cache\h\a2df9ffc718447347639c6e84fc4fb88.txt
+	  *EXTRA File 		    6511	E:\realtime_backups\zig\.active\hello\zig-cache\h\acb1d08409807211f97ba2f4a75f60f4.txt
+	  *EXTRA File 		     117	E:\realtime_backups\zig\.active\hello\zig-cache\h\c3d4aabdc875d08ae1fc67edb2af5e52.txt
+	  *EXTRA File 		    7661	E:\realtime_backups\zig\.active\hello\zig-cache\h\d5ced2606319252863867fe8589f5edc.txt
+	  *EXTRA File 		    6804	E:\realtime_backups\zig\.active\hello\zig-cache\h\df0dd6d9531e89fe61b670e0290c88b5.txt
+	  *EXTRA File 		     135	E:\realtime_backups\zig\.active\hello\zig-cache\h\fc615c50b49376eb7430503379e67765.txt
+	  *EXTRA File 		       0	E:\realtime_backups\zig\.active\hello\zig-cache\h\fcc4804e1078749f8a7a24377d90c811.txt
+	  *EXTRA File 		       0	E:\realtime_backups\zig\.active\hello\zig-cache\h\timestamp
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\o\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\
+	  *EXTRA File 		  839168	E:\realtime_backups\zig\.active\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.exe
+	  *EXTRA File 		   1.9 m	E:\realtime_backups\zig\.active\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.exe.obj
+	  *EXTRA File 		   1.4 m	E:\realtime_backups\zig\.active\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.pdb
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\o\08c1406c042ac94295141e73c20d7d28\
+	  *EXTRA File 		    2708	E:\realtime_backups\zig\.active\hello\zig-cache\o\08c1406c042ac94295141e73c20d7d28\builtin.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\
+	  *EXTRA File 		   1.4 m	E:\realtime_backups\zig\.active\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\hello.lib
+	  *EXTRA File 		   1.4 m	E:\realtime_backups\zig\.active\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\hello.lib.obj
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\o\45295e2e5d2045f89e09dad6459c7b04\
+	  *EXTRA File 		    2708	E:\realtime_backups\zig\.active\hello\zig-cache\o\45295e2e5d2045f89e09dad6459c7b04\builtin.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\o\4c86a4c61ba5d9028958b3470a07f1dc\
+	  *EXTRA File 		    2828	E:\realtime_backups\zig\.active\hello\zig-cache\o\4c86a4c61ba5d9028958b3470a07f1dc\builtin.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\
+	  *EXTRA File 		   2.3 m	E:\realtime_backups\zig\.active\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.exe
+	  *EXTRA File 		   6.0 m	E:\realtime_backups\zig\.active\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.exe.obj
+	  *EXTRA File 		   3.0 m	E:\realtime_backups\zig\.active\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.pdb
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\o\6e5995b18c0351a390f22c125ce837a2\
+	  *EXTRA File 		     103	E:\realtime_backups\zig\.active\hello\zig-cache\o\6e5995b18c0351a390f22c125ce837a2\dependencies.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\o\a5d01d2e1fdd6ccbadb58d624bcb0988\
+	  *EXTRA File 		    2708	E:\realtime_backups\zig\.active\hello\zig-cache\o\a5d01d2e1fdd6ccbadb58d624bcb0988\builtin.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\
+	  *EXTRA File 		  716800	E:\realtime_backups\zig\.active\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.exe
+	  *EXTRA File 		   1.4 m	E:\realtime_backups\zig\.active\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.exe.obj
+	  *EXTRA File 		   1.2 m	E:\realtime_backups\zig\.active\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.pdb
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\tmp\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\tmp\24e470a84764db48\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\tmp\4758e61c8c772a26\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\tmp\5feded4c0b19d06\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\tmp\a19cd602d43d9866\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-cache\z\
+	  *EXTRA File 		    1283	E:\realtime_backups\zig\.active\hello\zig-cache\z\0e3cf9a9533a15fd14188c64981386a6
+	  *EXTRA File 		  162430	E:\realtime_backups\zig\.active\hello\zig-cache\z\31d58ffa9815698d4286aa0ddd17e1d8
+	  *EXTRA File 		    2859	E:\realtime_backups\zig\.active\hello\zig-cache\z\938db439b8693570da19f73dcb4e421f
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-out\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-out\bin\
+	  *EXTRA File 		  716800	E:\realtime_backups\zig\.active\hello\zig-out\bin\hello.exe
+	  *EXTRA File 		   1.2 m	E:\realtime_backups\zig\.active\hello\zig-out\bin\hello.pdb
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\hello\zig-out\lib\
+	  *EXTRA File 		   1.4 m	E:\realtime_backups\zig\.active\hello\zig-out\lib\hello.lib
+	    New File  		    3851	I:\zig\.archive\hello\build.zig100%  
+	    New File  		    2861	I:\zig\.archive\hello\build.zig.zon100%  
+	    New File  		       0	I:\zig\.archive\hello\hello.zig100%  
+	    New File  		     915	I:\zig\.archive\hello\src\main.zig100%  
+	    New File  		     191	I:\zig\.archive\hello\src\root.zig100%  
+	    New File  		  716800	I:\zig\.archive\hello\zig-out\bin\hello.exe100%  
+	    New File  		   1.2 m	I:\zig\.archive\hello\zig-out\bin\hello.pdb100%  
+	    New File  		   1.4 m	I:\zig\.archive\hello\zig-out\lib\hello.lib100%  
+	    New File  		       0	I:\zig\.archive\hello\zig-cache\h\0a146b57c57fbf136d80fc308fcd262b.txt100%  
+	    New File  		     114	I:\zig\.archive\hello\zig-cache\h\18c4bebc1747758b6927fadffe5b460c.txt100%  
+	    New File  		   13532	I:\zig\.archive\hello\zig-cache\h\4997898652aad6dc52f067d1a55548d3.txt100%  
+	    New File  		     117	I:\zig\.archive\hello\zig-cache\h\a2df9ffc718447347639c6e84fc4fb88.txt100%  
+	    New File  		    6511	I:\zig\.archive\hello\zig-cache\h\acb1d08409807211f97ba2f4a75f60f4.txt100%  
+	    New File  		     117	I:\zig\.archive\hello\zig-cache\h\c3d4aabdc875d08ae1fc67edb2af5e52.txt100%  
+	    New File  		    7661	I:\zig\.archive\hello\zig-cache\h\d5ced2606319252863867fe8589f5edc.txt100%  
+	    New File  		    6804	I:\zig\.archive\hello\zig-cache\h\df0dd6d9531e89fe61b670e0290c88b5.txt100%  
+	    New File  		     135	I:\zig\.archive\hello\zig-cache\h\fc615c50b49376eb7430503379e67765.txt100%  
+	    New File  		       0	I:\zig\.archive\hello\zig-cache\h\fcc4804e1078749f8a7a24377d90c811.txt100%  
+	    New File  		       0	I:\zig\.archive\hello\zig-cache\h\timestamp100%  
+	    New File  		    1283	I:\zig\.archive\hello\zig-cache\z\0e3cf9a9533a15fd14188c64981386a6100%  
+	    New File  		  162430	I:\zig\.archive\hello\zig-cache\z\31d58ffa9815698d4286aa0ddd17e1d8100%  
+	    New File  		    2859	I:\zig\.archive\hello\zig-cache\z\938db439b8693570da19f73dcb4e421f100%  
+	    New File  		  839168	I:\zig\.archive\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.exe100%  
+	    New File  		   1.9 m	I:\zig\.archive\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.exe.obj100%  
+	    New File  		   1.4 m	I:\zig\.archive\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.pdb100%  
+	    New File  		    2708	I:\zig\.archive\hello\zig-cache\o\08c1406c042ac94295141e73c20d7d28\builtin.zig100%  
+	    New File  		   1.4 m	I:\zig\.archive\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\hello.lib100%  
+	    New File  		   1.4 m	I:\zig\.archive\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\hello.lib.obj100%  
+	    New File  		    2708	I:\zig\.archive\hello\zig-cache\o\45295e2e5d2045f89e09dad6459c7b04\builtin.zig100%  
+	    New File  		     103	I:\zig\.archive\hello\zig-cache\o\6e5995b18c0351a390f22c125ce837a2\dependencies.zig100%  
+	    New File  		    2828	I:\zig\.archive\hello\zig-cache\o\4c86a4c61ba5d9028958b3470a07f1dc\builtin.zig100%  
+	    New File  		   2.3 m	I:\zig\.archive\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.exe100%  
+	    New File  		   6.0 m	I:\zig\.archive\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.exe.obj100%  
+	    New File  		   3.0 m	I:\zig\.archive\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.pdb100%  
+	    New File  		    2708	I:\zig\.archive\hello\zig-cache\o\a5d01d2e1fdd6ccbadb58d624bcb0988\builtin.zig100%  
+	    New File  		  716800	I:\zig\.archive\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.exe100%  
+	    New File  		   1.4 m	I:\zig\.archive\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.exe.obj100%  
+	    New File  		   1.2 m	I:\zig\.archive\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.pdb100%  
+	    New File  		    3855	I:\zig\.active\persist\build.zig100%  
+	    New File  		    2863	I:\zig\.active\persist\build.zig.zon100%  
+	    New File  		     915	I:\zig\.active\persist\src\main.zig100%  
+	    New File  		     191	I:\zig\.active\persist\src\root.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        46        46        21         0         0        23
+   Files :        81        43        38         0         0        38
+   Bytes :  246.37 m   25.73 m  220.63 m         0         0   25.72 m
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           2,075,926,692 Bytes/sec.
+   Speed :             118,785.477 MegaBytes/min.
+   Ended : Wednesday, December 20, 2023 11:38:05 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:43:42 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        46        46        46         0         0         0
+   Files :        81         0        81         0         0         0
+   Bytes :  246.37 m         0  246.37 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:43:42 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:49:07 AM
+   Source : I:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        46        46        46         0         0         0
+   Files :        81         0        81         0         0         0
+   Bytes :  246.37 m         0  246.37 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:49:07 AM
+
