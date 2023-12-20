@@ -888,7 +888,7 @@ function Get-PersistContent ($inputScope, [switch]$fromItem) {
     }
 }
 
-function pull {
+function Invoke-PullWrapper {
     Invoke-Pull
     $a_ = $args -join " "
     if ($global:_debug_) { Write-Host "pull => args: $a_" -ForegroundColor Green }
@@ -896,7 +896,7 @@ function pull {
     return Invoke-Expression $a_
 }
 
-function push {
+function Invoke-PushWrapper {
     $a_ = $args -join " "
     if ($global:_debug_) { Write-Host "push => args: $a_" -ForegroundColor Green }
     if (p_nullemptystr $a_) {
