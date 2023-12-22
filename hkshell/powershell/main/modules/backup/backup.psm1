@@ -326,7 +326,7 @@ function Format-BackupConfiguration {
             }
         } elseif($null -eq $aLocation) { 
             if(bk_choice "Modify full image backup settings?") {
-                push Invoke-Persist remove>_bareMetalBackup
+                Invoke-PushWrapper Invoke-Persist remove>_bareMetalBackup
                 return Format-BackupConfiguration -goto baremetalbackup
             }
         } elseif($null -ne $bLocation) {
@@ -341,7 +341,7 @@ function Format-BackupConfiguration {
         }
         $goto = $null
     }
-    push
+    Invoke-PushWrapper
 }
 function Start-CheckDiskIntegrity ($path, $log) {
     $locBak = Get-Location

@@ -3490,3 +3490,2734 @@
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
    Ended : Wednesday, December 20, 2023 1:50:43 PM
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:56:04 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:56:04 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:01:25 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:01:25 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:07:06 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:07:06 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:12:27 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:12:27 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:17:47 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:17:47 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:23:08 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:23:08 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:28:29 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:28:29 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:33:50 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:33:50 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:39:10 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:39:10 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:44:59 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:44:59 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:50:19 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:50:19 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:55:39 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:55:39 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:01:00 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:01:00 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:06:21 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:06:21 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:11:42 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:11:42 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:17:03 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:17:03 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:22:24 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:22:24 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:27:46 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:27:46 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:33:07 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:33:07 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:38:28 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:38:28 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:43:49 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:43:49 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:49:10 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:49:11 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:54:50 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:54:50 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:00:11 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:00:11 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:05:33 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:05:33 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:11:21 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:11:21 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:16:43 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:16:43 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:22:04 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:22:04 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:27:26 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:27:26 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:32:47 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:32:47 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:38:08 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:38:08 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:43:30 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:43:30 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:48:51 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:48:51 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:54:13 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:54:13 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:59:34 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:59:34 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:04:56 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:04:56 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:10:17 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:10:17 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:15:38 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:15:38 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:20:58 PM
+   Source : I:\assembly\
+     Dest : E:\monthly_backups\Dec\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		      47	I:\assembly\mllink$.lnk100%  
+	    Newer     		     105	I:\assembly\persist.cfg100%  
+	    Newer     		     160	I:\assembly\project.cfg100%  
+	    Newer     		    3072	I:\assembly\res.exe100%  
+	    Newer     		   13017	I:\assembly\source.asm100%  
+	    Newer     		     150	I:\assembly\.git\COMMIT_EDITMSG100%  
+	    Newer     		    1831	I:\assembly\.git\index100%  
+	    Newer     		   13017	I:\assembly\.active\calculator\calculator.asm100%  
+	    Newer     		    2919	I:\assembly\.git\logs\HEAD100%  
+	    Newer     		      41	I:\assembly\.git\refs\heads\master100%  
+	    Newer     		    2919	I:\assembly\.git\logs\refs\heads\master100%  
+	    Newer     		      41	I:\assembly\.git\refs\remotes\origin\master100%  
+	    New File  		     104	I:\assembly\.git\objects\27\ef0c5cea9adce36a03cf4f55082c737129fd1b100%  
+	    New File  		      59	I:\assembly\.git\objects\44\2cf2bcabd343e28b9139f904bbe5d04205196c100%  
+	    New File  		     426	I:\assembly\.git\objects\6a\301522785c41c27839bccd3b70cbe1ae9e607e100%  
+	    New File  		    1049	I:\assembly\.git\objects\86\08522f0ea387c67ce4a00686f8e6610c469729100%  
+	    New File  		     277	I:\assembly\.git\objects\bd\e877e7249f3c8fc7895960b9906c7eb7bc032f100%  
+	    New File  		     133	I:\assembly\.git\objects\c8\9a9330477e8e5e5f709cb679e0936232d99800100%  
+	    New File  		    3544	I:\assembly\.git\objects\cc\0c40744da50827ff3e09ea9796b43f327530ae100%  
+	    New File  		     250	I:\assembly\.git\objects\d9\ddb510dbf676daaf44954c7ccd3479cd803ce9100%  
+	    New File  		      52	I:\assembly\.git\objects\e4\3b6c8aa80af19c2a3c2a427d0bc0a91ad4b07f100%  
+	    New File  		      56	I:\assembly\.git\objects\e5\fc65ef9ca7b49ae060c26457d88a8152cb84b5100%  
+	    Newer     		    2659	I:\assembly\.git\objects\pack\pack-e160f8287768180f2db9565d122d2ba941de4cfd.pack100%  
+	    Newer     		    1264	I:\assembly\.git\logs\refs\remotes\origin\master100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        73         0         0         0
+   Files :       115        24        91         0         0         0
+   Bytes :   510.9 k    46.0 k   464.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           3,932,666 Bytes/sec.
+   Speed :             225.029 MegaBytes/min.
+   Ended : Wednesday, December 20, 2023 5:20:58 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:21:14 PM
+   Source : I:\assembly\
+     Dest : \\hksCenter\hks\backup\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		      47	I:\assembly\mllink$.lnk100%  
+	    Newer     		     105	I:\assembly\persist.cfg100%  
+	    Newer     		     160	I:\assembly\project.cfg100%  
+	    Newer     		    3072	I:\assembly\res.exe100%  
+	    Newer     		   13017	I:\assembly\source.asm100%  
+	    Newer     		     150	I:\assembly\.git\COMMIT_EDITMSG100%  
+	    Newer     		    1831	I:\assembly\.git\index100%  
+	    Newer     		   13017	I:\assembly\.active\calculator\calculator.asm100%  
+	    Newer     		    2919	I:\assembly\.git\logs\HEAD100%  
+	    Newer     		      41	I:\assembly\.git\refs\heads\master100%  
+	    New File  		     104	I:\assembly\.git\objects\27\ef0c5cea9adce36a03cf4f55082c737129fd1b100%  
+	    New File  		      59	I:\assembly\.git\objects\44\2cf2bcabd343e28b9139f904bbe5d04205196c100%  
+	    New File  		     426	I:\assembly\.git\objects\6a\301522785c41c27839bccd3b70cbe1ae9e607e100%  
+	    New File  		    1049	I:\assembly\.git\objects\86\08522f0ea387c67ce4a00686f8e6610c469729100%  
+	    New File  		     133	I:\assembly\.git\objects\c8\9a9330477e8e5e5f709cb679e0936232d99800100%  
+	    New File  		     277	I:\assembly\.git\objects\bd\e877e7249f3c8fc7895960b9906c7eb7bc032f100%  
+	    New File  		    3544	I:\assembly\.git\objects\cc\0c40744da50827ff3e09ea9796b43f327530ae100%  
+	    New File  		     250	I:\assembly\.git\objects\d9\ddb510dbf676daaf44954c7ccd3479cd803ce9100%  
+	    New File  		      56	I:\assembly\.git\objects\e5\fc65ef9ca7b49ae060c26457d88a8152cb84b5100%  
+	    New File  		      52	I:\assembly\.git\objects\e4\3b6c8aa80af19c2a3c2a427d0bc0a91ad4b07f100%  
+	    Newer     		    2659	I:\assembly\.git\objects\pack\pack-e160f8287768180f2db9565d122d2ba941de4cfd.pack100%  
+	    Newer     		    2919	I:\assembly\.git\logs\refs\heads\master100%  
+	    Newer     		      41	I:\assembly\.git\refs\remotes\origin\master100%  
+	    Newer     		    1264	I:\assembly\.git\logs\refs\remotes\origin\master100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        73         0         0         0
+   Files :       115        24        91         0         0         0
+   Bytes :   510.9 k    46.0 k   464.8 k         0         0         0
+   Times :   0:00:04   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :              62,340 Bytes/sec.
+   Speed :               3.567 MegaBytes/min.
+   Ended : Wednesday, December 20, 2023 5:21:15 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:23:47 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:23:47 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:29:12 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:29:12 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:34:33 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:34:33 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:39:54 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:39:54 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:45:15 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:45:15 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:50:37 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:50:37 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:55:58 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:55:58 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:01:20 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:01:20 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:06:41 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:06:41 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:12:23 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:12:23 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:17:48 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:17:48 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:23:10 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:23:10 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:28:31 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:28:31 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:33:52 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:33:52 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:39:14 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:39:14 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:44:34 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:44:34 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:49:56 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:49:56 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:55:17 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:55:17 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:00:38 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:00:38 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:05:59 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:05:59 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:11:27 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:11:27 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:17:10 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:17:10 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:22:31 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:22:31 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:27:52 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:27:52 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:33:30 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:33:30 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:38:51 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:38:51 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:44:12 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:44:12 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:49:54 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:49:54 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:55:16 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:55:16 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 8:42:09 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 8:42:09 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 8:47:32 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 8:47:32 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 8:52:53 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       114         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 8:52:53 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 8:58:15 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       114         0       114         0         0         0
+   Bytes :   510.8 k         0   510.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 8:58:15 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:03:36 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:03:36 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:08:57 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:08:57 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:14:18 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:14:18 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:19:39 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:19:39 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:25:00 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:25:00 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:30:22 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:30:22 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:35:43 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:35:43 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:41:07 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:41:07 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:46:49 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:46:49 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:52:10 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:52:10 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:57:32 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:57:32 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:02:53 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:02:53 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:08:15 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:08:15 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:13:36 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:13:36 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:19:24 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:19:24 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:25:11 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:25:11 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:30:35 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:30:35 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:35:56 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:35:56 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:41:17 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:41:17 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:46:39 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:46:39 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:52:01 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:52:01 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:57:22 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:57:22 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:02:44 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:02:44 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:08:06 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:08:06 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:09:59 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:09:59 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:15:21 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:15:21 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:20:41 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:20:41 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:26:02 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:26:02 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:31:23 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:31:23 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:36:44 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:36:44 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:42:05 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:42:05 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:47:26 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:47:26 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:52:47 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:52:47 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:58:08 PM
+   Source : I:\assembly\
+     Dest : E:\realtime_backups\assembly\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        81        81        81         0         0         0
+   Files :       115         0       115         0         0         0
+   Bytes :   510.9 k         0   510.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:58:08 PM
+
