@@ -3447,3 +3447,2810 @@
    Speed :             308.287 MegaBytes/min.
    Ended : Wednesday, December 20, 2023 1:50:44 PM
 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 1:56:04 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.6 k         0   451.6 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 1:56:04 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:01:25 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.6 k         0   451.6 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:01:25 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:07:07 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.6 k         0   451.6 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:07:07 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:12:27 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.6 k         0   451.6 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:12:27 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:17:48 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		    6783	I:\nvim\lua\keymaps.lua100%  
+	    Newer     		    6786	I:\nvim\lua\core\keymaps.lua100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         2       203         0         0         0
+   Bytes :   451.7 k    13.2 k   438.4 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:17:48 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:23:08 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		    6852	I:\nvim\lua\keymaps.lua100%  
+	    Newer     		    6852	I:\nvim\lua\core\keymaps.lua100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         2       203         0         0         0
+   Bytes :   451.8 k    13.3 k   438.4 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:23:08 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:28:29 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:28:29 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:33:50 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:33:50 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:39:11 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:39:11 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:44:59 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:44:59 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:50:19 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		    3265	I:\nvim\.git\index100%  
+	    Newer     		    3502	I:\nvim\lua\core\plugin_config\lsp_config.lua100%  
+	    Newer     		    3502	I:\nvim\lua\plugin_config\lsp_config.lua100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         3       202         0         0         0
+   Bytes :   451.8 k    10.0 k   441.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:50:19 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 2:55:39 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 2:55:39 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:01:00 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:01:00 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:06:21 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:06:21 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:11:43 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:11:43 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:17:03 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:17:03 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:22:24 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:22:24 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:27:46 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:27:46 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:33:07 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:33:07 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:38:29 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:38:29 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:43:50 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:43:50 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:49:11 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:49:11 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 3:54:50 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 3:54:50 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:00:12 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:00:12 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:05:33 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:05:33 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:11:22 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:11:22 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:16:43 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:16:43 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:22:05 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:22:05 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:27:26 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:27:26 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:32:47 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:32:47 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:38:09 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:38:09 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:43:30 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:43:30 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:48:52 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       204         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:48:52 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:54:13 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:54:13 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 4:59:34 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 4:59:34 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:04:56 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:04:56 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:10:17 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:10:17 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:15:38 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       204         0       204         0         0         0
+   Bytes :   451.7 k         0   450.6 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:15:38 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:20:58 PM
+   Source : I:\nvim\
+     Dest : E:\monthly_backups\Dec\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		     277	I:\nvim\project.cfg  0%  100%  
+	    Newer     		    6852	I:\nvim\lua\keymaps.lua100%  
+	    Newer     		      45	I:\nvim\.git\COMMIT_EDITMSG100%  
+	    Newer     		    3265	I:\nvim\.git\index100%  
+	    Newer     		    1775	I:\nvim\lua\plugins.lua100%  
+	    Newer     		    7205	I:\nvim\.git\logs\HEAD100%  
+	    Newer     		    7205	I:\nvim\.git\logs\refs\heads\master100%  
+	    Newer     		    6852	I:\nvim\lua\core\keymaps.lua100%  
+	    Newer     		    1775	I:\nvim\lua\core\plugins.lua100%  
+	    Newer     		    3502	I:\nvim\lua\plugin_config\lsp_config.lua100%  
+	    Newer     		      41	I:\nvim\.git\refs\heads\master100%  
+	    Newer     		    3002	I:\nvim\.git\logs\refs\remotes\origin\master100%  
+	    Newer     		      41	I:\nvim\.git\refs\remotes\origin\master100%  
+	    Newer     		    3502	I:\nvim\lua\core\plugin_config\lsp_config.lua100%  
+	    New File  		     370	I:\nvim\.git\objects\16\7634be8bb5d54238ebb451ae99a3c52e3d945b100%  
+	    New File  		     215	I:\nvim\.git\objects\18\93425cebfbf5731f777ec033b4f3b412ba965c100%  
+	    New File  		    2040	I:\nvim\.git\objects\27\71ce4397675efaecfa381385aef5440d2d4063100%  
+	    New File  		     813	I:\nvim\.git\objects\36\3d1b3825ab84e61cfce3280267d4cb1f2e7384100%  
+	    New File  		     185	I:\nvim\.git\objects\41\caa2105c5f8cc665523a277093616f5e1647d5100%  
+	    New File  		     187	I:\nvim\.git\objects\43\239a442a4d55db311f79c50b217a67b6db6374100%  
+	    New File  		     191	I:\nvim\.git\objects\51\7be1547f0e004cda6049630aaf879fe9b48f7f100%  
+	    New File  		     215	I:\nvim\.git\objects\63\cd70021b47e36387f084909978fefb7f86b2b6100%  
+	    New File  		     187	I:\nvim\.git\objects\70\02430b93bae359e7e03131665ef6029bc7d114100%  
+	    New File  		     227	I:\nvim\.git\objects\77\37b9d02b1ecad6f8247e819ffcea294000ea85100%  
+	    New File  		     215	I:\nvim\.git\objects\91\6e066a4a59ef3089adb1045b0f5b044d4e7adc100%  
+	    New File  		     284	I:\nvim\.git\objects\9c\0b9c586e73240debcaf0e562ec0ec462825425100%  
+	    New File  		     187	I:\nvim\.git\objects\bd\8a42558d4097e7f79678ec845da77c34b7f168100%  
+	    New File  		     291	I:\nvim\.git\objects\cb\230c89b922009b84d631265a5430b6fc7ae1d3100%  
+	    New File  		    2042	I:\nvim\.git\objects\cd\1579aa5854b2d2248d3bd8fb78d23ed9884f21100%  
+	    New File  		     291	I:\nvim\.git\objects\cd\b405cd2206ed630d12b783a27423a933fc1849100%  
+	    New File  		    1188	I:\nvim\.git\objects\dc\4a6bdc799600aeafc497d1f631abab229c206d100%  
+	    New File  		     221	I:\nvim\.git\objects\dc\850b9c0e5ea19c7011efefa609e1b349ba9f00100%  
+	    New File  		     290	I:\nvim\.git\objects\ef\10e466fbe9805c1f34e2630f52cbb689923af1100%  
+	    New File  		     218	I:\nvim\.git\objects\f5\64ac25f6e18a9a647c3dff8317570d996567d4100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       122         0         0         0
+   Files :       205        34       171         0         0         0
+   Bytes :   451.8 k    53.9 k   397.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           4,245,846 Bytes/sec.
+   Speed :             242.949 MegaBytes/min.
+   Ended : Wednesday, December 20, 2023 5:20:58 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:21:22 PM
+   Source : I:\nvim\
+     Dest : \\hksCenter\hks\backup\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		     277	I:\nvim\project.cfg100%  
+	    Newer     		      45	I:\nvim\.git\COMMIT_EDITMSG100%  
+	    Newer     		    3265	I:\nvim\.git\index100%  
+	    Newer     		    6852	I:\nvim\lua\keymaps.lua100%  
+	    Newer     		    1775	I:\nvim\lua\plugins.lua100%  
+	    Newer     		    7205	I:\nvim\.git\logs\HEAD100%  
+	    Newer     		    6852	I:\nvim\lua\core\keymaps.lua100%  
+	    Newer     		    1775	I:\nvim\lua\core\plugins.lua100%  
+	    Newer     		    3502	I:\nvim\lua\plugin_config\lsp_config.lua100%  
+	    Newer     		      41	I:\nvim\.git\refs\heads\master100%  
+	    New File  		     370	I:\nvim\.git\objects\16\7634be8bb5d54238ebb451ae99a3c52e3d945b100%  
+	    New File  		     215	I:\nvim\.git\objects\18\93425cebfbf5731f777ec033b4f3b412ba965c100%  
+	    New File  		    2040	I:\nvim\.git\objects\27\71ce4397675efaecfa381385aef5440d2d4063100%  
+	    New File  		     813	I:\nvim\.git\objects\36\3d1b3825ab84e61cfce3280267d4cb1f2e7384100%  
+	    New File  		     185	I:\nvim\.git\objects\41\caa2105c5f8cc665523a277093616f5e1647d5100%  
+	    New File  		     187	I:\nvim\.git\objects\43\239a442a4d55db311f79c50b217a67b6db6374100%  
+	    New File  		     191	I:\nvim\.git\objects\51\7be1547f0e004cda6049630aaf879fe9b48f7f100%  
+	    New File  		     215	I:\nvim\.git\objects\63\cd70021b47e36387f084909978fefb7f86b2b6100%  
+	    New File  		     187	I:\nvim\.git\objects\70\02430b93bae359e7e03131665ef6029bc7d114100%  
+	    New File  		     227	I:\nvim\.git\objects\77\37b9d02b1ecad6f8247e819ffcea294000ea85100%  
+	    New File  		     215	I:\nvim\.git\objects\91\6e066a4a59ef3089adb1045b0f5b044d4e7adc100%  
+	    New File  		     284	I:\nvim\.git\objects\9c\0b9c586e73240debcaf0e562ec0ec462825425100%  
+	    New File  		     187	I:\nvim\.git\objects\bd\8a42558d4097e7f79678ec845da77c34b7f168100%  
+	    New File  		     291	I:\nvim\.git\objects\cb\230c89b922009b84d631265a5430b6fc7ae1d3100%  
+	    New File  		    2042	I:\nvim\.git\objects\cd\1579aa5854b2d2248d3bd8fb78d23ed9884f21100%  
+	    New File  		     291	I:\nvim\.git\objects\cd\b405cd2206ed630d12b783a27423a933fc1849100%  
+	    New File  		    1188	I:\nvim\.git\objects\dc\4a6bdc799600aeafc497d1f631abab229c206d100%  
+	    New File  		     221	I:\nvim\.git\objects\dc\850b9c0e5ea19c7011efefa609e1b349ba9f00100%  
+	    New File  		     290	I:\nvim\.git\objects\ef\10e466fbe9805c1f34e2630f52cbb689923af1100%  
+	    New File  		     218	I:\nvim\.git\objects\f5\64ac25f6e18a9a647c3dff8317570d996567d4100%  
+	    Newer     		    7205	I:\nvim\.git\logs\refs\heads\master100%  
+	    Newer     		    3502	I:\nvim\lua\core\plugin_config\lsp_config.lua100%  
+	    Newer     		      41	I:\nvim\.git\refs\remotes\origin\master100%  
+	    Newer     		    3002	I:\nvim\.git\logs\refs\remotes\origin\master100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       122         0         0         0
+   Files :       205        34       171         0         0         0
+   Bytes :   451.8 k    53.9 k   397.9 k         0         0         0
+   Times :   0:00:09   0:00:01                       0:00:00   0:00:00
+
+
+   Speed :              37,319 Bytes/sec.
+   Speed :               2.135 MegaBytes/min.
+   Ended : Wednesday, December 20, 2023 5:21:24 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:23:47 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:23:47 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:29:12 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:29:12 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:34:33 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:34:33 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:39:55 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:39:55 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:45:16 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:45:16 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:50:37 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:50:37 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 5:55:59 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 5:55:59 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:01:20 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:01:20 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:06:41 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:06:41 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:12:23 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:12:23 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:17:49 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:17:49 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:23:10 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:23:10 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:28:31 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:28:31 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:33:52 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:33:52 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:39:14 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:39:14 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:44:35 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:44:35 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:49:56 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.1 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:49:56 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 6:55:17 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 6:55:17 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:00:39 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:00:39 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:06:00 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:06:00 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:11:27 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:11:27 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:17:10 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:17:10 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:22:31 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:22:31 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:27:52 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:27:53 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:33:31 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:33:31 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:38:52 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:38:52 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:44:14 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:44:14 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:49:55 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:49:55 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 7:55:16 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 7:55:16 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 8:42:10 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 8:42:10 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 8:47:32 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 8:47:32 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 8:52:54 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   451.8 k         0   451.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 8:52:54 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 8:58:15 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		    6866	I:\nvim\lua\keymaps.lua100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         1       204         0         0         0
+   Bytes :   451.8 k     6.7 k   445.1 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 8:58:15 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:03:37 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		    6968	I:\nvim\lua\keymaps.lua100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         1       204         0         0         0
+   Bytes :   451.9 k     6.8 k   445.1 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:03:37 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:08:58 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		    6980	I:\nvim\lua\keymaps.lua100%  
+	    Newer     		    6980	I:\nvim\lua\core\keymaps.lua100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         2       203         0         0         0
+   Bytes :   452.1 k    13.6 k   438.4 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:08:58 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:14:19 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   452.1 k         0   452.1 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:14:19 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:19:40 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   452.1 k         0   452.1 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:19:40 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:25:01 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   450.7 k         0   452.1 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:25:01 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:30:22 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         0       205         0         0         0
+   Bytes :   452.1 k         0   452.1 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:30:22 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:35:43 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		    6859	I:\nvim\lua\keymaps.lua100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         1       204         0         0         0
+   Bytes :   452.0 k     6.6 k   445.3 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:35:43 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:41:08 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		    6887	I:\nvim\lua\keymaps.lua100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         1       204         0         0         0
+   Bytes :   452.0 k     6.7 k   445.3 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:41:08 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:46:50 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		    6909	I:\nvim\lua\keymaps.lua100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       130       130       130         0         0         0
+   Files :       205         1       204         0         0         0
+   Bytes :   452.0 k     6.7 k   445.3 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 9:46:50 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:52:11 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		    6965	I:\nvim\lua\keymaps.lua  0%  100%  
+	    Newer     		     374	I:\nvim\.git\COMMIT_EDITMSG100%  
+	    Newer     		    3265	I:\nvim\.git\index100%  
+	    Newer     		    6909	I:\nvim\lua\core\keymaps.lua100%  
+	    Newer     		    7718	I:\nvim\.git\logs\HEAD100%  
+	    Newer     		      41	I:\nvim\.git\refs\heads\master100%  
+	    Newer     		    7718	I:\nvim\.git\logs\refs\heads\master100%  
+	    Newer     		      41	I:\nvim\.git\refs\remotes\origin\master100%  
+	    New File  		     291	I:\nvim\.git\objects\10\c65c4bcc663cf573eb653322902786cf6bdad5100%  
+	    New File  		     355	I:\nvim\.git\objects\35\8530331704e1edf78d1b9059a00ee56e0a89c4100%  
+	    New File  		     187	I:\nvim\.git\objects\4d\40b3b00c228f0bddf4258d9bc47fdb5f8b40f8100%  
+	    Newer     		    3160	I:\nvim\.git\logs\refs\remotes\origin\master100%  
+	    New File  		    2109	I:\nvim\.git\objects\9a\aea9f0d3f0e9dc661d083253cf151390b40143100%  
+	    New File  		     215	I:\nvim\.git\objects\ac\bdb1d6ff050765b42c65845d60bbce94993101100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       130         0         0         0
+   Files :       209        14       196         0         0         0
+   Bytes :   456.4 k    38.4 k   418.1 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           9,837,000 Bytes/sec.
+   Speed :             562.878 MegaBytes/min.
+   Ended : Wednesday, December 20, 2023 9:52:11 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 9:57:32 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		    7127	I:\nvim\lua\keymaps.lua100%  
+	    Newer     		    7127	I:\nvim\lua\core\keymaps.lua100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       209         2       207         0         0         0
+   Bytes :   455.3 k    13.9 k   442.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           14,254,000 Bytes/sec.
+   Speed :              815.620 MegaBytes/min.
+   Ended : Wednesday, December 20, 2023 9:57:32 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:02:54 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:02:54 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:08:15 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       209         0         0         0
+   Bytes :   456.9 k         0   456.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:08:15 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:13:36 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:13:36 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:19:24 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:19:24 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:25:12 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:25:12 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:30:35 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:30:35 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:35:57 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:35:57 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:41:18 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:41:18 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:46:39 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:46:39 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:52:01 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:52:01 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 10:57:23 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 10:57:23 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:02:45 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       209         0       210         0         0         0
+   Bytes :   456.7 k         0   456.7 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:02:45 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:08:06 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       132         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:08:06 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:10:00 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       209         0         0         0
+   Bytes :   456.9 k         0   455.7 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:10:00 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:15:21 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:15:21 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:20:42 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       133       133       133         0         0         0
+   Files :       210         0       210         0         0         0
+   Bytes :   456.9 k         0   456.9 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:20:42 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:26:03 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		     277	I:\nvim\project.cfg100%  
+	    Newer     		      18	I:\nvim\.git\COMMIT_EDITMSG100%  
+	    Newer     		    3265	I:\nvim\.git\index100%  
+	    Newer     		    7887	I:\nvim\.git\logs\HEAD100%  
+	    Newer     		    7887	I:\nvim\.git\logs\refs\heads\master100%  
+	    Newer     		      41	I:\nvim\.git\refs\heads\master100%  
+	    Newer     		      41	I:\nvim\.git\refs\remotes\origin\master100%  
+	    New File  		     187	I:\nvim\.git\objects\18\a97a6c05ed78d9cd90a228525dd0a96ff26156100%  
+	    Newer     		    3318	I:\nvim\.git\logs\refs\remotes\origin\master100%  
+	    New File  		     215	I:\nvim\.git\objects\8e\a200c61f1943f103f29b6032c367c2f69ed322100%  
+	    New File  		     221	I:\nvim\.git\objects\b8\9200fdcc991c475bfd652bd97eeee86a57eb4c100%  
+	    New File  		     291	I:\nvim\.git\objects\d2\726ef27514d7c93039fca6067b0c1857ce3a40100%  
+	    New File  		     167	I:\nvim\.git\objects\dd\8dbf16a76736869d03bf68156f1a233fe8d694100%  
+	    New File  		    2161	I:\nvim\.git\objects\e9\ee22fe4015e788ad0ff64bfafd48c5606b13e4100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       137       137       133         0         0         0
+   Files :       216        14       201         0         0         0
+   Bytes :   460.2 k    25.3 k   434.5 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           6,494,000 Bytes/sec.
+   Speed :             371.590 MegaBytes/min.
+   Ended : Wednesday, December 20, 2023 11:26:03 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:31:23 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       137       137       137         0         0         0
+   Files :       216         0       216         0         0         0
+   Bytes :   460.2 k         0   460.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:31:23 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:36:45 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       137       137       137         0         0         0
+   Files :       216         0       216         0         0         0
+   Bytes :   460.2 k         0   460.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:36:45 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:42:06 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       137       137       137         0         0         0
+   Files :       216         0       216         0         0         0
+   Bytes :   460.2 k         0   460.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:42:06 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:47:26 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       137       137       137         0         0         0
+   Files :       216         0       216         0         0         0
+   Bytes :   460.2 k         0   460.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:47:26 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:52:47 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       137       137       137         0         0         0
+   Files :       216         0       216         0         0         0
+   Bytes :   460.2 k         0   460.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:52:47 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Wednesday, December 20, 2023 11:58:08 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       137       137       137         0         0         0
+   Files :       215         0       216         0         0         0
+   Bytes :   460.0 k         0   460.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Wednesday, December 20, 2023 11:58:08 PM
+

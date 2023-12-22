@@ -319,7 +319,7 @@ function Start-Project ($name) {
     pr_debug_function "Start-Project"
     pr_debug "args:$args"
     pr_debug "name:$name"
-    persist -> user
+    Invoke-Persist -> user
     if($name -match "\\") {
         pr_debug "Split project '\\' requested"
         $split = $name -split "\\"
@@ -343,7 +343,7 @@ function Start-Project ($name) {
             $null = importhks query
             $null = importhks persist
             $global:project = Invoke-Expression (Get-Content "$global:projectsPath\$name\project.cfg")
-            pull; Start-Sleep -Milliseconds 100; push persist _>_project=.$name; 
+            Invoke-PushWrapper Invoke-Persist default>_project:$name; 
             if($null -eq $subName) {
                 $ENV:PATH += ";$($_.fullname)"
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
