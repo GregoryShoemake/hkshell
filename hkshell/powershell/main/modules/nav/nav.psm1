@@ -278,7 +278,7 @@ function Show-Directories {
 ChildItems of $path
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         Write-Host $curPrompt -ForegroundColor Blue
-        n_dir $( Get-ChildItem $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D } )
+        n_dir $( Get-ChildItem -Force $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D } )
         <#
         
         
@@ -294,7 +294,7 @@ ChildItems of $path
 ChildItems of $par
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         Write-Host $parPrompt -ForegroundColor Green
-        $parC = Get-ChildItem $par
+        $parC = Get-ChildItem $par -Force
         foreach ($c in $parC) {
             if ($c.psiscontainer) { Write-Host $c.name -ForegroundColor DarkCyan }
             elseif (!$D) { Write-Host $c.name -ForegroundColor DarkGreen }
@@ -303,7 +303,7 @@ ChildItems of $par
 ChildItems of $path
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         Write-Host $curPrompt -ForegroundColor Blue
-        n_dir $( Get-ChildItem $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D } )
+        n_dir $( Get-ChildItem -Force $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D } )
         <#
         
         
@@ -321,7 +321,7 @@ ChildItems of $path
 ChildItems of $Gpar
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         Write-Host $GparPrompt -ForegroundColor Red
-        $GparC = Get-ChildItem $Gpar
+        $GparC = Get-ChildItem $Gpar -Force
         foreach ($c in $GparC) {
             if ($c.psiscontainer) { Write-Host $c.name }
         }
@@ -330,7 +330,7 @@ ChildItems of $Gpar
 ChildItems of $par
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         Write-Host $parPrompt -ForegroundColor Green
-        $parC = Get-ChildItem $par
+        $parC = Get-ChildItem $par -Force
         foreach ($c in $parC) {
             if ($c.psiscontainer) { Write-Host $c.name -ForegroundColor DarkCyan }
             elseif (!$D) { Write-Host $c.name -ForegroundColor DarkGreen }
@@ -340,7 +340,7 @@ ChildItems of $par
 ChildItems of $path
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         Write-Host $curPrompt -ForegroundColor Blue
-        n_dir $(Get-ChildItem $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D })
+        n_dir $(Get-ChildItem -Force $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D })
         <#
         
         
@@ -441,13 +441,13 @@ function Invoke-Go {
         [Parameter()]
         $Until
     )
-    n_debug_function "Invoke-Query"
+    n_debug_function "Invoke-Go"
 
     if ($null -ne $Until) {
 
-        $res = Get-ChildItem -Recurse $(Get-Location) | Where-Object { $_.psiscontainer } | Where-Object { $_.name -eq $Until }
+        $res = Get-ChildItem -Force -Recurse $(Get-Location) | Where-Object { $_.psiscontainer } | Where-Object { $_.name -eq $Until }
         if ($null -eq $res) {
-            $res = Get-ChildItem -Recurse $(Get-Location) | Where-Object { $_.psiscontainer } | Where-Object { $_.name -match $Until }
+            $res = Get-ChildItem -Force -Recurse $(Get-Location) | Where-Object { $_.psiscontainer } | Where-Object { $_.name -match $Until }
         }
         if ($null -eq $res) {
             Write-Host "Directory matching $Until not found" -ForegroundColor Yellow; return
@@ -518,7 +518,7 @@ function Invoke-Go {
         if($in -match "^([0-9]+|f)$"){
             if($in -match "^f$"){$in = 0} 
             n_debug "Parsing index: $in"
-                $children = Get-ChildItem $(Get-Location) | Where-Object { $_.PSIsContainer }
+                $children = Get-ChildItem $(Get-Location) -Force | Where-Object { $_.PSIsContainer }
                 $in = $([int]$in) 
                 $in = $children[$in]
                 return Invoke-Go $in.FullName -C:$C -A:$A
@@ -565,7 +565,7 @@ function Invoke-Go {
     }
     elseif ($C) {
         try {
-            New-Item $in -ItemType Directory -force -ErrorAction Stop
+            New-Item $in -ItemType Directory -Force -ErrorAction Stop
             Set-Location $in -ErrorAction Stop
             D -D:$D
             if($null -ne $global:project){
@@ -635,7 +635,7 @@ function Get-Path {
             if ($clip) { Set-Clipboard $res } else { return $res }
         }
         { Test-Path $_ } { 
-            $res = (Get-Item $_).fullname
+            $res = (Get-Item $_ -Force).fullname
             if ($clip) { Set-Clipboard $res } else { return $res }
         }
         { !(Test-Path $_) } { 
