@@ -3,9 +3,9 @@
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 12:02:54 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 8:36:14 PM
+   Source : I:\openai\
+     Dest : E:\monthly_backups\Dec\openai\
 
     Files : *.*
 	    
@@ -17,20 +17,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 12:02:54 AM
+   Ended : Saturday, December 23, 2023 8:36:14 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 12:08:42 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 8:39:30 PM
+   Source : I:\openai\
+     Dest : \\hksCenter\hks\backup\openai\
 
     Files : *.*
 	    
@@ -42,20 +42,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 12:08:42 AM
+   Ended : Saturday, December 23, 2023 8:39:31 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 12:14:03 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 8:39:47 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -67,20 +67,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 12:14:03 AM
+   Ended : Saturday, December 23, 2023 8:39:47 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 12:19:24 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 8:45:09 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -92,20 +92,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 12:19:24 AM
+   Ended : Saturday, December 23, 2023 8:45:09 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 12:24:45 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 8:50:31 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -117,20 +117,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       108         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 12:24:45 AM
+   Ended : Saturday, December 23, 2023 8:50:31 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 12:30:06 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 8:55:52 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -142,20 +142,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 12:30:06 AM
+   Ended : Saturday, December 23, 2023 8:55:52 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 12:35:34 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 9:01:13 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -167,20 +167,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 12:35:34 AM
+   Ended : Saturday, December 23, 2023 9:01:13 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 12:41:22 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 9:06:35 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -192,20 +192,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 12:41:22 AM
+   Ended : Saturday, December 23, 2023 9:06:35 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 12:46:43 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 9:11:57 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -217,20 +217,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 12:46:43 AM
+   Ended : Saturday, December 23, 2023 9:11:57 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 12:52:04 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 9:17:18 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -242,20 +242,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 12:52:04 AM
+   Ended : Saturday, December 23, 2023 9:17:18 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 12:57:25 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 9:22:39 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -267,20 +267,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 12:57:25 AM
+   Ended : Saturday, December 23, 2023 9:22:39 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 1:02:45 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 9:28:00 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -292,20 +292,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 1:02:45 AM
+   Ended : Saturday, December 23, 2023 9:28:00 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 1:08:05 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 9:33:47 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -317,20 +317,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 1:08:05 AM
+   Ended : Saturday, December 23, 2023 9:33:47 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 1:13:26 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 9:39:08 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -342,20 +342,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 1:13:26 AM
+   Ended : Saturday, December 23, 2023 9:39:08 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 1:18:46 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 9:44:29 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -367,20 +367,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 1:18:46 AM
+   Ended : Saturday, December 23, 2023 9:44:29 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 1:24:12 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 9:49:50 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -392,20 +392,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 1:24:12 AM
+   Ended : Saturday, December 23, 2023 9:49:50 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 1:30:00 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 9:55:12 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -417,20 +417,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 1:30:00 AM
+   Ended : Saturday, December 23, 2023 9:55:12 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 1:35:37 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 10:00:33 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -442,20 +442,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 1:35:37 AM
+   Ended : Saturday, December 23, 2023 10:00:33 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 1:41:26 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 10:05:54 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -467,20 +467,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 1:41:26 AM
+   Ended : Saturday, December 23, 2023 10:05:54 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 1:46:46 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 10:11:16 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -492,20 +492,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       104         0       105         0         0         0
-   Bytes :   497.5 k         0   497.5 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 1:46:46 AM
+   Ended : Saturday, December 23, 2023 10:11:16 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 1:52:18 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 10:17:02 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -517,20 +517,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 1:52:18 AM
+   Ended : Saturday, December 23, 2023 10:17:02 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 1:57:38 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 10:22:25 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -542,20 +542,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 1:57:38 AM
+   Ended : Saturday, December 23, 2023 10:22:25 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 2:02:59 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 10:27:46 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -567,20 +567,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       108         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 2:02:59 AM
+   Ended : Saturday, December 23, 2023 10:27:46 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 2:08:19 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 10:33:08 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -592,20 +592,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 2:08:19 AM
+   Ended : Saturday, December 23, 2023 10:33:08 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 2:13:40 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 10:38:31 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -617,20 +617,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 2:13:40 AM
+   Ended : Saturday, December 23, 2023 10:38:31 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 2:19:00 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 10:43:53 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -642,20 +642,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 2:19:00 AM
+   Ended : Saturday, December 23, 2023 10:43:53 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 2:24:21 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 10:49:17 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -667,20 +667,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 2:24:21 AM
+   Ended : Saturday, December 23, 2023 10:49:17 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 2:29:41 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 10:54:38 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -692,20 +692,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 2:29:41 AM
+   Ended : Saturday, December 23, 2023 10:54:38 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 2:35:06 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 11:00:00 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -717,20 +717,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 2:35:06 AM
+   Ended : Saturday, December 23, 2023 11:00:00 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 2:40:54 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 11:05:21 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -742,20 +742,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 2:40:54 AM
+   Ended : Saturday, December 23, 2023 11:05:21 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 2:46:36 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 11:10:42 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -767,20 +767,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 2:46:36 AM
+   Ended : Saturday, December 23, 2023 11:10:42 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 2:51:57 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 11:16:03 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -792,20 +792,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 2:51:57 AM
+   Ended : Saturday, December 23, 2023 11:16:03 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 2:58:01 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 11:21:24 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -817,20 +817,20 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 2:58:01 AM
+   Ended : Saturday, December 23, 2023 11:21:24 PM
 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Saturday, December 16, 2023 3:03:23 AM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
+  Started : Saturday, December 23, 2023 11:27:12 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
 
     Files : *.*
 	    
@@ -842,9 +842,159 @@
 ------------------------------------------------------------------------------
 
                Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Saturday, December 16, 2023 3:03:23 AM
+   Ended : Saturday, December 23, 2023 11:27:12 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Saturday, December 23, 2023 11:32:33 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Saturday, December 23, 2023 11:32:33 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Saturday, December 23, 2023 11:37:54 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Saturday, December 23, 2023 11:37:54 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Saturday, December 23, 2023 11:43:16 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Saturday, December 23, 2023 11:43:16 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Saturday, December 23, 2023 11:48:37 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Saturday, December 23, 2023 11:48:37 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Saturday, December 23, 2023 11:53:58 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Saturday, December 23, 2023 11:53:58 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Saturday, December 23, 2023 11:59:45 PM
+   Source : I:\openai\
+     Dest : E:\realtime_backups\openai\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        35        35        35         0         0         0
+   Files :       109         0       109         0         0         0
+   Bytes :    3.86 m         0    3.86 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Saturday, December 23, 2023 11:59:45 PM
 

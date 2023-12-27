@@ -1,0 +1,187 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 26, 2023 9:09:52 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.22.2023\version.txt
+	    Newer     		     409	I:\android\Planner\.idea\misc.xml100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2458      2458      2458         0         0         0
+   Files :      9677         1      9676         0         0         1
+   Bytes :  373.55 m       409  373.55 m         0         0         9
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             409,000 Bytes/sec.
+   Speed :              23.403 MegaBytes/min.
+   Ended : Tuesday, December 26, 2023 9:09:53 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 26, 2023 9:15:17 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.22.2023\version.txt
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2458      2458      2458         0         0         0
+   Files :      9665         0      9664         0         0         1
+   Bytes :  373.50 m         0  373.51 m         0         0         9
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 26, 2023 9:15:17 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 26, 2023 9:20:40 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.22.2023\version.txt
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2458      2458      2458         0         0         0
+   Files :      9657         0      9659         0         0         1
+   Bytes :  372.36 m         0  373.49 m         0         0         9
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 26, 2023 9:20:40 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 26, 2023 9:26:01 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.22.2023\version.txt
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2458      2458      2458         0         0         0
+   Files :      9662         0      9669         0         0         1
+   Bytes :  373.48 m         0  373.51 m         0         0         9
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 26, 2023 9:26:01 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 26, 2023 9:31:44 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.22.2023\version.txt
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2458      2458      2457         0         0         0
+   Files :      9665         0      9664         0         0         1
+   Bytes :  373.49 m         0  373.48 m         0         0         9
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 26, 2023 9:31:44 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 26, 2023 9:37:06 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.22.2023\version.txt
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2458      2458      2458         0         0         0
+   Files :      9656         0      9660         0         0         1
+   Bytes :  373.52 m         0  373.53 m         0         0         9
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 26, 2023 9:37:06 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, December 26, 2023 9:42:27 PM
+   Source : I:\android\
+     Dest : E:\realtime_backups\android\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.22.2023\version.txt
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      2458      2458      2458         0         0         0
+   Files :      9665         0      9670         0         0         1
+   Bytes :  373.31 m         0  373.29 m         0         0         9
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, December 26, 2023 9:42:27 PM
+

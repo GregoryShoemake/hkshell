@@ -1,792 +1,0 @@
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:35:43 AM
-   Source : I:\assembly\
-     Dest : E:\monthly_backups\Dec\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	*EXTRA Dir        -1	E:\monthly_backups\Dec\assembly\buildexe\
-	  *EXTRA File 		     133	E:\monthly_backups\Dec\assembly\buildexe\build.c
-	  *EXTRA File 		  133343	E:\monthly_backups\Dec\assembly\buildexe\build.exe
-	  *EXTRA File 		  133343	E:\monthly_backups\Dec\assembly\build.exe
-	  *EXTRA File 		     990	E:\monthly_backups\Dec\assembly\source.obj
-	    Newer     		     616	I:\assembly\build.ps1100%  
-	    Newer     		      47	I:\assembly\mllink$.lnk100%  
-	    Newer     		     162	I:\assembly\project.cfg100%  
-	    New File  		     189	I:\assembly\r.ps1100%  
-	    Newer     		    3072	I:\assembly\res.exe  0%  100%  
-	    Newer     		   10067	I:\assembly\source.asm100%  
-	    Newer     		   10067	I:\assembly\.active\calculator\calculator.asm100%  
-	    New File  		     148	I:\assembly\executables\build.c100%  
-	    New File  		  133343	I:\assembly\executables\build.exe100%  
-	    New File  		      47	I:\assembly\executables\mllink$.lnk100%  
-	    New File  		     147	I:\assembly\executables\run.c100%  
-	    New File  		  133343	I:\assembly\executables\run.exe100%  
-	    New File  		    2542	I:\assembly\executables\source.obj100%  
-	    Newer     		     436	I:\assembly\.git\COMMIT_EDITMSG100%  
-	    Newer     		    1285	I:\assembly\.git\index100%  
-	    Newer     		    2443	I:\assembly\.git\logs\HEAD100%  
-	    Newer     		      41	I:\assembly\.git\refs\heads\master100%  
-	    Newer     		    2443	I:\assembly\.git\logs\refs\heads\master100%  
-	    New File  		     673	I:\assembly\.git\objects\00\d894a18ef1d7d59e8585e6eaa55e24d3c8081b100%  
-	    New File  		      52	I:\assembly\.git\objects\30\bace5dce41e93c50e12cafbf4c78890af7bf6c100%  
-	    New File  		     386	I:\assembly\.git\objects\73\79d6662677835ce16748ab6365422f24ce5a65100%  
-	    New File  		      59	I:\assembly\.git\objects\39\edce07c9ad7151dd30566206d52856bc2d515f100%  
-	    New File  		     856	I:\assembly\.git\objects\a6\bd67756bd5e2e47caf005a7cf2bcd4fbc9c29b100%  
-	    New File  		    1888	I:\assembly\.git\objects\ad\98aaf3acd3bdf0242ae0e76f3b90d2f543fd28100%  
-	    Newer     		      41	I:\assembly\.git\refs\remotes\origin\master100%  
-	    New File  		     134	I:\assembly\.git\objects\f1\0dc2928b4a85897c3e0cd207a41204b529bf9a100%  
-	    New File  		     364	I:\assembly\.git\objects\b6\cdbec5a9c8bfcbda3f7956040ca798ca1a984e100%  
-	    Newer     		     948	I:\assembly\.git\logs\refs\remotes\origin\master100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        59        59        51         0         0         1
-   Files :        87        28        59         0         0         4
-   Bytes :   397.0 k   298.6 k    98.3 k         0         0   261.5 k
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           11,327,370 Bytes/sec.
-   Speed :              648.157 MegaBytes/min.
-   Ended : Friday, December 15, 2023 11:35:43 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 12:03:40 PM
-   Source : I:\assembly\
-     Dest : E:\monthly_backups\Dec\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        59        59        59         0         0         0
-   Files :        87         0        87         0         0         0
-   Bytes :   397.0 k         0   397.0 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 12:03:40 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:06:45 PM
-   Source : I:\assembly\
-     Dest : E:\monthly_backups\Dec\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		      47	I:\assembly\mllink$.lnk  0%  100%  
-	    Newer     		     160	I:\assembly\project.cfg100%  
-	    Newer     		    3072	I:\assembly\res.exe100%  
-	    Newer     		    9888	I:\assembly\source.asm100%  
-	    Newer     		    9888	I:\assembly\.active\calculator\calculator.asm100%  
-	    Newer     		      24	I:\assembly\.git\COMMIT_EDITMSG100%  
-	    Newer     		    1560	I:\assembly\.git\index100%  
-	    Newer     		    2618	I:\assembly\.git\logs\HEAD100%  
-	    Newer     		      41	I:\assembly\.git\refs\heads\master100%  
-	    Newer     		    2618	I:\assembly\.git\logs\refs\heads\master100%  
-	    Newer     		      41	I:\assembly\.git\refs\remotes\origin\master100%  
-	    Newer     		    1106	I:\assembly\.git\logs\refs\remotes\origin\master100%  
-	    Newer     		      59	I:\assembly\.git\objects\0e\aec57a6559bb74d5da621827c3dea951597c11100%  
-	    New File  		     137	I:\assembly\.git\objects\1e\55778a656451ab2ddc1308398e39ad5c8d1fc0100%  
-	    New File  		     202	I:\assembly\.git\objects\41\e2f39bc7739d78cd7eb0a899c3fb3674e4c6e0100%  
-	    New File  		    2682	I:\assembly\.git\objects\78\fc460e26e52ac17c78a6227615b7c6a6f2d11f100%  
-	    New File  		     174	I:\assembly\.git\objects\58\597decdf7686faf142a0aab4bf5ec5437eb6c7100%  
-	    New File  		     340	I:\assembly\.git\objects\a1\b4a063d1d00f13861dcd6c0706e2d63b944ca8100%  
-	    New File  		   47877	I:\assembly\.git\objects\a5\eb56a4fd1c9303f35e3cb88d20f982f50008bd100%  
-	    New File  		     132	I:\assembly\.git\objects\84\ee4ae98506e2eb349963068d6acb7159a1b35a100%  
-	    New File  		     359	I:\assembly\.git\objects\dd\8781ae1a4cec9d77a7404d935c7f10b9919eb5100%  
-	    New File  		     165	I:\assembly\.git\objects\e1\8e8c061b84bebbee5e3727570db9c8ce7f819b100%  
-	    New File  		     144	I:\assembly\.git\objects\d6\d30b5c4421e8b07031ed568866ec700b6c183c100%  
-	    New File  		   47883	I:\assembly\.git\objects\c9\b9c3214bfd90fc5e7399d0042a6112c2705db4100%  
-	    New File  		      59	I:\assembly\.git\objects\b9\72c9cf9c240c5b17b9677a0a2592f95a65d5a4100%  
-	    New File  		    1187	I:\assembly\.git\objects\d0\c2a144472ecc885157fa915fa68ddc791ca12f100%  
-	    New File  		      52	I:\assembly\.git\objects\ef\b6900ca0ca7097fea2e04766ca31237ace4474100%  
-	    New File  		     829	I:\assembly\.git\objects\fe\45e42106ef3a0ecedc7103124a24e2fa091743100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        72        72        59         0         0         0
-   Files :       102        28        74         0         0         0
-   Bytes :   496.8 k   130.2 k   366.6 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           3,509,052 Bytes/sec.
-   Speed :             200.790 MegaBytes/min.
-   Ended : Friday, December 15, 2023 10:06:45 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:06:54 PM
-   Source : I:\assembly\
-     Dest : \\hksCenter\hks\backup\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	*EXTRA Dir        -1	\\hksCenter\hks\backup\assembly\buildexe\
-	  *EXTRA File 		     133	\\hksCenter\hks\backup\assembly\buildexe\build.c
-	  *EXTRA File 		  133343	\\hksCenter\hks\backup\assembly\buildexe\build.exe
-	  *EXTRA File 		  133343	\\hksCenter\hks\backup\assembly\build.exe
-	  *EXTRA File 		     990	\\hksCenter\hks\backup\assembly\source.obj
-	    Newer     		     616	I:\assembly\build.ps1100%  
-	    Newer     		      47	I:\assembly\mllink$.lnk100%  
-	    Newer     		     160	I:\assembly\project.cfg100%  
-	    New File  		     189	I:\assembly\r.ps1100%  
-	    Newer     		    3072	I:\assembly\res.exe100%  
-	    Newer     		    9888	I:\assembly\source.asm100%  
-	    New File  		     148	I:\assembly\executables\build.c100%  
-	    New File  		  133343	I:\assembly\executables\build.exe100%  
-	    New File  		      47	I:\assembly\executables\mllink$.lnk100%  
-	    New File  		     147	I:\assembly\executables\run.c100%  
-	    New File  		  133343	I:\assembly\executables\run.exe100%  
-	    New File  		    2542	I:\assembly\executables\source.obj100%  
-	    Newer     		      24	I:\assembly\.git\COMMIT_EDITMSG100%  
-	    Newer     		    1560	I:\assembly\.git\index100%  
-	    Newer     		    9888	I:\assembly\.active\calculator\calculator.asm100%  
-	    Newer     		    2618	I:\assembly\.git\logs\HEAD100%  
-	    Newer     		      59	I:\assembly\.git\objects\0e\aec57a6559bb74d5da621827c3dea951597c11100%  
-	    New File  		     673	I:\assembly\.git\objects\00\d894a18ef1d7d59e8585e6eaa55e24d3c8081b100%  
-	    New File  		     137	I:\assembly\.git\objects\1e\55778a656451ab2ddc1308398e39ad5c8d1fc0100%  
-	    New File  		      52	I:\assembly\.git\objects\30\bace5dce41e93c50e12cafbf4c78890af7bf6c100%  
-	    New File  		      59	I:\assembly\.git\objects\39\edce07c9ad7151dd30566206d52856bc2d515f100%  
-	    New File  		     202	I:\assembly\.git\objects\41\e2f39bc7739d78cd7eb0a899c3fb3674e4c6e0100%  
-	    New File  		     174	I:\assembly\.git\objects\58\597decdf7686faf142a0aab4bf5ec5437eb6c7100%  
-	    New File  		    2682	I:\assembly\.git\objects\78\fc460e26e52ac17c78a6227615b7c6a6f2d11f100%  
-	    New File  		     386	I:\assembly\.git\objects\73\79d6662677835ce16748ab6365422f24ce5a65100%  
-	    New File  		     132	I:\assembly\.git\objects\84\ee4ae98506e2eb349963068d6acb7159a1b35a100%  
-	    New File  		     340	I:\assembly\.git\objects\a1\b4a063d1d00f13861dcd6c0706e2d63b944ca8100%  
-	    New File  		   47877	I:\assembly\.git\objects\a5\eb56a4fd1c9303f35e3cb88d20f982f50008bd100%  
-	    New File  		     856	I:\assembly\.git\objects\a6\bd67756bd5e2e47caf005a7cf2bcd4fbc9c29b100%  
-	    New File  		     364	I:\assembly\.git\objects\b6\cdbec5a9c8bfcbda3f7956040ca798ca1a984e100%  
-	    New File  		    1888	I:\assembly\.git\objects\ad\98aaf3acd3bdf0242ae0e76f3b90d2f543fd28100%  
-	    New File  		      59	I:\assembly\.git\objects\b9\72c9cf9c240c5b17b9677a0a2592f95a65d5a4100%  
-	    New File  		   47883	I:\assembly\.git\objects\c9\b9c3214bfd90fc5e7399d0042a6112c2705db4100%  
-	    New File  		     144	I:\assembly\.git\objects\d6\d30b5c4421e8b07031ed568866ec700b6c183c100%  
-	    New File  		    1187	I:\assembly\.git\objects\d0\c2a144472ecc885157fa915fa68ddc791ca12f100%  
-	    New File  		     359	I:\assembly\.git\objects\dd\8781ae1a4cec9d77a7404d935c7f10b9919eb5100%  
-	    New File  		     165	I:\assembly\.git\objects\e1\8e8c061b84bebbee5e3727570db9c8ce7f819b100%  
-	    New File  		      52	I:\assembly\.git\objects\ef\b6900ca0ca7097fea2e04766ca31237ace4474100%  
-	    New File  		     134	I:\assembly\.git\objects\f1\0dc2928b4a85897c3e0cd207a41204b529bf9a100%  
-	    New File  		     829	I:\assembly\.git\objects\fe\45e42106ef3a0ecedc7103124a24e2fa091743100%  
-	    Newer     		      41	I:\assembly\.git\refs\heads\master100%  
-	    Newer     		    2618	I:\assembly\.git\logs\refs\heads\master100%  
-	    Newer     		      41	I:\assembly\.git\refs\remotes\origin\master100%  
-	    Newer     		    1106	I:\assembly\.git\logs\refs\remotes\origin\master100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        72        72        51         0         0         1
-   Files :       102        44        58         0         0         4
-   Bytes :   496.8 k   398.5 k    98.3 k         0         0   261.5 k
-   Times :   0:00:07   0:00:01                       0:00:00   0:00:00
-
-
-   Speed :             359,586 Bytes/sec.
-   Speed :              20.576 MegaBytes/min.
-   Ended : Friday, December 15, 2023 10:06:56 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:07:19 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		      47	I:\assembly\mllink$.lnk100%  
-	    Newer     		     160	I:\assembly\project.cfg100%  
-	    Newer     		    3072	I:\assembly\res.exe100%  
-	    Newer     		    9888	I:\assembly\source.asm100%  
-	    Newer     		    9888	I:\assembly\.active\calculator\calculator.asm100%  
-	    Newer     		      24	I:\assembly\.git\COMMIT_EDITMSG100%  
-	    Newer     		    1560	I:\assembly\.git\index100%  
-	    Newer     		    2618	I:\assembly\.git\logs\HEAD100%  
-	    Newer     		    2618	I:\assembly\.git\logs\refs\heads\master100%  
-	    Newer     		      59	I:\assembly\.git\objects\0e\aec57a6559bb74d5da621827c3dea951597c11100%  
-	    Newer     		      41	I:\assembly\.git\refs\heads\master100%  
-	    New File  		     137	I:\assembly\.git\objects\1e\55778a656451ab2ddc1308398e39ad5c8d1fc0100%  
-	    New File  		     202	I:\assembly\.git\objects\41\e2f39bc7739d78cd7eb0a899c3fb3674e4c6e0100%  
-	    New File  		     174	I:\assembly\.git\objects\58\597decdf7686faf142a0aab4bf5ec5437eb6c7100%  
-	    New File  		    2682	I:\assembly\.git\objects\78\fc460e26e52ac17c78a6227615b7c6a6f2d11f100%  
-	    New File  		     132	I:\assembly\.git\objects\84\ee4ae98506e2eb349963068d6acb7159a1b35a100%  
-	    New File  		     340	I:\assembly\.git\objects\a1\b4a063d1d00f13861dcd6c0706e2d63b944ca8100%  
-	    New File  		   47877	I:\assembly\.git\objects\a5\eb56a4fd1c9303f35e3cb88d20f982f50008bd100%  
-	    New File  		   47883	I:\assembly\.git\objects\c9\b9c3214bfd90fc5e7399d0042a6112c2705db4100%  
-	    New File  		      59	I:\assembly\.git\objects\b9\72c9cf9c240c5b17b9677a0a2592f95a65d5a4100%  
-	    New File  		     144	I:\assembly\.git\objects\d6\d30b5c4421e8b07031ed568866ec700b6c183c100%  
-	    New File  		     359	I:\assembly\.git\objects\dd\8781ae1a4cec9d77a7404d935c7f10b9919eb5100%  
-	    New File  		    1187	I:\assembly\.git\objects\d0\c2a144472ecc885157fa915fa68ddc791ca12f100%  
-	    New File  		      52	I:\assembly\.git\objects\ef\b6900ca0ca7097fea2e04766ca31237ace4474100%  
-	    New File  		     165	I:\assembly\.git\objects\e1\8e8c061b84bebbee5e3727570db9c8ce7f819b100%  
-	    Newer     		      41	I:\assembly\.git\refs\remotes\origin\master100%  
-	    New File  		     829	I:\assembly\.git\objects\fe\45e42106ef3a0ecedc7103124a24e2fa091743100%  
-	    Newer     		    1106	I:\assembly\.git\logs\refs\remotes\origin\master100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        72        72        59         0         0         0
-   Files :       102        28        74         0         0         0
-   Bytes :   496.8 k   130.2 k   366.6 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           14,816,000 Bytes/sec.
-   Speed :              847.778 MegaBytes/min.
-   Ended : Friday, December 15, 2023 10:07:19 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:12:46 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		     160	I:\assembly\project.cfg100%  
-	    New File  		       0	I:\assembly\vol100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        72        72        72         0         0         0
-   Files :       103         2       101         0         0         0
-   Bytes :   496.8 k       160   496.7 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 10:12:46 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:18:35 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        72        72        72         0         0         0
-   Files :       103         0       103         0         0         0
-   Bytes :   496.8 k         0   496.8 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 10:18:35 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:24:13 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        72        72        72         0         0         0
-   Files :       103         0       103         0         0         0
-   Bytes :   496.8 k         0   496.8 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 10:24:13 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:29:47 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        72        72        72         0         0         0
-   Files :       103         0       103         0         0         0
-   Bytes :   496.8 k         0   496.8 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 10:29:47 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:35:24 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    New File  		      58	I:\assembly\persist.cfg100%  
-	    Newer     		     199	I:\assembly\project.cfg100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        72         0         0         0
-   Files :       104         2       102         0         0         0
-   Bytes :   496.9 k       257   496.7 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 10:35:24 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:40:51 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    New File  		     868	I:\assembly\.notes\x86regs.txt100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         1       104         0         0         0
-   Bytes :   497.8 k       868   496.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 10:40:51 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:46:12 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		     277	I:\assembly\.notes\x86regs.txt100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         1       104         0         0         0
-   Bytes :   497.2 k       277   496.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 10:46:12 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:51:43 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		     453	I:\assembly\.notes\x86regs.txt100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         1       104         0         0         0
-   Bytes :   497.4 k       453   496.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 10:51:43 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 10:57:04 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		     562	I:\assembly\.notes\x86regs.txt100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         1       104         0         0         0
-   Bytes :   497.5 k       562   496.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 10:57:04 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:02:52 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		     453	I:\assembly\.notes\x86regs.txt100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         1       104         0         0         0
-   Bytes :   497.4 k       453   496.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 11:02:52 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:08:13 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		     453	I:\assembly\.notes\x86regs.txt100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         1       104         0         0         0
-   Bytes :   497.4 k       453   496.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 11:08:13 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:13:34 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		     453	E:\realtime_backups\assembly\.notes\x86regs.txt
-	    New File  		     915	I:\assembly\.notes\x86refs.txt100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         1       104         0         0         1
-   Bytes :   497.8 k       915   496.9 k         0         0       453
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 11:13:34 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:18:55 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		     947	I:\assembly\.notes\x86refs.txt100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         1       104         0         0         0
-   Bytes :   497.9 k       947   496.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 11:18:55 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:24:16 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 11:24:16 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:29:42 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 11:29:42 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:35:03 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 11:35:03 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:40:51 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 11:40:51 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:46:13 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 11:46:13 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:52:01 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 11:52:01 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Friday, December 15, 2023 11:57:22 PM
-   Source : I:\assembly\
-     Dest : E:\realtime_backups\assembly\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        73        73        73         0         0         0
-   Files :       105         0       105         0         0         0
-   Bytes :   497.9 k         0   497.9 k         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Friday, December 15, 2023 11:57:22 PM
-

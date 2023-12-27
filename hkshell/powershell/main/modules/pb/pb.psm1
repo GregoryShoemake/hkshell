@@ -289,7 +289,7 @@ function Send-PushbulletSMS ([string]$message = "testing...", $contact) {
         pb_prolix "    \ Message contents: $message" 
         pb sms -d 0 -n $contactNumber $message
 
-        Push Invoke-Persist _>_lastRecipient=.$contact
+        Invoke-PushWrapper Invoke-Persist _>_lastRecipient=.$contact
     }
     persist -> $SCOPEbak
 } 
