@@ -52,6 +52,7 @@ function pr_default ($variable, $value) {
         }
     }
 }
+
 if ($null -eq $global:_projects_module_location ) {
     if ($PSVersionTable.PSVersion.Major -ge 3) {
         $global:_projects_module_location = $PSScriptRoot

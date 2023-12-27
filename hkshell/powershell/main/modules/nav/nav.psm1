@@ -79,7 +79,30 @@ function n_int_eq {
     }
     return $false
 }
-
+function n_stringify_regex ($regex) {
+    if ($null -eq $regex) { return $regex }
+    $needReplace = @(
+        "\\"
+        "\@"
+        "\~" 
+        "\%"
+        "\$" 
+        "\&"
+        "\^" 
+        "\*"
+        "\("
+        "\)" 
+        "\[" 
+        "\]" 
+        "\." 
+        "\+" 
+        "\?" 
+    )
+    foreach ($n in $needReplace) {
+        $regex = $regex -replace $n, $n
+    }
+    return $regex
+}
 function n_truncate {
     [CmdletBinding()]
     param (
@@ -526,7 +549,8 @@ function Invoke-Go {
 
         foreach ($s in $global:shortcuts) {
             n_debug "Checking shortcut: $s ~? $in"
-            if ($s -match $in) {
+            $in_regex = n_stringify_regex $in
+            if ($s -match $in_regex) {
                 
                 if ($null -eq $arr) { $arr = @($s) }
                 else { $arr += $s }
