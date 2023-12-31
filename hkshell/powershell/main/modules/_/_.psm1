@@ -208,7 +208,9 @@ function __match {
         [switch]
         $getMatch = $false,
         [Parameter()]
-        $logic = "OR"
+        [string]$logic = "OR",
+        [Parameter()]
+        [int]$index = 0
     )
     __debug_function "__match"
     if ($null -eq $string) {
@@ -238,7 +240,7 @@ function __match {
     if ($found) {
         if ($getMatch) {
             __debug_return
-            return $Matches[0]
+            return $Matches[$index]
         }
         __debug_return
         return $logic -ne "NOT"

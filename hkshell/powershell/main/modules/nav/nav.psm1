@@ -235,24 +235,68 @@ function n_pad ($string, $length, $padChar = " " ,[switch]$left) {
     n_debug_function "res:$res"
     return $res
 }
+
+Function Get-RegistryKeyPropertiesAndValues
+{
+  <#
+    Get-RegistryKeyPropertiesAndValues -path 'HKCU:\Volatile Environment'
+    Http://www.ScriptingGuys.com/blog
+  #>
+
+ Param(
+
+    [Parameter(Mandatory=$true)]
+    [string]$path)
+
+    Push-Location
+    Set-Location -Path $path
+    Get-Item . | Select-Object -ExpandProperty property | ForEach-Object {
+        $value = (Get-ItemProperty -Path .).$_
+        $hash = @{Value="$value"; Name="$_"}
+        return $hash
+    }
+    Pop-Location
+} #end function Get-RegistryKeyPropertiesAndValues
+
 function Format-ChildItem ($items, [switch]$cache) {
     if($cache) {$items = $global:QueryResult; $global:QueryResult = $null}
     $i = 0
     if($args -notcontains "-force") { $args += " -force" }
-    $(if($null -eq $items) { invoke-expression "dir $args" } else { $items }) | Foreach-Object {
+    $(if($null -eq $items) { 
+        try {
+            $t = Get-Item "$pwd" -Force -ErrorAction Stop
+            if("$($t.PSProvider)" -eq "Microsoft.PowerShell.Core\Registry") {
+                $subkeys = Get-RegistryKeyPropertiesAndValues -Path "$pwd"
+            }
+            Invoke-Expression "dir $args" 
+        } catch {
+            Write-Error $_
+            return
+        }
+    } else { $items }) | Foreach-Object {
+
+        $isReg = "$($_.PSProvider)" -eq "Microsoft.PowerShell.Core\Registry"
         $isDir = $_.psiscontainer
-        $parent = if($isDir) { $_.parent.fullname } else { $_.directory.fullname }
-        if($lastParent -ne $parent) {
+        $isSym = $_.mode -eq "l----"
+        if($isSym) { $resolved = $_.ResolvedTarget }
+        $parent = if( $isReg ){ $__ | Select-Object -ExpandProperty Name | Split-Path | Split-Path -leaf }elseif($isDir) { $_.parent.fullname } else { $_.directory.fullname }
+        if($script:lastParent -ne $parent) {
             Write-Host "
             $parent
 " -ForegroundColor DarkYellow
-            $lastParent = $parent
-            write-host "|_INDEX_|_TYPE__|_____LAST WRITE TIME_____|__NAME" -ForegroundColor DarkGray
+            $script:lastParent = $parent
+            write-host "|_INDEX_|__TYPE__|_____LAST WRITE TIME_____|__NAME" -ForegroundColor DarkGray
         }
         $index = n_pad "[$i]" 7 " "
-        $type = n_pad $(if($isDir){"[dir]"}else{"[file]"}) 7 " "
+        $type = n_pad $(if( $isReg ){ "[reg]" }elseif($isSym) {"[sym]"}elseif($isDir){"[dir]"}else{"[file]"}) 8 " "
         $lastWrite = n_pad "$($_.lastwritetime)" 25 " " 
-        $name = n_pad $_.name 80 " "
+        $name = $_.name
+        if($isSym) {
+            $name += " -> $resolved"
+        } elseif($isReg){
+            $name = $name | Split-Path -Leaf
+        }
+        $name = n_pad $name 80 " "
         if($isDir) {
             $canAccess = Test-Access $_.fullname
         } else {
@@ -263,12 +307,30 @@ function Format-ChildItem ($items, [switch]$cache) {
         write-host -nonewline "|" -ForegroundColor DarkGray
         write-host -nonewline $index
         write-host -nonewline "|" -ForegroundColor DarkGray
-        write-host -nonewline $type -ForegroundColor $(if($isDir){"Cyan"}else{"DarkCyan"})
+        write-host -nonewline $type -ForegroundColor $(if( $isReg ){ "Red" }elseif($isSym){ "Magenta" }elseif($isDir){"Cyan"}else{"DarkCyan"})
         write-host -nonewline "|" -ForegroundColor DarkGray
         write-host -nonewline $lastWrite
         write-host -nonewline "|" -ForegroundColor DarkGray
         write-host $name -ForegroundColor $(if($canAccess -and !$sysOrHid) { "Gray" } elseif ($canAccess -and $sysOrHidden) { "DarkGray" } elseif (!$sysOrHidden -and !$canAccess) { "Red" } else { "DarkRed" })
         $i++
+    }
+    if($null -ne $subkeys) {
+        for ($i = 0; $i -lt $subKeys.Count; $i++) {
+            $index = n_pad " n/a" 7 " "
+            $type = n_pad "[subkey]" 8 " "
+            $lastWrite = n_pad " n/a" 25 " " 
+            $name = $subkeys[$i].name
+            $name += " -> $( $subkeys[$i].value )"
+            $name = n_pad $name 80 " "
+            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host -nonewline $index
+            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host -nonewline $type -ForegroundColor DarkRed
+            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host -nonewline $lastWrite
+            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host $name -ForegroundColor DarkGray
+        }
     }
 }
 New-Alias -Name n_dir -Value Format-ChildItem -Scope Global -Force
@@ -374,7 +436,7 @@ ChildItems of $path
 
     "
 }
-New-Alias -Name 'D' -Value 'Show-Directories' -Scope Global -Force
+New-Alias -Name 'sdir' -Value 'Show-Directories' -Scope Global -Force
 
 function n_match {
     [CmdletBinding()]
@@ -541,10 +603,13 @@ function Invoke-Go {
         if($in -match "^([0-9]+|f)$"){
             if($in -match "^f$"){$in = 0} 
             n_debug "Parsing index: $in"
+                
                 $children = Get-ChildItem $(Get-Location) -Force | Where-Object { $_.PSIsContainer }
                 $in = $([int]$in) 
-                $in = $children[$in]
-                return Invoke-Go $in.FullName -C:$C -A:$A
+                $cin = $children[$in]
+                $path = if("$($cin.PsProvider)" -eq "Microsoft.PowerShell.Core\Registry") { $cin.name } else { $cin.FullName }
+                $path = Get-Path $path
+                return Invoke-Go $path -C:$C -A:$A
         }
 
         foreach ($s in $global:shortcuts) {
@@ -607,7 +672,7 @@ function Invoke-Go {
         Write-Host Path: $in :does not exist -ForegroundColor Red
     }
 }
-New-Alias -Name 'G' -Value 'Invoke-Go' -Scope Global -Force
+New-Alias -Name 'Go' -Value 'Invoke-Go' -Scope Global -Force
 
 function Get-PathPipe {
     [CmdletBinding()]
@@ -632,7 +697,7 @@ function Get-Path {
     if($a_ -is [System.Array]) { $a_ = $a_ -join " " }
     n_debug "argsJoined:$a_."
     $l_ = "$(Get-Location)"
-    switch ($a_) {
+    switch ($a_) { 
         { ($_ -is [System.IO.FileInfo]) -or ($_ -is [System.IO.DirectoryInfo]) } {
             if ($clip) { Set-Clipboard $_.FullName } else { return $_.FullName }
         }
@@ -659,11 +724,20 @@ function Get-Path {
             if ($clip) { Set-Clipboard $res } else { return $res }
         }
         { Test-Path $_ } { 
-            $res = (Get-Item $_ -Force).fullname
+            try {
+                $item = Get-Item $_ -Force -ErrorAction Stop
+            } catch {
+                Write-Host "Path exists, but cannot read object" -ForegroundColor Red
+                return
+            }
+            $res = $item.fullname
+            if($null -eq $res) { $res = $item.name }
+            $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
             if ($clip) { Set-Clipboard $res } else { return $res }
         }
-        { !(Test-Path $_) } { 
+        { !(Test-Path $_) } {
             $res =  $_ -replace "(?!^)\\\\","\"
+            $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
             if ($clip) { Set-Clipboard $res } else { return $res }
         }
         Default { if($clip) { Set-Clipboard $l_ } else { return $l_ } }
