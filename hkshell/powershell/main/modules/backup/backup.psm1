@@ -319,7 +319,7 @@ function Format-BackupConfiguration {
                 while(($volLet -notmatch "^[a-zA-Z]:\\$") -or !(Test-Path $volLet)) {
                     $volLet = Read-Host "Drive letter must match the format [A-Z]:\ and be accessible"
                 }
-                Invoke-Persist bareMetalBackupVolume=.$volLet
+                Invoke-Persist [string]bareMetalBackupVolume=.$volLet
             } else {
                 Invoke-Persist _>_[boolean]bareMetalBackup=false
                 Invoke-Persist remove>_bareMetalBackupVolume
@@ -369,10 +369,12 @@ function Start-CheckDiskIntegrity ($path, $log) {
 function Start-Backup {
     bk_debug_function "Start-Backup"
     bk_debug "args:$args"
-    $hash = bk_search_args $args "-backupDirectories" -Switch
+    $hash = bk_search_args $args "-directories" -Switch
     $dirs = $hash.RES
-    $hash = bk_search_args $hash.ARGS "-backupBareMetal" -Switch
+    $hash = bk_search_args $hash.ARGS "-bareMetal" -Switch
     $bare = $hash.RES
+    $hash = bk_search_args $hash.ARGS "-exclude" -All -UntilSwitch
+    $exclude = $hash.RES
     $hash = bk_search_args $hash.ARGS "-validate" -Switch
     $validate = $hash.RES
     $hash = bk_search_args $hash.ARGS "-log" -All -UntilSwitch
@@ -380,6 +382,7 @@ function Start-Backup {
     bk_debug "ARGUMENTS\\" Blue
     bk_debug "backupDirectories:$dirs"
     bk_debug "backupBareMetal:$bare"
+    bk_debug "exclude:$exclude"
     bk_debug "validate:$validate"
     bk_debug "log:$logPath"
     bk_debug "ARGUMENTS\\" Blue
@@ -449,7 +452,51 @@ function Start-Backup {
     }
 
     if($bare) {
+        bk_debug "Running bare metal backup"
+        if(Invoke-Persist nullOrEmpty>_bareMetalBackup){
+            Write-Host "Backup has not been configured... Please run Format-BackupConfiguration to configure" -ForegroundColor Red
+            return
+        }
+        if(Invoke-Persist bareMetalBackup?!){
+            Write-Host "Backup has been declined... Please run Format-BackupConfiguration to configure" -ForegroundColor Red
+            return
+        }
+        $backupVol = Use-Scope Backup Invoke-Persist bareMetalBackupVolume
+        $backupVol = Get-Path $backupVol
+        bk_debug "backup destination: $backupVol"
+        try {
+            $null = Get-Item $backupVol -ErrorAction Stop
+        }
+        catch {
+            Write-Host "Could not retrieve backup Volume Destination ($backupVol) : $_" -ForegroundColor Red
+            return
+        }
+        [string]$letter = ([System.Environment]::SystemDirectory).substring(0,1)
+        $disk = Get-Disk -Partition (Get-Partition | Where-Object {$_.driveletter -eq $letter})
+        $allVols = Get-Partition -Disk $disk | Foreach-Object { $v_ = Get-Volume -Partition $_; if ($null -eq $v_) { return }; if ($v_.FileSystemType -ne "NTFS") { return }; return $_ } | Select-Object -ExpandProperty GUID | Foreach-Object { return "\\?\Volume$_\" }
+        if($allVols -isnot [System.Array]){ $allVols = @( $allVols ) }
+        if($validate) {
+            bk_debug "Validating destination and system volume"
+            if(!(Start-CheckDiskIntegrity -Path $backupVol -Log $log)) {
+                bk_debug "Destination validation failed"
+                return
+            }
+            bk_debug "Destination validated"
+            if(!(Start-CheckDiskIntegrity -Path "$($letter):\" -Log $log)) {
+                bk_debug "System disk validation failed"
+                return
+            }
+            bk_debug "System volume validated"
+        }
 
+        $allVols = $allVols -join ","
+
+        bk_debug "backup sources: $allVols"
+
+        bk_debug "Starting backup"
+
+        wbadmin.exe start backup -backupTarget:$backupVol -include:$allVols -noverify -quiet
+        #
     }
 
     Invoke-Persist -> $scopeBak
