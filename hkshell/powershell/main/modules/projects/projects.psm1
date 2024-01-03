@@ -122,7 +122,7 @@ function pr_match {
     if ($getMatch) { return $null }
     return $false
 }
-function __int_equal {
+function pr_int_equal {
     [CmdletBinding()]
     param (
         [Parameter()]
@@ -138,7 +138,7 @@ function __int_equal {
     }
     return $false
 }
-function __truncate {
+function pr_truncate {
     [CmdletBinding()]
     param (
         # Array object passed to truncate
@@ -154,8 +154,8 @@ function __truncate {
         [int[]]
         $indexAndDepth
     )
-    __debug_function "_truncate"
-    __debug "array:
+    pr_debug_function "_truncate"
+    pr_debug "array:
 $(Out-String -inputObject $array)//"
 
     $l = $array.Length
@@ -173,7 +173,7 @@ $(Out-String -inputObject $array)//"
         $l = $l - $indexAndDepth[1]
     }
     if ($l -le 0) {
-        __debug_return empty array
+        pr_debug_return empty array
         return @()
     }
     $res = @()
@@ -184,34 +184,34 @@ $(Out-String -inputObject $array)//"
         $middle = $middleStart..$middleEnd
     }
     for ($i = 0; $i -lt $array.Length; $i ++) {
-        if (($i -gt $fromStart) -and !(__int_equal $i $middle ) -and ($i -lt $fromEnd)) {
+        if (($i -gt $fromStart) -and !(pr_int_equal $i $middle ) -and ($i -lt $fromEnd)) {
             $res += $array[$i]
         }
     }
-    __debug_return $(Out-String -inputObject $res)
+    pr_debug_return $(Out-String -inputObject $res)
     return $res
 }
-function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$untilSwitch) {
-    __debug_function "__search_args"    
+function pr_search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$untilSwitch) {
+    pr_debug_function "pr_search_args"    
     $c_ = $a_.Count
-    __debug "args:$a_ | len:$c_"
-    __debug "param:$param"
-    __debug "switch:$switch"
+    pr_debug "args:$a_ | len:$c_"
+    pr_debug "param:$param"
+    pr_debug "switch:$switch"
     if($switch) { 
         for ($i = 0; $i -lt $c_; $i++) {
             $a = $a_[$i]
-            __debug "a[$i]:$a"
+            pr_debug "a[$i]:$a"
             if ($a -ne $param) { continue }
             if($null -eq $res) { 
                 $res = $true 
-                $a_ = __truncate $a_ -indexAndDepth @($i,1)
+                $a_ = pr_truncate $a_ -indexAndDepth @($i,1)
             }
             else {
                 throw [System.ArgumentException] "Duplicate argument passed: $param"
             }
         }
         $res = $res -and $true
-        __debug_return "@{ RES=$res ; ARGS=$a_ }"
+        pr_debug_return "@{ RES=$res ; ARGS=$a_ }"
         return @{
             RES = $res
             ARGS = $a_
@@ -219,7 +219,7 @@ function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$unt
     } else {
         for ($i = 0; $i -lt $a_.length; $i++) {
             $a = $a_[$i]
-            __debug "a[$i]:$a"
+            pr_debug "a[$i]:$a"
             if ($a -ne $param) { continue }
             if(($null -eq $res) -and ($i -lt ($c_ - 1))) {
                 if($all) {
@@ -228,21 +228,21 @@ function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$unt
                     $remove = 1
                     for ($i = $i + 1; $i -lt ($c_); $i++) {
                         if($untilSwitch -and ($a_[$i] -match "^-")) {
-                            __debug "[-untilSwitch] next switch found"
+                            pr_debug "[-untilSwitch] next switch found"
                             break
                         }
                         $res += $a_[$i]
                         $remove++
                     }
                     $res = $res -join " "
-                    $a_ = __truncate $a_ -indexAndDepth @($ibak, $remove)
+                    $a_ = pr_truncate $a_ -indexAndDepth @($ibak, $remove)
                 } else {
                     $res = $a_[$i + 1]
                     if($res -match "^-") { 
                         $res = $null 
-                        __debug "switch argument expected, not found" Red
+                        pr_debug "switch argument expected, not found" Red
                     } else {
-                        $a_ = __truncate $a_ -indexAndDepth @($i,2)
+                        $a_ = pr_truncate $a_ -indexAndDepth @($i,2)
                     }
                 }
             }
@@ -253,7 +253,7 @@ function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$unt
                 throw [System.ArgumentException] "Duplicate argument passed: $param"
             }
         }
-        __debug_return "@{ RES=$res ; ARGS=$a_ }"
+        pr_debug_return "@{ RES=$res ; ARGS=$a_ }"
         return @{
             RES = $res
             ARGS = $a_
@@ -348,6 +348,7 @@ function Start-Project ($name) {
             if($null -eq $subName) {
                 $ENV:PATH += ";$($_.fullname)"
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
+                if(!(Test-Path $startDir)) { $startDir = $global:project.Path }
                 Invoke-Go $startDir
                 If(pr_choice "Open last file [$($global:project.LastFile)]") {
                     Invoke-Expression $("$global:editor" + ' $global:project.LastFile')
@@ -357,10 +358,11 @@ function Start-Project ($name) {
                 pr_debug "adding project directory to env:path"
                 $ENV:PATH += ";$($_.fullname)\$subname"
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
+                if(!(Test-Path $startDir)) { $startDir = $global:project.Path }
                 try {
                     Invoke-Go $startDir -ErrorAction Stop
                 } catch {
-                    Write-Host "__!!__Failed to enter project directory___`n`n$_`n" -ForegroundColor Red -BackgroundColor DarkGray
+                    Write-Host "pr_!!pr_Failed to enter project directorypr__`n`n$_`n" -ForegroundColor Red -BackgroundColor DarkGray
                     return
                 }
             }

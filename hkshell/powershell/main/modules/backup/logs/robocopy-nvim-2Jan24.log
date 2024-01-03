@@ -1,0 +1,472 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:00:57 PM
+   Source : I:\nvim\
+     Dest : E:\monthly_backups\Jan\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    New File  		     126	I:\nvim\init.lua  0%  100%  
+	    New File  		     277	I:\nvim\project.cfg100%  
+	    New File  		       0	I:\nvim\project.ps1100%  
+	    New File  		  133343	I:\nvim\push.exe100%  
+	    New File  		     605	I:\nvim\push.ps1100%  
+	    New File  		    5272	I:\nvim\ftplugin\java.lua100%  
+	    New File  		      56	I:\nvim\.git\COMMIT_EDITMSG100%  
+	    New File  		     279	I:\nvim\.git\config100%  
+	    New File  		      73	I:\nvim\.git\description100%  
+	    New File  		      23	I:\nvim\.git\HEAD100%  
+	    New File  		    3441	I:\nvim\.git\index100%  
+	    New File  		    6055	I:\nvim\plugin\packer_compiled.lua100%  
+	    New File  		     128	I:\nvim\pushexe\push.c100%  
+	    New File  		  133343	I:\nvim\pushexe\push.exe100%  
+	    New File  		     192	I:\nvim\lua\autocmd.lua100%  
+	    New File  		    7446	I:\nvim\lua\keymaps.lua100%  
+	    New File  		    1775	I:\nvim\lua\plugins.lua100%  
+	    New File  		     558	I:\nvim\lua\profile.lua100%  
+	    New File  		     240	I:\nvim\.git\info\exclude100%  
+	    New File  		     478	I:\nvim\.git\hooks\applypatch-msg.sample100%  
+	    New File  		     896	I:\nvim\.git\hooks\commit-msg.sample100%  
+	    New File  		    4726	I:\nvim\.git\hooks\fsmonitor-watchman.sample100%  
+	    New File  		     189	I:\nvim\.git\hooks\post-update.sample100%  
+	    New File  		     424	I:\nvim\.git\hooks\pre-applypatch.sample100%  
+	    New File  		    1643	I:\nvim\.git\hooks\pre-commit.sample100%  
+	    New File  		     416	I:\nvim\.git\hooks\pre-merge-commit.sample100%  
+	    New File  		    1374	I:\nvim\.git\hooks\pre-push.sample100%  
+	    New File  		    4898	I:\nvim\.git\hooks\pre-rebase.sample100%  
+	    New File  		     544	I:\nvim\.git\hooks\pre-receive.sample100%  
+	    New File  		    1492	I:\nvim\.git\hooks\prepare-commit-msg.sample100%  
+	    New File  		    2783	I:\nvim\.git\hooks\push-to-checkout.sample100%  
+	    New File  		    2308	I:\nvim\.git\hooks\sendemail-validate.sample100%  
+	    New File  		    3650	I:\nvim\.git\hooks\update.sample100%  
+	    New File  		     651	I:\nvim\lua\plugin_config\completions.lua100%  
+	    New File  		     243	I:\nvim\lua\plugin_config\init.lua100%  
+	    New File  		    3395	I:\nvim\lua\plugin_config\lsp_config.lua100%  
+	    New File  		     249	I:\nvim\lua\plugin_config\lualine.lua100%  
+	    New File  		     144	I:\nvim\lua\plugin_config\nvim-tree.lua100%  
+	    New File  		     280	I:\nvim\lua\plugin_config\telescope.lua100%  
+	    New File  		      64	I:\nvim\lua\plugin_config\theme.lua100%  
+	    New File  		     392	I:\nvim\lua\plugin_config\treesitter.lua100%  
+	    New File  		      41	I:\nvim\.git\refs\heads\master100%  
+	    New File  		    8444	I:\nvim\.git\logs\HEAD100%  
+	    New File  		     192	I:\nvim\lua\core\autocmd.lua100%  
+	    New File  		    7446	I:\nvim\lua\core\keymaps.lua100%  
+	    New File  		    7206	I:\nvim\lua\core\keymaps.lua.bak100%  
+	    New File  		    6703	I:\nvim\lua\core\keymaps.lua.exp100%  
+	    New File  		    1775	I:\nvim\lua\core\plugins.lua100%  
+	    New File  		     558	I:\nvim\lua\core\profile.lua100%  
+	    New File  		     200	I:\nvim\.git\objects\01\40f12ea341c3f609bac3481ac49e16428db7ee100%  
+	    New File  		     370	I:\nvim\.git\objects\08\70dc1e67b01d840f341a159590f943b93a8ce0100%  
+	    New File  		     231	I:\nvim\.git\objects\08\e99e7695a6028ff82b9ec86f7fccc9ce15c6fa100%  
+	    New File  		     651	I:\nvim\lua\core\plugin_config\completions.lua100%  
+	    New File  		     243	I:\nvim\lua\core\plugin_config\init.lua100%  
+	    New File  		    3395	I:\nvim\lua\core\plugin_config\lsp_config.lua100%  
+	    New File  		     249	I:\nvim\lua\core\plugin_config\lualine.lua100%  
+	    New File  		     144	I:\nvim\lua\core\plugin_config\nvim-tree.lua100%  
+	    New File  		     280	I:\nvim\lua\core\plugin_config\telescope.lua100%  
+	    New File  		      64	I:\nvim\lua\core\plugin_config\theme.lua100%  
+	    New File  		     392	I:\nvim\lua\core\plugin_config\treesitter.lua100%  
+	    New File  		      41	I:\nvim\.git\refs\remotes\origin\master100%  
+	    New File  		     253	I:\nvim\.git\objects\02\5c4af962231be2eb14ebcf94b634c568cfe385100%  
+	    New File  		     221	I:\nvim\.git\objects\02\92b221d85f466b024931ac5b233af13f547748100%  
+	    New File  		     215	I:\nvim\.git\objects\18\93425cebfbf5731f777ec033b4f3b412ba965c100%  
+	    New File  		    1302	I:\nvim\.git\objects\18\a96bd84c743ebc7c645562a8e1d6f1d10f1d32100%  
+	    New File  		     187	I:\nvim\.git\objects\18\a97a6c05ed78d9cd90a228525dd0a96ff26156100%  
+	    New File  		     291	I:\nvim\.git\objects\10\c65c4bcc663cf573eb653322902786cf6bdad5100%  
+	    New File  		     215	I:\nvim\.git\objects\19\6d445dd35622b8dadcb576e45a347dc9dc741b100%  
+	    New File  		      80	I:\nvim\.git\objects\0e\00d991424f29c4dbd25f6a391478f04d3d962c100%  
+	    New File  		     965	I:\nvim\.git\objects\0e\1be400619a0851bbafa77e6f37444c266af006100%  
+	    New File  		     221	I:\nvim\.git\objects\1f\b57139429bac507aec2b6ba3cebaadf72be172100%  
+	    New File  		     771	I:\nvim\.git\objects\07\a9cc3c348252f96b2f521a52bf1c83925d32a2100%  
+	    New File  		     215	I:\nvim\.git\objects\0d\342926f7bf29d9d43905b2c15ae9889b8f85f6100%  
+	    New File  		     152	I:\nvim\.git\objects\23\a42db4f5cf9b08a53d53c3d6d95db6fbd85004100%  
+	    New File  		    1144	I:\nvim\.git\objects\24\6dc23c4f433ec6b6cf53c950a1d46474d3c88c100%  
+	    New File  		     310	I:\nvim\.git\objects\11\22e18ca147eb0fdb336d484c89f168d0153e41100%  
+	    New File  		    2160	I:\nvim\.git\objects\11\894e44cef475553e7fce27274f0ae8a1db72df100%  
+	    New File  		     162	I:\nvim\.git\objects\29\24d2436f6bd8d606812aeacf6d6bfba5e7b0fd100%  
+	    New File  		     132	I:\nvim\.git\objects\17\b0db886aa92cfc96886500940f030a999d2a87100%  
+	    New File  		     106	I:\nvim\.git\objects\1b\ae8a6161241ce72c0349b4e0956471f1e499cb100%  
+	    New File  		     291	I:\nvim\.git\objects\16\1045f5db799c624b6a289352faf245860c435b100%  
+	    New File  		     370	I:\nvim\.git\objects\16\7634be8bb5d54238ebb451ae99a3c52e3d945b100%  
+	    New File  		     216	I:\nvim\.git\objects\1d\9136730dc2b79d1f4bb1e07f60fc3d1182fb2d100%  
+	    New File  		     152	I:\nvim\.git\objects\1d\d1a38b6bd66c2d57693280f6e99164ecf5aa24100%  
+	    New File  		    2040	I:\nvim\.git\objects\27\71ce4397675efaecfa381385aef5440d2d4063100%  
+	    New File  		    1165	I:\nvim\.git\objects\30\e33a7b330454827c65455a0e1e262e14f4e2e9100%  
+	    New File  		     230	I:\nvim\.git\objects\25\b76a7f9d12b3751191a6f179b8214493d14a41100%  
+	    New File  		     233	I:\nvim\.git\objects\3f\1b6937f07b1fa99a88df20b1e7385cce7ff26a100%  
+	    New File  		     145	I:\nvim\.git\objects\26\7316267338f90880ce7378a09c3e0fd1b5e212100%  
+	    New File  		     187	I:\nvim\.git\objects\42\aabfa33a73194e19223a4af2ecb8685774bc6a100%  
+	    New File  		     124	I:\nvim\.git\objects\42\eb5cd275bc794d36d33350110c40617ce59355100%  
+	    New File  		     264	I:\nvim\.git\objects\2b\a8f69be2eaf8b92583a2f0ecea711b0da23a4d100%  
+	    New File  		     216	I:\nvim\.git\objects\39\d7b9b413177dfefde7b39367bbad9ce020b368100%  
+	    New File  		     184	I:\nvim\.git\objects\35\5a133a12fe663b666eb6b071b6ebc9d36a7fcb100%  
+	    New File  		     355	I:\nvim\.git\objects\35\8530331704e1edf78d1b9059a00ee56e0a89c4100%  
+	    New File  		     813	I:\nvim\.git\objects\36\3d1b3825ab84e61cfce3280267d4cb1f2e7384100%  
+	    New File  		     187	I:\nvim\.git\objects\4d\40b3b00c228f0bddf4258d9bc47fdb5f8b40f8100%  
+	    New File  		    1657	I:\nvim\.git\objects\4e\6009c3ba1e6e74d48a3855fe9c21aa30362d7b100%  
+	    New File  		    2012	I:\nvim\.git\objects\4f\b0a3d2285d71d8ad4e851d0440d553a0a794af100%  
+	    New File  		     290	I:\nvim\.git\objects\40\33976c045ac30d65bda0e276a4f7bbcc26cf4b100%  
+	    New File  		     185	I:\nvim\.git\objects\41\caa2105c5f8cc665523a277093616f5e1647d5100%  
+	    New File  		     283	I:\nvim\.git\objects\53\4f8869b30b7d5e70f8daf110400ba61b55f767100%  
+	    New File  		     187	I:\nvim\.git\objects\43\239a442a4d55db311f79c50b217a67b6db6374100%  
+	    New File  		     164	I:\nvim\.git\objects\43\2ed53f9b52896f197687a0a39548d759c6e646100%  
+	    New File  		     151	I:\nvim\.git\objects\43\3aab6d415f4db575c65348c348bac78076dffe100%  
+	    New File  		    1932	I:\nvim\.git\objects\56\590b3dde294030930899251227e24b6a1d7990100%  
+	    New File  		    1178	I:\nvim\.git\objects\57\64db674fb2c3e2701e177ab80bdcad1deb1181100%  
+	    New File  		     200	I:\nvim\.git\objects\57\df628fb8e69bd8fcc32eacbc8e18273455a583100%  
+	    New File  		     243	I:\nvim\.git\objects\4b\0fe0f0386674a930da37c504526bc521ec8bf1100%  
+	    New File  		     216	I:\nvim\.git\objects\4b\68a1d71e1ac6b49d9963dd67d9b4047714dc4c100%  
+	    New File  		      78	I:\nvim\.git\objects\45\52397695ec8fc185dc5e0e5f47a0e11a6e5148100%  
+	    New File  		     155	I:\nvim\.git\objects\45\7fdb161c35b0af375fd5864e7ede0e0c8dadcc100%  
+	    New File  		     291	I:\nvim\.git\objects\5f\7969bfb3d3f2a0561dcacbf052f8229c8d83fe100%  
+	    New File  		     283	I:\nvim\.git\objects\5f\b3db3765c6a92e33a43fec32f76663a0828fba100%  
+	    New File  		     291	I:\nvim\.git\objects\5e\1faa0e16c39b5d830e92372199bf53f88a44fc100%  
+	    New File  		     216	I:\nvim\.git\objects\5e\432f5030da15716a028205663ce66750d6e605100%  
+	    New File  		     187	I:\nvim\.git\objects\44\272a68ebdb933086334cb283797ec77feefb92100%  
+	    New File  		     191	I:\nvim\.git\objects\51\7be1547f0e004cda6049630aaf879fe9b48f7f100%  
+	    New File  		     151	I:\nvim\.git\objects\54\672a02ca96ed6b6ad1ce22441088172091a1b0100%  
+	    New File  		     775	I:\nvim\.git\objects\6e\358c7f9d7417b37f0f0a32e4fac13d2e7e991b100%  
+	    New File  		     771	I:\nvim\.git\objects\59\4d888b19adcdee101aa091f404e71ad831c128100%  
+	    New File  		     230	I:\nvim\.git\objects\6f\dd4f309f67182c2d9e896731f29985d7232cc9100%  
+	    New File  		    1750	I:\nvim\.git\objects\52\bf9715fbf25f7b4df394675f0c9935586182a4100%  
+	    New File  		     230	I:\nvim\.git\objects\72\5610be080bc3a430db65859dd86aac0b645283100%  
+	    New File  		     216	I:\nvim\.git\objects\61\e49888657491f495f6059a069d48bed83762bf100%  
+	    New File  		    1602	I:\nvim\.git\objects\77\2cbce7a138f024f7929596089f4c54714dc6e7100%  
+	    New File  		     227	I:\nvim\.git\objects\77\37b9d02b1ecad6f8247e819ffcea294000ea85100%  
+	    New File  		     220	I:\nvim\.git\objects\6c\cf4222247e81d8055c57ed2793561aa153fbf5100%  
+	    New File  		     188	I:\nvim\.git\objects\60\282fd0c953e98af64303d8de74924171afef89100%  
+	    New File  		     187	I:\nvim\.git\objects\70\02430b93bae359e7e03131665ef6029bc7d114100%  
+	    New File  		     187	I:\nvim\.git\objects\70\4583ee6410d928cae34a23a4e1898b2c4b85e7100%  
+	    New File  		     140	I:\nvim\.git\objects\70\60b890e0dbd0bbe04ccfdde9642810e1e71f74100%  
+	    New File  		     187	I:\nvim\.git\objects\80\3f074c723d13233ab7a2529aec5f4d6f98f0d4100%  
+	    New File  		     244	I:\nvim\.git\objects\82\1133fc364e9eae4111d90de4796f315c5bfdb5100%  
+	    New File  		     358	I:\nvim\.git\objects\82\f192f7321a003ac77319cb7786ea82b0078f52100%  
+	    New File  		      59	I:\nvim\.git\objects\81\9f7ab239dff1b2baded56010fbc2db88845f9b100%  
+	    New File  		     123	I:\nvim\.git\objects\63\7b029d4bdc9555a875dace3a2c274d6d714e4d100%  
+	    New File  		     215	I:\nvim\.git\objects\63\cd70021b47e36387f084909978fefb7f86b2b6100%  
+	    New File  		     124	I:\nvim\.git\objects\79\847f23a22b2e47a15f61dba188bd1a218149e7100%  
+	    New File  		    1520	I:\nvim\.git\objects\8d\b6c09b4be90470a6c70602fb11f8923efb7172100%  
+	    New File  		     187	I:\nvim\.git\objects\71\d0e09172763d3abb627e9b31acfec3516d24d3100%  
+	    New File  		     152	I:\nvim\.git\objects\95\7dbcc35a5386667e20be4f954a64f6bf1547b9100%  
+	    New File  		     187	I:\nvim\.git\objects\7a\8eab73e619d754dd6be48d2dbabdb030380b07100%  
+	    New File  		   47880	I:\nvim\.git\objects\7a\c7451c7e1155db2e9bcc1a3c20d8d8a99dbb59100%  
+	    New File  		     187	I:\nvim\.git\objects\7a\dab6f1562168dd0be50790a1b3755932e76955100%  
+	    New File  		     131	I:\nvim\.git\objects\97\3f7bcdf9ac10713faaa8034d0418bb3b0be509100%  
+	    New File  		     319	I:\nvim\.git\objects\97\53e6845490bfe4e8eba8723684ae241f3253ba100%  
+	    New File  		     166	I:\nvim\.git\objects\97\7e4157fd1ec70fc1576cca817e26bd83cbaf11100%  
+	    New File  		     283	I:\nvim\.git\objects\97\c6c6d001c061ae0bdad86a1a6e26d7b1b23368100%  
+	    New File  		    2109	I:\nvim\.git\objects\9a\aea9f0d3f0e9dc661d083253cf151390b40143100%  
+	    New File  		     222	I:\nvim\.git\objects\7d\270b7ac71dbd568c938f0dc67a8f15173cc3f7100%  
+	    New File  		      53	I:\nvim\.git\objects\7e\dc09778aaf7616a1444777c2b306304a625815100%  
+	    New File  		      73	I:\nvim\.git\objects\a1\b3180e7ac573ef3c25664ba359edd1abc561a1100%  
+	    New File  		     284	I:\nvim\.git\objects\9c\0b9c586e73240debcaf0e562ec0ec462825425100%  
+	    New File  		     215	I:\nvim\.git\objects\8e\a200c61f1943f103f29b6032c367c2f69ed322100%  
+	    New File  		     163	I:\nvim\.git\objects\a4\5832cb1a5908d5642c3eed12e5ff07a9d223e1100%  
+	    New File  		     283	I:\nvim\.git\objects\a4\fe547cfc86ffded0a75ccc2a540bc3f99b2760100%  
+	    New File  		    1329	I:\nvim\.git\objects\9d\a120aa2da61b3ae816e02c43f847a5b62e1624100%  
+	    New File  		    1400	I:\nvim\.git\objects\ac\86d7b327dc89f14bdd8274f6d3c9ca1883df64100%  
+	    New File  		     215	I:\nvim\.git\objects\ac\bdb1d6ff050765b42c65845d60bbce94993101100%  
+	    New File  		     370	I:\nvim\.git\objects\93\c80ddd56273d2218f21f5571edf3c8dda5b9b8100%  
+	    New File  		      61	I:\nvim\.git\objects\b0\7cfb8e712f6962ae25e21c815456120682376e100%  
+	    New File  		     215	I:\nvim\.git\objects\b0\bd90541c142273d47933ba35edfc6503ca72bf100%  
+	    New File  		    1270	I:\nvim\.git\objects\89\5269b98f4a51b5cd608744ae7b2e2d181d3c61100%  
+	    New File  		     187	I:\nvim\.git\objects\91\2cdc2df525fc9adc720d9aef4dc889370ee146100%  
+	    New File  		     215	I:\nvim\.git\objects\91\6e066a4a59ef3089adb1045b0f5b044d4e7adc100%  
+	    New File  		      64	I:\nvim\.git\objects\b6\a20ad5a20d76fae829ba422948bc39c9db5589100%  
+	    New File  		     291	I:\nvim\.git\objects\ae\54dd7539fcc11cc193414bd2e9868c63b1a745100%  
+	    New File  		     798	I:\nvim\.git\objects\ae\c94367532b61bff463ed1036c8b31405c11d75100%  
+	    New File  		     231	I:\nvim\.git\objects\b7\e61019897cb05eaf3a763ef8c28ac8b50c971e100%  
+	    New File  		    2092	I:\nvim\.git\objects\a5\d94f5c621d8e1160d59d918e033927412fd44c100%  
+	    New File  		     369	I:\nvim\.git\objects\a5\e9940f28af8e385f1434354a0d78a00d96f005100%  
+	    New File  		     357	I:\nvim\.git\objects\a6\c63430f842cf3becf9c9a96cd46cc32e85e9cb100%  
+	    New File  		     369	I:\nvim\.git\objects\ba\026c7f45cc1e3047a5e21f9fbcb2e7ce0a83e1100%  
+	    New File  		     216	I:\nvim\.git\objects\ba\83e039e7c44d77b41fa0cf46d55bc9a289bf90100%  
+	    New File  		     187	I:\nvim\.git\objects\bd\8a42558d4097e7f79678ec845da77c34b7f168100%  
+	    New File  		     231	I:\nvim\.git\objects\bd\e3fa82d20feb1320a320723f5ddc1b93480621100%  
+	    New File  		     767	I:\nvim\.git\objects\a3\075d18948b113a79cb08715ff79c932c83ff59100%  
+	    New File  		     123	I:\nvim\.git\objects\a3\be822b892ade79719e1bb4af288c40582432de100%  
+	    New File  		     126	I:\nvim\.git\objects\be\12b81bb844047719163c9f4d694c82cbd99b4b100%  
+	    New File  		     965	I:\nvim\.git\objects\be\45a4446e7a325a6d408a272a1de37221ba0a34100%  
+	    New File  		    1637	I:\nvim\.git\objects\c1\0280a51f1efb98a832c0d09cf0aaaa4eb1b9d8100%  
+	    New File  		      53	I:\nvim\.git\objects\a0\253af4c5bc1be368e0f34f26e5fda436cdc965100%  
+	    New File  		     195	I:\nvim\.git\objects\c3\26130b3a22d2aac759389b9a960b782278cf50100%  
+	    New File  		     232	I:\nvim\.git\objects\c3\6360414b95d57e2aba3888dfd18b2f07497103100%  
+	    New File  		     190	I:\nvim\.git\objects\c3\d8bd54595120fcbd1966a31301e0ea3fd36a6c100%  
+	    New File  		     216	I:\nvim\.git\objects\b5\611d4e7699954ede111121681947f301fdc6cc100%  
+	    New File  		     206	I:\nvim\.git\objects\c5\424012e238e0aa60a66079fb014523276516c0100%  
+	    New File  		     406	I:\nvim\.git\objects\c8\eee39cfa10a27c549ffbb45a64884598dd6ae4100%  
+	    New File  		     290	I:\nvim\.git\objects\c6\990d5f305d0325460411210e15a0f7f1a4f9b6100%  
+	    New File  		     221	I:\nvim\.git\objects\b8\9200fdcc991c475bfd652bd97eeee86a57eb4c100%  
+	    New File  		     915	I:\nvim\.git\objects\cc\58c1e8f47f4ec94ea2406e162280beebccf76e100%  
+	    New File  		     358	I:\nvim\.git\objects\cc\6792171701b9a608228da09c7d28a668687a0f100%  
+	    New File  		    2175	I:\nvim\.git\objects\ce\5561db97f0288afccb845d45f56ba80354ef18100%  
+	    New File  		     215	I:\nvim\.git\objects\b2\b8d1841f7869e7aa874001a3a2e04e595c3ded100%  
+	    New File  		     245	I:\nvim\.git\objects\d3\3021a531d1cc2198694ed8143ff08730832f66100%  
+	    New File  		     223	I:\nvim\.git\objects\d5\4a32d946e30eeef6c26156ab7e82c267d1b988100%  
+	    New File  		      28	I:\nvim\.git\objects\d6\d037df55b42cbb4ce263f381ba46b1edc61750100%  
+	    New File  		     187	I:\nvim\.git\objects\bb\ec0952877c31667ca923dcc7adf23c651c5f36100%  
+	    New File  		     229	I:\nvim\.git\objects\db\4ae80c7d01c2af5b5516118025629210056b02100%  
+	    New File  		     291	I:\nvim\.git\objects\cb\230c89b922009b84d631265a5430b6fc7ae1d3100%  
+	    New File  		     195	I:\nvim\.git\objects\cb\a256d06ca82408db0d0e8bdbba491c7fa82e27100%  
+	    New File  		     215	I:\nvim\.git\objects\cb\c77d82892120e063e7e1275bf50aa7bb8e8e1a100%  
+	    New File  		     291	I:\nvim\.git\objects\cb\f79dae42e969fed6980a18219f0f2234deabff100%  
+	    New File  		     228	I:\nvim\.git\objects\d9\3031a814641754c5472dd118ce39356c196fe5100%  
+	    New File  		     156	I:\nvim\.git\objects\d9\5be7b8ad7c5a5941efd413cc4dd2312a104d59100%  
+	    New File  		     164	I:\nvim\.git\objects\c4\07b5ad9ba3059c0ee1e9358d81cfa7187864dc100%  
+	    New File  		     220	I:\nvim\.git\objects\de\04d0a506cc9f74de88b8401da5469b444b9a13100%  
+	    New File  		     291	I:\nvim\.git\objects\de\435757b38b158df4187cf446c9a93601436aba100%  
+	    New File  		    2042	I:\nvim\.git\objects\cd\1579aa5854b2d2248d3bd8fb78d23ed9884f21100%  
+	    New File  		      53	I:\nvim\.git\objects\e1\72d58125b09e7ad9f91ac2f0d49e29652d5197100%  
+	    New File  		     291	I:\nvim\.git\objects\cd\b405cd2206ed630d12b783a27423a933fc1849100%  
+	    New File  		     216	I:\nvim\.git\objects\e3\8e53b4bd2abb540ba31755bf108d51453c5090100%  
+	    New File  		     291	I:\nvim\.git\objects\d2\726ef27514d7c93039fca6067b0c1857ce3a40100%  
+	    New File  		     231	I:\nvim\.git\objects\e7\3aa0d4c98bb4082d91284ca29aee88c9758d99100%  
+	    New File  		    1522	I:\nvim\.git\objects\e7\3e76be080158e1649a24463cf11dcc701a4518100%  
+	    New File  		      15	I:\nvim\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391100%  
+	    New File  		    1251	I:\nvim\.git\objects\e9\2048121a8e1f99d16ee8c50590b1223a30bc56100%  
+	    New File  		    2161	I:\nvim\.git\objects\e9\ee22fe4015e788ad0ff64bfafd48c5606b13e4100%  
+	    New File  		    1987	I:\nvim\.git\objects\eb\50e2e8a374f631fcbef021ee71e71c53499797100%  
+	    New File  		    1488	I:\nvim\.git\objects\eb\8846e6223e5abeec2f55c2c7a797f6e6592a8d100%  
+	    New File  		     215	I:\nvim\.git\objects\d4\79e6dfb0f67c77679db1652a78f1d5dce54e7b100%  
+	    New File  		     222	I:\nvim\.git\objects\ed\cd3cc7fb962ee87b5d5a13ed4fa9fe5576ff36100%  
+	    New File  		    1188	I:\nvim\.git\objects\dc\4a6bdc799600aeafc497d1f631abab229c206d100%  
+	    New File  		     221	I:\nvim\.git\objects\dc\850b9c0e5ea19c7011efefa609e1b349ba9f00100%  
+	    New File  		     290	I:\nvim\.git\objects\ef\10e466fbe9805c1f34e2630f52cbb689923af1100%  
+	    New File  		    2251	I:\nvim\.git\objects\f3\cee49ee974bee29d9a36f37c256f8b75ef91e9100%  
+	    New File  		     231	I:\nvim\.git\objects\f5\4153fd67d5803f1aaca77a5f2ef34d88818076100%  
+	    New File  		     165	I:\nvim\.git\objects\f5\509f95ba6b96ba5366c6ca64d2f508c757151d100%  
+	    New File  		     218	I:\nvim\.git\objects\f5\64ac25f6e18a9a647c3dff8317570d996567d4100%  
+	    New File  		     167	I:\nvim\.git\objects\dd\8dbf16a76736869d03bf68156f1a233fe8d694100%  
+	    New File  		     291	I:\nvim\.git\objects\dd\cb78e40ad5692cdcbf40fbe7fcea1cdcfbfc1b100%  
+	    New File  		    1672	I:\nvim\.git\objects\f8\25d06d11418a889b5c4a057470f65acab31ad3100%  
+	    New File  		     214	I:\nvim\.git\objects\fa\69265b48cc245a4c09c443ea98e84a43168e60100%  
+	    New File  		    8444	I:\nvim\.git\logs\refs\heads\master100%  
+	    New File  		     220	I:\nvim\.git\objects\df\4e3a3564a213d2fad006e69112bfaefb0bc042100%  
+	    New File  		     231	I:\nvim\.git\objects\df\7fda965bc507b90445cc74ad91bfb584da5734100%  
+	    New File  		     187	I:\nvim\.git\objects\fb\9de3f0deec9c6c49efd0b580a0efa7617cd543100%  
+	    New File  		     188	I:\nvim\.git\objects\fb\ac9c10171c5a0700c095f655f30812db4dce43100%  
+	    New File  		     187	I:\nvim\.git\objects\fc\8d3e3cec5f2981178efc67852bb228c73baf58100%  
+	    New File  		     220	I:\nvim\.git\objects\fd\2da62d7536c72505c7a274b2c0acb5a76ba550100%  
+	    New File  		     187	I:\nvim\.git\objects\f7\71d32cfe276bc854e67c4a1bf52be3670df1be100%  
+	    New File  		    3792	I:\nvim\.git\logs\refs\remotes\origin\master100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       152       152         0         0         0         0
+   Files :       243       243         0         0         0         0
+   Bytes :   495.7 k   495.7 k         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           6,679,302 Bytes/sec.
+   Speed :             382.193 MegaBytes/min.
+   Ended : Tuesday, January 2, 2024 9:00:57 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:08:59 PM
+   Source : I:\nvim\
+     Dest : E:\monthly_backups\Jan\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       152       152       151         0         0         0
+   Files :       243         0       243         0         0         0
+   Bytes :   495.7 k         0   495.7 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:08:59 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:09:36 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       152       152       152         0         0         0
+   Files :       243         0       243         0         0         0
+   Bytes :   495.7 k         0   495.7 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:09:36 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:14:58 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       152       152       152         0         0         0
+   Files :       243         0       243         0         0         0
+   Bytes :   495.7 k         0   495.7 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:14:58 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:20:19 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       152       152       152         0         0         0
+   Files :       243         0       243         0         0         0
+   Bytes :   495.7 k         0   495.7 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:20:19 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:26:01 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       152       152       152         0         0         0
+   Files :       243         0       243         0         0         0
+   Bytes :   495.7 k         0   495.7 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:26:01 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:31:43 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       152       152       152         0         0         0
+   Files :       243         0       243         0         0         0
+   Bytes :   495.7 k         0   495.7 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:31:43 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:37:03 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       152       152       152         0         0         0
+   Files :       243         0       243         0         0         0
+   Bytes :   495.7 k         0   495.7 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:37:03 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:42:45 PM
+   Source : I:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       152       152       152         0         0         0
+   Files :       243         0       243         0         0         0
+   Bytes :   495.7 k         0   495.7 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:42:45 PM
+

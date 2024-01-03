@@ -1,1672 +1,0 @@
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 8:36:14 PM
-   Source : I:\hkshell\
-     Dest : E:\monthly_backups\Dec\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		       7	I:\hkshell\.git\COMMIT_EDITMSG
-	  *EXTRA File 		  116087	E:\monthly_backups\Dec\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-14Dec23.log100%  
-	    Newer     		   10841	I:\hkshell\.git\index100%  
-	    Newer     		   10155	I:\hkshell\.git\logs\HEAD
-	  *EXTRA File 		  126944	E:\monthly_backups\Dec\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-14Dec23.log
-	  *EXTRA File 		  116006	E:\monthly_backups\Dec\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-14Dec23.log
-	  *EXTRA File 		  224104	E:\monthly_backups\Dec\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-14Dec23.log
-	  *EXTRA File 		  116666	E:\monthly_backups\Dec\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-14Dec23.log
-	  *EXTRA File 		  117994	E:\monthly_backups\Dec\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-14Dec23.log
-	  *EXTRA File 		  116007	E:\monthly_backups\Dec\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-14Dec23.log100%  
-	    Newer     		      41	I:\hkshell\.git\refs\heads\master100%  
-	    Newer     		      41	I:\hkshell\.git\refs\remotes\origin\master100%  
-	    Newer     		   21315	I:\hkshell\hkshell\powershell\main\modules\nav\nav.psm1100%  
-	    Newer     		   13209	I:\hkshell\hkshell\powershell\main\modules\pb\pb.psm1100%  
-	    Newer     		   10155	I:\hkshell\.git\logs\refs\heads\master100%  
-	    Newer     		    4582	I:\hkshell\.git\logs\refs\remotes\origin\master100%  
-	    New File  		   13919	I:\hkshell\.git\objects\01\0bcb3ece971c5e59e2a47c512de99088f7c255100%  
-	    New File  		    4774	I:\hkshell\.git\objects\10\8374169329fbb837cd904d62cbce496d4adff0100%  
-	    New File  		    1777	I:\hkshell\.git\objects\19\a80cbd264e13a45a3d09986577d25e7f8b43f0100%  
-	    New File  		     621	I:\hkshell\.git\objects\25\9e959960b157a8168eb703e3ea400d70f90595100%  
-	    Newer     		   2.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-21Dec23.log100%  
-	    New File  		   1.1 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-22Dec23.log100%  
-	    New File  		  992519	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   52858	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-21Dec23.log100%  
-	    New File  		   40064	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-22Dec23.log100%  
-	    New File  		    1125	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   52758	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-21Dec23.log100%  
-	    New File  		   39987	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-22Dec23.log100%  
-	    New File  		    1122	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		  108411	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-21Dec23.log100%  
-	    New File  		   83566	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-22Dec23.log100%  
-	    New File  		       0	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   53058	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-21Dec23.log100%  
-	    New File  		   40150	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-22Dec23.log100%  
-	    Newer     		   56178	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-21Dec23.log100%  
-	    New File  		   40740	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-22Dec23.log100%  
-	    Newer     		   52658	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-21Dec23.log100%  
-	    New File  		   39846	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-22Dec23.log100%  
-	    Newer     		   52358	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-21Dec23.log100%  
-	    New File  		   39618	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-22Dec23.log100%  
-	    New File  		    6311	I:\hkshell\.git\objects\29\48aeb7e46d7a476b23bbaa15b54df8bb62f1a6100%  
-	    New File  		     622	I:\hkshell\.git\objects\3c\08f9a3f35dfdc4f3a6e93b6991ee80ba03829a100%  
-	    New File  		   58248	I:\hkshell\.git\objects\4d\62932ced8c33f06d5571e2154308dead92d96d100%  
-	    New File  		      81	I:\hkshell\.git\objects\50\30e6b138a80367d0fb693a3a034d71efc94370100%  
-	    New File  		    2486	I:\hkshell\.git\objects\50\cb984846faddf388c3824671ff9ae93c036989100%  
-	    New File  		     151	I:\hkshell\.git\objects\53\7c07ac1529a2836f4f6002fa22e0252da5fde8100%  
-	    New File  		    5509	I:\hkshell\.git\objects\58\e5b0aa26c93ffe6bb0bf8e15d5dd99b488a2d6100%  
-	    Newer     		    3136	I:\hkshell\.git\objects\62\6319fd3fe6188520deeeeed355b1946c462649100%  
-	    New File  		    1436	I:\hkshell\.git\objects\63\aaa72cce9878b7b78c2c68a7f427615defafe0100%  
-	    New File  		     608	I:\hkshell\.git\objects\63\db09ac6488adb35972840550c22fe6a90bae99100%  
-	    New File  		    6370	I:\hkshell\.git\objects\6f\a22b596412ab796bcf02fcfdefb526301fdf42100%  
-	    New File  		  239053	I:\hkshell\.git\objects\67\ff3549bf12d9786fb8b08f7b03f7924a507696100%  
-	    New File  		      47	I:\hkshell\.git\objects\77\90c2574f511b1efdc8ea988671e0fcd55ae970100%  
-	    New File  		   34137	I:\hkshell\.git\objects\7e\ce369a696096f76e31265a48a0af91a8e8f38f100%  
-	    New File  		     606	I:\hkshell\.git\objects\8e\0560a1427870b4fb8a995f46441beab0db6d5d100%  
-	    New File  		    1574	I:\hkshell\.git\objects\8e\6a2844b181b2181f8b051fe7eb5c0173d2706e100%  
-	    New File  		     121	I:\hkshell\.git\objects\8a\9c2323afc334639c3f3e730d2e68b897620527100%  
-	    New File  		     596	I:\hkshell\.git\objects\94\5ea8f8070f2f915e5db6053e60631cdd288e65100%  
-	    New File  		    1773	I:\hkshell\.git\objects\9a\97cc02b3ae94bc6164f0dae1099dc360e01b4f100%  
-	    New File  		     593	I:\hkshell\.git\objects\ad\a4f49a1be3c726972bf72a648cc1cc79b8a759100%  
-	    New File  		     155	I:\hkshell\.git\objects\af\2cc1ae5dd907b05a22c3bd87a44021c70fcc7c100%  
-	    New File  		   11437	I:\hkshell\.git\objects\ba\4241746790bc775884a57b2270e7156a97d36a100%  
-	    New File  		    8675	I:\hkshell\.git\objects\b6\8b146c79901d145f976886d47403e7534322e2100%  
-	    New File  		      49	I:\hkshell\.git\objects\b7\9a92d95bc8f3bbfa10e1b04e862ebdd1b37707100%  
-	    New File  		    1504	I:\hkshell\.git\objects\be\9e8b2f2ef08388012377ce016592477c560419100%  
-	    New File  		     544	I:\hkshell\.git\objects\c0\06055132e33ec575091cd85f47a08eb2eabc23100%  
-	    New File  		    1511	I:\hkshell\.git\objects\c5\91b35c6f916a875814bfebfcc938f8ffbcdb5f100%  
-	    Newer     		      57	I:\hkshell\.git\objects\cf\a9469a5a179045fa35a345c28fa0cadc9bd9a2100%  
-	    New File  		    1262	I:\hkshell\.git\objects\d6\ec45da7dc048d41d11b414d29bda02610c153e100%  
-	    New File  		    5448	I:\hkshell\.git\objects\e1\b2ba43014a4a4685d6268b7482ad3b884b789b100%  
-	    New File  		    8453	I:\hkshell\.git\objects\d2\e8fd7d566f65cd9d9f6f53ea8cb756b824bfe5100%  
-	    New File  		    7706	I:\hkshell\.git\objects\f4\649874533747f9560c9dd9d28496420c46598c100%  
-	    New File  		     116	I:\hkshell\.git\objects\f7\a51d8bc020e83e4a4aaf9761d5e342d24ca0f5100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       268         0         0         0
-   Files :       667        66       601         0         0         7
-   Bytes :   10.25 m    6.32 m    3.93 m         0         0   911.9 k
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           116,334,596 Bytes/sec.
-   Speed :             6,656.719 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 8:36:14 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 8:39:23 PM
-   Source : I:\hkshell\
-     Dest : \\hksCenter\hks\backup\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		       7	I:\hkshell\.git\COMMIT_EDITMSG100%  
-	    Newer     		   10841	I:\hkshell\.git\index100%  
-	    Newer     		   10155	I:\hkshell\.git\logs\HEAD100%  
-	    New File  		   13919	I:\hkshell\.git\objects\01\0bcb3ece971c5e59e2a47c512de99088f7c255100%  
-	    Newer     		      41	I:\hkshell\.git\refs\heads\master100%  
-	    New File  		    4774	I:\hkshell\.git\objects\10\8374169329fbb837cd904d62cbce496d4adff0100%  
-	    New File  		    1777	I:\hkshell\.git\objects\19\a80cbd264e13a45a3d09986577d25e7f8b43f0100%  
-	    New File  		     621	I:\hkshell\.git\objects\25\9e959960b157a8168eb703e3ea400d70f90595100%  
-	    New File  		    6311	I:\hkshell\.git\objects\29\48aeb7e46d7a476b23bbaa15b54df8bb62f1a6100%  
-	    New File  		     622	I:\hkshell\.git\objects\3c\08f9a3f35dfdc4f3a6e93b6991ee80ba03829a100%  
-	    New File  		   58248	I:\hkshell\.git\objects\4d\62932ced8c33f06d5571e2154308dead92d96d100%  
-	    New File  		      81	I:\hkshell\.git\objects\50\30e6b138a80367d0fb693a3a034d71efc94370100%  
-	    New File  		    2486	I:\hkshell\.git\objects\50\cb984846faddf388c3824671ff9ae93c036989100%  
-	    New File  		     151	I:\hkshell\.git\objects\53\7c07ac1529a2836f4f6002fa22e0252da5fde8100%  
-	    New File  		    5509	I:\hkshell\.git\objects\58\e5b0aa26c93ffe6bb0bf8e15d5dd99b488a2d6100%  
-	    Newer     		    3136	I:\hkshell\.git\objects\62\6319fd3fe6188520deeeeed355b1946c462649100%  
-	    New File  		    1436	I:\hkshell\.git\objects\63\aaa72cce9878b7b78c2c68a7f427615defafe0100%  
-	    New File  		     608	I:\hkshell\.git\objects\63\db09ac6488adb35972840550c22fe6a90bae99100%  
-	    New File  		  239053	I:\hkshell\.git\objects\67\ff3549bf12d9786fb8b08f7b03f7924a507696100%  
-	    New File  		    6370	I:\hkshell\.git\objects\6f\a22b596412ab796bcf02fcfdefb526301fdf42100%  
-	    New File  		      47	I:\hkshell\.git\objects\77\90c2574f511b1efdc8ea988671e0fcd55ae970100%  
-	    New File  		   34137	I:\hkshell\.git\objects\7e\ce369a696096f76e31265a48a0af91a8e8f38f100%  
-	    New File  		     606	I:\hkshell\.git\objects\8e\0560a1427870b4fb8a995f46441beab0db6d5d100%  
-	    New File  		    1574	I:\hkshell\.git\objects\8e\6a2844b181b2181f8b051fe7eb5c0173d2706e100%  
-	    New File  		     121	I:\hkshell\.git\objects\8a\9c2323afc334639c3f3e730d2e68b897620527100%  
-	    New File  		     596	I:\hkshell\.git\objects\94\5ea8f8070f2f915e5db6053e60631cdd288e65100%  
-	    New File  		    1773	I:\hkshell\.git\objects\9a\97cc02b3ae94bc6164f0dae1099dc360e01b4f100%  
-	    New File  		     593	I:\hkshell\.git\objects\ad\a4f49a1be3c726972bf72a648cc1cc79b8a759100%  
-	    New File  		     155	I:\hkshell\.git\objects\af\2cc1ae5dd907b05a22c3bd87a44021c70fcc7c100%  
-	    New File  		    8675	I:\hkshell\.git\objects\b6\8b146c79901d145f976886d47403e7534322e2100%  
-	    New File  		      49	I:\hkshell\.git\objects\b7\9a92d95bc8f3bbfa10e1b04e862ebdd1b37707100%  
-	    New File  		   11437	I:\hkshell\.git\objects\ba\4241746790bc775884a57b2270e7156a97d36a100%  
-	    New File  		     544	I:\hkshell\.git\objects\c0\06055132e33ec575091cd85f47a08eb2eabc23100%  
-	    New File  		    1504	I:\hkshell\.git\objects\be\9e8b2f2ef08388012377ce016592477c560419100%  
-	    New File  		    1511	I:\hkshell\.git\objects\c5\91b35c6f916a875814bfebfcc938f8ffbcdb5f100%  
-	    Newer     		      57	I:\hkshell\.git\objects\cf\a9469a5a179045fa35a345c28fa0cadc9bd9a2100%  
-	    New File  		    8453	I:\hkshell\.git\objects\d2\e8fd7d566f65cd9d9f6f53ea8cb756b824bfe5100%  
-	    New File  		    1262	I:\hkshell\.git\objects\d6\ec45da7dc048d41d11b414d29bda02610c153e100%  
-	    New File  		    5448	I:\hkshell\.git\objects\e1\b2ba43014a4a4685d6268b7482ad3b884b789b100%  
-	    New File  		    7706	I:\hkshell\.git\objects\f4\649874533747f9560c9dd9d28496420c46598c
-	  *EXTRA File 		  116087	\\hksCenter\hks\backup\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-14Dec23.log100%  
-	    New File  		     116	I:\hkshell\.git\objects\f7\a51d8bc020e83e4a4aaf9761d5e342d24ca0f5100%  
-	    Newer     		   10155	I:\hkshell\.git\logs\refs\heads\master100%  
-	  *EXTRA File 		  126944	\\hksCenter\hks\backup\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-14Dec23.log
-	  *EXTRA File 		  116006	\\hksCenter\hks\backup\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-14Dec23.log
-	  *EXTRA File 		  224104	\\hksCenter\hks\backup\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-14Dec23.log
-	  *EXTRA File 		  116666	\\hksCenter\hks\backup\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-14Dec23.log
-	  *EXTRA File 		  117994	\\hksCenter\hks\backup\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-14Dec23.log
-	  *EXTRA File 		  116007	\\hksCenter\hks\backup\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-14Dec23.log
-	    Newer     		   21315	I:\hkshell\hkshell\powershell\main\modules\nav\nav.psm1100%  
-	    Newer     		   13209	I:\hkshell\hkshell\powershell\main\modules\pb\pb.psm1100%  
-	    Newer     		      41	I:\hkshell\.git\refs\remotes\origin\master100%  
-	    Newer     		    4582	I:\hkshell\.git\logs\refs\remotes\origin\master100%  
-	    Newer     		   2.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-21Dec23.log  0%   16%   33%   50%   67%  100%  
-	    New File  		   1.1 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-22Dec23.log100%  
-	    New File  		   1.8 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   52858	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-21Dec23.log100%  
-	    New File  		   40064	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-22Dec23.log100%  
-	    New File  		    2344	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   52758	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-21Dec23.log100%  
-	    New File  		   39987	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-22Dec23.log100%  
-	    New File  		    2338	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		  108411	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-21Dec23.log100%  
-	    New File  		   83566	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-22Dec23.log100%  
-	    New File  		    8784	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   53058	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-21Dec23.log100%  
-	    New File  		   40150	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-22Dec23.log100%  
-	    New File  		    1063	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   56178	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-21Dec23.log100%  
-	    New File  		   40740	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-22Dec23.log100%  
-	    New File  		    2613	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   52658	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-21Dec23.log100%  
-	    New File  		   39846	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-22Dec23.log100%  
-	    New File  		    1055	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   52358	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-21Dec23.log100%  
-	    New File  		   39618	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-22Dec23.log100%  
-	    New File  		    1049	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       268         0         0         0
-   Files :       671        70       601         0         0         7
-   Bytes :   11.21 m    7.28 m    3.93 m         0         0   911.9 k
-   Times :   0:00:37   0:00:05                       0:00:00   0:00:01
-
-
-   Speed :           1,461,463 Bytes/sec.
-   Speed :              83.626 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 8:39:29 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 8:39:47 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		   26487	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-15Dec23.log
-	  *EXTRA File 		   35858	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-16Dec23.log
-	  *EXTRA File 		   38957	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-15Dec23.log
-	  *EXTRA File 		   35926	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-16Dec23.log
-	  *EXTRA File 		   26312	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-15Dec23.log
-	  *EXTRA File 		   35858	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-16Dec23.log
-	  *EXTRA File 		   67080	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-15Dec23.log
-	  *EXTRA File 		   66840	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-16Dec23.log
-	  *EXTRA File 		   26462	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-15Dec23.log
-	  *EXTRA File 		   36062	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-16Dec23.log
-	  *EXTRA File 		   31841	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-15Dec23.log
-	  *EXTRA File 		   35654	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-16Dec23.log
-	  *EXTRA File 		   26610	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-15Dec23.log
-	  *EXTRA File 		   35790	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-16Dec23.log
-	    Newer     		   13209	I:\hkshell\hkshell\powershell\main\modules\pb\pb.psm1100%  
-	    Newer     		   21315	I:\hkshell\hkshell\powershell\main\modules\nav\nav.psm1100%  
-	    New File  		   1.8 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    New File  		    3400	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    New File  		    3392	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   83566	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-22Dec23.log100%  
-	    New File  		   18066	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   40150	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-22Dec23.log100%  
-	    New File  		    2126	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   40740	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-22Dec23.log100%  
-	    New File  		    5219	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   39846	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-22Dec23.log100%  
-	    New File  		    2110	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   39618	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-22Dec23.log100%  
-	    New File  		    2098	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657        15       642         0         0        14
-   Bytes :   10.73 m    2.19 m    8.54 m         0         0   513.4 k
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           329,050,857 Bytes/sec.
-   Speed :            18,828.441 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 8:39:47 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 8:45:09 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.8 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		    4456	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		    4446	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   22713	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		    3186	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		    6886	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		    3162	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		    3144	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.74 m    1.94 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           339,606,500 Bytes/sec.
-   Speed :            19,432.439 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 8:45:09 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 8:50:31 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.8 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		    5512	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		    5500	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   24805	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		    4246	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		    7934	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		    4214	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		    4190	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.75 m    1.95 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           292,456,000 Bytes/sec.
-   Speed :            16,734.467 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 8:50:31 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 8:55:52 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.8 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		    6568	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		    6554	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   26897	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		    5306	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		    8982	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		    5266	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		    5236	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.76 m    1.96 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           411,349,000 Bytes/sec.
-   Speed :            23,537.578 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 8:55:52 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 9:01:13 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		    7624	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		    7608	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   28989	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		    6366	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   10090	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		    6318	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		    6282	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.77 m    1.97 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           344,393,000 Bytes/sec.
-   Speed :            19,706.326 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 9:01:13 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 9:06:35 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		    8680	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		    8662	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   31081	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		    7426	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   11198	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		    7370	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		    7328	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.78 m    1.97 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           518,992,750 Bytes/sec.
-   Speed :            29,697.004 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 9:06:35 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 9:11:56 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		    9736	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		    9716	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   33173	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		    8486	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   12306	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		    8422	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		    8374	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.79 m    1.99 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           417,416,800 Bytes/sec.
-   Speed :            23,884.781 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 9:11:56 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 9:17:18 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   10792	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   10770	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   35265	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		    9546	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   13582	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		    9474	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		    9420	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.80 m    1.99 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           419,373,000 Bytes/sec.
-   Speed :            23,996.715 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 9:17:18 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 9:22:39 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   11848	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   11824	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   37357	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   10606	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   14690	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   10526	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   10466	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.82 m    2.01 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           352,761,666 Bytes/sec.
-   Speed :            20,185.184 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 9:22:39 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 9:28:00 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   12904	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   12878	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   39449	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   11666	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   15798	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   11578	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   11512	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.86 m    2.05 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           359,730,166 Bytes/sec.
-   Speed :            20,583.926 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 9:28:00 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 9:33:46 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   13960	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   13932	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   41541	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   12726	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   16906	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   12630	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   12558	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       648         0         0         0
-   Bytes :   10.87 m    2.06 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           67,757,156 Bytes/sec.
-   Speed :            3,877.095 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 9:33:46 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 9:39:08 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   15016	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   14986	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   43631	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   13786	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   17954	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   13682	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   13604	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.88 m    2.07 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           544,792,000 Bytes/sec.
-   Speed :            31,173.248 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 9:39:08 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 9:44:28 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   16072	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   16040	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   45723	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   14846	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   19062	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   14734	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   14650	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.89 m    2.08 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           438,033,800 Bytes/sec.
-   Speed :            25,064.494 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 9:44:29 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 9:49:50 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   17128	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   17094	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   47815	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   15906	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   20110	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   15786	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   15696	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.90 m    2.09 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           549,930,500 Bytes/sec.
-   Speed :            31,467.275 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 9:49:50 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 9:55:11 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   18184	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   18148	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   49907	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   16966	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   21158	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   16838	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   16742	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.91 m    2.10 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           441,855,000 Bytes/sec.
-   Speed :            25,283.146 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 9:55:11 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 10:00:33 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   19242	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   19204	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   51999	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   18026	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   22332	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   17890	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   17788	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       657         8       649         0         0         0
-   Bytes :   10.92 m    2.11 m    8.80 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           316,994,285 Bytes/sec.
-   Speed :            18,138.559 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 10:00:33 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 10:05:54 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		     309	I:\hkshell\project.cfg100%  
-	    Newer     		      21	I:\hkshell\.git\COMMIT_EDITMSG100%  
-	    Newer     		   10017	I:\hkshell\.git\index100%  
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   20300	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   20260	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   54093	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   19088	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   23726	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   18944	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   18836	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-	    Newer     		   10327	I:\hkshell\.git\logs\HEAD100%  
-	    Newer     		      41	I:\hkshell\.git\refs\heads\master100%  
-	    New File  		    1887	I:\hkshell\.git\objects\0c\069b6970164d452546d131fb3b3a8c7a8a9620100%  
-	    New File  		    1025	I:\hkshell\.git\objects\0d\5f5cdccf0043880aad29625c14850f7985f994100%  
-	    New File  		     170	I:\hkshell\.git\objects\11\aca45330cb48154ae369b0e79543d5930bc7e5100%  
-	    New File  		     794	I:\hkshell\.git\objects\0e\c7372fbbb6d87ff13a4d21b622a9694a10aa1e100%  
-	    New File  		      49	I:\hkshell\.git\objects\21\4eaad5b750fae2e34e01a28b050dfc13e1cb78100%  
-	    New File  		     544	I:\hkshell\.git\objects\21\c1312a376f1cf62edfbe214b550cde092256e6100%  
-	    New File  		    5437	I:\hkshell\.git\objects\28\44c0c705655c3877a9af295b838eb20dcfb10b100%  
-	    New File  		      91	I:\hkshell\.git\objects\27\ebbb325db45c5a45313ea1c50036d2f69d904f100%  
-	    New File  		     190	I:\hkshell\.git\objects\30\f14b51dec5dc07f236ad1af10d11ffe720b1bf100%  
-	    New File  		    4961	I:\hkshell\.git\objects\4d\a55790be0af404e461595a7ef5976828551928100%  
-	    New File  		    6180	I:\hkshell\.git\objects\4e\8cc043a78bac0d495503ce68a23998256531bd100%  
-	    New File  		    1748	I:\hkshell\.git\objects\52\cd200efbce446b845b70c36f861f0fe7fc7cfa100%  
-	    New File  		    1170	I:\hkshell\.git\objects\56\dbd36ef5f56706935de703e8146f27971e10dc100%  
-	    New File  		     830	I:\hkshell\.git\objects\5f\6f8581fbb6cff0c32f5129072083dcddfa91f7100%  
-	    New File  		      46	I:\hkshell\.git\objects\60\ad54360ebec6bfc40fea8cdd9291e265a0b3fd100%  
-	    New File  		    1071	I:\hkshell\.git\objects\6d\0b1282711a4370d9c41a3e44ed6d40a7009c53100%  
-	    New File  		  231254	I:\hkshell\.git\objects\8d\02d1952957bed94881fbffd1aa4b93d406b132100%  
-	    New File  		    1190	I:\hkshell\.git\objects\90\946c19605ade37613a2c8339e11e997f4c38f8100%  
-	    New File  		    3977	I:\hkshell\.git\objects\93\b61fa32c05ba7e14aed41263eb846b5531fccc100%  
-	    New File  		  135897	I:\hkshell\.git\objects\9f\9ec95303389cbaad2e110a86d99c7566bfad77100%  
-	    New File  		      81	I:\hkshell\.git\objects\a6\5fb6b5ae1fde266d3b56e4762865f565242f03100%  
-	    New File  		    1109	I:\hkshell\.git\objects\b2\0e341bd995ececfa70fd0f48f44ce65a0bb1b2100%  
-	    New File  		     151	I:\hkshell\.git\objects\b5\7998de484b0e78b32f1f52ebe2549a2e7be4d1100%  
-	    New File  		     122	I:\hkshell\.git\objects\b3\f47e3bfba6f09ea14a4514bceb8b2462864a43100%  
-	    New File  		      52	I:\hkshell\.git\objects\c6\df9245263a297f5166b91c624efd125682e260100%  
-	    New File  		     905	I:\hkshell\.git\objects\c9\fecd08f8c36afb374875c523cb1598cc7c9c17100%  
-	    New File  		    1161	I:\hkshell\.git\objects\c8\826ca33b0fefbf86bc90baf1fb81e747a08be9100%  
-	    New File  		     808	I:\hkshell\.git\objects\d5\6b6d5456aa9155d2a973d5178defabd5e258eb100%  
-	    New File  		    1322	I:\hkshell\.git\objects\fc\ac70e4e223fc8f1b62684ff385d06d76054807100%  
-	    Newer     		   10327	I:\hkshell\.git\logs\refs\heads\master100%  
-	    Newer     		      41	I:\hkshell\.git\refs\remotes\origin\master100%  
-	    Newer     		    4740	I:\hkshell\.git\logs\refs\remotes\origin\master100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       685        45       640         0         0         0
-   Bytes :   11.31 m    2.54 m    8.77 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           190,767,142 Bytes/sec.
-   Speed :            10,915.783 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 10:05:54 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 10:11:16 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   21358	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   21316	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   59625	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   20150	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   25192	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   19998	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   19884	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.33 m    2.14 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           448,929,400 Bytes/sec.
-   Speed :            25,687.947 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 10:11:16 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 10:17:02 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   22416	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   22372	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   61719	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   21212	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   26242	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   21052	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   20932	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.34 m    2.15 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           250,581,222 Bytes/sec.
-   Speed :            14,338.372 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 10:17:02 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 10:22:24 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   23474	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   23428	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   63813	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   22274	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   27292	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   22106	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   21980	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.35 m    2.16 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           283,797,625 Bytes/sec.
-   Speed :            16,239.030 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 10:22:24 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 10:27:46 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   24532	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   24484	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   65907	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   23336	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   28342	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   23160	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   23028	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.36 m    2.17 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           455,990,000 Bytes/sec.
-   Speed :            26,091.957 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 10:27:46 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 10:33:08 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   25590	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   25540	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   68001	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   24398	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   29392	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   24214	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   24076	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.37 m    2.18 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           381,586,500 Bytes/sec.
-   Speed :            21,834.555 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 10:33:08 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 10:38:31 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   26648	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   26596	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   70095	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   25460	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   30442	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   25268	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   25124	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.38 m    2.19 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           135,240,470 Bytes/sec.
-   Speed :             7,738.522 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 10:38:31 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 10:43:53 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   27706	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   27652	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   72189	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   26522	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   31492	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   26322	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   26172	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.39 m    2.20 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           461,731,400 Bytes/sec.
-   Speed :            26,420.482 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 10:43:53 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 10:49:16 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   28764	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   28708	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   74283	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   27584	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   32542	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   27376	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   27220	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       685         8       677         0         0         0
-   Bytes :   11.40 m    2.21 m    9.18 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           386,371,000 Bytes/sec.
-   Speed :            22,108.326 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 10:49:16 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 10:54:38 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   29822	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   29764	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   76377	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   28646	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   33592	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   28430	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   28268	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.41 m    2.21 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           465,559,000 Bytes/sec.
-   Speed :            26,639.500 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 10:54:38 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:00:00 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   30880	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   30820	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   78471	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   29708	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   34642	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   29484	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   29316	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       685         8       677         0         0         0
-   Bytes :   11.40 m    2.22 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           584,341,000 Bytes/sec.
-   Speed :            33,436.262 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:00:00 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:05:21 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   31938	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   31876	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   80565	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   30770	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   35692	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   30538	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   30364	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.43 m    2.23 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           335,276,142 Bytes/sec.
-   Speed :            19,184.654 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:05:21 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:10:42 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   32996	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   32932	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   82659	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   31832	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   36742	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   31592	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   31412	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.43 m    2.24 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           2,356,502,000 Bytes/sec.
-   Speed :             134,840.125 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:10:42 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:16:03 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   34054	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   33988	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   84757	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   32894	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   37792	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   32646	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   32460	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       685         8       678         0         0         0
-   Bytes :   11.44 m    2.25 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           2,366,075,000 Bytes/sec.
-   Speed :             135,387.891 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:16:03 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:21:24 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   35112	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   35044	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   86855	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   33956	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   38842	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   33700	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   33508	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.45 m    2.26 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           593,912,000 Bytes/sec.
-   Speed :            33,983.918 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:21:24 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:27:12 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   36170	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   36100	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   88949	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   35018	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   39892	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   34754	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   34556	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.46 m    2.27 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           397,536,166 Bytes/sec.
-   Speed :            22,747.201 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:27:12 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:32:33 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   37228	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   37156	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   91043	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   36080	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   40942	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   35808	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   35604	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.47 m    2.28 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           598,696,500 Bytes/sec.
-   Speed :            34,257.688 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:32:33 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:37:54 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   38286	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   38212	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   93137	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   37142	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   41992	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   36862	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   36652	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.48 m    2.29 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           480,871,000 Bytes/sec.
-   Speed :            27,515.660 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:37:54 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:43:15 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   39344	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   39268	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   95231	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   38204	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   43042	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   37916	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   37700	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.49 m    2.30 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           603,481,000 Bytes/sec.
-   Speed :            34,531.461 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:43:15 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:48:36 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   40402	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   40324	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   97325	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   39266	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   44092	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   38970	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   38748	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       685         8       675         0         0         0
-   Bytes :   11.49 m    2.31 m    9.18 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           605,873,250 Bytes/sec.
-   Speed :            34,668.344 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:48:36 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:53:58 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   41460	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   41380	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		   99419	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   40328	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   45142	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   40024	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   39796	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.51 m    2.32 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           811,020,666 Bytes/sec.
-   Speed :            46,406.977 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:53:58 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Saturday, December 23, 2023 11:59:45 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.9 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-23Dec23.log100%  
-	    Newer     		   42518	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-23Dec23.log100%  
-	    Newer     		   42436	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-23Dec23.log100%  
-	    Newer     		  101513	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-23Dec23.log100%  
-	    Newer     		   41390	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-23Dec23.log100%  
-	    Newer     		   46192	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-23Dec23.log100%  
-	    Newer     		   41078	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-23Dec23.log100%  
-	    Newer     		   40844	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-23Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       273       273       273         0         0         0
-   Files :       686         8       678         0         0         0
-   Bytes :   11.52 m    2.32 m    9.19 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           610,657,750 Bytes/sec.
-   Speed :            34,942.117 MegaBytes/min.
-   Ended : Saturday, December 23, 2023 11:59:45 PM
-

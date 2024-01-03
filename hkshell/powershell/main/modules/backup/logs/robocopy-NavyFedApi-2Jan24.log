@@ -1,0 +1,263 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:00:57 PM
+   Source : I:\NavyFedApi\
+     Dest : E:\monthly_backups\Jan\NavyFedApi\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    New File  		     174	I:\NavyFedApi\project.cfg100%  
+	    New File  		    7277	I:\NavyFedApi\project.ps1  0%  100%  
+	    New File  		       7	I:\NavyFedApi\.git\COMMIT_EDITMSG100%  
+	    New File  		     288	I:\NavyFedApi\.git\config100%  
+	    New File  		      73	I:\NavyFedApi\.git\description100%  
+	    New File  		      23	I:\NavyFedApi\.git\HEAD100%  
+	    New File  		     225	I:\NavyFedApi\.git\index100%  
+	    New File  		     478	I:\NavyFedApi\.git\hooks\applypatch-msg.sample100%  
+	    New File  		     896	I:\NavyFedApi\.git\hooks\commit-msg.sample100%  
+	    New File  		    4726	I:\NavyFedApi\.git\hooks\fsmonitor-watchman.sample100%  
+	    New File  		     189	I:\NavyFedApi\.git\hooks\post-update.sample100%  
+	    New File  		     424	I:\NavyFedApi\.git\hooks\pre-applypatch.sample100%  
+	    New File  		    1643	I:\NavyFedApi\.git\hooks\pre-commit.sample100%  
+	    New File  		     416	I:\NavyFedApi\.git\hooks\pre-merge-commit.sample100%  
+	    New File  		    1374	I:\NavyFedApi\.git\hooks\pre-push.sample100%  
+	    New File  		    4898	I:\NavyFedApi\.git\hooks\pre-rebase.sample100%  
+	    New File  		     544	I:\NavyFedApi\.git\hooks\pre-receive.sample100%  
+	    New File  		    1492	I:\NavyFedApi\.git\hooks\prepare-commit-msg.sample100%  
+	    New File  		    2783	I:\NavyFedApi\.git\hooks\push-to-checkout.sample100%  
+	    New File  		    2308	I:\NavyFedApi\.git\hooks\sendemail-validate.sample100%  
+	    New File  		    3650	I:\NavyFedApi\.git\hooks\update.sample100%  
+	    New File  		     354	I:\NavyFedApi\.git\logs\HEAD100%  
+	    New File  		     240	I:\NavyFedApi\.git\info\exclude100%  
+	    New File  		      41	I:\NavyFedApi\.git\refs\heads\master100%  
+	    New File  		     132	I:\NavyFedApi\.git\objects\1b\07190429f268284944167902184c8ca3d6b923100%  
+	    New File  		     146	I:\NavyFedApi\.git\objects\ad\41e66420539a4120bf8ef94d1daa0e64e4c1c4100%  
+	    New File  		     154	I:\NavyFedApi\.git\objects\d3\5e5294a342127e6112bf184b6788bea37c416c100%  
+	    New File  		      83	I:\NavyFedApi\.git\objects\fd\f111da8218fe789f594c724fa0e6a0dd0fc71b100%  
+	    New File  		     354	I:\NavyFedApi\.git\logs\refs\heads\master100%  
+	    New File  		      41	I:\NavyFedApi\.git\refs\remotes\origin\master100%  
+	    New File  		    2164	I:\NavyFedApi\.git\objects\3b\aae6e70066f773540cdae61d37422257e4aea5100%  
+	    New File  		     316	I:\NavyFedApi\.git\logs\refs\remotes\origin\master100%  
+	    New File  		     113	I:\NavyFedApi\.git\objects\3d\86a69076b66f07e7652079bf87e356a643eaec100%  
+	    New File  		      82	I:\NavyFedApi\.git\objects\95\99545f744bf5d531246b7a03067c0e403f8bdd100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        25        25         0         0         0         0
+   Files :        34        34         0         0         0         0
+   Bytes :    37.2 k    37.2 k         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           1,587,833 Bytes/sec.
+   Speed :              90.857 MegaBytes/min.
+   Ended : Tuesday, January 2, 2024 9:00:57 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:08:59 PM
+   Source : I:\NavyFedApi\
+     Dest : E:\monthly_backups\Jan\NavyFedApi\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        25        25        25         0         0         0
+   Files :        34         0        34         0         0         0
+   Bytes :    37.2 k         0    37.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:08:59 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:09:36 PM
+   Source : I:\NavyFedApi\
+     Dest : E:\realtime_backups\NavyFedApi\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        25        25        25         0         0         0
+   Files :        34         0        34         0         0         0
+   Bytes :    37.2 k         0    37.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:09:36 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:14:58 PM
+   Source : I:\NavyFedApi\
+     Dest : E:\realtime_backups\NavyFedApi\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        25        25        25         0         0         0
+   Files :        34         0        34         0         0         0
+   Bytes :    37.2 k         0    37.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:14:58 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:20:19 PM
+   Source : I:\NavyFedApi\
+     Dest : E:\realtime_backups\NavyFedApi\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        25        25        25         0         0         0
+   Files :        34         0        34         0         0         0
+   Bytes :    37.2 k         0    37.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:20:19 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:26:01 PM
+   Source : I:\NavyFedApi\
+     Dest : E:\realtime_backups\NavyFedApi\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        25        25        25         0         0         0
+   Files :        34         0        34         0         0         0
+   Bytes :    37.2 k         0    37.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:26:01 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:31:43 PM
+   Source : I:\NavyFedApi\
+     Dest : E:\realtime_backups\NavyFedApi\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        25        25        25         0         0         0
+   Files :        34         0        34         0         0         0
+   Bytes :    37.2 k         0    37.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:31:43 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:37:03 PM
+   Source : I:\NavyFedApi\
+     Dest : E:\realtime_backups\NavyFedApi\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        25        25        25         0         0         0
+   Files :        34         0        34         0         0         0
+   Bytes :    37.2 k         0    37.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:37:03 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, January 2, 2024 9:42:45 PM
+   Source : I:\NavyFedApi\
+     Dest : E:\realtime_backups\NavyFedApi\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        25        25        25         0         0         0
+   Files :        34         0        34         0         0         0
+   Bytes :    37.2 k         0    37.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, January 2, 2024 9:42:45 PM
+

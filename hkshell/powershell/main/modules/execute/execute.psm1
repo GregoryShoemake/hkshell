@@ -190,13 +190,12 @@ function e_array_tostring ($a_) {
     }
     write-host ""
 }
-function e_search_args ($a_, $param, [switch]$switch, [switch]$all) {
+function e_search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$untilSwitch) {
     e_debug_function "e_search_args"    
     $c_ = $a_.Count
     e_debug "args:$a_ | len:$c_"
     e_debug "param:$param"
     e_debug "switch:$switch"
-    e_debug "all:$all"
     if($switch) { 
         for ($i = 0; $i -lt $c_; $i++) {
             $a = $a_[$i]
@@ -211,7 +210,7 @@ function e_search_args ($a_, $param, [switch]$switch, [switch]$all) {
             }
         }
         $res = $res -and $true
-        e_debug_return
+        e_debug_return "@{ RES=$res ; ARGS=$a_ }"
         return @{
             RES = $res
             ARGS = $a_
@@ -225,13 +224,17 @@ function e_search_args ($a_, $param, [switch]$switch, [switch]$all) {
                 if($all) {
                     $ibak = $i
                     $res = @()
-                    $counter = 0
+                    $remove = 1
                     for ($i = $i + 1; $i -lt ($c_); $i++) {
+                        if($untilSwitch -and ($a_[$i] -match "^-")) {
+                            e_debug "[-untilSwitch] next switch found"
+                            break
+                        }
                         $res += $a_[$i]
-                        $counter++
+                        $remove++
                     }
                     $res = $res -join " "
-                    $a_ = e_truncate $a_ -indexAndDepth @($ibak, $counter)
+                    $a_ = e_truncate $a_ -indexAndDepth @($ibak, $remove)
                 } else {
                     $res = $a_[$i + 1]
                     if($res -match "^-") { 
@@ -249,7 +252,7 @@ function e_search_args ($a_, $param, [switch]$switch, [switch]$all) {
                 throw [System.ArgumentException] "Duplicate argument passed: $param"
             }
         }
-        e_debug_return
+        e_debug_return "@{ RES=$res ; ARGS=$a_ }"
         return @{
             RES = $res
             ARGS = $a_
@@ -272,7 +275,8 @@ function e_get_ext ([string]$name="") {
 }
 
 $methods = @{
-    RUN = "RUN"
+    e_run = "RUN";
+    e_install = "INSTALL"
 }
 
 function Start-Execute ()
@@ -280,26 +284,29 @@ function Start-Execute ()
     e_debug_function "execute"
     $hash = e_search_args $args "-method"
     $method = $hash.RES
-    $method = e_default $method $methods.RUN
+    $method = e_default $method $methods.e_run
     e_debug "args:$(e_array_tostring $hash.ARGS)"
     e_debug "method:$method"
     
 
     switch ($method) {
-        $methods.RUN { 
-            run $hash.ARGS
+        $methods.e_run { 
+            e_run $hash.ARGS
+        }
+        $methods.e_install { 
+            e_install $hash.ARGS
         }
         Default {}
     }
 }
 New-Alias -name ex -value "Start-Execute" -scope Global -Force
 
-function run ($params) {
-    e_debug_function "run"
+function e_run ($params) {
+    e_debug_function "e_run"
     $c_ = $params.Count
     e_debug "args:$params | count:$c_"
     if(($null -eq $params) -or ($c_ -eq 0) -or (($c_ -eq 1)-and($null -eq $params[0]))){
-        throw [System.ArgumentNullException] "No arguments passed to execute.run"
+        throw [System.ArgumentNullException] "No arguments passed to execute.e_run"
     } 
     $target = $params[0]
     if ($target -is [string]) { 
@@ -353,4 +360,90 @@ function run ($params) {
             return Start-Process $target.fullname -Verb $verb -WindowStyle $style -Wait:$wait -PassThru:$passthru -ArgumentList $arguments
         }
     }
+}
+function e_install ($params) {
+    e_debug_function "e_install"
+    $c_ = $params.Count
+    e_debug "args:$params | count:$c_"
+    if(($null -eq $params) -or ($c_ -eq 0) -or (($c_ -eq 1)-and($null -eq $params[0]))){
+        throw [System.ArgumentNullException] "No arguments passed to execute.e_install"
+    } 
+    $target = $params[0]
+    if ($target -is [string]) { 
+        e_debug "target is string"
+        if($target -match "^[0-9]+$"){
+            $target = (Get-ChildItem $(Get-Location))[$target]
+        } else {
+            $target = Get-Item $target -Force -ErrorAction Stop
+        }
+    } elseif ($target -is [int]) {
+         $target = (Get-ChildItem $(Get-Location))[$target]       
+    }
+    if ($target -isnot [System.IO.FileInfo]) {
+        throw [System.ArgumentException] "Invalid target type $($target.GetType()), expected [string] (as path) or [System.IO.FileInfo]"
+    }
+    $ext = e_get_ext $target.name
+    $hash = e_search_args $params "-runas" -switch
+    $verb = if($hash.RES) { "RunAs" } else { "Open" }
+    $hash = e_search_args $hash.ARGS "-wait" -switch
+    $wait = $hash.RES
+    $wait = e_default $wait (Invoke-PushWrapper Invoke-Persist [boolean]default>_installWaitDefault:true)
+    $hash = e_search_args $hash.ARGS "-passthru" -switch
+    $passthru = $hash.RES
+    $passthru = e_default $passthru (Invoke-PushWrapper Invoke-Persist [boolean]default>_installPassthruDefault:true)
+    $hash = e_search_args $hash.ARGS "-style" 
+    $style = e_default $hash.RES "Normal"
+    $hash = e_search_args $hash.ARGS "-argumentList" -all -untilswitch
+    $arguments = $hash.RES
+
+    if($global:_debug_) { 
+        e_debug "target:$($target.fullname)"
+        e_debug "ext:$ext"
+        e_debug "verb:$verb"
+        e_debug "style:$style"
+        e_debug "wait:$wait"
+        e_debug "passthru:$passthru"
+        e_debug "arguments:$arguments"
+    }    
+    
+    switch($ext) {
+        exe {
+            e_debug "Running [exe] install"
+            if($null -eq $arguments) {
+                return Start-Process $target.fullname -Verb $verb -WindowStyle $style -Wait:$wait -PassThru:$passthru
+            }
+            return Start-Process $target.fullname -Verb $verb -WindowStyle $style -Wait:$wait -PassThru:$passthru -ArgumentList $arguments
+        }
+    }
+}
+function Test-Credential {
+<#
+	.SYNOPSIS
+		Takes a PSCredential object and validates it against the domain (or local machine, or ADAM instance).
+
+	.PARAMETER cred
+		A PScredential object with the username/password you wish to test. Typically this is generated using the Get-Credential cmdlet. Accepts pipeline input.
+		
+	.PARAMETER context
+		An optional parameter specifying what type of credential this is. Possible values are 'Domain' for Active Directory accounts, and 'Machine' for local machine accounts. The default is 'Domain.'
+	
+	.OUTPUTS
+		A boolean, indicating whether the credentials were successfully validated.
+
+	.NOTES
+		Created by Jeffrey B Smith, 6/30/2010
+#>
+	param(
+		[parameter(Mandatory=$true,ValueFromPipeline=$true)]
+		[System.Management.Automation.PSCredential]$credential,
+		[parameter()][validateset('Domain','Machine')]
+		[string]$context = 'Machine'
+	)
+	begin {
+		Add-Type -AssemblyName System.DirectoryServices.AccountManagement
+		$DS = New-Object System.DirectoryServices.AccountManagement.PrincipalContext([System.DirectoryServices.AccountManagement.ContextType]::$context) 
+	}
+	process {
+		$DS.ValidateCredentials($credential.GetNetworkCredential().UserName, $credential.GetNetworkCredential().password)
+	}
 }
