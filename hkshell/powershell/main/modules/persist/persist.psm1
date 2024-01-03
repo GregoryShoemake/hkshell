@@ -2012,12 +2012,22 @@ function Invoke-Persist {
     }
     else {
         switch ($oper) {
-            ">_" { $res = p_foo $name $para } # getthis (command)
+            ">_" { 
+                $res = p_foo $name $para 
+                if($null -ne $cast){
+                    $res = p_cast $cast $res
+                }
+                } # getthis (command)
             "=" { 
                 if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator assign [n]" } 
                 if ($v_ -eq $para) {
-                    if ($global:_debug_) { Write-Host "    \ var.val is already: $para" -ForegroundColor Magenta }
-                    $res = $l_
+                    $c_ = p_getCast $l_
+                    if($cast -eq $c_) {
+                        if ($global:_debug_) { Write-Host "    \ var.val is already: $para" -ForegroundColor Magenta }
+                        $res = $l_
+                    } else {
+                        $res = p_foo assign $cast':'$name':'$para 
+                    }
                 }
                 else { $res = p_foo assign $cast':'$name':'$para } 
             } # assign
