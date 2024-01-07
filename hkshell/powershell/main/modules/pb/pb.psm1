@@ -398,6 +398,7 @@ function Watch-Thread ($who,[switch]$skipSent,[int]$frequency = 750) {
     While($true){
         Start-Sleep -Milliseconds $frequency
         $new = Get-Text $who
+        if("$($new.body)" -eq ""){ continue }
         if($new.body -ne $last){
             $last = $new.body
             $direction = if($new.direction -eq "incoming"){"from"}else{"to"}
