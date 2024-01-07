@@ -389,7 +389,8 @@ function Get-Text ($who,$expand) {
         return $threads
     }
 }
-function Watch-Thread ($who,[switch]$skipSent,[int]$frequency = 750) {
+function Watch-Thread ($who,[switch]$skipSent,[int]$frequency = 750,[switch]$clear) {
+    if( $clear ){ Clear-Host }
     $frequency = [Math]::Max(750,$frequency)
     $new = Get-Text $who
     $direction = if($new.direction -eq "incoming"){"from"}else{"to"}
