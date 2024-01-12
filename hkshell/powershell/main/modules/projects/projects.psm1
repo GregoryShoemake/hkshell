@@ -1,3 +1,11 @@
+<#
+Stop-Process: Cannot bind argument to parameter 'InputObject' because it is null.
+Set-Location: Cannot find path 'K:\nand2tetris\projects\03\:\nand2tetris' because it does not exist.
+
+#>
+
+
+
 $null = importhks nav
 function pr_debug ($message, $messageColor, $meta) {
     if (!$global:_debug_) { return }
@@ -26,8 +34,8 @@ function pr_prolix ($message, $messageColor) {
     Write-Host $message -ForegroundColor $messageColor
 }
 function pr_choice ($prompt) {
-    while((Read-Host $prompt) -notmatch "[Yy]([EeSs])?|[Nn]([Oo])?") {
-            $prompt = ""
+    while((Read-Host $prompt) -notmatch "^(y|Y|yes|Yes|YES|n|N|no|No|NO)$") {
+            $prompt = "?"
             Write-Host "Please input a [Y]es or [N]o answer" -ForegroundColor yellow
         }
     if($MATCHES[0] -match "[Yy]"){ return $true }

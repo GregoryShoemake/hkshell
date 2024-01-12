@@ -34,8 +34,8 @@ function __prolix ($message, $messageColor) {
     Write-Host $message -ForegroundColor $messageColor
 }
 function __choice ($prompt) {
-    while((Read-Host $prompt) -notmatch "[Yy]([EeSs])?|[Nn]([Oo])?") {
-            $prompt = ""
+    while((Read-Host $prompt) -notmatch "^(y|Y|yes|Yes|YES|n|N|no|No|NO)$") {
+            $prompt = "?"
             Write-Host "Please input a [Y]es or [N]o answer" -ForegroundColor yellow
         }
     if($MATCHES[0] -match "[Yy]"){ return $true }
