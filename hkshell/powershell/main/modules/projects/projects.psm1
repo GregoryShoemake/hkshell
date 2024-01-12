@@ -1,3 +1,11 @@
+<#
+Stop-Process: Cannot bind argument to parameter 'InputObject' because it is null.
+Set-Location: Cannot find path 'K:\nand2tetris\projects\03\:\nand2tetris' because it does not exist.
+
+#>
+
+
+
 $null = importhks nav
 function pr_debug ($message, $messageColor, $meta) {
     if (!$global:_debug_) { return }
