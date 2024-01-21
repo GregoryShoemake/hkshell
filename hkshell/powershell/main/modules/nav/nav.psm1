@@ -258,8 +258,13 @@ Function Get-RegistryKeyPropertiesAndValues
     Pop-Location
 } #end function Get-RegistryKeyPropertiesAndValues
 
-function Format-ChildItem ($items, [switch]$cache) {
-    if($cache) {$items = $global:QueryResult; $global:QueryResult = $null}
+function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache) {
+    if($cache) {
+        $items = $global:QueryResult 
+        if($clearCache){
+            $global:QueryResult = $null
+        }
+    }
     $i = 0
     if($args -notcontains "-force") { $args += " -force" }
     $(if($null -eq $items) { 
