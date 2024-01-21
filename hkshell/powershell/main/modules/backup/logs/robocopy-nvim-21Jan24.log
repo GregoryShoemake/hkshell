@@ -1,0 +1,140 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Sunday, January 21, 2024 1:19:45 PM
+   Source : J:\nvim\
+     Dest : E:\monthly_backups\Jan\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		     277	J:\nvim\project.cfg100%  
+	    Newer     		      18	J:\nvim\.git\COMMIT_EDITMSG100%  
+	    Newer     		    3441	J:\nvim\.git\index100%  
+	    Newer     		    7993	J:\nvim\lua\keymaps.lua100%  
+	    Newer     		    8613	J:\nvim\.git\logs\HEAD100%  
+	    Newer     		      41	J:\nvim\.git\refs\heads\master100%  
+	    Newer     		    8613	J:\nvim\.git\logs\refs\heads\master100%  
+	    Newer     		      41	J:\nvim\.git\refs\remotes\origin\master100%  
+	    Newer     		    3950	J:\nvim\.git\logs\refs\remotes\origin\master100%  
+	    Newer     		    7993	J:\nvim\lua\core\keymaps.lua100%  
+	    New File  		     290	J:\nvim\.git\objects\51\aa6a67134ef5c2d4316c5b9213ee6d05e36f6b100%  
+	    New File  		    2282	J:\nvim\.git\objects\65\183f70dfa5b0b2767650ddd520bb7aa4e05e5a100%  
+	    New File  		     216	J:\nvim\.git\objects\8a\f2bf7a6de447cd805490f8ea6a936b14da01de100%  
+	    New File  		     168	J:\nvim\.git\objects\9d\10e1d5ce71d33f5c904e5f872e1c57ffe8aba8100%  
+	    New File  		     219	J:\nvim\.git\objects\e6\d3e0d9b56bc57cf652a97393f8800b737d2b62100%  
+	    New File  		     242	J:\nvim\.git\objects\e9\25a5039f9600e4a6d9f67060a3769cc986699d100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       154       154       152         0         0         0
+   Files :       249        16       233         0         0         0
+   Bytes :   500.5 k    43.3 k   457.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           1,930,304 Bytes/sec.
+   Speed :             110.453 MegaBytes/min.
+   Ended : Sunday, January 21, 2024 1:19:45 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Sunday, January 21, 2024 1:20:23 PM
+   Source : J:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		     277	J:\nvim\project.cfg100%  
+	    Newer     		      18	J:\nvim\.git\COMMIT_EDITMSG100%  
+	    Newer     		    3441	J:\nvim\.git\index100%  
+	    Newer     		    7993	J:\nvim\lua\keymaps.lua100%  
+	    Newer     		    8613	J:\nvim\.git\logs\HEAD100%  
+	    Newer     		    7993	J:\nvim\lua\core\keymaps.lua100%  
+	    Newer     		      41	J:\nvim\.git\refs\heads\master100%  
+	    Newer     		    8613	J:\nvim\.git\logs\refs\heads\master100%  
+	    Newer     		      41	J:\nvim\.git\refs\remotes\origin\master100%  
+	    Newer     		    3950	J:\nvim\.git\logs\refs\remotes\origin\master100%  
+	    New File  		     290	J:\nvim\.git\objects\51\aa6a67134ef5c2d4316c5b9213ee6d05e36f6b100%  
+	    New File  		    2282	J:\nvim\.git\objects\65\183f70dfa5b0b2767650ddd520bb7aa4e05e5a100%  
+	    New File  		     216	J:\nvim\.git\objects\8a\f2bf7a6de447cd805490f8ea6a936b14da01de100%  
+	    New File  		     168	J:\nvim\.git\objects\9d\10e1d5ce71d33f5c904e5f872e1c57ffe8aba8100%  
+	    New File  		     219	J:\nvim\.git\objects\e6\d3e0d9b56bc57cf652a97393f8800b737d2b62100%  
+	    New File  		     242	J:\nvim\.git\objects\e9\25a5039f9600e4a6d9f67060a3769cc986699d100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       154       154       152         0         0         0
+   Files :       249        16       233         0         0         0
+   Bytes :   500.5 k    43.3 k   457.2 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           8,879,400 Bytes/sec.
+   Speed :             508.083 MegaBytes/min.
+   Ended : Sunday, January 21, 2024 1:20:23 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Sunday, January 21, 2024 1:25:45 PM
+   Source : J:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       154       154       154         0         0         0
+   Files :       249         0       249         0         0         0
+   Bytes :   500.5 k         0   500.5 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Sunday, January 21, 2024 1:25:45 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Sunday, January 21, 2024 1:31:06 PM
+   Source : J:\nvim\
+     Dest : E:\realtime_backups\nvim\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :       154       154       154         0         0         0
+   Files :       249         0       249         0         0         0
+   Bytes :   500.5 k         0   500.5 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Sunday, January 21, 2024 1:31:06 PM
+
