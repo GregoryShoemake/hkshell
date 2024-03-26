@@ -268,20 +268,126 @@ function New-Symlink ($RealTarget, [string]$NewSymPath){
     New-Item -ItemType SymbolicLink -Path $NewSymPath -Value $RealTarget -Force
 }
 
-function Invoke-GetItem ($item) {
+function New-Tunnel ($targetDirectory){
+    if($targetDirectory -is [System.IO.DirectoryInfo]){
+        $targetDirectory = $targetDirectory.FullName
+    }
+    if($targetDirectory -is [String]) {
+        try {
+            $current = Get-Item "$pwd" -ErrorAction Stop
+            $target = Get-Item $targetDirectory -ErrorAction Stop
+            $a = "$($current.FullName)\$($target.Name)"
+            $b = "$($target.FullName)\$($current.Name)"
+            New-Item -ItemType SymbolicLink -Path $a -Value $target.Fullname -Force -ErrorAction Stop
+            New-Item -ItemType SymbolicLink -Path $b -Value $current.FullName -Force -ErrorAction Stop
+        }
+        catch {
+            Write-Host "!_Failed to create tunnel_____!`n`n$_`n" -ForegroundColor Red
+            return
+        }
+    } else {
+        Write-Host "!_target_directory_type_: $($targetDirectory.GetType) :_is_invalid_____!`n`n$_`n" -ForegroundColor Red
+        return
+    }
+}
+
+function Invoke-GetItem ($item, [switch]$all) {
     if($null -eq $global:clip) { $global:clip = @() }
+    if($all){
+        return Get-ChildItem "$PWD" | ForEach-Object {
+            Invoke-GetItem $_.FullName
+        }
+    }
+    if($item -is [System.Array]) {
+        return $item | ForEach-Object {
+            Invoke-GetItem $_
+        }
+    }
     $global:clip += Get-Path $item
     $null = $global:clip ## To remove debug message
 }
 
-function Invoke-MoveItem ([string]$path, [int]$index = -1, [switch]$force) {
+function Invoke-MoveItem ([string]$path, [int]$index = -1, [switch]$force, [switch] $all,[switch] $removeItemFromClip) {
+    if ($all) {
+        $n = $clip.count
+        for ($i = $n - 1; $i -ge 1; $i--) {
+            Invoke-MoveItem -index $i -force:$force -removeItemFromClip:$removeItemFromClip -path $path
+        }
+        Invoke-MoveItem -index 0 -force:$force -removeItemFromClip:$removeItemFromClip -path $path
+        return
+    }
     if($index -eq -1) { $index = $global:clip.Count - 1 }
+    if($path -eq "") {
+        $path = "$pwd"
+    }
     $path = Get-Path $path
     Move-Item -Path $global:clip[$index] -Destination $path -Force:$force
+    if($removeItemFromClip){
+        if($global:clip.count -eq 1) {
+            $global:clip = $null
+            return
+        }
+        if($global:clip.count -eq 2) {
+            $global:clip = @($global:clip[1-$index])
+            return
+        }
+        $global:clip = mod_truncate -array $global:clip -indexAndDepth @($index, 1)
+    }
 }
 
-function Invoke-CopyItem ([string]$path, [int]$index = -1, [switch]$force) {
+function Invoke-CopyItem ([string]$path, [int]$index = -1, [switch]$force, [switch]$all, [switch] $removeItemFromClip) {
+    if ($all) {
+        $n = $clip.count
+        for ($i = $n - 1; $i -ge 1; $i--) {
+            Invoke-CopyItem -index $i -force:$force -removeItemFromClip:$removeItemFromClip -path $path
+        }
+        Invoke-CopyItem -index 0 -force:$force -removeItemFromClip:$removeItemFromClip -path $path
+        return
+    }
     if($index -eq -1) { $index = $global:clip.Count - 1 }
+    if($path -eq "") {
+        $path = "$pwd"
+    }
     $path = Get-Path $path
     Copy-Item -Path $global:clip[$index] -Destination $path -Force:$force
+    if($removeItemFromClip){
+        if($global:clip.count -eq 1) {
+            $global:clip = $null
+            return
+        }
+        if($global:clip.count -eq 2) {
+            $global:clip = @($global:clip[1-$index])
+            return
+        }
+        $global:clip = mod_truncate -array $global:clip -indexAndDepth @($index, 1)
+    }
+}
+
+function Invoke-Extract([string]$archive,[string]$destination,[string]$extractor){
+    if($extractor -eq ""){
+        $7z = "D:\Program Files\7-Zip\7z.exe"
+        $7za = "D:\Program Files\7-Zip\7za.exe"
+        if(Test-Path $7z){
+            $extractor = $7z
+        } elseif (Test-Path $7za) {
+            $extractor = $7za
+        } else {
+            Write-Host "failed - could not find valid executable 7z or 7za: $extractor" -ForegroundColor Red
+            return 1
+        }
+    }
+    while(!( Test-Path $archive )){
+        $archive = Read-Host "Input full or relative path to a valid target archive file, or press <Ctrl-c> to cancel"
+    }
+    if($extractor -match "7za") {
+        $argument = "e"
+    } elseif ($extractor -match "7z") {
+        $argument = "x"
+    } else {
+        Write-Host "failed - invalid extraction executable: $extractor" -ForegroundColor Red
+        return 2
+    }
+     
+    $destination = if($destination -ne "") { " -o'$destination'" } else { "" }
+    Start-Process -NoNewWindow -Wait -FilePath $extractor -ArgumentList "$argument $('"')$archive$('"')$destination"
 }

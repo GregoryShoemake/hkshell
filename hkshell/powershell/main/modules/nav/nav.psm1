@@ -654,7 +654,11 @@ function Invoke-Go {
                 $global:project.LastDirectory = $in
             }
         }
+        $global:last = "$pwd"
+        $null = $global:last
         Set-Location $in
+        $global:first = Get-ChildItem "$pwd" | Select-Object -ExpandProperty FullName -First 1
+        $null = $global:first
         D -D:$D
     }
     elseif ($C) {
@@ -694,17 +698,21 @@ function Get-Path {
     param (
         [Parameter()]
         [switch]$clip,
-        [Parameter(ValueFromPipeline,ValueFromRemainingArguments)]
+        [Parameter(ValueFromRemainingArguments)]
         $a_
     )
     n_debug_function "Get-Path"
-    n_debug "args:$args | argsLen:$($args.length)"
     if($a_ -is [System.Array]) { $a_ = $a_ -join " " }
-    n_debug "argsJoined:$a_."
+    n_debug "args: _a:$a_, clip:$clip"
     $l_ = "$(Get-Location)"
     switch ($a_) { 
         { ($_ -is [System.IO.FileInfo]) -or ($_ -is [System.IO.DirectoryInfo]) } {
-            if ($clip) { Set-Clipboard $_.FullName } else { return $_.FullName }
+            $isSym = $_.mode -eq "l----"
+            if($isSym){
+                if ($clip) { Set-Clipboard $_.ResolvedTarget } else { return $_.ResolvedTarget } 
+            } else {
+                if ($clip) { Set-Clipboard $_.FullName } else { return $_.FullName } 
+            }
         }
         { $_ -match "^match:.+$" } { 
 
@@ -717,7 +725,12 @@ function Get-Path {
         }
         { $_ -match "^[0-9]+$" } {
             $res = $(Get-ChildItem $l_)[$([int]$_)]
-            if ($clip) { Set-Clipboard $res.fullname } else { return $res.fullname }
+            $isSym = $res.mode -eq "l----"
+            if($isSym){
+                if ($clip) { Set-Clipboard $res.ResolvedTarget } else { return $res.ResolvedTarget } 
+            } else {
+                if ($clip) { Set-Clipboard $res.FullName } else { return $res.FullName } 
+            }
         }
         { $_ -match "vol::(.+)::(.+)"} {
             n_debug "parsing volume"
@@ -735,7 +748,8 @@ function Get-Path {
                 Write-Host "Path exists, but cannot read object" -ForegroundColor Red
                 return
             }
-            $res = $item.fullname
+            $isSym = $item.mode -eq "l----"
+            if($isSym){ $res = $item.ResolvedTarget } else { $res = $item.FullName }
             if($null -eq $res) { $res = $item.name }
             $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
             if ($clip) { Set-Clipboard $res } else { return $res }

@@ -1,0 +1,1264 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:11:14 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Newer     		     182	J:\zig\project.cfg
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\persist\100%  
+	    Older     		      -1	
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\
+J:\zig\source.zig	  *EXTRA File 		    3855	E:\realtime_backups\zig\.active\persist\build.zig100%  
+	  *EXTRA File 		    3851	E:\realtime_backups\zig\.archive\hello\build.zig
+	  *EXTRA File 		    2863	E:\realtime_backups\zig\.active\persist\build.zig.zon
+	  *EXTRA File 		    2861	E:\realtime_backups\zig\.archive\hello\build.zig.zon
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.active\persist\src\
+	  *EXTRA File 		       0	E:\realtime_backups\zig\.archive\hello\hello.zig
+	  *EXTRA File 		     915	E:\realtime_backups\zig\.active\persist\src\main.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\src\
+	  *EXTRA File 		     191	E:\realtime_backups\zig\.active\persist\src\root.zig
+	  *EXTRA File 		     915	E:\realtime_backups\zig\.archive\hello\src\main.zig
+	  *EXTRA File 		     191	E:\realtime_backups\zig\.archive\hello\src\root.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\h\
+	  *EXTRA File 		       0	E:\realtime_backups\zig\.archive\hello\zig-cache\h\0a146b57c57fbf136d80fc308fcd262b.txt
+	  *EXTRA File 		     114	E:\realtime_backups\zig\.archive\hello\zig-cache\h\18c4bebc1747758b6927fadffe5b460c.txt
+	  *EXTRA File 		   13532	E:\realtime_backups\zig\.archive\hello\zig-cache\h\4997898652aad6dc52f067d1a55548d3.txt
+	  *EXTRA File 		     117	E:\realtime_backups\zig\.archive\hello\zig-cache\h\a2df9ffc718447347639c6e84fc4fb88.txt
+	  *EXTRA File 		    6511	E:\realtime_backups\zig\.archive\hello\zig-cache\h\acb1d08409807211f97ba2f4a75f60f4.txt
+	  *EXTRA File 		     117	E:\realtime_backups\zig\.archive\hello\zig-cache\h\c3d4aabdc875d08ae1fc67edb2af5e52.txt
+	  *EXTRA File 		    7661	E:\realtime_backups\zig\.archive\hello\zig-cache\h\d5ced2606319252863867fe8589f5edc.txt
+	  *EXTRA File 		    6804	E:\realtime_backups\zig\.archive\hello\zig-cache\h\df0dd6d9531e89fe61b670e0290c88b5.txt
+	  *EXTRA File 		     135	E:\realtime_backups\zig\.archive\hello\zig-cache\h\fc615c50b49376eb7430503379e67765.txt
+	  *EXTRA File 		       0	E:\realtime_backups\zig\.archive\hello\zig-cache\h\fcc4804e1078749f8a7a24377d90c811.txt
+	  *EXTRA File 		       0	E:\realtime_backups\zig\.archive\hello\zig-cache\h\timestamp
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\o\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\
+	  *EXTRA File 		  839168	E:\realtime_backups\zig\.archive\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.exe
+	  *EXTRA File 		   1.9 m	E:\realtime_backups\zig\.archive\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.exe.obj
+	  *EXTRA File 		   1.4 m	E:\realtime_backups\zig\.archive\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.pdb
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\o\08c1406c042ac94295141e73c20d7d28\
+	  *EXTRA File 		    2708	E:\realtime_backups\zig\.archive\hello\zig-cache\o\08c1406c042ac94295141e73c20d7d28\builtin.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\
+	  *EXTRA File 		   1.4 m	E:\realtime_backups\zig\.archive\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\hello.lib
+	  *EXTRA File 		   1.4 m	E:\realtime_backups\zig\.archive\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\hello.lib.obj
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\o\45295e2e5d2045f89e09dad6459c7b04\
+	  *EXTRA File 		    2708	E:\realtime_backups\zig\.archive\hello\zig-cache\o\45295e2e5d2045f89e09dad6459c7b04\builtin.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\o\4c86a4c61ba5d9028958b3470a07f1dc\
+	  *EXTRA File 		    2828	E:\realtime_backups\zig\.archive\hello\zig-cache\o\4c86a4c61ba5d9028958b3470a07f1dc\builtin.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\
+	  *EXTRA File 		   2.3 m	E:\realtime_backups\zig\.archive\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.exe
+	  *EXTRA File 		   6.0 m	E:\realtime_backups\zig\.archive\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.exe.obj
+	  *EXTRA File 		   3.0 m	E:\realtime_backups\zig\.archive\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.pdb
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\o\6e5995b18c0351a390f22c125ce837a2\
+	  *EXTRA File 		     103	E:\realtime_backups\zig\.archive\hello\zig-cache\o\6e5995b18c0351a390f22c125ce837a2\dependencies.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\o\a5d01d2e1fdd6ccbadb58d624bcb0988\
+	  *EXTRA File 		    2708	E:\realtime_backups\zig\.archive\hello\zig-cache\o\a5d01d2e1fdd6ccbadb58d624bcb0988\builtin.zig
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\
+	  *EXTRA File 		  716800	E:\realtime_backups\zig\.archive\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.exe
+	  *EXTRA File 		   1.4 m	E:\realtime_backups\zig\.archive\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.exe.obj
+	  *EXTRA File 		   1.2 m	E:\realtime_backups\zig\.archive\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.pdb
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\tmp\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\tmp\24e470a84764db48\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\tmp\4758e61c8c772a26\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\tmp\5feded4c0b19d06\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\tmp\a19cd602d43d9866\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-cache\z\
+	  *EXTRA File 		    1283	E:\realtime_backups\zig\.archive\hello\zig-cache\z\0e3cf9a9533a15fd14188c64981386a6
+	  *EXTRA File 		  162430	E:\realtime_backups\zig\.archive\hello\zig-cache\z\31d58ffa9815698d4286aa0ddd17e1d8
+	  *EXTRA File 		    2859	E:\realtime_backups\zig\.archive\hello\zig-cache\z\938db439b8693570da19f73dcb4e421f
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-out\
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-out\bin\
+	  *EXTRA File 		  716800	E:\realtime_backups\zig\.archive\hello\zig-out\bin\hello.exe
+	  *EXTRA File 		   1.2 m	E:\realtime_backups\zig\.archive\hello\zig-out\bin\hello.pdb
+	*EXTRA Dir        -1	E:\realtime_backups\zig\.archive\hello\zig-out\lib\
+	  *EXTRA File 		   1.4 m	E:\realtime_backups\zig\.archive\hello\zig-out\lib\hello.lib
+	    New File  		    8174	J:\zig\hkslib\hks.zig100%  
+	    New File  		     139	J:\zig\hkslib\openGL.zig100%  
+	    New File  		    3589	J:\zig\.active\openGL\build.zig100%  
+	    New File  		    2985	J:\zig\.active\openGL\build.zig.zon100%  
+	    Newer     		      32	J:\zig\.git\COMMIT_EDITMSG100%  
+	    Newer     		   19174	J:\zig\.git\index100%  
+	    New File  		    8174	J:\zig\.active\openGL\src\hks.zig100%  
+	    New File  		     776	J:\zig\.active\openGL\src\main.zig100%  
+	    New File  		     139	J:\zig\.active\openGL\src\openGL.zig100%  
+	    Newer     		    2220	J:\zig\.git\logs\HEAD100%  
+	    New File  		   65267	J:\zig\.active\openGL\zig-cache\z\31d58ffa9815698d4286aa0ddd17e1d8100%  
+	    New File  		    3068	J:\zig\.active\openGL\zig-cache\z\938db439b8693570da19f73dcb4e421f100%  
+	    New File  		   35349	J:\zig\.active\openGL\zig-cache\z\b2f058288576a4b001ffab534ec39225100%  
+	    New File  		     279	J:\zig\.active\openGL\zig-cache\z\ec76ea1dbe0cf047600814d0533259f2100%  
+	    New File  		    1524	J:\zig\.active\openGL\zig-out\lib\openGL.lib100%  
+	    New File  		  792576	J:\zig\.active\openGL\zig-out\bin\openGL.exe100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-out\bin\openGL.pdb100%  
+	    Newer     		      41	J:\zig\.git\refs\heads\master100%  
+	    New File  		     115	J:\zig\.active\openGL\zig-cache\h\0c787da90c03c7cabefb5efbb7a47dec.txt100%  
+	    New File  		     135	J:\zig\.active\openGL\zig-cache\h\2b22e8319ea58979ebc8cf7031b31cb4.txt100%  
+	    New File  		     118	J:\zig\.active\openGL\zig-cache\h\2d3c0ce0dab325f3f958eda359d48908.txt100%  
+	    New File  		    7768	J:\zig\.active\openGL\zig-cache\h\325d9a8bf79d1777f87b4578d4df534e.txt100%  
+	    New File  		     135	J:\zig\.active\openGL\zig-cache\h\36a5404b72a78f5cec71b8bc108ed273.txt100%  
+	    New File  		     135	J:\zig\.active\openGL\zig-cache\h\4af7721729061f7d8fbcd2c587c25296.txt100%  
+	    New File  		    1123	J:\zig\.active\openGL\zig-cache\h\4f6ef400abc182b186f344eec6704c14.txt100%  
+	    New File  		    7307	J:\zig\.active\openGL\zig-cache\h\53b70b36e4375eb38223666acd1e923c.txt100%  
+	    New File  		    7764	J:\zig\.active\openGL\zig-cache\h\5447cfcedb80648cf706fad569569255.txt100%  
+	    New File  		    7731	J:\zig\.active\openGL\zig-cache\h\548b8dca3ee34e206d8ef444c8c59d19.txt100%  
+	    New File  		    7766	J:\zig\.active\openGL\zig-cache\h\59796297240193bd59638065947e36a4.txt100%  
+	    New File  		    7776	J:\zig\.active\openGL\zig-cache\h\66b82a1cb93fd3e796a1215e0a2cdedb.txt100%  
+	    New File  		    7291	J:\zig\.active\openGL\zig-cache\h\7d16cda284e9e7bd511e265097b92cba.txt100%  
+	    New File  		       0	J:\zig\.active\openGL\zig-cache\h\7d4964686d17a98cc69d632462c1821f.txt100%  
+	    New File  		    1135	J:\zig\.active\openGL\zig-cache\h\816d3dd69384ee1adab5de88b8d39592.txt100%  
+	    New File  		     135	J:\zig\.active\openGL\zig-cache\h\8b21f9b859a92c8ab1bb78fa910415c4.txt100%  
+	    New File  		     135	J:\zig\.active\openGL\zig-cache\h\9cfe558f7049329a4dbfb4ee2cb87856.txt100%  
+	    New File  		    7772	J:\zig\.active\openGL\zig-cache\h\9dc5e869515e462db9c854c7dc1597f7.txt100%  
+	    New File  		    1132	J:\zig\.active\openGL\zig-cache\h\b331fb0590f7556e824a20148bd4df45.txt100%  
+	    New File  		     118	J:\zig\.active\openGL\zig-cache\h\cfcc60663c6981546fa5d43142250c56.txt100%  
+	    New File  		   13670	J:\zig\.active\openGL\zig-cache\h\d45eb3cc036f6b0f34405f633bc6a8ed.txt100%  
+	    New File  		     135	J:\zig\.active\openGL\zig-cache\h\da4092481a3897169b5960bd95691db5.txt100%  
+	    New File  		    7766	J:\zig\.active\openGL\zig-cache\h\db0d04320b687c70f679530177566608.txt100%  
+	    New File  		    1120	J:\zig\.active\openGL\zig-cache\h\fa1d513f0215e4418155d69846544cd1.txt100%  
+	    New File  		    7774	J:\zig\.active\openGL\zig-cache\h\fcc4804e1078749f8a7a24377d90c811.txt100%  
+	    New File  		       0	J:\zig\.active\openGL\zig-cache\h\timestamp100%  
+	    Newer     		    2220	J:\zig\.git\logs\refs\heads\master100%  
+	    New File  		  792576	J:\zig\.active\openGL\zig-cache\o\1044ddf6f45b1b1f4304ea13ba0c2654\openGL.exe100%  
+	    New File  		   1.7 m	J:\zig\.active\openGL\zig-cache\o\1044ddf6f45b1b1f4304ea13ba0c2654\openGL.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\1044ddf6f45b1b1f4304ea13ba0c2654\openGL.pdb100%  
+	    New File  		    2828	J:\zig\.active\openGL\zig-cache\o\12c658ae6f9ff40826cf70c6298fd571\builtin.zig100%  
+	    New File  		   2.3 m	J:\zig\.active\openGL\zig-cache\o\39c49ee03f172b73dc6fcac9da31e113\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.active\openGL\zig-cache\o\39c49ee03f172b73dc6fcac9da31e113\build.exe.obj 32%  100%  
+	    New File  		   3.0 m	J:\zig\.active\openGL\zig-cache\o\39c49ee03f172b73dc6fcac9da31e113\build.pdb100%  
+	    New File  		   2.3 m	J:\zig\.active\openGL\zig-cache\o\390f8c9a2aa88071550f84857d3db561\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.active\openGL\zig-cache\o\390f8c9a2aa88071550f84857d3db561\build.exe.obj100%  
+	    New File  		   3.0 m	J:\zig\.active\openGL\zig-cache\o\390f8c9a2aa88071550f84857d3db561\build.pdb100%  
+	    New File  		   2.3 m	J:\zig\.active\openGL\zig-cache\o\2349baa23f13927904b4adac4a413bfc\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.active\openGL\zig-cache\o\2349baa23f13927904b4adac4a413bfc\build.exe.obj 73%  100%  
+	    New File  		   3.0 m	J:\zig\.active\openGL\zig-cache\o\2349baa23f13927904b4adac4a413bfc\build.pdb100%  
+	    New File  		  839168	J:\zig\.active\openGL\zig-cache\o\1793f35d6df61431cc66109c26297ea0\test.exe100%  
+	    New File  		   1.9 m	J:\zig\.active\openGL\zig-cache\o\1793f35d6df61431cc66109c26297ea0\test.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\1793f35d6df61431cc66109c26297ea0\test.pdb100%  
+	    New File  		  785920	J:\zig\.active\openGL\zig-cache\o\16703abec276e2cf7ab4e90aa8f1cec9\openGL.exe100%  
+	    New File  		   1.7 m	J:\zig\.active\openGL\zig-cache\o\16703abec276e2cf7ab4e90aa8f1cec9\openGL.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\16703abec276e2cf7ab4e90aa8f1cec9\openGL.pdb100%  
+	    New File  		  792576	J:\zig\.active\openGL\zig-cache\o\1963054759e10b1e34488c7be4ab7875\openGL.exe100%  
+	    New File  		   1.7 m	J:\zig\.active\openGL\zig-cache\o\1963054759e10b1e34488c7be4ab7875\openGL.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\1963054759e10b1e34488c7be4ab7875\openGL.pdb100%  
+	    New File  		  846848	J:\zig\.active\openGL\zig-cache\o\4703ff284f4e6d8d26fb60b9f908299e\test.exe100%  
+	    New File  		   1.9 m	J:\zig\.active\openGL\zig-cache\o\4703ff284f4e6d8d26fb60b9f908299e\test.exe.obj 90%  100%  
+	    New File  		   1.5 m	J:\zig\.active\openGL\zig-cache\o\4703ff284f4e6d8d26fb60b9f908299e\test.pdb100%  
+	    New File  		    2828	J:\zig\.active\openGL\zig-cache\o\4c86a4c61ba5d9028958b3470a07f1dc\builtin.zig100%  
+	    New File  		  846848	J:\zig\.active\openGL\zig-cache\o\5321c8b60c67c8c6a514fce0f6a13a4f\test.exe100%  
+	    New File  		   1.9 m	J:\zig\.active\openGL\zig-cache\o\5321c8b60c67c8c6a514fce0f6a13a4f\test.exe.obj100%  
+	    New File  		   1.5 m	J:\zig\.active\openGL\zig-cache\o\5321c8b60c67c8c6a514fce0f6a13a4f\test.pdb100%  
+	    New File  		   2.3 m	J:\zig\.active\openGL\zig-cache\o\4d277887113e7e3d5ba6fd9dcb7f4644\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.active\openGL\zig-cache\o\4d277887113e7e3d5ba6fd9dcb7f4644\build.exe.obj 98%  100%  
+	    New File  		   3.0 m	J:\zig\.active\openGL\zig-cache\o\4d277887113e7e3d5ba6fd9dcb7f4644\build.pdb100%  
+	    New File  		   2.3 m	J:\zig\.active\openGL\zig-cache\o\537065c425b7c570330000973c47de08\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.active\openGL\zig-cache\o\537065c425b7c570330000973c47de08\build.exe.obj100%  
+	    New File  		   3.0 m	J:\zig\.active\openGL\zig-cache\o\537065c425b7c570330000973c47de08\build.pdb100%  
+	    New File  		  790016	J:\zig\.active\openGL\zig-cache\o\6c9a848effa117d3b335fa4a6532c310\openGL.exe100%  
+	    New File  		   1.7 m	J:\zig\.active\openGL\zig-cache\o\6c9a848effa117d3b335fa4a6532c310\openGL.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\6c9a848effa117d3b335fa4a6532c310\openGL.pdb100%  
+	    New File  		     103	J:\zig\.active\openGL\zig-cache\o\6e5995b18c0351a390f22c125ce837a2\dependencies.zig100%  
+	    New File  		    2708	J:\zig\.active\openGL\zig-cache\o\6730a04e97ffaa094ed3994e364015f0\builtin.zig100%  
+	    New File  		   2.3 m	J:\zig\.active\openGL\zig-cache\o\5c10887da569b8d2c22bb0e24d81d273\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.active\openGL\zig-cache\o\5c10887da569b8d2c22bb0e24d81d273\build.exe.obj100%  
+	    New File  		   3.0 m	J:\zig\.active\openGL\zig-cache\o\5c10887da569b8d2c22bb0e24d81d273\build.pdb100%  
+	    New File  		    1524	J:\zig\.active\openGL\zig-cache\o\6b21f0062c835698e7271ab7e0865906\openGL.lib100%  
+	    New File  		    1244	J:\zig\.active\openGL\zig-cache\o\6b21f0062c835698e7271ab7e0865906\openGL.lib.obj100%  
+	    New File  		  791040	J:\zig\.active\openGL\zig-cache\o\883200a6d475356242196614c40efb0b\openGL.exe100%  
+	    New File  		   1.7 m	J:\zig\.active\openGL\zig-cache\o\883200a6d475356242196614c40efb0b\openGL.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\883200a6d475356242196614c40efb0b\openGL.pdb100%  
+	    New File  		  791552	J:\zig\.active\openGL\zig-cache\o\99fae4b61e80194fc04607b2c31918d1\openGL.exe100%  
+	    New File  		   1.7 m	J:\zig\.active\openGL\zig-cache\o\99fae4b61e80194fc04607b2c31918d1\openGL.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\99fae4b61e80194fc04607b2c31918d1\openGL.pdb100%  
+	    New File  		    2708	J:\zig\.active\openGL\zig-cache\o\a5d01d2e1fdd6ccbadb58d624bcb0988\builtin.zig100%  
+	    New File  		  846848	J:\zig\.active\openGL\zig-cache\o\b632898bea82035edee3b0340661914a\test.exe100%  
+	    New File  		   1.9 m	J:\zig\.active\openGL\zig-cache\o\b632898bea82035edee3b0340661914a\test.exe.obj 64%  100%  
+	    New File  		   1.5 m	J:\zig\.active\openGL\zig-cache\o\b632898bea82035edee3b0340661914a\test.pdb100%  
+	    New File  		    1524	J:\zig\.active\openGL\zig-cache\o\b8d2243ab6a50e97911f2b03b77e0e89\openGL.lib100%  
+	    New File  		    1244	J:\zig\.active\openGL\zig-cache\o\b8d2243ab6a50e97911f2b03b77e0e89\openGL.lib.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\6e7dca0c71b7b1618f5a8fa8808a20fb\openGL.lib100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\6e7dca0c71b7b1618f5a8fa8808a20fb\openGL.lib.obj100%  
+	    New File  		   2.3 m	J:\zig\.active\openGL\zig-cache\o\8d2f30c61748f509bb294132e7a8c450\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.active\openGL\zig-cache\o\8d2f30c61748f509bb294132e7a8c450\build.exe.obj 98%  100%  
+	    New File  		   3.0 m	J:\zig\.active\openGL\zig-cache\o\8d2f30c61748f509bb294132e7a8c450\build.pdb100%  
+	    New File  		   2.3 m	J:\zig\.active\openGL\zig-cache\o\99fc4c6327bd40a9c785e9f05f6e0dc8\build.exe100%  
+	    New File  		   6.1 m	J:\zig\.active\openGL\zig-cache\o\99fc4c6327bd40a9c785e9f05f6e0dc8\build.exe.obj100%  
+	    New File  		   3.1 m	J:\zig\.active\openGL\zig-cache\o\99fc4c6327bd40a9c785e9f05f6e0dc8\build.pdb100%  
+	    New File  		  716800	J:\zig\.active\openGL\zig-cache\o\bcd8e559b2b8d68fd8049aa4ac071b4a\openGL.exe100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\bcd8e559b2b8d68fd8049aa4ac071b4a\openGL.exe.obj100%  
+	    New File  		   1.2 m	J:\zig\.active\openGL\zig-cache\o\bcd8e559b2b8d68fd8049aa4ac071b4a\openGL.pdb100%  
+	    New File  		  792576	J:\zig\.active\openGL\zig-cache\o\b41dd7d0f0d26c0a645364133338bc97\openGL.exe100%  
+	    New File  		   1.7 m	J:\zig\.active\openGL\zig-cache\o\b41dd7d0f0d26c0a645364133338bc97\openGL.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\b41dd7d0f0d26c0a645364133338bc97\openGL.pdb100%  
+	    New File  		  839168	J:\zig\.active\openGL\zig-cache\o\bc6f5220d4cddc6f6baf7538aa3f0018\test.exe100%  
+	    New File  		   1.9 m	J:\zig\.active\openGL\zig-cache\o\bc6f5220d4cddc6f6baf7538aa3f0018\test.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\bc6f5220d4cddc6f6baf7538aa3f0018\test.pdb100%  
+	    New File  		    1524	J:\zig\.active\openGL\zig-cache\o\9db8265342095bde03523e483f2fb4b5\openGL.lib100%  
+	    New File  		    1244	J:\zig\.active\openGL\zig-cache\o\9db8265342095bde03523e483f2fb4b5\openGL.lib.obj100%  
+	    New File  		  717824	J:\zig\.active\openGL\zig-cache\o\ae6d857d6a85a964c01c0aedc18953e8\openGL.exe100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\ae6d857d6a85a964c01c0aedc18953e8\openGL.exe.obj100%  
+	    New File  		   1.2 m	J:\zig\.active\openGL\zig-cache\o\ae6d857d6a85a964c01c0aedc18953e8\openGL.pdb100%  
+	    New File  		  717824	J:\zig\.active\openGL\zig-cache\o\d58eb03352a606649d2bee065418a1dd\openGL.exe100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\d58eb03352a606649d2bee065418a1dd\openGL.exe.obj100%  
+	    New File  		   1.2 m	J:\zig\.active\openGL\zig-cache\o\d58eb03352a606649d2bee065418a1dd\openGL.pdb100%  
+	    New File  		  838656	J:\zig\.active\openGL\zig-cache\o\9a70a7e09284c0f7305d5f7e0b3560d0\test.exe100%  
+	    New File  		   1.9 m	J:\zig\.active\openGL\zig-cache\o\9a70a7e09284c0f7305d5f7e0b3560d0\test.exe.obj 78%  100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\9a70a7e09284c0f7305d5f7e0b3560d0\test.pdb100%  
+	    New File  		  792576	J:\zig\.active\openGL\zig-cache\o\c42915f168587173cbfe544e4da5936c\openGL.exe100%  
+	    New File  		   1.7 m	J:\zig\.active\openGL\zig-cache\o\c42915f168587173cbfe544e4da5936c\openGL.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\c42915f168587173cbfe544e4da5936c\openGL.pdb100%  
+	    New File  		  787456	J:\zig\.active\openGL\zig-cache\o\dc6e91161ea417919ea2321398af714e\openGL.exe100%  
+	    New File  		   1.7 m	J:\zig\.active\openGL\zig-cache\o\dc6e91161ea417919ea2321398af714e\openGL.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\dc6e91161ea417919ea2321398af714e\openGL.pdb100%  
+	    New File  		    2708	J:\zig\.active\openGL\zig-cache\o\d2b3a719ae8a63d8a7f1b1629cfc3836\builtin.zig100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\cde3f2fb582e200702d1e487a9267ba5\openGL.lib100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\cde3f2fb582e200702d1e487a9267ba5\openGL.lib.obj100%  
+	    New File  		   2.3 m	J:\zig\.active\openGL\zig-cache\o\e66be9c21652ee42574a2dc07e02b70d\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.active\openGL\zig-cache\o\e66be9c21652ee42574a2dc07e02b70d\build.exe.obj 73%  100%  
+	    New File  		   3.0 m	J:\zig\.active\openGL\zig-cache\o\e66be9c21652ee42574a2dc07e02b70d\build.pdb100%  
+	    New File  		    1524	J:\zig\.active\openGL\zig-cache\o\e6d072b2dfafd7c17c595050cb193b3d\openGL.lib100%  
+	    New File  		    1244	J:\zig\.active\openGL\zig-cache\o\e6d072b2dfafd7c17c595050cb193b3d\openGL.lib.obj100%  
+	    New File  		    1524	J:\zig\.active\openGL\zig-cache\o\e3cec6b696e86bae9d8d6b1de3361571\openGL.lib100%  
+	    New File  		    1244	J:\zig\.active\openGL\zig-cache\o\e3cec6b696e86bae9d8d6b1de3361571\openGL.lib.obj100%  
+	    New File  		   2.3 m	J:\zig\.active\openGL\zig-cache\o\e82847921b9320909cb1b227b2584838\build.exe100%  
+	    New File  		   6.1 m	J:\zig\.active\openGL\zig-cache\o\e82847921b9320909cb1b227b2584838\build.exe.obj100%  
+	    New File  		   3.0 m	J:\zig\.active\openGL\zig-cache\o\e82847921b9320909cb1b227b2584838\build.pdb100%  
+	    New File  		  791040	J:\zig\.active\openGL\zig-cache\o\e65a90d3537f9dc1f52c611e8e0df1eb\openGL.exe100%  
+	    New File  		   1.7 m	J:\zig\.active\openGL\zig-cache\o\e65a90d3537f9dc1f52c611e8e0df1eb\openGL.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.active\openGL\zig-cache\o\e65a90d3537f9dc1f52c611e8e0df1eb\openGL.pdb100%  
+	    New File  		    2828	J:\zig\.active\openGL\zig-cache\o\c6912b704fdef17acd26a4bfc5f43b43\builtin.zig100%  
+	    New File  		  870912	J:\zig\.active\openGL\zig-cache\o\c6912b704fdef17acd26a4bfc5f43b43\test.exe100%  
+	    New File  		   2.0 m	J:\zig\.active\openGL\zig-cache\o\c6912b704fdef17acd26a4bfc5f43b43\test.exe.obj100%  
+	    New File  		   1.5 m	J:\zig\.active\openGL\zig-cache\o\c6912b704fdef17acd26a4bfc5f43b43\test.pdb100%  
+	    New File  		    2828	J:\zig\.active\openGL\zig-cache\o\f9d796a03e888297f7e3e37530251668\builtin.zig100%  
+	    New File  		  870912	J:\zig\.active\openGL\zig-cache\o\f9d796a03e888297f7e3e37530251668\test.exe100%  
+	    New File  		   2.0 m	J:\zig\.active\openGL\zig-cache\o\f9d796a03e888297f7e3e37530251668\test.exe.obj100%  
+	    New File  		   1.5 m	J:\zig\.active\openGL\zig-cache\o\f9d796a03e888297f7e3e37530251668\test.pdb100%  
+	    Newer     		      48	J:\zig\.git\objects\0c\de8b305ba121c120008bc7b0d1a2a008d2f19c100%  
+	    New File  		     818	J:\zig\.git\objects\09\e2cafc135d3c7d48b994dde42286f8c04ba842  0%  100%  
+	    New File  		  484694	J:\zig\.git\objects\0a\4d8af3254e794814ca3de297682911c54e1b85100%  
+	    New File  		  492795	J:\zig\.git\objects\01\ba268f41070ff95a64d188df67a9ffde33d248100%  
+	    New File  		  479141	J:\zig\.git\objects\03\8f87bfe305328622aef61264c19dac85c4a1ed100%  
+	    Newer     		     120	J:\zig\.git\objects\03\e58cb29b5ab0b77ac957243a8f0a4912d7ca74100%  
+	    New File  		  428062	J:\zig\.git\objects\0d\8774063ff11378b21e65bca276d31af1560ce0100%  
+	    New File  		     705	J:\zig\.git\objects\11\c4890b65ca8566403d6a17339763f46246b0b4100%  
+	    New File  		   56269	J:\zig\.git\objects\22\515581a61a8de7e960c7a5126d47271a1572ff100%  
+	    New File  		     109	J:\zig\.git\objects\22\70bd1987a5ba5ca2930dad9fee595926bf9daa100%  
+	    New File  		     184	J:\zig\.git\objects\22\bc6b135909d29bd48d84a1e9caa8e35d4ebad5100%  
+	    New File  		      85	J:\zig\.git\objects\17\13a7d52c2cec6d98fc7226735ab868443a16ce100%  
+	    New File  		   28188	J:\zig\.git\objects\1e\1eb4093c5e42237b350dc4e53fa818fd81e215100%  
+	    New File  		      93	J:\zig\.git\objects\28\0da2c5e44dbcde9f3d3e911e169f0c06aff876100%  
+	    New File  		  488497	J:\zig\.git\objects\1b\6497bf470e33c1186798d5839a7509647a385a100%  
+	    New File  		  981848	J:\zig\.git\objects\1a\77f1f9bbb74b5ed20b6da78ad0ed3604472e3e100%  
+	    New File  		  322598	J:\zig\.git\objects\23\7645505c512e41c62ca6c8cddb03f60b70efd3100%  
+	    New File  		  317225	J:\zig\.git\objects\18\1f16a7d4c30ac01ab27ade8778b125f919fc10100%  
+	    New File  		  624477	J:\zig\.git\objects\25\b6deafa6c94e7fdf6d6e79acc0a219f4608494100%  
+	    Newer     		    1474	J:\zig\.git\objects\2e\db2f68ec514e6b217f966627130e950131234b100%  
+	    Newer     		      81	J:\zig\.git\objects\2d\6e86a3c834a411b8242056f6736148961c9809100%  
+	    New File  		     135	J:\zig\.git\objects\29\3320e0b3377bc9f58c20e5587a5a3ce05a9056100%  
+	    New File  		  319863	J:\zig\.git\objects\2a\395a0684d05c48ce76fcde92b1d5538999ef94100%  
+	    New File  		     753	J:\zig\.git\objects\3b\53d7e8547fb53c95cc80a1c3f4b63e9f5e287a100%  
+	    New File  		      87	J:\zig\.git\objects\39\65b8dbc82d7cc3e2ea01b2d6b4628570efa7d7100%  
+	    New File  		      51	J:\zig\.git\objects\2f\709fa6d2fbb40ab45661199b43f368686a8725100%  
+	    Newer     		    5386	J:\zig\.git\objects\33\174d1521705d3c1d840a9f38688c790d2ecc2a100%  
+	    Newer     		    1064	J:\zig\.git\objects\31\729e4f6fad0089526a316508b6ae68dbccd96b100%  
+	    New File  		     110	J:\zig\.git\objects\3d\102653e96a48db31f3b575c46bae1864a8b053100%  
+	    New File  		     309	J:\zig\.git\objects\40\b78c1582039a124e1438f45ee8753d2f3da298100%  
+	    New File  		    5147	J:\zig\.git\objects\45\91a1226814bcf807d0e4b9c081260904090407100%  
+	    New File  		  318426	J:\zig\.git\objects\3e\9d95999635f645b7fb6ea983cdf0652c332a06100%  
+	    New File  		    6051	J:\zig\.git\objects\4d\c819b19eeb1de6f96a73305dc9a8e4dc7a27d5100%  
+	    New File  		     144	J:\zig\.git\objects\42\7237b2927e21216cd5f7eccadd804e61ac83d4100%  
+	    New File  		   47286	J:\zig\.git\objects\42\a22b7cd3d1a847e08f666ef4e0a4b27b545afa100%  
+	    New File  		  319952	J:\zig\.git\objects\48\203a8067fb28d126c6a60d97e8fdca7a581b91100%  
+	    New File  		    2695	J:\zig\.git\objects\49\15809bb9d3b35c8c3558865d0014bb6d760c13100%  
+	    New File  		      72	J:\zig\.git\objects\49\742ac96dfe39a2f2ae532529250a466d913f47100%  
+	    New File  		    5615	J:\zig\.git\objects\57\1c4fbc8eafc8e9bed6bf9a2b26711970f3b995100%  
+	    Newer     		    2704	J:\zig\.git\objects\57\a4d045dc2ecf2a8d69bb1ab3ac9937eeafeec0100%  
+	    Newer     		      72	J:\zig\.git\objects\58\7823e03450bd15cefe8787e8ece434da0160ae100%  
+	    New File  		  490343	J:\zig\.git\objects\56\65b05005cb2c340537b091122ce953784812df100%  
+	    New File  		     110	J:\zig\.git\objects\53\e6500d34f0a7ba0cf486e50893b739c8c35598100%  
+	    Newer     		     111	J:\zig\.git\objects\4a\caefc0c8b37bbd416c38de172981551ae13fcf100%  
+	    Newer     		   68890	J:\zig\.git\objects\51\7e877f5e17e18eef759782922d76ded14a486c100%  
+	    New File  		     185	J:\zig\.git\objects\51\9734d1d386cdcf5b0ffd60bf7f9865bd261ec0100%  
+	    New File  		   56199	J:\zig\.git\objects\51\ec8d25fd31cdb2f5ca9ab7d748aa821f2f305b100%  
+	    Newer     		     109	J:\zig\.git\objects\50\67095512bf43bf0fbef6264fabf053d0539390100%  
+	    New File  		     155	J:\zig\.git\objects\50\8fb9e22eae945a30730c2f3e57878e28c92eac100%  
+	    Newer     		     448	J:\zig\.git\objects\5d\3ad2fcaa605a029e9a1926526d4d76921bdb69100%  
+	    New File  		      93	J:\zig\.git\objects\5d\7f35d2d2a80e6e319bc48393758442cdf07d43100%  
+	    New File  		      29	J:\zig\.git\objects\60\31f93fbfbdfd1efe926402c5e174b74f55ea45100%  
+	    Newer     		      56	J:\zig\.git\objects\68\b262324a18fd83f8ddc3847b46f7973e66f52f100%  
+	    New File  		  320457	J:\zig\.git\objects\68\d9f5792da33a4de0cc99fcc33375fb0a51d38a100%  
+	    New File  		  854702	J:\zig\.git\objects\65\432b30aadd13aac7761f48bca61551446e9e0d100%  
+	    New File  		   1.7 m	J:\zig\.git\objects\5a\0c88bd62068429a7fad6291987738f86327edb100%  
+	    New File  		  982042	J:\zig\.git\objects\63\2bd538e295635d40d21894b1c8ae61ba683348100%  
+	    New File  		  321928	J:\zig\.git\objects\62\526b3178f3e8e3368dceb43bf9a557664c7ba4100%  
+	    Newer     		  610406	J:\zig\.git\objects\70\63c49d8f8a1947166f24731709d05a53532f9e100%  
+	    Newer     		     110	J:\zig\.git\objects\7a\4e55044364cea7172687ad719616fe03036275100%  
+	    Newer     		  469008	J:\zig\.git\objects\75\23b354c60d01f827c95b28353f003a984be8f7100%  
+	    Newer     		      83	J:\zig\.git\objects\72\e4e833be1ccf6801e70242cd909e171dffd096100%  
+	    New File  		  853821	J:\zig\.git\objects\6c\45117ca601f16a1ac1c282edfaa161e0c72d8b100%  
+	    New File  		     172	J:\zig\.git\objects\73\e4feaa1792f1ba3cacdb1f7b5b09ad3c40f8f2100%  
+	    New File  		      92	J:\zig\.git\objects\7f\0acfa2059168602044344660602c858e40173f100%  
+	    New File  		     172	J:\zig\.git\objects\7e\b9ec0eb9581fe61c56591162cc6b694249d9ee100%  
+	    Newer     		    1257	J:\zig\.git\objects\80\465775d85b85bcd8ba3b5c8e880f41ffdd72bc100%  
+	    New File  		      54	J:\zig\.git\objects\76\61c563950c315548d3b8866b4616fc00f993ed100%  
+	    New File  		      86	J:\zig\.git\objects\76\7bc872053ffa51625380340cd46ddf8127e76c100%  
+	    New File  		   28176	J:\zig\.git\objects\76\cded80e0b7a8253b957e929cbc12a3e0205a80100%  
+	    New File  		     131	J:\zig\.git\objects\77\577c7a9cd76eeabbbac70962ab8d37e06194ca100%  
+	    New File  		      51	J:\zig\.git\objects\6b\6deeec0b76693aea9e4dba0d9cb36e3dbbddba100%  
+	    Newer     		  264384	J:\zig\.git\objects\87\76add15ab0d8043ef15d53ab111525d6882a1d100%  
+	    New File  		   1.7 m	J:\zig\.git\objects\89\60c36417a1e4a4a51dbd2df18b8ea3151d8458 85%  100%  
+	    New File  		  616777	J:\zig\.git\objects\89\a26d833f33faaa30f79e5d908f9d995771c2cf100%  
+	    New File  		  469034	J:\zig\.git\objects\89\e4896286a97f344974af2a599db0e5c4a26fda100%  
+	    New File  		      83	J:\zig\.git\objects\8a\c7d3fc129c246bc0f1d3581d0d27f29765171a100%  
+	    New File  		    3189	J:\zig\.git\objects\8c\bcd7d15c9297c37e65faf98c233012f4499026100%  
+	    Newer     		      50	J:\zig\.git\objects\7d\1c2ff42ee09e66ed4628d23c9961da85cf4f3f100%  
+	    Newer     		      61	J:\zig\.git\objects\81\bd5ee90a8010fccf9754664db0e4ab45ce5391100%  
+	    New File  		     188	J:\zig\.git\objects\7b\add64492f0bac4ffc5e0d29dd3870b8f7b27df100%  
+	    New File  		    1507	J:\zig\.git\objects\84\afc8fb2ad364dff67e755665bd489194ce1359100%  
+	    New File  		  613097	J:\zig\.git\objects\95\7daadcfa0b0314e64e6bb9837d6cc1bb3e745a100%  
+	    New File  		  270646	J:\zig\.git\objects\91\001defd74e65cfb0baab26c3e3f90f989766c4100%  
+	    New File  		    5279	J:\zig\.git\objects\91\5203511e412d683a127f675c2ed57ae62c955e100%  
+	    New File  		     144	J:\zig\.git\objects\86\ca4ba137d8ce17c81fa3769ed6312b11c92787100%  
+	    New File  		     115	J:\zig\.git\objects\a0\a1ecbb11d3a9074f5b97274011800e5630fd53100%  
+	    Newer     		     523	J:\zig\.git\objects\a0\fa67ad18dd6d90bca54f57e726929baaa7ae88100%  
+	    Newer     		    1475	J:\zig\.git\objects\90\58da2d1a84ea6c46fd0a3a49da31dae9b940e1100%  
+	    Newer     		    3051	J:\zig\.git\objects\8d\22e49112acbbc6316f5987866e8f39404924dd100%  
+	    Newer     		      55	J:\zig\.git\objects\94\515b125eee873c288653b052634f214e2e1c3b100%  
+	    Newer     		  486544	J:\zig\.git\objects\94\bbc2ce07c979dbb46595a5814aa34f24d6a667100%  
+	    New File  		    1125	J:\zig\.git\objects\a9\78f2bb8df46efd08f0b37b7c8b5df6d92d5877100%  
+	    Newer     		  317205	J:\zig\.git\objects\aa\0fdf6055a51532b60fa19c5e8b2e6a4faa6524100%  
+	    Newer     		   1.7 m	J:\zig\.git\objects\9e\1f9c0e3fb637e06629567c4f9601bb665d6b89100%  
+	    Newer     		  420934	J:\zig\.git\objects\9e\a8f166d58f84d19a0243096991b347e65adb40100%  
+	    New File  		   56199	J:\zig\.git\objects\9e\b4a3d6c8cae269e60d8047f389f78a87984eef100%  
+	    Newer     		  854680	J:\zig\.git\objects\b0\bc8e2dca46b43cdceaef6ba9e3aa08ef2a474c100%  
+	    Newer     		  479111	J:\zig\.git\objects\a1\1b1630d3d39bf915f3836433e8744ae34a3dc5100%  
+	    New File  		     213	J:\zig\.git\objects\a1\9a8e9e2c52a04abadfd95dcb10232c8982715a100%  
+	    New File  		     229	J:\zig\.git\objects\a1\bac1c6432c1af9dc69bc8b05e181eafd875f0a100%  
+	    New File  		  483390	J:\zig\.git\objects\99\e2c087ca70f3568544efec544a465111039b0b100%  
+	    Newer     		     704	J:\zig\.git\objects\b2\bb0cd6b8347262dbecc5e75177055b3364339f100%  
+	    New File  		      52	J:\zig\.git\objects\ad\ccb017780fde99508fd3dd04f5e18fecd0a8d1100%  
+	    New File  		     159	J:\zig\.git\objects\a2\80e53cf8ef1955a76e587a2a68393aaecc2c5d100%  
+	    New File  		     175	J:\zig\.git\objects\b1\1e51041e41d04fa7b717fbb81517592e10cb45100%  
+	    New File  		      86	J:\zig\.git\objects\b1\e76b6e38ec50473a5937381073f496889059a4100%  
+	    New File  		     354	J:\zig\.git\objects\b4\87d8aa2dc19db50b4b2ee4ccd8796e3d25efd3100%  
+	    New File  		  486568	J:\zig\.git\objects\b4\a0985f59ed810af798a3767c32692c7dee4b09100%  
+	    New File  		      94	J:\zig\.git\objects\b8\91ab50d7de0c78214780000ef14578dc52363b100%  
+	    New File  		      58	J:\zig\.git\objects\bc\02a96c28e54f09076e23b060c951313530380a100%  
+	    New File  		     172	J:\zig\.git\objects\bc\0ca10b693e72d6deb1de648da254e072402c92100%  
+	    New File  		     109	J:\zig\.git\objects\bc\5bc6a35a3db52e6d6f5dd33f3b2084afb13b36100%  
+	    New File  		  317224	J:\zig\.git\objects\bc\88ed8568c19bd0da6dd9166a27f835fe48b19f100%  
+	    New File  		     108	J:\zig\.git\objects\b5\45b1dda0177ffa064c3465576f5f87336a8ab0100%  
+	    Newer     		  469190	J:\zig\.git\objects\b5\84ec1690cb381f86d36fa17564dca9f3d36b18100%  
+	    New File  		  421015	J:\zig\.git\objects\b5\dfce1b7d1f558a568287c799ce0fac2bf2c2dc100%  
+	    Newer     		     110	J:\zig\.git\objects\c7\8f7e239daeeca3de2f1da8c26101ad5e8ae079100%  
+	    New File  		   1.7 m	J:\zig\.git\objects\c4\e0c5c2e92390448841df0793a0effd110709d9100%  
+	    New File  		  614166	J:\zig\.git\objects\c8\710504583031f86f8de1c51286c41d274dacd9100%  
+	    New File  		     120	J:\zig\.git\objects\9f\4ab8ab983ca97ac6bbcf35e83dc1ee5289c950100%  
+	    Newer     		    1258	J:\zig\.git\objects\9f\f5b0a7f91f606fe1eabd05433acd5367f87cf7100%  
+	    New File  		     239	J:\zig\.git\objects\be\e1bc03f40e98723ab36e4a7e680f0fa3e0d2f4100%  
+	    New File  		     135	J:\zig\.git\objects\be\e49cb77bc84a132243d9e71511bb1c344196b3100%  
+	    Newer     		      56	J:\zig\.git\objects\be\f6846ffec78068b15255d7619055d40b4ff752100%  
+	    New File  		  854034	J:\zig\.git\objects\be\fd909193cbee952b2b3a3a61f35cf2ff168a00100%  
+	    Newer     		     188	J:\zig\.git\objects\c3\1e6c5fbfb179e8348dc354ad66221d519e9b07100%  
+	    New File  		      53	J:\zig\.git\objects\c9\289fbe8fb1f208bac2d7f73ea6151925db86ec100%  
+	    Newer     		      82	J:\zig\.git\objects\c9\65af600342a40baad6dad535806e7f1d38f4fa100%  
+	    Newer     		    2584	J:\zig\.git\objects\d2\8ec9e56265f6c756b57b042d5057e4c0234518100%  
+	    New File  		  609964	J:\zig\.git\objects\d0\c6a4d87d0f493133e44481aad69c9fdf85d26d100%  
+	    New File  		    3199	J:\zig\.git\objects\ba\ec72235b15b3115ddf0ef609789fe1bd9d49fc100%  
+	    New File  		     597	J:\zig\.git\objects\af\827e1d0073f3a287dc43a266da230f075301b1100%  
+	    New File  		  610424	J:\zig\.git\objects\a5\29ada9d01cb97721dd3d6146ba1c63795c2069100%  
+	    New File  		     144	J:\zig\.git\objects\d3\c7ed214d4299c9d75759dcbd8bc813b46eb8c2100%  
+	    Newer     		    1063	J:\zig\.git\objects\d6\316915a2343694a40468901e09f6d83e6fd2e4100%  
+	    New File  		  486567	J:\zig\.git\objects\d5\b05de3dd96203cbef959651761b9d5b84b2937100%  
+	    New File  		   46241	J:\zig\.git\objects\cc\c7346551fec2b531cf283aa1ac4fd3185223eb100%  
+	    Newer     		    1124	J:\zig\.git\objects\e0\764f327056612fde74625ebbbbc3ff5f094c5c100%  
+	    New File  		    1259	J:\zig\.git\objects\d9\272b2a0d12d674f2cdd03ca2872df511dd503a100%  
+	    New File  		    2846	J:\zig\.git\objects\dc\4ed70aa2c016bd68ce55d8eeff43d7656b773c100%  
+	    Newer     		  982042	J:\zig\.git\objects\dc\976b80a233a133c8f62bc42d70511a02658a99100%  
+	    Newer     		     107	J:\zig\.git\objects\dc\a859eac205e8fc458fc4d3ab32ee47aa388ea5100%  
+	    New File  		   48629	J:\zig\.git\objects\de\7e9ef5f0976182c910ecd8d4c4618b7bba9590100%  
+	    New File  		     186	J:\zig\.git\objects\e6\54aa2ae26b7d30607e04e81db24807bff7f582100%  
+	    New File  		    5513	J:\zig\.git\objects\eb\38960320bdb4c0ad81ecaa47e8e905ff2a2d33100%  
+	    Newer     		     110	J:\zig\.git\objects\eb\4cc047ba4b48eed9079cce8705543772d8be24100%  
+	    New File  		   41654	J:\zig\.git\objects\eb\b13b2581031cd8807482657bcc1b4003be0887100%  
+	    New File  		  469247	J:\zig\.git\objects\e8\6a8fa8f005f3c9cb1c6f5d8828966fbf9937aa 83%  100%  
+	    Newer     		     202	J:\zig\.git\objects\f5\e7dcdaa703ed6092d430ffd9c9adc84c2f7912100%  
+	    New File  		     213	J:\zig\.git\objects\e5\3ff6598339c5d6e99a8cd0765ef22748127f51100%  
+	    New File  		     255	J:\zig\.git\objects\e5\bcd3179b0e897c26dff10a5649e7af8b896b1f100%  
+	    Newer     		     113	J:\zig\.git\objects\cd\03573385b1b535e9f1d9d6d0d24597402d89bb100%  
+	    Newer     		      54	J:\zig\.git\objects\fc\6333bdeafddb4e4458a0479907d0ad444d2ce9100%  
+	    New File  		   28180	J:\zig\.git\objects\f9\722a890a8f3c24b6caa8edd7a295cbae5b05d8100%  
+	    New File  		  491890	J:\zig\.git\objects\f9\85afe4ae23367e09580047550f7ea793825307100%  
+	    New File  		     111	J:\zig\.git\objects\f9\d902869c7c19359041ba34e088223b9d6a4223100%  
+	    New File  		     109	J:\zig\.git\objects\ce\11a87321389aa6ec8cf40f4bba0de329ef20ca100%  
+	    New File  		     122	J:\zig\.git\objects\ce\8bffcf53bfa37506c41cacfecc6c3ea4190161100%  
+	    Newer     		  71.9 m	J:\zig\.git\objects\pack\pack-fb63666063731dbee8a583bfda19307aa316e620.pack 23%   44%   63%   84%  100%  
+	    New File  		     111	J:\zig\.git\objects\ff\0383ac206f25708af7df27a02e03cca52d575b100%  
+	    Newer     		      93	J:\zig\.git\objects\ff\58a1838a610f83d8e8a7992815caa4157db1cc100%  
+	    Newer     		    1400	J:\zig\.git\objects\ff\b32a30dee476c54c8750f0e0d277ebf77fd4ea100%  
+	    New File  		  264403	J:\zig\.git\objects\e9\0aa0e108bfbfa3ab631d86244024e450a62dab100%  
+	    Newer     		      41	J:\zig\.git\refs\remotes\origin\master100%  
+	    New File  		  982080	J:\zig\.git\objects\f6\650e2f4ec502d92ede4c72278f2284c634fd3a100%  
+	    New File  		      52	J:\zig\.git\objects\ed\e75f959aa38b5e9eecd12599a692db59780c00100%  
+	    New File  		     115	J:\zig\.git\objects\ed\f9ad1829b96e575787243c6105177e6c700c75100%  
+	    New File  		    3851	J:\zig\.archive\.complete\hello\build.zig100%  
+	    New File  		    2861	J:\zig\.archive\.complete\hello\build.zig.zon100%  
+	    New File  		       0	J:\zig\.archive\.complete\hello\hello.zig100%  
+	    New File  		    3855	J:\zig\.archive\.in-progress\persist\build.zig100%  
+	    New File  		    2863	J:\zig\.archive\.in-progress\persist\build.zig.zon100%  
+	    Newer     		     790	J:\zig\.git\logs\refs\remotes\origin\master100%  
+	    New File  		     915	J:\zig\.archive\.complete\hello\src\main.zig100%  
+	    New File  		     191	J:\zig\.archive\.complete\hello\src\root.zig100%  
+	    New File  		    3884	J:\zig\.archive\.complete\nand2tetris\assembler\build.zig100%  
+	    New File  		    2865	J:\zig\.archive\.complete\nand2tetris\assembler\build.zig.zon100%  
+	    New File  		     915	J:\zig\.archive\.in-progress\persist\src\main.zig100%  
+	    New File  		     191	J:\zig\.archive\.in-progress\persist\src\root.zig100%  
+	    New File  		     106	J:\zig\.archive\.complete\nand2tetris\assembler\src\add.hack100%  
+	    New File  		  851456	J:\zig\.archive\.complete\nand2tetris\assembler\src\assembler.exe100%  
+	    New File  		   1.9 m	J:\zig\.archive\.complete\nand2tetris\assembler\src\assembler.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\nand2tetris\assembler\src\assembler.pdb100%  
+	    New File  		   27355	J:\zig\.archive\.complete\nand2tetris\assembler\src\main.zig100%  
+	    New File  		   24417	J:\zig\.archive\.complete\nand2tetris\assembler\src\main_clean.zig100%  
+	    New File  		     322	J:\zig\.archive\.complete\nand2tetris\assembler\src\max.hack100%  
+	    New File  		  494692	J:\zig\.archive\.complete\nand2tetris\assembler\src\pong.hack100%  
+	    New File  		  494694	J:\zig\.archive\.complete\nand2tetris\assembler\src\PongActual.hack100%  
+	    New File  		  494692	J:\zig\.archive\.complete\nand2tetris\assembler\src\pongl.hack100%  
+	    New File  		     466	J:\zig\.archive\.complete\nand2tetris\assembler\src\rect.hack100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\hello\zig-out\lib\hello.lib100%  
+	    New File  		  716800	J:\zig\.archive\.complete\hello\zig-out\bin\hello.exe100%  
+	    New File  		   1.2 m	J:\zig\.archive\.complete\hello\zig-out\bin\hello.pdb100%  
+	    New File  		       0	J:\zig\.archive\.complete\hello\zig-cache\h\0a146b57c57fbf136d80fc308fcd262b.txt100%  
+	    New File  		     114	J:\zig\.archive\.complete\hello\zig-cache\h\18c4bebc1747758b6927fadffe5b460c.txt100%  
+	    New File  		   13532	J:\zig\.archive\.complete\hello\zig-cache\h\4997898652aad6dc52f067d1a55548d3.txt100%  
+	    New File  		     117	J:\zig\.archive\.complete\hello\zig-cache\h\a2df9ffc718447347639c6e84fc4fb88.txt100%  
+	    New File  		    6511	J:\zig\.archive\.complete\hello\zig-cache\h\acb1d08409807211f97ba2f4a75f60f4.txt100%  
+	    New File  		     117	J:\zig\.archive\.complete\hello\zig-cache\h\c3d4aabdc875d08ae1fc67edb2af5e52.txt100%  
+	    New File  		    1283	J:\zig\.archive\.complete\hello\zig-cache\z\0e3cf9a9533a15fd14188c64981386a6100%  
+	    New File  		    7661	J:\zig\.archive\.complete\hello\zig-cache\h\d5ced2606319252863867fe8589f5edc.txt100%  
+	    New File  		    6804	J:\zig\.archive\.complete\hello\zig-cache\h\df0dd6d9531e89fe61b670e0290c88b5.txt100%  
+	    New File  		     135	J:\zig\.archive\.complete\hello\zig-cache\h\fc615c50b49376eb7430503379e67765.txt100%  
+	    New File  		       0	J:\zig\.archive\.complete\hello\zig-cache\h\fcc4804e1078749f8a7a24377d90c811.txt100%  
+	    New File  		  162430	J:\zig\.archive\.complete\hello\zig-cache\z\31d58ffa9815698d4286aa0ddd17e1d8100%  
+	    New File  		       0	J:\zig\.archive\.complete\hello\zig-cache\h\timestamp100%  
+	    New File  		    2859	J:\zig\.archive\.complete\hello\zig-cache\z\938db439b8693570da19f73dcb4e421f100%  
+	    New File  		     115	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\0c787da90c03c7cabefb5efbb7a47dec.txt100%  
+	    New File  		     118	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\2d3c0ce0dab325f3f958eda359d48908.txt100%  
+	    New File  		     135	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\4af7721729061f7d8fbcd2c587c25296.txt100%  
+	    New File  		       0	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\64c3d294dfe6857d4b0d801571de1a99.txt100%  
+	    New File  		   13697	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\74186a135324851bad0535ae7706d541.txt100%  
+	    New File  		       0	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\7f33e25606c9be1d21169fcb8ba5097d.txt100%  
+	    New File  		    7764	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\8c410dc81a773362d94dbab8e405ef6f.txt100%  
+	    New File  		     118	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\cfcc60663c6981546fa5d43142250c56.txt100%  
+	    New File  		    6898	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\d9b2eb756106af86104e0d7123f48bd0.txt100%  
+	    New File  		    7731	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\db0d04320b687c70f679530177566608.txt100%  
+	    New File  		    6563	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\e65a0d4b18e12173f25a0df6ce0a0240.txt100%  
+	    New File  		     135	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\fdca8e15331fc9dcf1d354ec4b14d273.txt100%  
+	    New File  		       0	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\h\timestamp100%  
+	    New File  		    1379	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\z\0e3cf9a9533a15fd14188c64981386a6100%  
+	    New File  		   65267	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\z\31d58ffa9815698d4286aa0ddd17e1d8100%  
+	    New File  		  115110	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\z\788aba798e6d7a54603fd2264e2a88b8100%  
+	    New File  		  118196	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\z\938db439b8693570da19f73dcb4e421f100%  
+	    New File  		  728576	J:\zig\.archive\.complete\nand2tetris\assembler\zig-out\bin\assembler.exe100%  
+	    New File  		   1.3 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-out\bin\assembler.pdb100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-out\lib\assembler.lib100%  
+	    New File  		  839168	J:\zig\.archive\.complete\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.exe 93%  100%  
+	    New File  		   1.9 m	J:\zig\.archive\.complete\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\hello\zig-cache\o\035b7ddf88325838e1167434f790371f\test.pdb100%  
+	    New File  		    2708	J:\zig\.archive\.complete\hello\zig-cache\o\08c1406c042ac94295141e73c20d7d28\builtin.zig100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\hello.lib100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\hello\zig-cache\o\0d2c92cae3ab3e1d9797ce2cee0d5231\hello.lib.obj100%  
+	    New File  		    2828	J:\zig\.archive\.complete\hello\zig-cache\o\4c86a4c61ba5d9028958b3470a07f1dc\builtin.zig100%  
+	    New File  		   2.3 m	J:\zig\.archive\.complete\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.archive\.complete\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.exe.obj 32%  100%  
+	    New File  		   3.0 m	J:\zig\.archive\.complete\hello\zig-cache\o\59c326d4faafdabd54c2e779166f6647\build.pdb100%  
+	    New File  		     103	J:\zig\.archive\.complete\hello\zig-cache\o\6e5995b18c0351a390f22c125ce837a2\dependencies.zig100%  
+	    New File  		    2708	J:\zig\.archive\.complete\hello\zig-cache\o\a5d01d2e1fdd6ccbadb58d624bcb0988\builtin.zig100%  
+	    New File  		  716800	J:\zig\.archive\.complete\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.exe100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.exe.obj100%  
+	    New File  		   1.2 m	J:\zig\.archive\.complete\hello\zig-cache\o\f532e6e2854495f190e3700b726e0eca\hello.pdb100%  
+	    New File  		    2708	J:\zig\.archive\.complete\hello\zig-cache\o\45295e2e5d2045f89e09dad6459c7b04\builtin.zig100%  
+	    New File  		   2.3 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\25fb214aa92cda6bfbbdd8a2cdaae5fb\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\25fb214aa92cda6bfbbdd8a2cdaae5fb\build.exe.obj 90%  100%  
+	    New File  		   3.0 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\25fb214aa92cda6bfbbdd8a2cdaae5fb\build.pdb100%  
+	    New File  		  839168	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\4017d4a1083349d0436638f17df16c28\test.exe100%  
+	    New File  		   1.9 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\4017d4a1083349d0436638f17df16c28\test.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\4017d4a1083349d0436638f17df16c28\test.pdb100%  
+	    New File  		    2828	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\4c86a4c61ba5d9028958b3470a07f1dc\builtin.zig100%  
+	    New File  		  846848	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\4703ff284f4e6d8d26fb60b9f908299e\test.exe100%  
+	    New File  		   1.9 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\4703ff284f4e6d8d26fb60b9f908299e\test.exe.obj100%  
+	    New File  		   1.5 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\4703ff284f4e6d8d26fb60b9f908299e\test.pdb100%  
+	    New File  		    2708	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\51661eacb6774e27a8970e2a15aac183\builtin.zig100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\6b6d2f4a1b3acc4de8b1fc95f14cf661\assembler.lib100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\6b6d2f4a1b3acc4de8b1fc95f14cf661\assembler.lib.obj100%  
+	    New File  		     103	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\6e5995b18c0351a390f22c125ce837a2\dependencies.zig100%  
+	    New File  		   2.3 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\989e9e918e39db5125c50a79f9f0e025\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\989e9e918e39db5125c50a79f9f0e025\build.exe.obj100%  
+	    New File  		   3.0 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\989e9e918e39db5125c50a79f9f0e025\build.pdb100%  
+	    New File  		    2708	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\a5d01d2e1fdd6ccbadb58d624bcb0988\builtin.zig100%  
+	    New File  		  716800	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\b413b473e66a6d659252ef64207196ef\assembler.exe100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\b413b473e66a6d659252ef64207196ef\assembler.exe.obj100%  
+	    New File  		   1.2 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\b413b473e66a6d659252ef64207196ef\assembler.pdb100%  
+	    New File  		    2708	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\b8c998a733974ce9036ba67ceda3bcab\builtin.zig100%  
+	    New File  		    2708	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\d60bc034df311b9422414b8ba4835e47\builtin.zig100%  
+	    New File  		    2708	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\92c45d9eff9a03343a0103922e107b72\builtin.zig100%  
+	    New File  		   2.3 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\bb6e18b07841b9dc24a9dfbff6b91209\build.exe100%  
+	    New File  		   6.0 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\bb6e18b07841b9dc24a9dfbff6b91209\build.exe.obj 24%  100%  
+	    New File  		   3.0 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\bb6e18b07841b9dc24a9dfbff6b91209\build.pdb100%  
+	    New File  		  728576	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\c10f62e4f1e5ae40f95943accd73ccf0\assembler.exe100%  
+	    New File  		   1.5 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\c10f62e4f1e5ae40f95943accd73ccf0\assembler.exe.obj100%  
+	    New File  		   1.3 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\c10f62e4f1e5ae40f95943accd73ccf0\assembler.pdb100%  
+	    New File  		    2708	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\fc7d371ac575c7778d959d565f417691\builtin.zig100%  
+	    New File  		    2708	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\f09a073f913376b70c918cd7b799e7c4\builtin.zig100%  
+	    New File  		    2828	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\fbd3fd1a9b89a60e1957509c7b2cf3b4\builtin.zig100%  
+	    New File  		  839168	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\fbd3fd1a9b89a60e1957509c7b2cf3b4\test.exe100%  
+	    New File  		   1.9 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\fbd3fd1a9b89a60e1957509c7b2cf3b4\test.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\fbd3fd1a9b89a60e1957509c7b2cf3b4\test.pdb100%  
+	    New File  		    2828	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\f9d796a03e888297f7e3e37530251668\builtin.zig100%  
+	    New File  		  842752	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\f9d796a03e888297f7e3e37530251668\test.exe100%  
+	    New File  		   1.9 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\f9d796a03e888297f7e3e37530251668\test.exe.obj100%  
+	    New File  		   1.4 m	J:\zig\.archive\.complete\nand2tetris\assembler\zig-cache\o\f9d796a03e888297f7e3e37530251668\test.pdb100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623        70         0         0        25
+   Files :       481       446        35         0         0        42
+   Bytes :  554.95 m  406.31 m  148.63 m         0         0   25.73 m
+   Times :   0:00:35   0:00:04                       0:00:00   0:00:00
+
+
+   Speed :           99,522,853 Bytes/sec.
+   Speed :            5,694.743 MegaBytes/min.
+   Ended : Monday, March 25, 2024 5:11:19 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:16:54 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig  0%  100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           18,446,744,073,709,551,533 Bytes/sec.
+   Speed :                               -0.005 MegaBytes/min.
+   Ended : Monday, March 25, 2024 5:16:54 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:22:28 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig  0%  100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 5:22:28 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:28:25 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           18,446,744,073,709,550,616 Bytes/sec.
+   Speed :                               -0.057 MegaBytes/min.
+   Ended : Monday, March 25, 2024 5:28:25 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:34:20 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           18,446,744,073,709,550,616 Bytes/sec.
+   Speed :                               -0.057 MegaBytes/min.
+   Ended : Monday, March 25, 2024 5:34:20 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:39:55 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           18,446,744,073,709,551,116 Bytes/sec.
+   Speed :                               -0.029 MegaBytes/min.
+   Ended : Monday, March 25, 2024 5:39:55 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:45:52 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       480         1       479         0         0         0
+   Bytes :  554.15 m        -1  554.15 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 5:45:52 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:51:49 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 5:51:49 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:57:25 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       480         1       479         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 5:57:25 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:03:22 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:03:22 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:09:19 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:09:19 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:14:55 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:14:55 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:20:53 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       480         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:20:54 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:26:52 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           18,446,744,073,709,550,616 Bytes/sec.
+   Speed :                               -0.057 MegaBytes/min.
+   Ended : Monday, March 25, 2024 6:26:52 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:26:10 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 5:26:11 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:32:08 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       480         1       479         0         0         0
+   Bytes :  554.70 m        -1  554.70 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 5:32:08 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:38:02 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 5:38:02 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:43:37 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 5:43:37 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:49:50 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 5:49:51 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 5:55:46 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       479         0         0         0
+   Bytes :  554.95 m        -1  554.01 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 5:55:46 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:01:21 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:01:21 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:07:16 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:07:16 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:13:12 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:13:12 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:18:46 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:18:47 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:24:41 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:24:41 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:30:36 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:30:36 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:36:11 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:36:11 PM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Monday, March 25, 2024 6:42:07 PM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1622         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, March 25, 2024 6:42:07 PM
+

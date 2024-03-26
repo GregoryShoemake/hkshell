@@ -1,0 +1,294 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, March 26, 2024 5:26:53 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, March 26, 2024 5:26:53 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, March 26, 2024 5:32:49 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, March 26, 2024 5:32:49 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, March 26, 2024 5:38:22 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.15 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           18,446,744,073,709,551,533 Bytes/sec.
+   Speed :                               -0.005 MegaBytes/min.
+   Ended : Tuesday, March 26, 2024 5:38:22 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, March 26, 2024 5:44:16 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, March 26, 2024 5:44:17 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, March 26, 2024 5:50:12 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, March 26, 2024 5:50:12 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, March 26, 2024 5:55:45 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       480         1       479         0         0         0
+   Bytes :  554.13 m        -1  554.13 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, March 26, 2024 5:55:45 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, March 26, 2024 6:01:39 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, March 26, 2024 6:01:39 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, March 26, 2024 6:07:33 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, March 26, 2024 6:07:34 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, March 26, 2024 6:13:06 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, March 26, 2024 6:13:07 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, March 26, 2024 6:19:01 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       480         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, March 26, 2024 6:19:01 AM
+
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Tuesday, March 26, 2024 6:24:54 AM
+   Source : J:\zig\
+     Dest : E:\realtime_backups\zig\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	    Older     		      -1	J:\zig\source.zig100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :      1623      1623      1623         0         0         0
+   Files :       481         1       479         0         0         0
+   Bytes :  554.95 m        -1  554.95 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           18,446,744,073,709,550,616 Bytes/sec.
+   Speed :                               -0.057 MegaBytes/min.
+   Ended : Tuesday, March 26, 2024 6:24:54 AM
+

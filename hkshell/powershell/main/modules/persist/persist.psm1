@@ -580,7 +580,7 @@ function p_compareVar ([string]$line, [string]$compare) {
     return $true
 }
 
-function p_getVal ($line) {
+function p_getVal ($line, [switch]$array) {
     p_debug_function p_getVal darkyellow
     $d = -1
     $l = $line.length
@@ -593,6 +593,9 @@ function p_getVal ($line) {
         elseif ($line[$i] -eq "=") { $d = 1 }
     }
     p_debug "val: $val" darkGray
+    if($array){
+        return $val -split ":"
+    }
     return $val
 }
 
@@ -1229,6 +1232,38 @@ function p_foo ($name, $params) {
         { p_eq $_ @("void", "_") } {
             $null = Invoke-Expression "persist $params"
         }
+        insert {
+            $split = $params -split ":"
+            $l_ = p_getLine $global:c_ $split[0]
+            $v_a = p_getVal $l_ -Array
+            $v_a[$split[1]] = $split[2]
+            $v_a = $v_a -join ":"
+            if(p_nullemptystr $v_a){
+                Write-Host "!_Value cannot be null_____!`n`n$_`n" -ForegroundColor Red
+                return
+            }
+            return Set-PersistContent @{Cast = "[array]"; Name = $split[0]; Value = $v_a }
+
+        }
+        { p_match $_ @("pushinsert","pin") } {
+            $split = $params -split "="
+            $i_a = p_match $split[0] "\[([0-9]+)" -index 1 -get
+            p_debug "i_a:$i_a"
+            $a = $split[0] -replace "\[[0-9]+]",""
+            p_debug "a:$a"
+            $i_b = p_match $split[1] "\[([0-9]+)" -index 1 -get
+            p_debug "i_b:$i_b"
+            $b = $split[1] -replace "\[[0-9]+]",""
+            p_debug "b:$b"
+            if(p_nullemptystr @($a,$i_a,$b,$i_b)){
+                Write-Host "!_Invalid parameters: $params :_____!`n`n$_`n" -ForegroundColor Red
+                return
+            }
+            $l_ = p_getLine $global:c_ $b
+            $v_a = p_getVal $l_ -Array
+            p_debug "v_a_b:$v_a"
+            return p_foo insert $a':'$i_a':'$($v_a[$i_a])
+        }
         nullOrEmpty { 
             $l_ = p_getLine $global:c_ $params
             $v_ = p_getVal $l_
@@ -1395,6 +1430,127 @@ function p_foo ($name, $params) {
                 Write-Host "!___Failed to get content from $($v_)___!`n`n$_`n" -ForegroundColor Red
                 return
             }
+        }
+        pop {
+            $s_ = $params -split ":"
+            if($s_.Count -eq 3){
+                $source = $s_[0]
+                $index = $s_[1]
+                $destination = $s_[2]
+                $l_ = p_getLine $global:c_ $source
+                $v_ = p_getVal $l_ -Array
+                if($v_ -is [System.Array] -and $v_.Count -gt $index){
+                    $pop = $v_[$index]
+                    $v_ = p_truncate $v_ -indexAndDepth @($index,1)
+                    Invoke-Persist _>_ [array] "$source" = $($v_ -join ":")
+                } else {
+                    Write-Host "!_$index is invalid for array: $v_ _____!`n`n$_`n" -ForegroundColor Red
+                    return
+                }
+                Invoke-Persist Push>_ "$($destination):$pop"
+            } elseif($s_.Count -eq 2) {
+                $source = $s_[0]
+                $destination = $s_[1]
+                $l_ = p_getLine $global:c_ $source
+                $v_ = p_getVal $l_ -Array
+                if($v_ -is [System.Array] -and $v_.Count -gt 1){
+                    $pop = $v_[($v_.count - 1)]
+                    $v_ = p_truncate $v_ -fromEnd 1
+                    Invoke-Persist _>_ [array] "$source" = $($v_ -join ":")
+                } elseif($null -ne $v_) {
+                    $pop = $v_
+                    Invoke-Persist Remove>_ "$source"
+                } else {
+                    Write-Host "!_$source is empty/null_____!`n`n$_`n" -ForegroundColor Red
+                    return
+                }
+                Invoke-Persist Push>_ "$($destination):$pop"
+            } elseif ($s_.Count -eq 1) {
+                $l_ = p_getLine $global:c_ $s_
+                $v_ = p_getVal $l_ -Array
+                if($v_ -is [System.Array] -and $v_.Count -gt 1){
+                    $pop = $v_[($v_.count - 1)]
+                    $v_ = p_truncate $v_ -fromEnd 1
+                    Invoke-Persist _>_ [array] "$s_" = $($v_ -join ":")
+                } elseif ($null -ne $v_) {
+                    $pop = $v_
+                    Invoke-Persist Remove>_ "$s_"
+                } else {
+                    Write-Host "!_$s_ is empty/null_____!`n`n$_`n" -ForegroundColor Red
+                    return
+                }
+                return $pop
+            } else {
+                Write-Host "!_Invalid Argument Format: $params :_____!`n`n$_`n" -ForegroundColor Red
+                return
+            }
+        }
+        push {
+            $s_ = $params -split ":"
+            if($s_.Count -eq 3){
+                $destination = $s_[0]
+                $in = $s_[1]
+                $index = $s_[2]
+                if(Invoke-Persist nullOrEmpty>_ "$destination") { 
+                    for ($i = 0; $i -lt $index; $i++) {
+                        $in = "null:$in"
+                    }
+                } else {
+                    $l_ = p_getLine $global:c_ $destination
+                    $v_ = p_getVal $l_
+                    $v_a = $v_ -split ":"
+                    $c_ = $v_a.Count
+                    if($c_ -lt $index) {
+                        for ($i = $c_; $i -lt $index; $i++) {
+                            $v_ = "$($v_):null"
+                        }
+                        $in = "$($v_):$in"
+                    } elseif ($c_ -eq $index) {
+                        $in = "$($v_):$in"
+                    } else {
+                        $a = $v_a[0..$($index - 1)]
+                        $b = $v_a[$index..$($c_ - 1)]
+                        $in = $a + $in + $b
+                        $in = $in -join ":"
+                    }
+                }
+                Invoke-Persist _>_ [array] $destination = $in
+            }
+            elseif($s_.Count -eq 2){
+                $destination = $s_[0]
+                if($destination.toLower -eq "_"){
+                    return
+                }
+                $in = $s_[1]
+                if(Invoke-Persist nullOrEmpty>_ "$destination") {
+                    Invoke-Persist _>_ [array] $destination = $in
+                } else {
+                    Invoke-Persist _>_ [array] $destination += $in
+                }
+            } else {
+                Write-Host "!_Invalid Argument Format: $params :_____!`n`n$_`n" -ForegroundColor Red
+                return
+            }
+        }
+        pushadd {
+            $s_ = $params -split ":"
+            if($s_.Count -gt 1){
+                Write-Host "!_Invalid Argument Format: $params :_____!`n`n$_`n" -ForegroundColor Red
+                return
+            }
+            [double]$a = Invoke-Persist Pop>_ "$params"
+            [double]$b = Invoke-Persist Pop>_ "$params"
+            Invoke-Persist Push>_ "$($params):$($a+$b)"
+        }
+        pushsub {
+            $s_ = $params -split ":"
+            if($s_.Count -gt 1){
+                Write-Host "!_Invalid Argument Format: $params :_____!`n`n$_`n" -ForegroundColor Red
+                return
+            }
+            [double]$a = Invoke-Persist Pop>_ "$params"
+            [double]$b = Invoke-Persist Pop>_ "$params"
+            Invoke-Persist Push>_ "$($params):$($a-$b)"
         }
         Default {}
     }
@@ -1868,7 +2024,7 @@ function Invoke-Persist {
             [op]
                 [cast]  Impossible, cannot define [cast] after [name] is defined
 
-                [param] Applies [param] via [op] to [cast][index]
+                [param] Applies [param] via [op] to [name][index]
 
             [param]
                 [cast]  Impossible, cannot define [cast] after [name] is defined
@@ -1987,10 +2143,12 @@ function Invoke-Persist {
 
     if ($Null -ne $inde) {
         p_debug "indexing" darkGray
-        if (($null -ne $para) -and (p_match $a_ "$para\[[0-9]+]")) {
-            p_debug "      % param: $para" darkGray
-            $para = p_index $para $inde
-            p_debug "      \ param: $para" darkGray
+        if ($null -ne $para) {
+            if(p_match $a_ "$para\[[0-9]+]"){
+                p_debug "      % param: $para" darkGray
+                $para = p_index $para $inde
+                p_debug "      \ param: $para" darkGray
+            }
         }
         else {
             p_debug "      % val: $val" darkGray
@@ -2029,7 +2187,20 @@ function Invoke-Persist {
                         $res = p_foo assign $cast':'$name':'$para 
                     }
                 }
-                else { $res = p_foo assign $cast':'$name':'$para } 
+                else { 
+                    if($a_ -match "$name\["){
+                        if($null -ne $cast -and $cast.toLower -ne "[array]"){
+                            return p_throw IllegalArgumentException "Cannot index array and cast to non-array type"
+                        }
+                        if($null -eq $inde){
+                            return p_throw IllegalArgumentException "Cannot index cannot be null"
+                        }
+                        $inde = $inde -replace "\[","" -replace "]",""
+                        $res = p_foo insert $name':'$inde':'$para
+                    } else {
+                        $res = p_foo assign $cast':'$name':'$para 
+                    }
+                } 
             } # assign
             "+" { 
                 if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator add [n]" } 

@@ -337,9 +337,9 @@ function Get-Text ($who,$expand) {
             return
         }
     }
-    if($push) { push; $push = $false }
+    if($push) { pushw; $push = $false }
     $deviceID = persist MyPhone
-    while($null -eq $deviceID) {
+    while($null -eq $deviceID -or $deviceID -eq "") {
         $push = $true
         Write-Host "You don't appear to have setup a deviceID to request texts from. Pulling device list..."
         $hash = Get-Devices -apiKey $apiKey | Where-Object {"$($_.nickname)" -ne ""} | Select-Object nickname, iden
@@ -354,7 +354,7 @@ function Get-Text ($who,$expand) {
         $deviceID = $device.iden
         persist myPhone=.$deviceID
     }
-    if($push) { push; $push = $false }
+    if($push) { pushw; $push = $false }
     $res = https "GET /v2/permanents/$($deviceID)_threads" "api.pushbullet.com" "Access-Token: $apiKey"
     $jsonString = p_match $res "{.+}" -g
     try {
@@ -409,7 +409,9 @@ function Watch-Thread ($who,[switch]$skipSent,[int]$frequency = 750,[switch]$cle
     }
 }
 
+function ConvertTo-PushBulletDecryption ($encryptedData, $key) {
 
+}
 
 
 
