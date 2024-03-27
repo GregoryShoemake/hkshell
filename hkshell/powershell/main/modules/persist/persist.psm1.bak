@@ -1552,37 +1552,6 @@ function p_foo ($name, $params) {
             [double]$b = Invoke-Persist Pop>_ "$params"
             Invoke-Persist Push>_ "$($params):$($a-$b)"
         }
-        pushcompare {
-            $s_ = $params -split ":"
-            if($s_.Count -ne 2){
-                Write-Host "!_Invalid Argument Format: $params :__Expected_: [name]:[logicalOperator] :_____!`n`n$_`n" -ForegroundColor Red
-                return
-            }
-            $source = $s_[0]
-            p_debug "source;$source"
-            $op = $s_[1]
-            p_debug "op;$op"
-            $a = Invoke-Persist Pop>_ "$source"
-            p_debug "a;$a"
-            $b = Invoke-Persist Pop>_ "$source"
-            p_debug "b;$b"
-            switch ($op) {
-                gt { $res = $(p_castInt $a) -gt $(p_castInt $b) }
-                ge { $res = $(p_castInt $a) -ge $(p_castInt $b) }
-                eq { $res = $(p_castInt $a) -eq $(p_castInt $b) }
-                le { $res = $(p_castInt $a) -le $(p_castInt $b) }
-                lt { $res = $(p_castInt $a) -lt $(p_castInt $b) }
-                ne { $res = $(p_castInt $a) -ne $(p_castInt $b) }
-                or { $res = $(p_castBool $a) -or $(p_castBool $b) }
-                and { $res = $(p_castBool $a) -and $(p_castBool $b) }
-                Default {
-                    Write-Host "!_Invalid Op: $op :_____!`n`n$_`n" -ForegroundColor Red
-                    return
-                }
-            }
-            p_debug "res;$res"
-            Invoke-Persist Push>_ "$($source):$res"
-        }
         Default {}
     }
 }
