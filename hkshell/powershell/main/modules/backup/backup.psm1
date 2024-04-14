@@ -6,6 +6,10 @@ if ($null -eq $global:_backup_module_location ) {
         $global:_backup_module_location = Split-Path -Parent $MyInvocation.MyCommand.Definition
     }
 }
+
+$userDir = "~\.hkshell\backup"
+if(!(Test-Path $userDir)) { mkdir $userDir }
+
 function bk_debug ($message, $messageColor, $meta) {
     if (!$global:_debug_) { return }
     if ($null -eq $messageColor) { $messageColor = "DarkYellow" }
@@ -252,7 +256,7 @@ function bk_match {
 $null = importhks persist
 $null = importhks nav
 
-$global:backupLogsPath = "$global:_backup_module_location\logs"
+$global:backupLogsPath = "$userDir\logs"
 if(!(Test-Path $global:backupLogsPath)) { $null = mkdir $global:backupLogsPath }
 
 function Invoke-EnsureBackupScope {
@@ -418,7 +422,7 @@ function Start-Backup {
                 return
             }
         }
-        $items = Get-Content "$global:_backup_module_location\backup.items.conf"
+        $items = Get-Content "$userDir\backup.items.conf"
         bk_debug "ITEMS\\`n$items`n    \\ITEMS\\" Blue
         foreach ($i in $items) {
             $i = Get-Path $i

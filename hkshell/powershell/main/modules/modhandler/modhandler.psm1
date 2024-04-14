@@ -1,5 +1,7 @@
 $global:_module_location_modhandler = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
+if(!(Test-Path "~\.hkshell")) { mkdir "~\.hkshell" }
+
 function Import-HKShell {
     [CmdletBinding()]
     param (

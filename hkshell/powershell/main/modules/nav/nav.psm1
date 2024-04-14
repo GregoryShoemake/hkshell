@@ -7,7 +7,39 @@ if ($null -eq $global:_nav_module_location ) {
     }
 }
 
-$global:shortcuts = Get-Content "$global:_nav_module_location\nav.shortcuts.conf" 
+<#
+.PREFERENCES
+#>
+
+$showParents = $false
+
+<#
+.PREFERENCES
+#>
+
+$userDir = "~\.hkshell\nav"
+if(!(Test-Path $userDir)) { mkdir $userDir }
+
+
+
+function Get-Shortcuts {
+    $global:shortcuts = Get-Content "$userDir\nav.shortcuts.conf" 
+}
+Get-Shortcuts
+
+function Add-Shortcut ([string]$shortcut) {
+    if($shortcut -eq ""){
+        $shortcut = Read-Host "Input new shortcut"
+    }
+    $test = Get-Path $shortcut
+
+    if(!(Test-Path $test)){
+        Write-Host "!_Shortcut Path Is Invalid: $shortcut :_____!`n`n$_`n" -ForegroundColor Red
+        return
+    }
+    Add-Content -Path "$userDir\nav.shortcuts.conf" -Value $shortcut
+    Get-Shortcuts
+}
 
 function shct {
     foreach ($s in $global:shortcuts) {
@@ -267,65 +299,67 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache) {
     }
     $i = 0
     if($args -notcontains "-force") { $args += " -force" }
-    $(if($null -eq $items) { 
-        try {
-            $t = Get-Item "$pwd" -Force -ErrorAction Stop
-            if("$($t.PSProvider)" -eq "Microsoft.PowerShell.Core\Registry") {
-                $subkeys = Get-RegistryKeyPropertiesAndValues -Path "$pwd"
-            }
-            Invoke-Expression "dir $args" 
-        } catch {
-            Write-Error $_
-            return
-        }
-    } else { $items }) | Foreach-Object {
+    if($items.Count -gt 0) {
+	$Script:lastParent = $null
+        $items | Foreach-Object {
 
-        $isReg = "$($_.PSProvider)" -eq "Microsoft.PowerShell.Core\Registry"
-        $isDir = $_.psiscontainer
-        $isSym = $_.mode -eq "l----"
-        if($isSym) { $resolved = $_.ResolvedTarget }
-        $parent = if( $isReg ){ $__ | Select-Object -ExpandProperty Name | Split-Path | Split-Path -leaf }elseif($isDir) { $_.parent.fullname } else { $_.directory.fullname }
-        if($script:lastParent -ne $parent) {
-            Write-Host "
-            $parent
-" -ForegroundColor DarkYellow
-            $script:lastParent = $parent
-            write-host "|_INDEX_|__TYPE__|_____LAST WRITE TIME_____|__NAME" -ForegroundColor DarkGray
+            $isReg = "$($_.PSProvider)" -eq "Microsoft.PowerShell.Core\Registry"
+            $isDir = $_.psiscontainer
+            $isSym = $_.mode -eq "l----" -or $_.mode -eq "la---"
+            if($isSym) { $resolved = $_.ResolvedTarget }
+            $parent = if( $isReg ){ $_ | Select-Object -ExpandProperty Name | Split-Path | Split-Path -leaf }elseif($isDir) { $_.parent.fullname } else { $_.directory.fullname }
+            if($script:lastParent -ne $parent) {
+                Write-Host "
+                $parent
+    " -ForegroundColor DarkYellow
+                $script:lastParent = $parent
+                write-host "|_INDEX_|__TYPE__|_____LAST WRITE TIME_____|__NAME" -ForegroundColor DarkGray
+            }
+            $index = n_pad "[$i]" 7 " "
+            $type = n_pad $(if( $isReg ){ "[reg]" }elseif($isSym) { if($isDir) {"[tun]"} else {"[sym]"} }elseif($isDir){"[dir]"}else{"[file]"}) 8 " "
+            $lastWrite = n_pad "$($_.lastwritetime)" 25 " " 
+            $name = $_.name
+            if($isSym) {
+                $name += " -> $resolved"
+            } elseif($isReg){
+                $name = $name | Split-Path -Leaf
+            }
+            $name = n_pad $name 80 " "
+            if($isDir) {
+                $canAccess = Test-Access $_.fullname
+            } else {
+                try { [IO.File]::OpenWrite($_.fullname).close();$canAccess = $true }
+                catch { $canAccess = $false }
+            }
+            $sysOrHid = $_.Attributes -band $global:hidden_or_system
+            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host -nonewline $index
+            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host -nonewline $type -ForegroundColor $(if( $isReg ){ "Red" }elseif($isSym){ if($isDir) {"Magenta"} else {"DarkMagenta"} }elseif($isDir){"Cyan"}else{"DarkCyan"})
+            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host -nonewline $lastWrite
+            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host $name -ForegroundColor $(if($canAccess -and !$sysOrHid) { "Gray" } elseif ($canAccess -and $sysOrHidden) { "DarkGray" } elseif (!$sysOrHidden -and !$canAccess) { "Red" } else { "DarkRed" })
+            $i++
+        }  
+    }
+    try {
+        $t = Get-Item "$pwd" -Force -ErrorAction Stop
+        if("$($t.PSProvider)" -eq "Microsoft.PowerShell.Core\Registry") {
+            $subkeys = Get-RegistryKeyPropertiesAndValues -Path "$pwd"
         }
-        $index = n_pad "[$i]" 7 " "
-        $type = n_pad $(if( $isReg ){ "[reg]" }elseif($isSym) {"[sym]"}elseif($isDir){"[dir]"}else{"[file]"}) 8 " "
-        $lastWrite = n_pad "$($_.lastwritetime)" 25 " " 
-        $name = $_.name
-        if($isSym) {
-            $name += " -> $resolved"
-        } elseif($isReg){
-            $name = $name | Split-Path -Leaf
-        }
-        $name = n_pad $name 80 " "
-        if($isDir) {
-            $canAccess = Test-Access $_.fullname
-        } else {
-            try { [IO.File]::OpenWrite($_.fullname).close();$canAccess = $true }
-            catch { $canAccess = $false }
-        }
-        $sysOrHid = $_.Attributes -band $global:hidden_or_system
-        write-host -nonewline "|" -ForegroundColor DarkGray
-        write-host -nonewline $index
-        write-host -nonewline "|" -ForegroundColor DarkGray
-        write-host -nonewline $type -ForegroundColor $(if( $isReg ){ "Red" }elseif($isSym){ "Magenta" }elseif($isDir){"Cyan"}else{"DarkCyan"})
-        write-host -nonewline "|" -ForegroundColor DarkGray
-        write-host -nonewline $lastWrite
-        write-host -nonewline "|" -ForegroundColor DarkGray
-        write-host $name -ForegroundColor $(if($canAccess -and !$sysOrHid) { "Gray" } elseif ($canAccess -and $sysOrHidden) { "DarkGray" } elseif (!$sysOrHidden -and !$canAccess) { "Red" } else { "DarkRed" })
-        $i++
+    } catch {
+        Write-Error $_
+        return
     }
     if($null -ne $subkeys) {
-        for ($i = 0; $i -lt $subKeys.Count; $i++) {
+        [bool]$b_index = $subkeys.name.Count -gt 1
+        for ($i = 0; $i -lt $subKeys.name.Count; $i++) {
             $index = n_pad " n/a" 7 " "
             $type = n_pad "[subkey]" 8 " "
             $lastWrite = n_pad " n/a" 25 " " 
-            $name = $subkeys[$i].name
-            $name += " -> $( $subkeys[$i].value )"
+            $name = $(if($b_index) {$subkeys.name[$i]} else {$subkeys.name})
+            $name += $(if($b_index) { " -> $($subkeys.value[$i])"} else { " -> $($subkeys.value)"})
             $name = n_pad $name 80 " "
             write-host -nonewline "|" -ForegroundColor DarkGray
             write-host -nonewline $index
@@ -359,16 +393,23 @@ function Show-Directories {
     }
     $path = Get-Path $path
     $depth = Get-PathDepth $path
-    if ($depth -eq 1) {
+    if ($depth -eq 1 -or !$showParents) {
         <#
         
         
         #>
-        $curPrompt = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ChildItems of $path
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        Write-Host $curPrompt -ForegroundColor Blue
-        n_dir $( Get-ChildItem -Force $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D } )
+
+	$res = Get-ChildItem -Force -Path $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D }
+
+	if($null -eq $res) { $res = Get-ChildItem -Force -Path $path -Depth $dep -ErrorAction SilentlyContinue }
+
+	if($null -eq $res) {
+		Write-Host "
+	$path   is Empty!" -ForegroundColor Red
+	} else {
+		n_dir $res
+	}
+
         <#
         
         
@@ -437,8 +478,6 @@ ChildItems of $path
         #>
     }
     write-host "
-
-
     "
 }
 New-Alias -Name 'sdir' -Value 'Show-Directories' -Scope Global -Force
@@ -553,6 +592,23 @@ function Invoke-Go {
     }
 
     if($null -eq $in){$in = "$(Get-Location)"}
+
+    if($in -match "\.<") {
+	$num = $in.replace(".","").split("<").Count - 1
+	$in = $global:history[($global:history.Count - $num)]
+	$global:history = n_truncate $global:history -FromEnd ($num)
+	$backTracking = $true
+    } elseif($in -match "\.\^") {
+	$num = $in.replace(".","").split("^").Count - 1
+	$in = "$pwd"
+	for($i = 0; $i -lt $num; $i++){
+	    $in = Split-Path $in
+	}
+	$backTracking = $false
+    } else {
+	$backTracking = $false
+    }
+
     $D = !$A
     if ($global:_debug_) { write-host " GO => $in`n  \ Create Missing Path? $C`n  \ Show All Item Types? $A" -ForegroundColor DarkGray }
     if ($in -eq "..") {
@@ -654,8 +710,17 @@ function Invoke-Go {
                 $global:project.LastDirectory = $in
             }
         }
-        $global:last = "$pwd"
-        $null = $global:last
+	if(!$backTracking) {
+		$global:last = "$pwd"
+		$null = $global:last
+
+		if($null -eq $global:history) {
+			[string[]]$global:history = @("$pwd")
+		} else {
+			$global:history += "$pwd"
+		}
+	}	
+
         Set-Location $in
         $global:first = Get-ChildItem "$pwd" | Select-Object -ExpandProperty FullName -First 1
         $null = $global:first
@@ -717,14 +782,14 @@ function Get-Path {
         { $_ -match "^match:.+$" } { 
 
             $regex = $($_ -split ":")[1]
-            Get-ChildItem $l_ | Where-Object { $_.name -match $regex } | Foreach-Object {
+            Get-ChildItem $l_ -Force | Where-Object { $_.name -match $regex } | Foreach-Object {
                     if($null -eq $res){ $res = @($_.fullname) }
                     else { $res += ";$($_.fullname)" }
                 }
              if ($clip) { Set-Clipboard $res } else { return $res }
         }
         { $_ -match "^[0-9]+$" } {
-            $res = $(Get-ChildItem $l_)[$([int]$_)]
+            $res = $(Get-ChildItem $l_ -Force)[$([int]$_)]
             $isSym = $res.mode -eq "l----"
             if($isSym){
                 if ($clip) { Set-Clipboard $res.ResolvedTarget } else { return $res.ResolvedTarget } 

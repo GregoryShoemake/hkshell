@@ -1,988 +1,0 @@
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:00:57 PM
-   Source : I:\openai\
-     Dest : E:\monthly_backups\Jan\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    New File  		      30	I:\openai\UE5-python\.gitignore  0%  100%  
-	    New File  		    5868	I:\openai\UE5-python\README.md100%  
-	    New File  		     280	I:\openai\UE5-python\.git\config100%  
-	    New File  		      73	I:\openai\UE5-python\.git\description100%  
-	    New File  		      23	I:\openai\UE5-python\.git\HEAD100%  
-	    New File  		    5267	I:\openai\UE5-python\.git\index100%  
-	    New File  		     114	I:\openai\UE5-python\.git\packed-refs100%  
-	    New File  		    3265	I:\openai\UE5-python\Content\Python\.spelling_dictionary.dic100%  
-	    New File  		     307	I:\openai\UE5-python\Content\Python\init_level.py100%  
-	    New File  		    9314	I:\openai\UE5-python\Content\Python\init_unreal.py100%  
-	    New File  		    3028	I:\openai\UE5-python\Content\Python\material_instance_tools.py100%  
-	    New File  		    5335	I:\openai\UE5-python\Content\Python\material_tools.py100%  
-	    New File  		    2796	I:\openai\UE5-python\Content\Python\scoped_slow_task.py100%  
-	    New File  		   19076	I:\openai\UE5-python\Content\Python\script.py100%  
-	    New File  		     478	I:\openai\UE5-python\.git\hooks\applypatch-msg.sample100%  
-	    New File  		     896	I:\openai\UE5-python\.git\hooks\commit-msg.sample100%  
-	    New File  		    4726	I:\openai\UE5-python\.git\hooks\fsmonitor-watchman.sample100%  
-	    New File  		     189	I:\openai\UE5-python\.git\hooks\post-update.sample100%  
-	    New File  		     424	I:\openai\UE5-python\.git\hooks\pre-applypatch.sample100%  
-	    New File  		    1643	I:\openai\UE5-python\.git\hooks\pre-commit.sample100%  
-	    New File  		     416	I:\openai\UE5-python\.git\hooks\pre-merge-commit.sample100%  
-	    New File  		    1374	I:\openai\UE5-python\.git\hooks\pre-push.sample100%  
-	    New File  		    4898	I:\openai\UE5-python\.git\hooks\pre-rebase.sample100%  
-	    New File  		     544	I:\openai\UE5-python\.git\hooks\pre-receive.sample100%  
-	    New File  		    1492	I:\openai\UE5-python\.git\hooks\prepare-commit-msg.sample100%  
-	    New File  		    2783	I:\openai\UE5-python\.git\hooks\push-to-checkout.sample100%  
-	    New File  		    2308	I:\openai\UE5-python\.git\hooks\sendemail-validate.sample100%  
-	    New File  		    3650	I:\openai\UE5-python\.git\hooks\update.sample100%  
-	    New File  		     240	I:\openai\UE5-python\.git\info\exclude100%  
-	    New File  		     191	I:\openai\UE5-python\.git\logs\HEAD100%  
-	    New File  		      95	I:\openai\UE5-python\Content\Python\redditBot\.env100%  
-	    New File  		    2052	I:\openai\UE5-python\Content\Python\redditBot\reddit.py100%  
-	    New File  		    8201	I:\openai\UE5-python\Content\Python\HoudiniFX\houdini.py100%  
-	    New File  		     129	I:\openai\UE5-python\Content\Python\twitBot\.env100%  
-	    New File  		     179	I:\openai\UE5-python\Content\Python\twitBot\quotes.json100%  
-	    New File  		   24591	I:\openai\UE5-python\Content\Python\twitBot\scrape_company_twitter.py100%  
-	    New File  		    3372	I:\openai\UE5-python\Content\Python\twitBot\twit.py100%  
-	    New File  		     906	I:\openai\UE5-python\Content\Python\twitBot\twitBot.py100%  
-	    New File  		   36716	I:\openai\UE5-python\.git\objects\pack\pack-68a2a1204fe8626136f4eb89455c4097d0abbb26.idx100%  
-	    New File  		   1.7 m	I:\openai\UE5-python\.git\objects\pack\pack-68a2a1204fe8626136f4eb89455c4097d0abbb26.pack100%  
-	    New File  		    5144	I:\openai\UE5-python\.git\objects\pack\pack-68a2a1204fe8626136f4eb89455c4097d0abbb26.rev100%  
-	    New File  		    8354	I:\openai\UE5-python\Content\Python\chatBot\act.py100%  
-	    New File  		     870	I:\openai\UE5-python\Content\Python\chatBot\auto_interact.py100%  
-	    New File  		   1.8 m	I:\openai\UE5-python\Content\Python\chatBot\bella.wav100%  
-	    New File  		    1858	I:\openai\UE5-python\Content\Python\chatBot\BLOOM.py100%  
-	    New File  		    5488	I:\openai\UE5-python\Content\Python\chatBot\bot.py100%  
-	    New File  		    2552	I:\openai\UE5-python\Content\Python\chatBot\code.py100%  
-	    New File  		    1086	I:\openai\UE5-python\Content\Python\chatBot\content_creator.py100%  
-	    New File  		    3014	I:\openai\UE5-python\Content\Python\chatBot\conversate.py100%  
-	    New File  		    1098	I:\openai\UE5-python\Content\Python\chatBot\denoise.py100%  
-	    New File  		    4491	I:\openai\UE5-python\Content\Python\chatBot\emotion.py100%  
-	    New File  		    1108	I:\openai\UE5-python\Content\Python\chatBot\FLAN_T5.py100%  
-	    New File  		    1359	I:\openai\UE5-python\Content\Python\chatBot\GALACTICA.py100%  
-	    New File  		    1948	I:\openai\UE5-python\Content\Python\chatBot\google.py100%  
-	    New File  		    6252	I:\openai\UE5-python\Content\Python\chatBot\GPT_4.py100%  
-	    New File  		    2040	I:\openai\UE5-python\Content\Python\chatBot\GPT_Neo.py100%  
-	    New File  		   10247	I:\openai\UE5-python\Content\Python\chatBot\image.py100%  
-	    New File  		    3055	I:\openai\UE5-python\Content\Python\chatBot\leonardo_ai.py100%  
-	    New File  		    1107	I:\openai\UE5-python\Content\Python\chatBot\mT5.py100%  
-	    New File  		    1750	I:\openai\UE5-python\Content\Python\chatBot\music.py100%  
-	    New File  		     959	I:\openai\UE5-python\Content\Python\chatBot\OPT.py100%  
-	    New File  		    1521	I:\openai\UE5-python\Content\Python\chatBot\playaudio.py100%  
-	    New File  		    1582	I:\openai\UE5-python\Content\Python\chatBot\plot.py100%  
-	    New File  		     601	I:\openai\UE5-python\Content\Python\chatBot\process_system.py100%  
-	    New File  		    1794	I:\openai\UE5-python\Content\Python\chatBot\Pygmalion.py100%  
-	    New File  		    2014	I:\openai\UE5-python\Content\Python\chatBot\santacoder.py100%  
-	    New File  		    1086	I:\openai\UE5-python\Content\Python\chatBot\T5.py100%  
-	    New File  		    3401	I:\openai\UE5-python\Content\Python\chatBot\talk.py100%  
-	    New File  		     519	I:\openai\UE5-python\Content\Python\chatBot\termux_audio.py100%  
-	    New File  		     213	I:\openai\UE5-python\Content\Python\chatBot\test.mid100%  
-	    New File  		    3437	I:\openai\UE5-python\Content\Python\chatBot\translator.py100%  
-	    New File  		    2719	I:\openai\UE5-python\Content\Python\chatBot\vm.py100%  
-	    New File  		    7921	I:\openai\UE5-python\Content\Python\chatBot\voice_cloning.py100%  
-	    New File  		      41	I:\openai\UE5-python\.git\refs\heads\master100%  
-	    New File  		      32	I:\openai\UE5-python\.git\refs\remotes\origin\HEAD100%  
-	    New File  		     191	I:\openai\UE5-python\.git\logs\refs\heads\master100%  
-	    New File  		     191	I:\openai\UE5-python\.git\logs\refs\remotes\origin\HEAD100%  
-	    New File  		    1232	I:\openai\UE5-python\Content\Python\chatBot\model_card_scripts\get_huggingface_model_disk_space.py100%  
-	    New File  		    2776	I:\openai\UE5-python\Content\Python\chatBot\__pycache__\bot.cpython-310.pyc100%  
-	    New File  		    5275	I:\openai\UE5-python\Content\Python\chatBot\__pycache__\bot.cpython-311.pyc100%  
-	    New File  		    1174	I:\openai\UE5-python\Content\Python\chatBot\__pycache__\process_system.cpython-311.pyc100%  
-	    New File  		    2053	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-02\12-02-2023_08-22-38.txt100%  
-	    New File  		    1514	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-02\12-02-2023_20-14-22.txt100%  
-	    New File  		     376	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-01\12-01-2023_15-20-17.txt100%  
-	    New File  		    2370	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-01\12-01-2023_23-20-44.txt100%  
-	    New File  		    2199	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-01\12-01-2023_23-24-04.txt100%  
-	    New File  		    3400	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-01\12-01-2023_23-34-08.txt100%  
-	    New File  		     128	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-04\12-04-2023_06-44-29.txt100%  
-	    New File  		     594	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-04\12-04-2023_06-45-50.txt100%  
-	    New File  		     908	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-04\12-04-2023_06-47-42.txt100%  
-	    New File  		     785	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-03\12-03-2023_10-02-40.txt100%  
-	    New File  		    2456	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-03\12-03-2023_20-40-25.txt100%  
-	    New File  		    1624	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-10\12-10-2023_17-31-31.txt100%  
-	    New File  		     700	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-10\12-10-2023_17-43-31.txt100%  
-	    New File  		     750	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-10\12-10-2023_17-53-30.txt100%  
-	    New File  		    1704	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-10\12-10-2023_21-15-33.txt100%  
-	    New File  		     129	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-12\12-12-2023_17-43-42.txt100%  
-	    New File  		     632	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-12-14\12-14-2023_12-48-30.txt100%  
-	    New File  		      19	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-11-28\11-28-2023_20-15-16.txt100%  
-	    New File  		      19	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-11-28\11-28-2023_20-16-56.txt100%  
-	    New File  		      19	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-11-28\11-28-2023_20-20-06.txt100%  
-	    New File  		      16	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-11-28\11-28-2023_20-22-17.txt100%  
-	    New File  		      15	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-11-28\11-28-2023_20-22-35.txt100%  
-	    New File  		      15	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-11-28\11-28-2023_21-00-52.txt100%  
-	    New File  		      15	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-11-28\11-28-2023_21-04-10.txt100%  
-	    New File  		      18	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-11-28\11-28-2023_21-07-47.txt100%  
-	    New File  		      22	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-11-28\11-28-2023_21-13-02.txt100%  
-	    New File  		    1160	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-11-28\11-28-2023_21-20-13.txt100%  
-	    New File  		     923	I:\openai\UE5-python\Content\Python\chatBot\conversations\2023-11-28\11-28-2023_21-31-22.txt100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35         0         0         0         0
-   Files :       109       109         0         0         0         0
-   Bytes :    3.86 m    3.86 m         0         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           42,712,936 Bytes/sec.
-   Speed :            2,444.054 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:00:58 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:08:59 PM
-   Source : I:\openai\
-     Dest : E:\monthly_backups\Jan\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 9:08:59 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:09:36 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 9:09:36 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:14:58 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 9:14:58 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:20:19 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 9:20:19 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:26:01 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 9:26:01 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:31:43 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 9:31:43 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:37:03 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 9:37:03 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:42:45 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 9:42:45 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:48:27 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 9:48:27 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:50:08 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 9:50:08 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:55:50 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 9:55:50 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:02:03 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:02:03 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:07:23 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:07:23 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:13:29 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:13:29 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:19:10 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:19:10 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:24:30 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:24:30 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:30:13 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:30:13 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:35:54 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:35:54 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:41:14 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:41:14 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:47:07 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:47:07 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:52:48 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:52:48 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:58:07 PM
-   Source : I:\openai\
-     Dest : E:\monthly_backups\Jan\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:58:07 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:58:42 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 10:58:42 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:04:02 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 11:04:02 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:09:43 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 11:09:43 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:15:04 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 11:15:04 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:20:45 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 11:20:45 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:26:26 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 11:26:26 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:31:47 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 11:31:47 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:37:28 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 11:37:28 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:43:09 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 11:43:09 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:48:29 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 11:48:29 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:54:11 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 11:54:11 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:59:52 PM
-   Source : I:\openai\
-     Dest : E:\realtime_backups\openai\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :        35        35        35         0         0         0
-   Files :       109         0       109         0         0         0
-   Bytes :    3.86 m         0    3.86 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, January 2, 2024 11:59:52 PM
-

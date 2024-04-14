@@ -4,6 +4,10 @@ Set-Location: Cannot find path 'K:\nand2tetris\projects\03\:\nand2tetris' becaus
 
 #>
 
+$userDir = "~\.hkshell\projects"
+if(!(Test-Path $userDir)) { mkdir $userDir }
+
+
 
 
 $null = importhks nav
@@ -272,13 +276,13 @@ function pr_search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$un
 
 
 
-$global:projectsPath = (((Get-Content "$global:_projects_module_location\projects.conf") | Select-String "projects-root") -split "=")[1]
+$global:projectsPath = (((Get-Content "$userDir\projects.conf") | Select-String "projects-root") -split "=")[1]
 $global:projectsPath = Get-Path $global:projectsPath
 pr_debug "Populating user PROJECTS global projects path variable ->
     global:projectsPath=$global:projectsPath"
 $global:originalPath = $ENV:PATH
 
-$global:editor = (((Get-Content "$global:_projects_module_location\projects.conf") | Select-String "default-editor") -split "=")[1]
+$global:editor = (((Get-Content "$userDir\projects.conf") | Select-String "default-editor") -split "=")[1]
 pr_debug "Populated user defined preferred editor ->
     global:editor=$global:editor"
 
@@ -300,10 +304,9 @@ function New-Project ($name) {
     mkdir "$global:projectsPath\$name" 
     Set-Location ".\$name"
     pr_debug "pwd:$pwd"
-    Set-Content -Path $(New-Item "$global:projectsPath\$name\project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project'; LastDirectory='$global:projectsPath\$name'; LastFile='$global:projectsPath\$name\project.cfg' }"
+    Set-Content -Path $(New-Item "$global:projectsPath\$name\project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project'; LastDirectory='$global:projectsPath\$name'; LastFile='$global:projectsPath\$name\project.cfg'; RunLoop='True' }"
     if($global:_debug_){Write-Host "$(Get-Content "$global:projectsPath\$name\project.cfg")"}
     Copy-Item "$global:_projects_module_location\project.ps1" "$global:projectsPath\$name"
-   #New-Item "$global:_projects_module_location\$name\runone.ps1" -ItemType File -Force
     if(Invoke-Git -Path "$global:projectsPath\$name" -Action Initialize) { 
         if(pr_choice "Start project now?"){
             Start-Project $name
@@ -375,7 +378,7 @@ function Start-Project ($name) {
                 }
             }
             $prjpth = $global:project.Path -replace "(?!^)\\\\","\" -replace "\\$",""
-            if(Test-Path $prjpth\project.ps1) {
+            if((Test-Path $prjpth\project.ps1) -and ($Project.RunLoop -eq "True")) {
                 pr_debug "running project loop script"
                 $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $prjpth\project.ps1" -Passthru
             }

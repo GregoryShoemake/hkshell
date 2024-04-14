@@ -291,6 +291,19 @@ function New-Tunnel ($targetDirectory){
     }
 }
 
+function m_copy ($path, $destination) {
+    try {
+	$i = Get-Item $path -Force -ErrorAction Stop
+	if($i.psIsContainer) {
+	    return Robocopy $i.FullName $destination /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
+	} else {
+	    return Copy-Item $i.FullName $destination -Force
+	}
+    } catch {
+	Write-Error $_
+    }
+}
+
 function Invoke-GetItem ($item, [switch]$all) {
     if($null -eq $global:clip) { $global:clip = @() }
     if($all){
@@ -321,7 +334,8 @@ function Invoke-MoveItem ([string]$path, [int]$index = -1, [switch]$force, [swit
         $path = "$pwd"
     }
     $path = Get-Path $path
-    Move-Item -Path $global:clip[$index] -Destination $path -Force:$force
+    m_copy $global:clip[$index] $path
+    Remove-Item $global:clip[$index] -Force
     if($removeItemFromClip){
         if($global:clip.count -eq 1) {
             $global:clip = $null
@@ -332,6 +346,8 @@ function Invoke-MoveItem ([string]$path, [int]$index = -1, [switch]$force, [swit
             return
         }
         $global:clip = mod_truncate -array $global:clip -indexAndDepth @($index, 1)
+    } else {
+	$global:clip[$index] = $path
     }
 }
 
@@ -349,7 +365,7 @@ function Invoke-CopyItem ([string]$path, [int]$index = -1, [switch]$force, [swit
         $path = "$pwd"
     }
     $path = Get-Path $path
-    Copy-Item -Path $global:clip[$index] -Destination $path -Force:$force
+    m_copy $global:clip[$index] $path
     if($removeItemFromClip){
         if($global:clip.count -eq 1) {
             $global:clip = $null

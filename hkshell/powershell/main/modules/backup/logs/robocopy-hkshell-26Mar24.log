@@ -1,505 +1,0 @@
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 5:26:52 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   81180	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-	    New File  		    1137	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    New File  		    1048	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    New File  		    1046	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		   56159	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-25Mar24.log100%  
-	    New File  		       0	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    Newer     		   29400	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-25Mar24.log100%  
-	    Newer     		   30097	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-25Mar24.log100%  
-	    Newer     		   85248	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-25Mar24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       289       289       289         0         0         0
-   Files :       902         9       893         0         0         0
-   Bytes :   10.57 m   278.6 k   10.30 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           5,187,545 Bytes/sec.
-   Speed :             296.834 MegaBytes/min.
-   Ended : Tuesday, March 26, 2024 5:26:52 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 5:32:48 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   81184	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-	    Newer     		    2274	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    Newer     		    2096	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    Newer     		    2092	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		    2179	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    New File  		    1052	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Mar24.log100%  
-	    New File  		    1040	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Mar24.log100%  
-	    New File  		    1090	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Mar24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       289       289       289         0         0         0
-   Files :       905         8       896         0         0         0
-   Bytes :   10.58 m    90.8 k   10.49 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           8,455,181 Bytes/sec.
-   Speed :             483.809 MegaBytes/min.
-   Ended : Tuesday, March 26, 2024 5:32:48 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 5:38:21 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   81338	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-	    Newer     		    3320	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    Newer     		    3144	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    Newer     		    3138	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		    4240	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    Newer     		    2104	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Mar24.log100%  
-	    Newer     		    2080	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Mar24.log100%  
-	    Newer     		    2180	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Mar24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       289       289       289         0         0         0
-   Files :       905         8       897         0         0         0
-   Bytes :   10.59 m    99.1 k   10.49 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, March 26, 2024 5:38:22 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 5:44:16 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   81471	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-	    Newer     		    4457	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    Newer     		    4192	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    Newer     		    4184	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		    6207	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    Newer     		    3156	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Mar24.log100%  
-	    Newer     		    3120	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Mar24.log100%  
-	    Newer     		    3398	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Mar24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       289       289       289         0         0         0
-   Files :       905         8       897         0         0         0
-   Bytes :   10.59 m   107.6 k   10.49 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           12,242,777 Bytes/sec.
-   Speed :              700.537 MegaBytes/min.
-   Ended : Tuesday, March 26, 2024 5:44:16 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 5:50:11 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   81815	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-	    Newer     		    5594	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    Newer     		    5240	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    Newer     		    5230	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		    8270	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    Newer     		    4208	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Mar24.log100%  
-	    Newer     		    4160	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Mar24.log100%  
-	    Newer     		    4488	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Mar24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       289       289       289         0         0         0
-   Files :       904         8       897         0         0         0
-   Bytes :   10.59 m   116.2 k   10.49 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Tuesday, March 26, 2024 5:50:11 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 5:55:45 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   81965	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-	    Newer     		    6640	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    Newer     		    6288	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    Newer     		    6276	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		   10237	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    Newer     		    5260	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Mar24.log100%  
-	    Newer     		    5200	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Mar24.log100%  
-	    Newer     		    5578	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Mar24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       289       289       289         0         0         0
-   Files :       903         8       895         0         0         0
-   Bytes :   10.61 m   124.4 k   10.49 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           31,861,000 Bytes/sec.
-   Speed :            1,823.101 MegaBytes/min.
-   Ended : Tuesday, March 26, 2024 5:55:45 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 6:01:38 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		    7777	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    Newer     		    7336	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    Newer     		    7322	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		   12300	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    Newer     		    6312	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Mar24.log100%  
-	    Newer     		    6240	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Mar24.log100%  
-	    Newer     		    6668	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Mar24.log100%  
-	    Newer     		   82276	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       289       289       289         0         0         0
-   Files :       903         8       895         0         0         0
-   Bytes :   10.62 m   133.0 k   10.49 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           19,461,571 Bytes/sec.
-   Speed :            1,113.600 MegaBytes/min.
-   Ended : Tuesday, March 26, 2024 6:01:38 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 6:07:33 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   82728	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-	    Newer     		    8914	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    Newer     		    8384	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    Newer     		    8368	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		   14363	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    Newer     		    7364	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Mar24.log100%  
-	    Newer     		    7280	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Mar24.log100%  
-	    Newer     		    7758	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Mar24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       289       289       289         0         0         0
-   Files :       904         8       896         0         0         0
-   Bytes :   10.63 m   141.7 k   10.49 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           24,193,166 Bytes/sec.
-   Speed :            1,384.344 MegaBytes/min.
-   Ended : Tuesday, March 26, 2024 6:07:33 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 6:13:06 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   82804	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-	    Newer     		    9960	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    Newer     		    9432	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    Newer     		    9414	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		   16426	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    Newer     		    8416	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Mar24.log100%  
-	    Newer     		    8320	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Mar24.log100%  
-	    Newer     		    8848	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Mar24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       289       289       289         0         0         0
-   Files :       905         8       897         0         0         0
-   Bytes :   10.64 m   150.0 k   10.49 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           25,603,333 Bytes/sec.
-   Speed :            1,465.034 MegaBytes/min.
-   Ended : Tuesday, March 26, 2024 6:13:06 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 6:19:00 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   11097	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    Newer     		   10480	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    Newer     		   10460	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		   18489	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    Newer     		    9468	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Mar24.log100%  
-	    Newer     		    9360	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Mar24.log100%  
-	    Newer     		    9938	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Mar24.log100%  
-	    Newer     		   82870	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       289       289       289         0         0         0
-   Files :       905         8       897         0         0         0
-   Bytes :   10.64 m   158.3 k   10.49 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           18,018,000 Bytes/sec.
-   Speed :            1,030.998 MegaBytes/min.
-   Ended : Tuesday, March 26, 2024 6:19:00 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 6:24:53 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		     338	J:\hkshell\project.cfg100%  
-	    Newer     		   12234	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    Newer     		   11528	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    Newer     		   11506	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		   20552	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    Newer     		   10520	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Mar24.log100%  
-	    Newer     		   10400	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Mar24.log100%  
-	    Newer     		   11028	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Mar24.log100%  
-	    Newer     		   83211	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       289       289       289         0         0         0
-   Files :       905         9       896         0         0         0
-   Bytes :   10.65 m   167.3 k   10.49 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           9,016,684 Bytes/sec.
-   Speed :             515.939 MegaBytes/min.
-   Ended : Tuesday, March 26, 2024 6:24:53 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, March 26, 2024 6:30:30 AM
-   Source : J:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		      88	J:\hkshell\.git\COMMIT_EDITMSG100%  
-	    Newer     		      96	J:\hkshell\.git\FETCH_HEAD100%  
-	    Newer     		   12185	J:\hkshell\.git\index100%  
-	    Newer     		      41	J:\hkshell\.git\ORIG_HEAD100%  
-	    New File  		   83211	J:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1.bak100%  
-	    Newer     		   13280	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Mar24.log100%  
-	    Newer     		   12576	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Mar24.log100%  
-	    Newer     		   12552	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Mar24.log100%  
-	    Newer     		   22670	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Mar24.log100%  
-	    Newer     		   11572	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Mar24.log100%  
-	    Newer     		   11440	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Mar24.log100%  
-	    Newer     		   12246	J:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Mar24.log100%  
-	    Newer     		   15902	J:\hkshell\.git\logs\HEAD100%  
-	    Newer     		      41	J:\hkshell\.git\refs\heads\master100%  
-	    New File  		     293	J:\hkshell\.git\objects\06\0bd2e7a038f3ac68e2f5426f07e422570c69ff100%  
-	    New File  		     669	J:\hkshell\.git\objects\12\44c49aac47f279665d47ea45a30017ca8d55fa100%  
-	    New File  		     239	J:\hkshell\.git\objects\1a\0b8b5c2cdd96af778426493d9c7fdb9d84825d100%  
-	    New File  		     261	J:\hkshell\.git\objects\1f\f8124900fb2959cafbb0077096057691c2193e100%  
-	    New File  		     684	J:\hkshell\.git\objects\1d\9890b381875ea19c10a0cb527b14371eebaf93100%  
-	    New File  		    1476	J:\hkshell\.git\objects\24\80766d2c8fe3d3ef02656418450da1eccb1cae100%  
-	    New File  		     950	J:\hkshell\.git\objects\23\8b7fba15a8a0a148cb5dbaf10f853ae025d6f4100%  
-	    New File  		    3662	J:\hkshell\.git\objects\25\e523a41ae147c7be097adcc91e00e4eff6f2bc100%  
-	    New File  		     282	J:\hkshell\.git\objects\2b\86779f0bcc5296c8c9b1a8c4262f0327bc5c15100%  
-	    New File  		    2321	J:\hkshell\.git\objects\2e\07632e5291280805ead02147080bc475384ca1100%  
-	    New File  		      84	J:\hkshell\.git\objects\2d\c7dae2cf3d0a1403c49e77f6848513850170d7100%  
-	    New File  		     259	J:\hkshell\.git\objects\30\636a3c577beb5e5a27df79482a1a340ee27825100%  
-	    New File  		     282	J:\hkshell\.git\objects\30\8b8551f184c52ae88fde398e4dac4280ff8a36100%  
-	    New File  		      52	J:\hkshell\.git\objects\35\3990d37f87b7019950117dcfa6610dc1b9d9d0100%  
-	    New File  		     970	J:\hkshell\.git\objects\43\016376137bff9aa39ee68ecea9faa4a7e38bea100%  
-	    New File  		      90	J:\hkshell\.git\objects\44\dc8e4c38f6a7c05f31d1e8c57ab24ad1b7aea2100%  
-	    New File  		     240	J:\hkshell\.git\objects\47\5e7712be72e19087475e9771ab24c188942ce7100%  
-	    New File  		    3771	J:\hkshell\.git\objects\52\186b91c41c796e8cfff1368fa17920cb83bc5c100%  
-	    New File  		   17707	J:\hkshell\.git\objects\57\5a778fa7a173fb22089f5c7435571ed8a27f5d100%  
-	    New File  		    4060	J:\hkshell\.git\objects\58\fe883d41a97d092e9e438bdc6caa24a338ba17100%  
-	    New File  		     151	J:\hkshell\.git\objects\5a\88260184411cfa9fefbd2bbac900456d795304100%  
-	    New File  		      49	J:\hkshell\.git\objects\60\b3ed054ed5fbe80f51825f4e962243a626d5d7100%  
-	    New File  		    1118	J:\hkshell\.git\objects\6c\1d0fe571f22c15d4aeeb928bcd06579386b806100%  
-	    New File  		     278	J:\hkshell\.git\objects\6f\39a7ffc0d5ef2cc25edc484aafba00c412c6a9100%  
-	    New File  		     284	J:\hkshell\.git\objects\71\cdbd0ffa7fee373eb0865824a075ed03c0202d100%  
-	    New File  		    2843	J:\hkshell\.git\objects\74\85b299df324b134b015d89e26ffbe6cdaa1b24100%  
-	    New File  		    1379	J:\hkshell\.git\objects\79\6e1a499a1623003f5df86d53b1e39b5824bab9100%  
-	    New File  		      49	J:\hkshell\.git\objects\7c\8e33156b57c8989a5fc9191b97f3db500458cd100%  
-	    New File  		    2557	J:\hkshell\.git\objects\7e\38c5a67bbf721adeeaed959ea4e5a2214e4ee3100%  
-	    New File  		     226	J:\hkshell\.git\objects\7e\c30f5d4f1d8b54e0e330731bae1cc7a3b5374d100%  
-	    New File  		     241	J:\hkshell\.git\objects\85\7aa12f543618c561da4d63485fefa5c5dd8b9a100%  
-	    New File  		     121	J:\hkshell\.git\objects\88\17617914147f7b50fa81679ff63a51c6f7aa68100%  
-	    New File  		   12903	J:\hkshell\.git\objects\90\1179f3dee720c84cc4fe64c307b26ee9fdd82d100%  
-	    New File  		     208	J:\hkshell\.git\objects\97\07c7d561ca38dc7dcf0e7b4e350998dd2c23b0100%  
-	    New File  		   66055	J:\hkshell\.git\objects\97\4a5d0bd1c224450910e4e424ef368eaa8b6835100%  
-	    New File  		     241	J:\hkshell\.git\objects\9f\ba9f24b1e2ab0dc964ca43da05856aaea86e71100%  
-	    New File  		     210	J:\hkshell\.git\objects\9e\f432837c9cf8d20c0557d50cd656885c4f33ac100%  
-	    New File  		     781	J:\hkshell\.git\objects\a0\c4bec7fbab599146127f186dea04d2fec89080100%  
-	    New File  		      46	J:\hkshell\.git\objects\a0\f251c3b706f26841340a8e8f2a7c367c5ab19c100%  
-	    New File  		     209	J:\hkshell\.git\objects\9c\7e307751714e5c6abb4e2a10c5c10efd0e4996100%  
-	    New File  		   14212	J:\hkshell\.git\objects\ad\82fa8a517b9c917598606ee4393ad46fea85d8100%  
-	    New File  		     120	J:\hkshell\.git\objects\ad\c53380022feaa610565f0092c8d85e329b5192100%  
-	    New File  		    6618	J:\hkshell\.git\objects\ab\0b4744c4037c4c7219110e965ffb122e235433100%  
-	    New File  		    4158	J:\hkshell\.git\objects\bc\117af12b5b2b5e6b3f76799a7b96ace570ce3b100%  
-	    New File  		     545	J:\hkshell\.git\objects\c3\c9eb12f5886c985f5d9d2c56546ad581098e02100%  
-	    New File  		      56	J:\hkshell\.git\objects\c5\6e9f06a6ba879d9d6c8aa33c5bf44f7e93b469100%  
-	    New File  		      80	J:\hkshell\.git\objects\c7\5f19f77c967def8027cfdccf91a5c5f3786dbc100%  
-	    New File  		     104	J:\hkshell\.git\objects\d7\14252407b85aea2b15b3e482c9fba1860557bf100%  
-	    Newer     		      15	J:\hkshell\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391100%  
-	    New File  		     242	J:\hkshell\.git\objects\e2\c2bb4c94df2c858d625236d19c23a0f393884b100%  
-	    New File  		   15995	J:\hkshell\.git\objects\e8\1a5c05d244f5c4a93daceee0a0ce8589e6b465100%  
-	    New File  		    3782	J:\hkshell\.git\objects\ec\671c359e1a8924146e5cd44bd5f39b257323ff100%  
-	    New File  		     683	J:\hkshell\.git\objects\ec\b129f6c8c9fe29d53649c69436a0db40526e60100%  
-	    New File  		     949	J:\hkshell\.git\objects\ea\201f6942fcad2682f031aeaf80872624123b18100%  
-	    New File  		    1820	J:\hkshell\.git\objects\eb\0e85cd26e43ca30e899573dc251f7e7cc4d041100%  
-	    New File  		    3176	J:\hkshell\.git\objects\f0\f812a308300f3df1bddd82e2d983ac79570707100%  
-	    New File  		      46	J:\hkshell\.git\objects\f9\2e0b8392f6aaf088e06e1d92663295a594811a100%  
-	    New File  		     601	J:\hkshell\.git\objects\fe\4304a1a4dc7a7fb71ef1544efe252a89e6b0ae100%  
-	    Newer     		   15902	J:\hkshell\.git\logs\refs\heads\master100%  
-	    Newer     		      41	J:\hkshell\.git\refs\remotes\origin\master100%  
-	    Newer     		    6166	J:\hkshell\.git\logs\refs\remotes\origin\master100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       294       294       289         0         0         0
-   Files :       963        75       888         0         0         0
-   Bytes :   10.92 m   401.8 k   10.52 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           10,036,878 Bytes/sec.
-   Speed :              574.315 MegaBytes/min.
-   Ended : Tuesday, March 26, 2024 6:30:30 AM
-

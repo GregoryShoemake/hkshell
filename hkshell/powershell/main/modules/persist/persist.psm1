@@ -12,6 +12,10 @@ param (
 #These functions allow this module to be completely independent of other modules, but still have 
 #the legibility desired
 
+
+$userDir = "~\.hkshell\persist"
+if(!(Test-Path $userDir)) { mkdir $userDir }
+
 function p_ehe {
     Write-Error 'administrative rights required to access host global cfg'
 }
@@ -1538,8 +1542,8 @@ function p_foo ($name, $params) {
                 Write-Host "!_Invalid Argument Format: $params :_____!`n`n$_`n" -ForegroundColor Red
                 return
             }
-            [double]$a = Invoke-Persist Pop>_ "$params"
             [double]$b = Invoke-Persist Pop>_ "$params"
+            [double]$a = Invoke-Persist Pop>_ "$params"
             Invoke-Persist Push>_ "$($params):$($a+$b)"
         }
         pushsub {
@@ -1548,8 +1552,8 @@ function p_foo ($name, $params) {
                 Write-Host "!_Invalid Argument Format: $params :_____!`n`n$_`n" -ForegroundColor Red
                 return
             }
-            [double]$a = Invoke-Persist Pop>_ "$params"
             [double]$b = Invoke-Persist Pop>_ "$params"
+            [double]$a = Invoke-Persist Pop>_ "$params"
             Invoke-Persist Push>_ "$($params):$($a-$b)"
         }
         pushcompare {
@@ -1562,9 +1566,9 @@ function p_foo ($name, $params) {
             p_debug "source;$source"
             $op = $s_[1]
             p_debug "op;$op"
-            $a = Invoke-Persist Pop>_ "$source"
-            p_debug "a;$a"
             $b = Invoke-Persist Pop>_ "$source"
+            p_debug "a;$a"
+            $a = Invoke-Persist Pop>_ "$source"
             p_debug "b;$b"
             switch ($op) {
                 gt { $res = $(p_castInt $a) -gt $(p_castInt $b) }
@@ -1805,6 +1809,17 @@ function p_parse_syntax ($a_) {
                 } 
             }
         }
+    }
+    #Handle Negatives
+    if($operator.Length -gt 1 -and $operator[$operator.Length - 1] -eq '-'){
+        p_debug "handling negative: op:$operator  parameters:$parameters"
+        if($operator.Length -eq 2){
+            $operator = "$($operator[0])"
+        } elseif ($operator.length -eq 3) {
+            $operator = "$($operator[0])$($operator[1])"
+        }
+        $parameters = "-$parameters"
+        p_debug "handling negative: op:$operator  parameters:$parameters"
     }
     return @($cast, $name, $operator, $parameters, $index)
 }

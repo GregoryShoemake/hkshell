@@ -1,2179 +1,0 @@
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:00:57 PM
-   Source : I:\hkshell\
-     Dest : E:\monthly_backups\Jan\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    New File  		     336	I:\hkshell\project.cfg  0%  100%  
-	    New File  		       0	I:\hkshell\project.ps1100%  
-	    New File  		    6254	I:\hkshell\README.md100%  
-	    New File  		     145	I:\hkshell\.git\COMMIT_EDITMSG100%  
-	    New File  		     279	I:\hkshell\.git\config100%  
-	    New File  		      73	I:\hkshell\.git\description100%  
-	    New File  		      96	I:\hkshell\.git\FETCH_HEAD100%  
-	    New File  		      23	I:\hkshell\.git\HEAD100%  
-	    New File  		   13441	I:\hkshell\.git\index100%  
-	    New File  		      41	I:\hkshell\.git\ORIG_HEAD100%  
-	    New File  		   10862	I:\hkshell\.git\logs\HEAD100%  
-	    New File  		     240	I:\hkshell\.git\info\exclude100%  
-	    New File  		      41	I:\hkshell\.git\refs\heads\master100%  
-	    New File  		   10862	I:\hkshell\.git\logs\refs\heads\master100%  
-	    New File  		      41	I:\hkshell\.git\refs\remotes\origin\main100%  
-	    New File  		      41	I:\hkshell\.git\refs\remotes\origin\master100%  
-	    New File  		     174	I:\hkshell\.git\logs\refs\remotes\origin\main100%  
-	    New File  		    5056	I:\hkshell\.git\logs\refs\remotes\origin\master100%  
-	    New File  		    8186	I:\hkshell\hkshell\bash\main\modules\persist\persist.sh100%  
-	    New File  		     969	I:\hkshell\hkshell\bash\main\modules\profile\wh.sh100%  
-	    New File  		     411	I:\hkshell\hkshell\bash\main\modules\_\_.sh100%  
-	    New File  		    1680	I:\hkshell\hkshell\powershell\main\modules\arrayu\arrayu.psm1100%  
-	    New File  		     180	I:\hkshell\hkshell\powershell\main\modules\backup\backup.items.conf100%  
-	    New File  		   19189	I:\hkshell\hkshell\powershell\main\modules\backup\backup.psm1100%  
-	    New File  		   15261	I:\hkshell\hkshell\powershell\main\modules\execute\execute.psm1100%  
-	    New File  		     449	I:\hkshell\hkshell\powershell\main\modules\install\install.psm1100%  
-	    New File  		    1606	I:\hkshell\hkshell\powershell\main\modules\modhandler\modhandler.psm1100%  
-	    New File  		    9319	I:\hkshell\hkshell\powershell\main\modules\modify\modify.psm1100%  
-	    New File  		   24752	I:\hkshell\hkshell\powershell\main\modules\nav\nav.psm1100%  
-	    New File  		     224	I:\hkshell\hkshell\powershell\main\modules\nav\nav.shortcuts.conf100%  
-	    New File  		      41	I:\hkshell\hkshell\powershell\main\modules\net\compile.bat100%  
-	    New File  		    6509	I:\hkshell\hkshell\powershell\main\modules\net\https.c100%  
-	    New File  		  148471	I:\hkshell\hkshell\powershell\main\modules\net\https.exe100%  
-	    New File  		   10967	I:\hkshell\hkshell\powershell\main\modules\net\net.psm1100%  
-	    New File  		   13209	I:\hkshell\hkshell\powershell\main\modules\pb\pb.psm1100%  
-	    New File  		      96	I:\hkshell\hkshell\powershell\main\modules\persist\persist.cfg100%  
-	    New File  		   75941	I:\hkshell\hkshell\powershell\main\modules\persist\persist.psm1100%  
-	    New File  		     594	I:\hkshell\hkshell\powershell\main\modules\persist\persist.scopes.conf100%  
-	    New File  		    7277	I:\hkshell\hkshell\powershell\main\modules\projects\project.ps1100%  
-	    New File  		      49	I:\hkshell\hkshell\powershell\main\modules\projects\projects.conf100%  
-	    New File  		   20641	I:\hkshell\hkshell\powershell\main\modules\projects\projects.psm1100%  
-	    New File  		   42093	I:\hkshell\hkshell\powershell\main\modules\query\query.psm1100%  
-	    New File  		    5497	I:\hkshell\hkshell\powershell\main\modules\remote\remote.psm1100%  
-	    New File  		     903	I:\hkshell\hkshell\powershell\main\modules\speaklisten\speaklisten.psm1100%  
-	    New File  		   10411	I:\hkshell\hkshell\powershell\main\modules\time\time.psm1100%  
-	    New File  		   16113	I:\hkshell\hkshell\powershell\main\modules\user\user.psm1100%  
-	    New File  		     478	I:\hkshell\.git\hooks\applypatch-msg.sample100%  
-	    New File  		     896	I:\hkshell\.git\hooks\commit-msg.sample100%  
-	    New File  		    4726	I:\hkshell\.git\hooks\fsmonitor-watchman.sample100%  
-	    New File  		     189	I:\hkshell\.git\hooks\post-update.sample100%  
-	    New File  		     424	I:\hkshell\.git\hooks\pre-applypatch.sample100%  
-	    New File  		    1643	I:\hkshell\.git\hooks\pre-commit.sample100%  
-	    New File  		     416	I:\hkshell\.git\hooks\pre-merge-commit.sample100%  
-	    New File  		    1374	I:\hkshell\.git\hooks\pre-push.sample100%  
-	    New File  		    4898	I:\hkshell\.git\hooks\pre-rebase.sample100%  
-	    New File  		     544	I:\hkshell\.git\hooks\pre-receive.sample100%  
-	    New File  		    1492	I:\hkshell\.git\hooks\prepare-commit-msg.sample100%  
-	    New File  		    2783	I:\hkshell\.git\hooks\push-to-checkout.sample100%  
-	    New File  		    2308	I:\hkshell\.git\hooks\sendemail-validate.sample100%  
-	    New File  		    3650	I:\hkshell\.git\hooks\update.sample100%  
-	    New File  		    6175	I:\hkshell\hkshell\powershell\main\modules\types\types.psm1100%  
-	    New File  		    7949	I:\hkshell\hkshell\powershell\main\modules\_\_.psm1100%  
-	    New File  		  394876	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-24Dec23.log100%  
-	    New File  		  206858	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-25Dec23.log100%  
-	    New File  		    8163	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Dec23.log100%  
-	    New File  		  140234	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-27Dec23.log100%  
-	    New File  		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    New File  		  434462	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-31Dec23.log100%  
-	    New File  		  282074	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-24Dec23.log100%  
-	    New File  		  146324	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-25Dec23.log100%  
-	    New File  		    7378	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Dec23.log100%  
-	    New File  		   37058	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-27Dec23.log100%  
-	    New File  		   11295	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    New File  		    7370	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-31Dec23.log100%  
-	    New File  		  281538	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-24Dec23.log100%  
-	    New File  		  146046	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-25Dec23.log100%  
-	    New File  		    7364	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Dec23.log100%  
-	    New File  		   36988	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-27Dec23.log100%  
-	    New File  		  178726	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    New File  		    7356	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-31Dec23.log100%  
-	    New File  		  571068	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-24Dec23.log100%  
-	    New File  		  291105	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-25Dec23.log100%  
-	    New File  		   15629	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Dec23.log100%  
-	    New File  		   85015	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-27Dec23.log100%  
-	    New File  		       0	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    New File  		   22218	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-31Dec23.log100%  
-	    New File  		  283146	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-24Dec23.log100%  
-	    New File  		  146880	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-25Dec23.log100%  
-	    New File  		    7406	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Dec23.log100%  
-	    New File  		   37198	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-27Dec23.log100%  
-	    New File  		    7398	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-31Dec23.log100%  
-	    New File  		  281036	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-24Dec23.log100%  
-	    New File  		  145270	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-25Dec23.log100%  
-	    New File  		    7322	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Dec23.log100%  
-	    New File  		   39034	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-27Dec23.log100%  
-	    New File  		    9300	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-31Dec23.log100%  
-	    New File  		  281002	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-24Dec23.log100%  
-	    New File  		  145768	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-25Dec23.log100%  
-	    New File  		    7350	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-26Dec23.log100%  
-	    New File  		   36918	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-27Dec23.log100%  
-	    New File  		    7342	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-31Dec23.log100%  
-	    New File  		  279394	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-24Dec23.log100%  
-	    New File  		  144934	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-25Dec23.log100%  
-	    New File  		    7308	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Dec23.log100%  
-	    New File  		   36708	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-27Dec23.log100%  
-	    New File  		    7300	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-31Dec23.log100%  
-	    New File  		      91	I:\hkshell\.git\objects\00\8a2428aad5b4bbda25c89f6a3cbd50cc48904d100%  
-	    New File  		      46	I:\hkshell\.git\objects\00\c337fa38b9f0853b223730a441ad7d61abc939100%  
-	    New File  		     121	I:\hkshell\.git\objects\00\e73d9c11a00decdfe731098185353765a19544100%  
-	    New File  		   13919	I:\hkshell\.git\objects\01\0bcb3ece971c5e59e2a47c512de99088f7c255100%  
-	    New File  		     186	I:\hkshell\.git\objects\08\70b7324af38eb5f5d080cb1b1ee7ffb8bddbbf100%  
-	    New File  		    1242	I:\hkshell\.git\objects\08\84d34a5a5871ad1345b316a013d7ee6e65d676100%  
-	    New File  		     117	I:\hkshell\.git\objects\08\a2cce2baa6a2dc9117894656c8d2700d4c9517100%  
-	    New File  		    1002	I:\hkshell\.git\objects\08\a350a36112e87bd452e53365dba0cce6398770100%  
-	    New File  		     152	I:\hkshell\.git\objects\07\7743af4e0ca9c13278a200ec5dbc35e5e40793100%  
-	    New File  		     210	I:\hkshell\.git\objects\07\9699e1aec98d6ed406174becf5d2bf88d18d3d100%  
-	    New File  		      53	I:\hkshell\.git\objects\07\a6abcd39de0b2e36d0a33f07ee08bca73438d5100%  
-	    New File  		     106	I:\hkshell\.git\objects\0a\5bda505d28d788703c5b87e88d3a78f24aa65a100%  
-	    New File  		    3845	I:\hkshell\.git\objects\06\092d11b02395d217e859972f3f332091b3ecaf100%  
-	    New File  		      50	I:\hkshell\.git\objects\06\30c90e23340a11ece5d59a0a501dbf29dab647100%  
-	    New File  		    2943	I:\hkshell\.git\objects\06\c2a4e1aab8f8f0bb06fc0a4bc2d2c05dc35cd9100%  
-	    New File  		     152	I:\hkshell\.git\objects\03\e98ac5439f2152c1e95e3527a60e254cc220d3100%  
-	    New File  		    4774	I:\hkshell\.git\objects\10\8374169329fbb837cd904d62cbce496d4adff0100%  
-	    New File  		     121	I:\hkshell\.git\objects\04\119fd62b985a4e3fd70e4540a883fe27b3600e100%  
-	    New File  		    5162	I:\hkshell\.git\objects\04\3cdebb056e49580d8407df8df843f9abf86b1b100%  
-	    New File  		    1093	I:\hkshell\.git\objects\05\4d5086fb21e0e935e66f2896b62139098fb8cd100%  
-	    New File  		     152	I:\hkshell\.git\objects\0f\3889fe861b79149c76027366737544bc080baf100%  
-	    New File  		    3515	I:\hkshell\.git\objects\0f\fa260603035e9d9acf5ceda10ab302a8295b29100%  
-	    New File  		     114	I:\hkshell\.git\objects\09\31577fee580d7406c535cc071bd13aca4bfda3100%  
-	    New File  		      49	I:\hkshell\.git\objects\09\327e19d74d8dbb225e6fb9281ead86f3b47849100%  
-	    New File  		      52	I:\hkshell\.git\objects\09\8cfcb9f61e948b47f253cd1d4fb6f51831a2be100%  
-	    New File  		   16027	I:\hkshell\.git\objects\09\9b1f29496fe71c6f3351257491ced540800a93100%  
-	    New File  		      83	I:\hkshell\.git\objects\09\9bded7f1188f72fe57f8004a6e27fd92939382100%  
-	    New File  		      56	I:\hkshell\.git\objects\09\f99d27dcfcf65894a98b29762a90916a67cc12100%  
-	    New File  		   11232	I:\hkshell\.git\objects\0d\0dea91f4a260b77210fbe97a618694e2f894f1100%  
-	    New File  		    1025	I:\hkshell\.git\objects\0d\5f5cdccf0043880aad29625c14850f7985f994100%  
-	    New File  		      46	I:\hkshell\.git\objects\0d\ac73e4dde9033fd41a400c6fdcdbcda5a220a7100%  
-	    New File  		     528	I:\hkshell\.git\objects\0d\ca3cd8bb4001528ed09735569042fe72bbf5ec100%  
-	    New File  		     209	I:\hkshell\.git\objects\0e\663d754764f5ac5e0cb663df582e1de1b3867f100%  
-	    New File  		      60	I:\hkshell\.git\objects\0e\8ba7e94a946c059e3f21d3510966c3a7356240100%  
-	    New File  		     794	I:\hkshell\.git\objects\0e\c7372fbbb6d87ff13a4d21b622a9694a10aa1e100%  
-	    New File  		      56	I:\hkshell\.git\objects\0e\e6ebaeb3c5876bf99c9e5685612b5060febc7f100%  
-	    New File  		    5581	I:\hkshell\.git\objects\16\2d101ca4797e0c009a4e18d7e9f15ccec3053e100%  
-	    New File  		      55	I:\hkshell\.git\objects\15\4d89a2cfc5e5a0ba77d60816ec0739f821172d100%  
-	    New File  		     121	I:\hkshell\.git\objects\15\659f7a04f632b22a0bd75020b9b3b1b6f2849d100%  
-	    New File  		      54	I:\hkshell\.git\objects\15\b4ce1ae873f2e30aa9fdffdd8128a2b660b44d100%  
-	    New File  		     489	I:\hkshell\.git\objects\13\bb8ed59574cf876ec1d890edd4e593c82b5b58100%  
-	    New File  		     518	I:\hkshell\.git\objects\14\6b81a907ae6fe9fc726dcd6cffd75b682c71c4100%  
-	    New File  		     537	I:\hkshell\.git\objects\14\ba9b11df636d77e11745b524a4b9c642d0f1b9100%  
-	    New File  		     206	I:\hkshell\.git\objects\1a\d557d3726bc01d73bb5e667b1f5f1cf493add4100%  
-	    New File  		     266	I:\hkshell\.git\objects\12\0ad427ae9ae51cba8ef37a62c60d6cc9e89b44100%  
-	    New File  		    5451	I:\hkshell\.git\objects\12\465f34cd2ba1f1ff019b8337d94eca3cd77448100%  
-	    New File  		    1887	I:\hkshell\.git\objects\0c\069b6970164d452546d131fb3b3a8c7a8a9620100%  
-	    New File  		     280	I:\hkshell\.git\objects\0c\09ddbdf1fde54b73fb25d4cfc52412d26ba5fd100%  
-	    New File  		     114	I:\hkshell\.git\objects\0c\454b79dd3d322676b64e46d2ce07e34b660a0b100%  
-	    New File  		     115	I:\hkshell\.git\objects\0c\527c525eecedf974b1e7eb104d796cd28b8ec6100%  
-	    New File  		    3796	I:\hkshell\.git\objects\1d\b54b58e2a5b532fd3564260e2e42e85345df5a100%  
-	    New File  		    1703	I:\hkshell\.git\objects\0c\bbfbc585d0f29b82d764056b99b3a59867fdfe100%  
-	    New File  		     146	I:\hkshell\.git\objects\1d\e40e45777e99124c483688e507376ddcccddf3100%  
-	    New File  		     121	I:\hkshell\.git\objects\18\39b41627d837bc8e7683032950edacd10af296100%  
-	    New File  		    1986	I:\hkshell\.git\objects\18\6c034a0c9fc309d98f3419e62ffc4cb1dd5eeb100%  
-	    New File  		      56	I:\hkshell\.git\objects\18\b6b96ae16aae2949d3140c9da8959a7eb25d8a100%  
-	    New File  		     216	I:\hkshell\.git\objects\18\b83467acd9a74f15965c8bc7d28e3326f332fc100%  
-	    New File  		      50	I:\hkshell\.git\objects\18\eb30cd33fff9663a1f1ca98547e0ad223694e0100%  
-	    New File  		     189	I:\hkshell\.git\objects\20\61d0b31fbddf8fb3d3071bc41c711acde47ce7100%  
-	    New File  		      49	I:\hkshell\.git\objects\11\11009a07c27b69db40dc1af61fa7cbddadb605100%  
-	    New File  		      56	I:\hkshell\.git\objects\11\838a6b4e32e0c1e3399d01597fbf2dad8cd727100%  
-	    New File  		    3783	I:\hkshell\.git\objects\11\8b0a9aeba768c088d38893b5c49a1e45eb7f56100%  
-	    New File  		     170	I:\hkshell\.git\objects\11\aca45330cb48154ae369b0e79543d5930bc7e5100%  
-	    New File  		      81	I:\hkshell\.git\objects\11\de42585a416e7d93ada99a68c3fffcdfc3d32c100%  
-	    New File  		    1777	I:\hkshell\.git\objects\19\a80cbd264e13a45a3d09986577d25e7f8b43f0100%  
-	    New File  		      50	I:\hkshell\.git\objects\19\ec356d991f4b104f6719b708131be473204341100%  
-	    New File  		      53	I:\hkshell\.git\objects\17\53c50f2b5a97fd9337f5921fc05289337a5267100%  
-	    New File  		     120	I:\hkshell\.git\objects\17\5e26a99842b9abe32ca8330002b674decae39a100%  
-	    New File  		    3862	I:\hkshell\.git\objects\17\7a09ea4d9526a479fdb39e0fb6a0402a3a30f5100%  
-	    New File  		     167	I:\hkshell\.git\objects\24\3d2c97a4b405978e1fd58313fc321ae9002cd0100%  
-	    New File  		    2483	I:\hkshell\.git\objects\24\93c2b63dda93314f37fcd5bcc26211a9afea36100%  
-	    New File  		      91	I:\hkshell\.git\objects\24\a01f8a63b3ac544929b032b711f51bbc2441d6100%  
-	    New File  		     580	I:\hkshell\.git\objects\24\acd01510f219a0884df971ead64236e1d0bab0100%  
-	    New File  		     575	I:\hkshell\.git\objects\1b\2213ab439a7c11130a5f650e7dcf4c4c286f39100%  
-	    New File  		      51	I:\hkshell\.git\objects\1b\7a74ff7490566a3c1376bb8daf395123cc4025100%  
-	    New File  		      46	I:\hkshell\.git\objects\1b\fcb27499b90a838b0e43469af66a9399d40800100%  
-	    New File  		   14892	I:\hkshell\.git\objects\25\0eb11de6e366bf0111df6bb768175d2fbe3878100%  
-	    New File  		     516	I:\hkshell\.git\objects\25\121d12551e504a05a3b249b813fb3e37af6821100%  
-	    New File  		     519	I:\hkshell\.git\objects\25\25ac9f9cc0599cfdb9f53f02f2afa4642fffa4100%  
-	    New File  		     121	I:\hkshell\.git\objects\25\2c12a699d9013281d3f9580a8bb529fed23542100%  
-	    New File  		     243	I:\hkshell\.git\objects\25\55a1402cb48c81c91273be9a5dad4bfac9b995100%  
-	    New File  		     396	I:\hkshell\.git\objects\25\9b61627cbccc555e9b5f5aaefe5036f24f9ad4100%  
-	    New File  		     621	I:\hkshell\.git\objects\25\9e959960b157a8168eb703e3ea400d70f90595100%  
-	    New File  		    5283	I:\hkshell\.git\objects\1c\8fc7ccbebf83996a344e30dccdee170fea5fbe100%  
-	    New File  		     198	I:\hkshell\.git\objects\1e\1ca326e23661a31ee699d237309c371a8f9090100%  
-	    New File  		     184	I:\hkshell\.git\objects\1e\87a6ae8f2dc5afda7a0e66aa8b896598604022100%  
-	    New File  		    6311	I:\hkshell\.git\objects\29\48aeb7e46d7a476b23bbaa15b54df8bb62f1a6100%  
-	    New File  		     154	I:\hkshell\.git\objects\29\a4c77a810225ffda7c245c0d298302cabf32af100%  
-	    New File  		     153	I:\hkshell\.git\objects\29\c173a401ffe2b2a003663b2f5900684c1a8b06100%  
-	    New File  		     489	I:\hkshell\.git\objects\22\0fc7899fbbc116283ae3347c26f90ae2475db8100%  
-	    New File  		     518	I:\hkshell\.git\objects\22\524b72183f971bb7458ae7e1d3aad3e2cf6c20100%  
-	    New File  		     115	I:\hkshell\.git\objects\22\cf5c2d281f643ca2ea8d5d7b232949bedfbe46100%  
-	    New File  		     120	I:\hkshell\.git\objects\26\081fac7e976afdd328226b2c89196d2181da65100%  
-	    New File  		      50	I:\hkshell\.git\objects\26\8586c76b3b7a570d23708a4f9c820b53258da0100%  
-	    New File  		     258	I:\hkshell\.git\objects\26\f2fb15cbde7ffb0f47e02943dbf24050e5407a100%  
-	    New File  		    3541	I:\hkshell\.git\objects\2b\114f68390bbe1b4d35e2d002c1d970b43ba59b100%  
-	    New File  		     214	I:\hkshell\.git\objects\1f\422e8bd506ac42d58efe8ddd8fc32bcede4476100%  
-	    New File  		     218	I:\hkshell\.git\objects\1f\7d89f2ed922220c4e4a81387964d50e7916751100%  
-	    New File  		      49	I:\hkshell\.git\objects\1f\b46db4651327a621aed0e3550835b11c3c6f9a100%  
-	    New File  		      52	I:\hkshell\.git\objects\1f\f9ad54a42c3651e01ea597c05e1e705d0d159f100%  
-	    New File  		     545	I:\hkshell\.git\objects\23\5e3ac4ddb5df8f64c84016080a5dd36c7c23e2100%  
-	    New File  		     152	I:\hkshell\.git\objects\23\91f4143307bb91d05a124c4279b72e7764bf11100%  
-	    New File  		      49	I:\hkshell\.git\objects\23\f2c3832a745c2af823bcea40cfb11a201b2bd6100%  
-	    New File  		      81	I:\hkshell\.git\objects\2d\be9b781eff96991372af1c919dcc4544197e66100%  
-	    New File  		      59	I:\hkshell\.git\objects\2d\dc286044b203b61c6efc8fee2b57bae3904b56100%  
-	    New File  		   16503	I:\hkshell\.git\objects\2f\1f768790e10d1eade505ff2e61c78c385256d9100%  
-	    New File  		     152	I:\hkshell\.git\objects\2f\d0eb6f5ddb3daaf35d1ee685d5c0e6caaa38b0100%  
-	    New File  		     238	I:\hkshell\.git\objects\2e\3081b8df188d7ac88a07d6b19a5c1924ad272e100%  
-	    New File  		      46	I:\hkshell\.git\objects\2e\ca450a0bd7c4c295451be6edc112c91ce39c8e100%  
-	    New File  		    2900	I:\hkshell\.git\objects\31\5a3495a74e2667c833e863315bf91df16904f2100%  
-	    New File  		   16750	I:\hkshell\.git\objects\31\d0477e8862a5fde03884abb6daf39cace0439f100%  
-	    New File  		    1498	I:\hkshell\.git\objects\2a\dcd6ceaa9a7c77176da990cb64f5c418416fa9100%  
-	    New File  		     771	I:\hkshell\.git\objects\2a\f061fcdf9e072cd7ed9856bdb210b72a52b840100%  
-	    New File  		     192	I:\hkshell\.git\objects\33\19d1e979dec13809f79b28ce4f75d36194c756100%  
-	    New File  		     203	I:\hkshell\.git\objects\33\bb20476ecad6f49935fb84876732ebcacf1d6c100%  
-	    New File  		     231	I:\hkshell\.git\objects\34\ea06e62665bef189b8e7114e14d64157df3902100%  
-	    New File  		     199	I:\hkshell\.git\objects\2c\2f7247672fc26ef59c439404afb13323694fc2100%  
-	    New File  		   20911	I:\hkshell\.git\objects\2c\4e37507242e93041bb32940933048974782eb0100%  
-	    New File  		      81	I:\hkshell\.git\objects\2c\ccd96dae8bcaec08b3a05188697bcf8e11cbfa100%  
-	    New File  		      81	I:\hkshell\.git\objects\2c\e1b9e11d8693ffb27003809262e3d630858b9a100%  
-	    New File  		      49	I:\hkshell\.git\objects\21\4eaad5b750fae2e34e01a28b050dfc13e1cb78100%  
-	    New File  		     544	I:\hkshell\.git\objects\21\c1312a376f1cf62edfbe214b550cde092256e6100%  
-	    New File  		      51	I:\hkshell\.git\objects\21\c89963eafdf42abe8d5e1bcca88b029572a7b3  0%  100%  
-	    New File  		    1411	I:\hkshell\.git\objects\21\d16cc30352a1d80caef32be5bd8240f2c638d1100%  
-	    New File  		     119	I:\hkshell\.git\objects\21\fb00c6f52ec191ea39923953bdbeea4406ee3c100%  
-	    New File  		     151	I:\hkshell\.git\objects\27\9966fd6ebd9c6a836a3243e91df8c47885c96b100%  
-	    New File  		      91	I:\hkshell\.git\objects\27\ebbb325db45c5a45313ea1c50036d2f69d904f100%  
-	    New File  		     151	I:\hkshell\.git\objects\27\fa30771d144be99dbeb24c9f5c6db419e3c587100%  
-	    New File  		    5437	I:\hkshell\.git\objects\28\44c0c705655c3877a9af295b838eb20dcfb10b100%  
-	    New File  		      51	I:\hkshell\.git\objects\28\b1fe57f215f47ece99fc6294bcf178e3c69125100%  
-	    New File  		      52	I:\hkshell\.git\objects\39\e8824dcd38a9d578ee79c2d4ddedfbb10e111e100%  
-	    New File  		     622	I:\hkshell\.git\objects\3c\08f9a3f35dfdc4f3a6e93b6991ee80ba03829a100%  
-	    New File  		     581	I:\hkshell\.git\objects\36\200ef79598ecb27fee14ed9f02a7610a719288100%  
-	    New File  		    1032	I:\hkshell\.git\objects\3d\ba9b492bab644ec83fcfef22cc59c6a0e5667b100%  
-	    New File  		    3599	I:\hkshell\.git\objects\3d\ef0274679c531d9f10789ba92ce7948d3b94ef100%  
-	    New File  		    5512	I:\hkshell\.git\objects\3e\178ac4c57c73c583aba8baea8074714af7e620100%  
-	    New File  		     462	I:\hkshell\.git\objects\38\b88dc80a07741305e310d8a8148de3327c654a100%  
-	    New File  		    1158	I:\hkshell\.git\objects\38\d08bc666a6082640d5809519f4270fccd1374f100%  
-	    New File  		    3367	I:\hkshell\.git\objects\43\58db8c83c50e67ec91eaf06b2a55f71e99b8b4100%  
-	    New File  		     898	I:\hkshell\.git\objects\43\67f98fd61a3579806abac83d4c1acea4ef3a1f100%  
-	    New File  		      49	I:\hkshell\.git\objects\43\ae6d97c7403ad44859917ac89269d36ed2dfb5100%  
-	    New File  		     151	I:\hkshell\.git\objects\30\79d9cdfe8db1bc1f7fda1961c04a65ef4411a9100%  
-	    New File  		    2277	I:\hkshell\.git\objects\30\c77db5ac73d0bb0f762062d5d5a32f31b189fb100%  
-	    New File  		     190	I:\hkshell\.git\objects\30\f14b51dec5dc07f236ad1af10d11ffe720b1bf100%  
-	    New File  		    2031	I:\hkshell\.git\objects\32\78c945640c2cf41ffc305607766369c040e124100%  
-	    New File  		     202	I:\hkshell\.git\objects\37\1b31a309e8be1a1c45613ec8e1e19c6d7a61b4100%  
-	    New File  		     121	I:\hkshell\.git\objects\37\8666f5762bd99be1f3f01ce7b660223b20d5d4100%  
-	    New File  		   18111	I:\hkshell\.git\objects\37\9b074aaa76c92503ffbe0a287bb3f584d07b19100%  
-	    New File  		    4906	I:\hkshell\.git\objects\47\1cb9d7d26283fed11860d376324418913aaa2b100%  
-	    New File  		      55	I:\hkshell\.git\objects\47\6e75e21c4731954fbd00f84d32ff62c2044eb2100%  
-	    New File  		     779	I:\hkshell\.git\objects\40\3bff65d8e5f26b79748813973b4cfb64d6f6a9100%  
-	    New File  		    1958	I:\hkshell\.git\objects\48\345e90217a1c826c984cad0f04e58ad3d0f6bc100%  
-	    New File  		      49	I:\hkshell\.git\objects\46\9002e59a1fe01d0ad096371535be36fe05aadd100%  
-	    New File  		      80	I:\hkshell\.git\objects\46\cd22060eea80d1071da6462bc4df2f621ea6cf100%  
-	    New File  		     151	I:\hkshell\.git\objects\42\a69e0666907ad3200ffb03ca98a045c09b07df100%  
-	    New File  		     619	I:\hkshell\.git\objects\4b\4da6184f761b525d799acc67db83f6b0769858100%  
-	    New File  		     115	I:\hkshell\.git\objects\4b\71db9448433db6c8b69a4abd2d98deeeedb7cb100%  
-	    New File  		    2389	I:\hkshell\.git\objects\4b\8aaa4936fbd1c3043cc848cd66a5439ba16428100%  
-	    New File  		    2078	I:\hkshell\.git\objects\44\36ac58f34310c5678f486e2c35589c3f33f763100%  
-	    New File  		    1612	I:\hkshell\.git\objects\4d\1994602d35d12355b8d9e972573ccdedeb1d21100%  
-	    New File  		   58248	I:\hkshell\.git\objects\4d\62932ced8c33f06d5571e2154308dead92d96d100%  
-	    New File  		   16311	I:\hkshell\.git\objects\4d\664406d38ce43b62209c288dc8e06d961d6cfd100%  
-	    New File  		    4961	I:\hkshell\.git\objects\4d\a55790be0af404e461595a7ef5976828551928100%  
-	    New File  		     180	I:\hkshell\.git\objects\4e\820765f847161b517008ccda93b9bf04cbc9e2100%  
-	    New File  		      60	I:\hkshell\.git\objects\4e\82c9d87f60dbf721ebc72af1913d480ec075e3100%  
-	    New File  		    6180	I:\hkshell\.git\objects\4e\8cc043a78bac0d495503ce68a23998256531bd100%  
-	    New File  		      55	I:\hkshell\.git\objects\4e\f749f07eb41cd8ed8de564a4f7ce8e7123cbd8100%  
-	    New File  		     776	I:\hkshell\.git\objects\45\16283228cba874be3a0f071ab2655755b24c34100%  
-	    New File  		      81	I:\hkshell\.git\objects\45\236f27b6c046ff9b629c663fab06e016bbeaf9100%  
-	    New File  		      81	I:\hkshell\.git\objects\50\30e6b138a80367d0fb693a3a034d71efc94370100%  
-	    New File  		     367	I:\hkshell\.git\objects\50\6af5af9b5d66ed731f4d90af5b074e2d38a4d2100%  
-	    New File  		     203	I:\hkshell\.git\objects\50\8af2470df8854f697fce026d5088cf89c16af8100%  
-	    New File  		    2486	I:\hkshell\.git\objects\50\cb984846faddf388c3824671ff9ae93c036989100%  
-	    New File  		     150	I:\hkshell\.git\objects\51\d10620d881f7b756a3db951e9da97ed72e7854100%  
-	    New File  		      47	I:\hkshell\.git\objects\3b\276e856ff866cc673432798ba6c198875d1fa0100%  
-	    New File  		    2164	I:\hkshell\.git\objects\3b\aae6e70066f773540cdae61d37422257e4aea5100%  
-	    New File  		    5420	I:\hkshell\.git\objects\4f\861830c3198fd0dac2ed5b116e2f65e5877129100%  
-	    New File  		   16039	I:\hkshell\.git\objects\4f\884f513c0674a45969d404e8b8b41adb324633100%  
-	    New File  		     519	I:\hkshell\.git\objects\4f\aeb88e29a94796f697b840c1e6eb1edebd7dcd100%  
-	    New File  		   52074	I:\hkshell\.git\objects\52\b47b0085bf2050940774efd88f24ddb7299df1100%  
-	    New File  		      46	I:\hkshell\.git\objects\52\c3b96f47b5cddd8a32cdb19d45cf797e69e268100%  
-	    New File  		    1748	I:\hkshell\.git\objects\52\cd200efbce446b845b70c36f861f0fe7fc7cfa100%  
-	    New File  		     588	I:\hkshell\.git\objects\53\3307134aaf90bedc7be49ac2cfefe2f91d181d100%  
-	    New File  		     151	I:\hkshell\.git\objects\53\7c07ac1529a2836f4f6002fa22e0252da5fde8100%  
-	    New File  		      61	I:\hkshell\.git\objects\56\96cc37693c5c8c19e7f98aefb5576e39665796100%  
-	    New File  		      61	I:\hkshell\.git\objects\56\b1beb227d715ac91cb504898f73b082292ea74100%  
-	    New File  		      81	I:\hkshell\.git\objects\56\bddc581dceb9e8aa7933f8d59d5c37f1e31f80100%  
-	    New File  		    1170	I:\hkshell\.git\objects\56\dbd36ef5f56706935de703e8146f27971e10dc100%  
-	    New File  		      49	I:\hkshell\.git\objects\49\2afbf7d62e9e9468bd80656b2e8ac5156406e5100%  
-	    New File  		      81	I:\hkshell\.git\objects\49\aa0a4c67a4858e1e0f89c4e37f345a90c44fca100%  
-	    New File  		    7289	I:\hkshell\.git\objects\4c\48c968d7e87b99255e768c98aa73bc6a62276b100%  
-	    New File  		      46	I:\hkshell\.git\objects\4c\71620329424ab0b29ea9a32e146d99ee2e8d6d100%  
-	    New File  		     210	I:\hkshell\.git\objects\5a\09ae257e88febd90e1bd632bda9e34d285d934100%  
-	    New File  		   14748	I:\hkshell\.git\objects\5b\0b5a322ea85c0b1af102099abe1d9c730feebb100%  
-	    New File  		      80	I:\hkshell\.git\objects\5b\573a6b0e629cf8d6ae5ae3b041c8dea4c273bc100%  
-	    New File  		      47	I:\hkshell\.git\objects\5b\a94012aebab47ce9f065e5418401bc62d9c449100%  
-	    New File  		      51	I:\hkshell\.git\objects\3a\4ac8270e58e494025ce9c4436c457aa280702c100%  
-	    New File  		     371	I:\hkshell\.git\objects\3a\5e9b656e47f29ff75491a7a40c2e77e3f008ec100%  
-	    New File  		    2409	I:\hkshell\.git\objects\3a\6c910df287818d5ba1343037ef89fddb44f034100%  
-	    New File  		    1201	I:\hkshell\.git\objects\3a\d87ff21d982fcfb6804a00fcb217e078fb1b1b100%  
-	    New File  		     151	I:\hkshell\.git\objects\3a\f0a69788b75973a201cb78820b7b11c6a1fe5e100%  
-	    New File  		      81	I:\hkshell\.git\objects\5c\9a3904d48c81507ff942da5163331313c1ab2a100%  
-	    New File  		     175	I:\hkshell\.git\objects\59\0d604b6e920b2b2bed78da0b988092d5d7dd3c100%  
-	    New File  		      48	I:\hkshell\.git\objects\59\1e396aac93768d3a36f9c5da3dfa78f26ed4b9100%  
-	    New File  		     151	I:\hkshell\.git\objects\59\4091f109bf180d94392d39a17d70033d8a74bd100%  
-	    New File  		     545	I:\hkshell\.git\objects\59\cc773a728513dc8ca8485c79422f9741e3dd14100%  
-	    New File  		     147	I:\hkshell\.git\objects\5d\e3f52cb58839edf7cb61099284acf6cb54a616100%  
-	    New File  		      49	I:\hkshell\.git\objects\5d\f8655b6d54f1e7fbd3ea1e5bf134a120554e18100%  
-	    New File  		      46	I:\hkshell\.git\objects\5e\306371ba2ba861811c54fc5d987bb3da593c86100%  
-	    New File  		     120	I:\hkshell\.git\objects\5e\d0377801e73bba87ed633e5bc2534ef070b890100%  
-	    New File  		      81	I:\hkshell\.git\objects\57\499a53563968a6addddfd911447d56c1c69265100%  
-	    New File  		      91	I:\hkshell\.git\objects\57\a1bf3dbedcbc1760e35ddabb7f7aeb9c3664af100%  
-	    New File  		   16317	I:\hkshell\.git\objects\55\85508db086cf117775dbe01a57f6c1efce9ab5100%  
-	    New File  		    2825	I:\hkshell\.git\objects\62\0cf43bfee8c67938d4ea7c99fa6f58ae19c8dc100%  
-	    New File  		     151	I:\hkshell\.git\objects\62\48ada64eca58f91f68a5d697f0284e7ba6f092100%  
-	    New File  		     808	I:\hkshell\.git\objects\62\4b29d9fd833a45cf6095e4580231872335d39f100%  
-	    New File  		    4011	I:\hkshell\.git\objects\62\60002c9d27cb41e83223707c63f8010e7c803a100%  
-	    New File  		    3136	I:\hkshell\.git\objects\62\6319fd3fe6188520deeeeed355b1946c462649100%  
-	    New File  		    6647	I:\hkshell\.git\objects\62\7477d7e06458ff63f582af01cea4868b118fbb100%  
-	    New File  		     519	I:\hkshell\.git\objects\54\4cfd7390cf99b1291de1d1ad04bda1ac1b2801100%  
-	    New File  		     115	I:\hkshell\.git\objects\54\68433b7cd494aef15e56dfde532f02a7877dcd100%  
-	    New File  		    4696	I:\hkshell\.git\objects\54\ca32b209aa955670bd299921e48c34843ca05f100%  
-	    New File  		    2392	I:\hkshell\.git\objects\64\c7bb62c823cf74d66ff3fab17a063d9197ab9b100%  
-	    New File  		     264	I:\hkshell\.git\objects\63\834ff8f3d1ed9806bc4b11f28d3d1132666575100%  
-	    New File  		     530	I:\hkshell\.git\objects\63\9a1647d8ff9d4958a32053d89a4e1093dd1ffd100%  
-	    New File  		    1436	I:\hkshell\.git\objects\63\aaa72cce9878b7b78c2c68a7f427615defafe0100%  
-	    New File  		     608	I:\hkshell\.git\objects\63\db09ac6488adb35972840550c22fe6a90bae99100%  
-	    New File  		     115	I:\hkshell\.git\objects\58\2bef07d3c0614cc3fa4648ec1a4f35859a1fe6100%  
-	    New File  		      80	I:\hkshell\.git\objects\58\72f508fe63379e4bdbabfcee0d2096730fff18100%  
-	    New File  		      56	I:\hkshell\.git\objects\58\dbbae2e70585c9ea4ab1f8ae62085c32ee90b8100%  
-	    New File  		    5509	I:\hkshell\.git\objects\58\e5b0aa26c93ffe6bb0bf8e15d5dd99b488a2d6100%  
-	    New File  		     155	I:\hkshell\.git\objects\67\01472f0bf75c7d028841bfbdb99ec474933fc2100%  
-	    New File  		      54	I:\hkshell\.git\objects\67\c4b29320813e36344f59d80d909b972ae3a0af100%  
-	    New File  		    4969	I:\hkshell\.git\objects\67\e0166d12b11b8c9bb05b4e2d4a2e824da48338100%  
-	    New File  		     361	I:\hkshell\.git\objects\67\e63ffadf9267fa2cb9c2ddf1af9cc1644dd23a100%  
-	    New File  		     545	I:\hkshell\.git\objects\67\ec9dfdedcea2414c85ea4ab59f397002a580eb100%  
-	    New File  		    1149	I:\hkshell\.git\objects\66\baeaa69283d8764caf6e9bde3afb9933a1e292100%  
-	    New File  		  239053	I:\hkshell\.git\objects\67\ff3549bf12d9786fb8b08f7b03f7924a507696100%  
-	    New File  		    6487	I:\hkshell\.git\objects\4a\1ca7925c46a08540d01150d05e6ab443b54c06100%  
-	    New File  		      91	I:\hkshell\.git\objects\4a\53520a9521a32943fc12ffe0a5fd2bbfcb6e51100%  
-	    New File  		    2259	I:\hkshell\.git\objects\4a\6e08d436b0dd0b903e14057bcfbb169e47b929100%  
-	    New File  		     165	I:\hkshell\.git\objects\4a\c16f24eacf76f0647eb970e8f2941f8a2477cb100%  
-	    New File  		      53	I:\hkshell\.git\objects\4a\fdef794d7a2c537edda4fae558a385f1b38ff1100%  
-	    New File  		    3900	I:\hkshell\.git\objects\65\37915b650dfd0fdb580d0a3ba594390cf52644100%  
-	    New File  		      47	I:\hkshell\.git\objects\65\b041360582b8ffb693d69b65073c81cf4b24fa100%  
-	    New File  		     157	I:\hkshell\.git\objects\65\dd4e5b46ae50ee55feb4103d1ac39d39932d32100%  
-	    New File  		      81	I:\hkshell\.git\objects\6c\33c61b931f5851e96cee9d3db1966e9537c805100%  
-	    New File  		    1580	I:\hkshell\.git\objects\6c\8a642b7c9bc288f552fb6a4e21b0bcc64669a5100%  
-	    New File  		    5368	I:\hkshell\.git\objects\60\2ff6e64236365fc2eacb8236410e200a26d53c100%  
-	    New File  		     151	I:\hkshell\.git\objects\60\8bc87b4cff168599fb7b265d1e977a2f0be0fe100%  
-	    New File  		      46	I:\hkshell\.git\objects\60\ad54360ebec6bfc40fea8cdd9291e265a0b3fd100%  
-	    New File  		     489	I:\hkshell\.git\objects\60\fd828a08de53fa7bccfdaf0a27bd4f311e5a36100%  
-	    New File  		      83	I:\hkshell\.git\objects\6d\0690b266229c3c4f527c0e2fe49a212fec0260100%  
-	    New File  		    1071	I:\hkshell\.git\objects\6d\0b1282711a4370d9c41a3e44ed6d40a7009c53100%  
-	    New File  		     173	I:\hkshell\.git\objects\6d\3a95ad2ae37031a270b5270234fc42df450e6f100%  
-	    New File  		     152	I:\hkshell\.git\objects\6d\eeedf96f775bfdc686cc38fce8d7189cf808a4100%  
-	    New File  		      46	I:\hkshell\.git\objects\6f\138a3eb654b72d9d874894fd3e67f358f617da100%  
-	    New File  		     180	I:\hkshell\.git\objects\6f\8a382c5c2137accf67d862e9e41aca64aab1b3100%  
-	    New File  		    6370	I:\hkshell\.git\objects\6f\a22b596412ab796bcf02fcfdefb526301fdf42100%  
-	    New File  		    1228	I:\hkshell\.git\objects\61\352691b56143b04749ff5bc010fdafd1b6fa38100%  
-	    New File  		     544	I:\hkshell\.git\objects\61\7b85cdcd0df5d3a295834d254b3ac93b6c3faa100%  
-	    New File  		     121	I:\hkshell\.git\objects\61\8a7acb222948700e71c01e3faca341f1ae4308100%  
-	    New File  		     157	I:\hkshell\.git\objects\61\b4075f17bd21faeda72767ed9c035e0f892780100%  
-	    New File  		     151	I:\hkshell\.git\objects\68\7d40722d3572f71149abef624bb0f9090fc621100%  
-	    New File  		    1037	I:\hkshell\.git\objects\68\e58213e4f460a4ca175cd0623806ef054b80d1100%  
-	    New File  		     393	I:\hkshell\.git\objects\74\b92a373a09fc66af310c18354ac745fbd6b8ea100%  
-	    New File  		     361	I:\hkshell\.git\objects\74\ea58554efeb10e5e5a77479e5c6529438a6706100%  
-	    New File  		      45	I:\hkshell\.git\objects\5f\05d988237def6166a1f07d2c7b6e411318befa100%  
-	    New File  		      80	I:\hkshell\.git\objects\5f\19cf08b5886651cccafbb2dbf34c8da70ae211100%  
-	    New File  		     830	I:\hkshell\.git\objects\5f\6f8581fbb6cff0c32f5129072083dcddfa91f7100%  
-	    New File  		     121	I:\hkshell\.git\objects\5f\acc8279e6f94e0174205f0ea1b5c3b4b900f71100%  
-	    New File  		    5444	I:\hkshell\.git\objects\5f\cca98c1bcf30c6742858739b8ca0e6faf4913c100%  
-	    New File  		    3970	I:\hkshell\.git\objects\5f\f74cbad5284e518948f7683c366a8dc8b93a30100%  
-	    New File  		     213	I:\hkshell\.git\objects\76\032e5092c3a20b0872c32a6e67cafdd04b8975100%  
-	    New File  		     159	I:\hkshell\.git\objects\76\4236c5b9fe17ef15c47d9e9a3002ec01685778100%  
-	    New File  		     328	I:\hkshell\.git\objects\71\3cb5411eccc9f924ffad7c9b962897638dec5a100%  
-	    New File  		     558	I:\hkshell\.git\objects\71\9c9719e94b66e86166b019b60b7659c01c1eb8100%  
-	    New File  		      55	I:\hkshell\.git\objects\71\f2a5238173b0d38db4e4d3303b5aa4d34cb303100%  
-	    New File  		      51	I:\hkshell\.git\objects\69\2bc7b3cf61bdf60cb46724599fbef325b8f7f6100%  
-	    New File  		      47	I:\hkshell\.git\objects\69\b1b558af516c4da924a30af7dec5e4088058b5100%  
-	    New File  		      55	I:\hkshell\.git\objects\6a\547d8da18944a49674c02b51f19afc0ebb79ab100%  
-	    New File  		     177	I:\hkshell\.git\objects\6a\6b7743dfefa8fedeabbdea0e0e7ba1d52cd0eb100%  
-	    New File  		      49	I:\hkshell\.git\objects\6a\a38fb3c239aaf4f9a1b58a89c6e715c48f3320100%  
-	    New File  		      68	I:\hkshell\.git\objects\70\09ff9285e9a326461cb29022ea66d856cc7ae8100%  
-	    New File  		    6584	I:\hkshell\.git\objects\70\a88091d69d9eb5154d4758c4ac03a7e5e54173100%  
-	    New File  		     151	I:\hkshell\.git\objects\73\2473caa90c0189bb8c5f5cc750d6108f59c164100%  
-	    New File  		     488	I:\hkshell\.git\objects\73\91ad3a2c6f368e17475d6724fcc842be7caea0100%  
-	    New File  		      49	I:\hkshell\.git\objects\7b\853126dcce1393b375019736bb724b8702531a100%  
-	    New File  		    1711	I:\hkshell\.git\objects\7b\8e12895b89de0d8a9e0ed7b6cab73d4bac7171100%  
-	    New File  		     750	I:\hkshell\.git\objects\75\4510927c1b03648d19a4121553023c55eef555100%  
-	    New File  		      80	I:\hkshell\.git\objects\79\2e18c9627bb06b5974be1f5acf4a8c262f5ca9100%  
-	    New File  		     270	I:\hkshell\.git\objects\7e\059d9a4e70fed3609af1b43c2ada0a76503346100%  
-	    New File  		     277	I:\hkshell\.git\objects\7e\072a7a88ac1225dc8a51cbaeb33f702d6afae1100%  
-	    New File  		    2174	I:\hkshell\.git\objects\7e\4942adb96563960284c62efa506ba7d4a4b78a100%  
-	    New File  		      56	I:\hkshell\.git\objects\7e\639793ec4219fb8b557b88fce82cf11bda2571100%  
-	    New File  		     152	I:\hkshell\.git\objects\7e\6bedff11df2edb9427e663bb56b172213818f3100%  
-	    New File  		    5197	I:\hkshell\.git\objects\7e\a836b41c0b0004d24fef7db197bfafa4b12690100%  
-	    New File  		      60	I:\hkshell\.git\objects\7e\ae952fc858ca7820f53f17228bed9ab32d9739100%  
-	    New File  		   34137	I:\hkshell\.git\objects\7e\ce369a696096f76e31265a48a0af91a8e8f38f100%  
-	    New File  		     166	I:\hkshell\.git\objects\7f\1932aaab1eda69accc7b68da94f6d09e387070100%  
-	    New File  		    3513	I:\hkshell\.git\objects\7f\60eeb5f47b2ae16d108cd122d4e7c8bdb21798100%  
-	    New File  		    2508	I:\hkshell\.git\objects\7f\73f0f8388c109878445af7516b1d45d7c87465100%  
-	    New File  		  233574	I:\hkshell\.git\objects\7f\755a1acf7f7421e4484c3a291c258a61f652ef100%  
-	    New File  		     120	I:\hkshell\.git\objects\7f\88c0e3538fab1c733b0f7b014937b531a73797100%  
-	    New File  		    5389	I:\hkshell\.git\objects\7f\b2aca521e5f13533e4d669fbefb97ecf4dc033100%  
-	    New File  		    2057	I:\hkshell\.git\objects\6b\14f86b1b5bc848465dc82bd640a018316fa0cf100%  
-	    New File  		      91	I:\hkshell\.git\objects\6b\5e4e0681d698579794f2252057ca9a3b18c98e100%  
-	    New File  		     358	I:\hkshell\.git\objects\6b\61672668b12364fb06d577a5a486217c62f5f5100%  
-	    New File  		     596	I:\hkshell\.git\objects\6b\b749cd70bf25dab80676dd1522db54941e1f97100%  
-	    New File  		      80	I:\hkshell\.git\objects\6b\b9ebeb98b569b1b0b6d7b4367a7f469d01c995100%  
-	    New File  		    4683	I:\hkshell\.git\objects\82\f6a554deff2e736711509cd609304143dda1f8100%  
-	    New File  		     152	I:\hkshell\.git\objects\83\465ea3d4aef9e6f1d7e2c56c27a749be282453100%  
-	    New File  		      46	I:\hkshell\.git\objects\83\a5209be35ed50e3842e2434c6b92e058dc035f100%  
-	    New File  		      49	I:\hkshell\.git\objects\84\05307710a90a47be861e8f4b424de72f1af2c5100%  
-	    New File  		   16322	I:\hkshell\.git\objects\84\08f42e45b7d6142e8f10ba61896ef99f802b83100%  
-	    New File  		    1438	I:\hkshell\.git\objects\84\22e89844140ed8d48cbb67067099b584358e81100%  
-	    New File  		     104	I:\hkshell\.git\objects\84\e7c69bf42c6a4a4315ff30fc1a37c6c825a0f6100%  
-	    New File  		     131	I:\hkshell\.git\objects\78\f76fedee7a48f65028f58b393ec2dccfc42cbb100%  
-	    New File  		    5927	I:\hkshell\.git\objects\86\29e2adf6c51b9fbf922d2a1172da578f4948de100%  
-	    New File  		      55	I:\hkshell\.git\objects\86\3d5ed9826f0b8fa347a46348ff09531370a4cb100%  
-	    New File  		    1307	I:\hkshell\.git\objects\86\dd213ea5dd07529294f6ceb043266677e4eadf100%  
-	    New File  		      92	I:\hkshell\.git\objects\86\f4f316f4a20dec8f8782e4f720d57cd225d362100%  
-	    New File  		    1174	I:\hkshell\.git\objects\80\51d1d6ad93ea5f17a8506b5bb37b4c4766319e100%  
-	    New File  		      92	I:\hkshell\.git\objects\80\c2484071737ef426ce3c16b2daa4168812a008100%  
-	    New File  		     267	I:\hkshell\.git\objects\87\1edba4083e1631fc1d66be62cff20b1095dcf2100%  
-	    New File  		    3894	I:\hkshell\.git\objects\87\9106e881dca4472da775f20d3a4408695bd2bd100%  
-	    New File  		     187	I:\hkshell\.git\objects\87\c7961706da82c92f78c9c47c9841d3c8995dac100%  
-	    New File  		     652	I:\hkshell\.git\objects\7c\ae0dd4781872fc457daf970b061f44d548c471100%  
-	    New File  		     235	I:\hkshell\.git\objects\7c\e83cb5e0bce7d2a5b7ca96a2cd11885dd50afb100%  
-	    New File  		      81	I:\hkshell\.git\objects\7c\e8ef30f452617d891b04eb01fc1e05759f03e5100%  
-	    New File  		     151	I:\hkshell\.git\objects\7d\5d8d4fcb898423869fbd8250fbd09adda22aa4100%  
-	    New File  		      86	I:\hkshell\.git\objects\8c\61d9eedcb216911817322462fb22edafc6dc2b100%  
-	    New File  		      81	I:\hkshell\.git\objects\8c\dd4f32e59e62393ad1b7fd84f6c42d25338b03100%  
-	    New File  		      56	I:\hkshell\.git\objects\7a\054d0300e8b5f7c3c24617d3d671467b5464d3100%  
-	    New File  		     114	I:\hkshell\.git\objects\7a\13016c5166f0bcf29b517bf14a0ff076ddaa25100%  
-	    New File  		      46	I:\hkshell\.git\objects\7a\272fd89d637224902b99631228bd65a047c827100%  
-	    New File  		    2964	I:\hkshell\.git\objects\7a\399d34b061cc3619cc6c69597e8ec96493e5f5100%  
-	    New File  		     209	I:\hkshell\.git\objects\7a\6fb87569e460e02ecb24b1b047af78d2a92471100%  
-	    New File  		     606	I:\hkshell\.git\objects\8e\0560a1427870b4fb8a995f46441beab0db6d5d100%  
-	    New File  		    1072	I:\hkshell\.git\objects\8e\13e4d1cb97df09877ab3c3c689359ac8d19423100%  
-	    New File  		    1574	I:\hkshell\.git\objects\8e\6a2844b181b2181f8b051fe7eb5c0173d2706e100%  
-	    New File  		     114	I:\hkshell\.git\objects\8e\c6981e04a5abfdd04e316e273c28be70dfe9bb100%  
-	    New File  		    2970	I:\hkshell\.git\objects\8e\f9f698e0ba41e326296e23b1803501db49509e100%  
-	    New File  		    3796	I:\hkshell\.git\objects\90\003de422d1eec621d5b80599ac8d068c7ab2a8100%  
-	    New File  		     120	I:\hkshell\.git\objects\90\37fe85101107a3f5734032e7f2a7dc47d36c74100%  
-	    New File  		    1190	I:\hkshell\.git\objects\90\946c19605ade37613a2c8339e11e997f4c38f8100%  
-	    New File  		  231254	I:\hkshell\.git\objects\8d\02d1952957bed94881fbffd1aa4b93d406b132100%  
-	    New File  		      49	I:\hkshell\.git\objects\8d\91063ab3c406cf69ca9bac4b1cb99e8df2e577100%  
-	    New File  		     518	I:\hkshell\.git\objects\8d\bada0e85b8edff47b73f9d79cf72352e8f1585100%  
-	    New File  		   16198	I:\hkshell\.git\objects\92\94789dfaacb0f27aa0452ab8efc7129ed7ab69100%  
-	    New File  		    4764	I:\hkshell\.git\objects\8b\118e4728fc193b2d1640185a957bddbb763714100%  
-	    New File  		    5302	I:\hkshell\.git\objects\8b\45b37680340d913d6aae7faccf66ede44bda28100%  
-	    New File  		      46	I:\hkshell\.git\objects\8b\dbc7b86f3ec8cc457bcdc24a5c1f8d75a3453f100%  
-	    New File  		    4396	I:\hkshell\.git\objects\85\23398062b61575c2b897707e68bcccb5335005100%  
-	    New File  		      49	I:\hkshell\.git\objects\85\2cd5fbef7af13ed566a6438500124bfc4e0b15100%  
-	    New File  		     596	I:\hkshell\.git\objects\94\5ea8f8070f2f915e5db6053e60631cdd288e65100%  
-	    New File  		     115	I:\hkshell\.git\objects\94\64cd00cac3c9fe8cf10693e84f9a4a4e45ec15100%  
-	    New File  		     545	I:\hkshell\.git\objects\96\3fe441e543091aae5a1f5ce7e437c6d891ba14100%  
-	    New File  		    3209	I:\hkshell\.git\objects\96\7156e6b540693b15a79ba7ae3b1d42d42750e3100%  
-	    New File  		      49	I:\hkshell\.git\objects\96\93e085b0d55fe62f9c7bdbd5d5237ec1e850d0100%  
-	    New File  		      49	I:\hkshell\.git\objects\96\f3f233379523dc9bbbb7723a82e7c63d7af31a100%  
-	    New File  		     545	I:\hkshell\.git\objects\97\8b78da4cc10912c015f61c8546e7ec0b47c679100%  
-	    New File  		     789	I:\hkshell\.git\objects\97\de6f8cd7a4c955322fa3f918c98db4dd41278c100%  
-	    New File  		    9047	I:\hkshell\.git\objects\77\74b0cc5f4018dae3c7b72f5e1614f55a52b699100%  
-	    New File  		      47	I:\hkshell\.git\objects\77\90c2574f511b1efdc8ea988671e0fcd55ae970100%  
-	    New File  		     114	I:\hkshell\.git\objects\77\9e7a8940bddcdb59b71a6a12ff1392a9dae5e3100%  
-	    New File  		      80	I:\hkshell\.git\objects\77\ebd4c73b7ac1fe30e3e4664f2d62558a737fe5100%  
-	    New File  		    1210	I:\hkshell\.git\objects\77\fd96448dab0267755f0e799db918be6d474424100%  
-	    New File  		     747	I:\hkshell\.git\objects\99\155f4f6981abcfd5aaf5f1cdf6644933572603100%  
-	    New File  		      49	I:\hkshell\.git\objects\99\a3f62f35f5f39cafa53c1f7c8bcfea3e92a701100%  
-	    New File  		    3890	I:\hkshell\.git\objects\9a\872241a1638e8bc37fa17513ed9b99c32b5be5100%  
-	    New File  		    1773	I:\hkshell\.git\objects\9a\97cc02b3ae94bc6164f0dae1099dc360e01b4f100%  
-	    New File  		    6760	I:\hkshell\.git\objects\91\10105b9675aa0a100b062b58a94c3f43066112100%  
-	    New File  		      47	I:\hkshell\.git\objects\9d\41b0c1a4fe2574f10b0ef3ace90f252c133825100%  
-	    New File  		   13029	I:\hkshell\.git\objects\9d\9dae6ca7d548d55ec845180ae9da1b589aff27100%  
-	    New File  		    8751	I:\hkshell\.git\objects\9d\af3eaf8c7a4ff7880921762b5939b7255f70a0100%  
-	    New File  		      49	I:\hkshell\.git\objects\9d\b47512901845dd3fe90941efe830646405aa7d100%  
-	    New File  		      80	I:\hkshell\.git\objects\93\30b0dbb2a59f8886384f287fa18c303c648696100%  
-	    New File  		    1414	I:\hkshell\.git\objects\93\70744e138ec07d7b1272f865cb178e02ab6a59100%  
-	    New File  		     545	I:\hkshell\.git\objects\93\827021e908a1e6aae00b37022f2f515e7040a5100%  
-	    New File  		    3977	I:\hkshell\.git\objects\93\b61fa32c05ba7e14aed41263eb846b5531fccc100%  
-	    New File  		    4398	I:\hkshell\.git\objects\9f\061a51e480b0c68513b16eb3e392615d8b68a4100%  
-	    New File  		   16860	I:\hkshell\.git\objects\9f\6acbf2cd599d418ec993dde9e397ad68ddee79100%  
-	    New File  		      46	I:\hkshell\.git\objects\9f\8cf384fab92b3517fcac64912f27e2460ebfa3100%  
-	    New File  		  135897	I:\hkshell\.git\objects\9f\9ec95303389cbaad2e110a86d99c7566bfad77100%  
-	    New File  		      80	I:\hkshell\.git\objects\9f\cc07a323ec29292269f3ab6ba4be3633fdddf4100%  
-	    New File  		    2271	I:\hkshell\.git\objects\9f\e60bd5fac6d9b759a4fdbe6ae64536a8779a12100%  
-	    New File  		      46	I:\hkshell\.git\objects\a0\26ac1f65f3b0e27102af8a510fedcc559257aa100%  
-	    New File  		     152	I:\hkshell\.git\objects\a0\4013b21c4d3bfc45b33515d16f4558fc643c17100%  
-	    New File  		      80	I:\hkshell\.git\objects\a0\e6638660d5a9d1a4f01988f613a4c95a2a8306100%  
-	    New File  		    2589	I:\hkshell\.git\objects\95\30da0f7d9c916da2d657290f1c77aa4c6b8ee4100%  
-	    New File  		      51	I:\hkshell\.git\objects\a2\8287d606081f3dba320427550bb78fe997caaf100%  
-	    New File  		     151	I:\hkshell\.git\objects\a3\02d31e8f6d107fc791ed2e269173e66b1d3e5f100%  
-	    New File  		     488	I:\hkshell\.git\objects\a3\5bc2e9a1ee5c2b5633f944f9f2598cced7319e100%  
-	    New File  		     982	I:\hkshell\.git\objects\a3\c3280323c22cfac96cfc2ff2810c5c4fff4f48100%  
-	    New File  		    1376	I:\hkshell\.git\objects\88\a25eab236cf51583d43e8736784336915cf34a100%  
-	    New File  		      80	I:\hkshell\.git\objects\88\b12183015482eaee6b297b22c321e6c4d17b6a100%  
-	    New File  		     137	I:\hkshell\.git\objects\88\c523ea5f8bf12a54763e1f33c0c1effa1223e6100%  
-	    New File  		    5534	I:\hkshell\.git\objects\88\f1382a6bd7297f9ac42c639dc2ca53605d0ed1100%  
-	    New File  		    5425	I:\hkshell\.git\objects\88\f56af91d720c46cfa6b57bb1d86e3409c0ceb0100%  
-	    New File  		      81	I:\hkshell\.git\objects\a6\5fb6b5ae1fde266d3b56e4762865f565242f03100%  
-	    New File  		     121	I:\hkshell\.git\objects\a6\b464769bb309a8ca767f7387d3d3e2856b431d100%  
-	    New File  		     152	I:\hkshell\.git\objects\8a\072e5073ec25804cdb7d0b8307db071426998a100%  
-	    New File  		     121	I:\hkshell\.git\objects\8a\9c2323afc334639c3f3e730d2e68b897620527100%  
-	    New File  		      46	I:\hkshell\.git\objects\8a\a6014aaef8b9ec8b18bf5d7b845cecde6039f5100%  
-	    New File  		      80	I:\hkshell\.git\objects\8a\e71992dcb222108d88a23c4b3a64978ed94815100%  
-	    New File  		    3792	I:\hkshell\.git\objects\8a\ec17c52cd1a7fed4a87f5fdcfee76a42757bd2100%  
-	    New File  		      96	I:\hkshell\.git\objects\a8\113c21d1738399c534ab8f3d898b3a9361a519100%  
-	    New File  		     527	I:\hkshell\.git\objects\a8\ae4bf635df64c2e4bed1a50b170645f0173558100%  
-	    New File  		     514	I:\hkshell\.git\objects\81\49e2a31c748df3132971a8a99460a799cea67b100%  
-	    New File  		      56	I:\hkshell\.git\objects\81\59dd8ae1483ba318fd5ae8d7fd1caf22eb624b100%  
-	    New File  		      47	I:\hkshell\.git\objects\81\5c94941f3400587c268407325e84c6b51a7b07100%  
-	    New File  		    2464	I:\hkshell\.git\objects\81\84823a964b2ed69e7af53940e24884bedf0eee100%  
-	    New File  		      56	I:\hkshell\.git\objects\81\888daf12aaf887aef93a432d1cdcbf01e0accc100%  
-	    New File  		    2077	I:\hkshell\.git\objects\a9\3856947124c55020a3c8336f5b6b9d77988ce9100%  
-	    New File  		     152	I:\hkshell\.git\objects\a9\9b13648c455a40df79ac17ae6830205cf69a50100%  
-	    New File  		    1752	I:\hkshell\.git\objects\a9\d36970afcfdd3d4c4cab77b1865ad174f6b0b9100%  
-	    New File  		      49	I:\hkshell\.git\objects\aa\8543ba9e37fbf390815bb38105a8f70223f509100%  
-	    New File  		    3905	I:\hkshell\.git\objects\aa\b07f472e317588ad47a2a08950cde0f8592f82100%  
-	    New File  		    1679	I:\hkshell\.git\objects\aa\d5f35da3abb529ef94de21c855ea962d44c731100%  
-	    New File  		     456	I:\hkshell\.git\objects\aa\e8a6e5cd4d2f371269e96f03ff5383cf9ab705100%  
-	    New File  		     151	I:\hkshell\.git\objects\a1\6b55a30fe9734c4dc19a6f3f790fda17eb0499100%  
-	    New File  		     358	I:\hkshell\.git\objects\a1\7233df7b7d3611893779a1b32dc121122f3e0b100%  
-	    New File  		      49	I:\hkshell\.git\objects\a1\939ad44b6756d71e91ad68a284dbfbae486049100%  
-	    New File  		      90	I:\hkshell\.git\objects\a1\a8c245672ac7ce9b55f337098da03880741e07100%  
-	    New File  		     155	I:\hkshell\.git\objects\af\2cc1ae5dd907b05a22c3bd87a44021c70fcc7c100%  
-	    New File  		      50	I:\hkshell\.git\objects\af\3011ef242427012448b6ef323945bcdd396f53100%  
-	    New File  		     152	I:\hkshell\.git\objects\af\7d55328e42dbb989752c4526f30f76ef4c05d7100%  
-	    New File  		   16104	I:\hkshell\.git\objects\af\e9911568db9f90783fc77d931811b40c0321e0100%  
-	    New File  		     499	I:\hkshell\.git\objects\a7\353ab2008ac08d7b7b6103ae01b6f7a8062a60100%  
-	    New File  		     543	I:\hkshell\.git\objects\a7\543dbbc0ac78c9058a9c33f8cc666377da4ee6100%  
-	    New File  		    6860	I:\hkshell\.git\objects\a7\8d3881158e762658ac2b7961b59712b44fbdb3100%  
-	    New File  		    9226	I:\hkshell\.git\objects\a7\f6d0b51871a9562b15b460e3416a065f3520a1100%  
-	    New File  		      57	I:\hkshell\.git\objects\a4\3e65cca41ec41ed8868834659562d2d2eeb796100%  
-	    New File  		    3460	I:\hkshell\.git\objects\a4\a54cff1f2dd94c9639cd0852680a5f8b13f6af100%  
-	    New File  		      97	I:\hkshell\.git\objects\b1\25eef133009c897c7a19fd4d36b0b6cc68d1ef100%  
-	    New File  		     518	I:\hkshell\.git\objects\b1\a4d35af31f210568f3b9311e71ddc6baf7bc0b100%  
-	    New File  		     630	I:\hkshell\.git\objects\b1\a6df20217e4caaba3b1564b4fa2fa51f1fd15d100%  
-	    New File  		    3985	I:\hkshell\.git\objects\b1\c87b86fd5a37884b115b6855262f31d5d644eb100%  
-	    New File  		     176	I:\hkshell\.git\objects\9c\656d85302be9ca7e1d24881073eb80dfc41f32100%  
-	    New File  		     567	I:\hkshell\.git\objects\a5\0525cb1e2336f07443ee7dfed6637fe351acd9100%  
-	    New File  		     225	I:\hkshell\.git\objects\a5\267c2e5f9f2f9770e74a6e8ee75db040d36cfd100%  
-	    New File  		    3904	I:\hkshell\.git\objects\a5\a3693bc95427201bd0fa19538f7bc3993235db100%  
-	    New File  		    1411	I:\hkshell\.git\objects\a5\a4c2d3c6ec13a3bad2f967b735e14db0546601100%  
-	    New File  		     151	I:\hkshell\.git\objects\b5\7998de484b0e78b32f1f52ebe2549a2e7be4d1100%  
-	    New File  		     118	I:\hkshell\.git\objects\b5\8f3ea1fb32a0e632501f2036a76aa81cf4c4ea100%  
-	    New File  		     114	I:\hkshell\.git\objects\b6\36a26641b44f4f47eed452f639be4980e095ed100%  
-	    New File  		     563	I:\hkshell\.git\objects\b6\7001f26f5541067bb125c241c88da000029853100%  
-	    New File  		    1226	I:\hkshell\.git\objects\b6\81918d451afedbb338327e4d6f3c7c14f582de100%  
-	    New File  		    8675	I:\hkshell\.git\objects\b6\8b146c79901d145f976886d47403e7534322e2100%  
-	    New File  		      46	I:\hkshell\.git\objects\9b\488eb5f4dc59547df997c36db8afd286a5af81100%  
-	    New File  		      50	I:\hkshell\.git\objects\9b\5fbb5bde84ccb6b133040f08870c684296e6a7100%  
-	    New File  		    7838	I:\hkshell\.git\objects\9b\69d2341a64fc30f6609b67cb6b586f65545553100%  
-	    New File  		      46	I:\hkshell\.git\objects\9b\ca41a82a3dad142a232f37b189383da5961c2b100%  
-	    New File  		     192	I:\hkshell\.git\objects\9b\cb4f660d01045e960b618c9cd2fa2e8066db81100%  
-	    New File  		      46	I:\hkshell\.git\objects\9b\fcdc2a39091477c3707dad5b50cf8b3186b930100%  
-	    New File  		     147	I:\hkshell\.git\objects\b0\4056d59a21e5617a36753836ce384ce6b0bdd4100%  
-	    New File  		    5375	I:\hkshell\.git\objects\b0\61a5f27c9b4c48a4fda4c8267b6f7fedd37948100%  
-	    New File  		      56	I:\hkshell\.git\objects\b0\7a085e217fdc15bfb1d9edb08b1337b66da3c0100%  
-	    New File  		     120	I:\hkshell\.git\objects\b0\9c86114df2b5061c9c9360fbeeabca9d40da50100%  
-	    New File  		    6696	I:\hkshell\.git\objects\b0\bbad06f3e14648452d6772fe7311419c7c6e28100%  
-	    New File  		    2009	I:\hkshell\.git\objects\b0\fb6b6d61846fa26d453dd52ca53238822adee4100%  
-	    New File  		      57	I:\hkshell\.git\objects\b7\45690795e0dc46a8052269b111ecde03560810100%  
-	    New File  		      49	I:\hkshell\.git\objects\b7\9a92d95bc8f3bbfa10e1b04e862ebdd1b37707100%  
-	    New File  		     174	I:\hkshell\.git\objects\b7\d1d47ffdce52dc4089254d99e02194925cfb21100%  
-	    New File  		     120	I:\hkshell\.git\objects\b7\dccd57aeeee48b4adefe53ad62c131e6e11ce6100%  
-	    New File  		   11437	I:\hkshell\.git\objects\ba\4241746790bc775884a57b2270e7156a97d36a100%  
-	    New File  		      50	I:\hkshell\.git\objects\ac\06686e353dea5088acdaaa3cad6c7d5127e218100%  
-	    New File  		     988	I:\hkshell\.git\objects\ac\0e90f520f090a15434b0e67f5964d783142800100%  
-	    New File  		    1142	I:\hkshell\.git\objects\ac\998ccfa46f82d7a4bb7971c5aca8ca989160a0100%  
-	    New File  		   32127	I:\hkshell\.git\objects\ac\b6a38ccc367bb42ff9b1472a9bf05ce689e51b100%  
-	    New File  		    5362	I:\hkshell\.git\objects\bb\6bb5eee8ae55c0907a986b9c2c69bb78b0ec3d100%  
-	    New File  		      49	I:\hkshell\.git\objects\bb\ba3bc4af9acf82f27bb4272316efbcd1b7ccee100%  
-	    New File  		     169	I:\hkshell\.git\objects\b4\41caf27bae21c0a590faf016964b1bc1a7f4d6100%  
-	    New File  		     203	I:\hkshell\.git\objects\b4\7e52ac4925d7aadbe31b187dd64839cf971705100%  
-	    New File  		     115	I:\hkshell\.git\objects\b4\bb92d25eacdcb699cff4ea48c1de29ae025b23100%  
-	    New File  		    7337	I:\hkshell\.git\objects\b4\c5e42bd9639a35fb18afac47fe6325ec223294100%  
-	    New File  		     510	I:\hkshell\.git\objects\be\6ffec1953dbef992d467ac107c08f81288e708100%  
-	    New File  		    1504	I:\hkshell\.git\objects\be\9e8b2f2ef08388012377ce016592477c560419100%  
-	    New File  		    1109	I:\hkshell\.git\objects\b2\0e341bd995ececfa70fd0f48f44ce65a0bb1b2100%  
-	    New File  		     116	I:\hkshell\.git\objects\b2\e2f8579012fddd108f6a8edc82b380cd4d38af100%  
-	    New File  		     544	I:\hkshell\.git\objects\c0\06055132e33ec575091cd85f47a08eb2eabc23100%  
-	    New File  		     208	I:\hkshell\.git\objects\c0\9f8518b014e5f05df166f0cee84518462d1bd3100%  
-	    New File  		     134	I:\hkshell\.git\objects\c0\e288842cfe8c3e171520c68f261bbeca48bba0100%  
-	    New File  		    3822	I:\hkshell\.git\objects\c0\f435e69913c9d485d3fdad50a6b634a2d09763100%  
-	    New File  		     869	I:\hkshell\.git\objects\b3\52955711c12a82af36a5201a4826119e8be9a9100%  
-	    New File  		     121	I:\hkshell\.git\objects\b3\82e329cb0ea67e499019affc176603905e7505100%  
-	    New File  		     122	I:\hkshell\.git\objects\b3\f47e3bfba6f09ea14a4514bceb8b2462864a43100%  
-	    New File  		      47	I:\hkshell\.git\objects\c2\4b0c56f59445f36db03c9edb3ec7b5c1c70bda100%  
-	    New File  		     120	I:\hkshell\.git\objects\c2\c53fa99401b08623e756923e3de7530d13ce44100%  
-	    New File  		    1031	I:\hkshell\.git\objects\c2\c6404ac731da5b82534a3c4fc887e0c6ff9cdb100%  
-	    New File  		    1516	I:\hkshell\.git\objects\ad\2140c97e3258498985e42e9638e504274c1b57100%  
-	    New File  		    3856	I:\hkshell\.git\objects\ad\6db18632489b40882c394bcca5e37ed69e3398100%  
-	    New File  		     593	I:\hkshell\.git\objects\ad\a4f49a1be3c726972bf72a648cc1cc79b8a759100%  
-	    New File  		     519	I:\hkshell\.git\objects\ad\f76fa3f1f41e499d8062db665b63f6010bc445100%  
-	    New File  		      81	I:\hkshell\.git\objects\b8\364e53c6bcffaf817e3fe2e2cdeb562d06bcde100%  
-	    New File  		      49	I:\hkshell\.git\objects\b8\98a0568c6ce9883f06c13f1f45e0c0a9192d2e100%  
-	    New File  		    1249	I:\hkshell\.git\objects\c3\c1193366c248b3535995b671165432a2dc2236100%  
-	    New File  		    5092	I:\hkshell\.git\objects\c3\c6904650ddd2aa5436ec53b44350d5ac9933e0100%  
-	    New File  		      46	I:\hkshell\.git\objects\c4\7340c99b1f47d46f467ed57168efea69cce97d100%  
-	    New File  		      49	I:\hkshell\.git\objects\bd\16042354aae669db88d896a21de66b62f9dc79100%  
-	    New File  		      92	I:\hkshell\.git\objects\c5\82cae4da9c08c5c32a4b758f3a06e47b15c9ca100%  
-	    New File  		    1511	I:\hkshell\.git\objects\c5\91b35c6f916a875814bfebfcc938f8ffbcdb5f100%  
-	    New File  		    8427	I:\hkshell\.git\objects\c5\f4eb869631acea6a52018fefc626dc06d9d617100%  
-	    New File  		    2698	I:\hkshell\.git\objects\c7\129a7074164d6eb82cd6af201142af641ed2ee100%  
-	    New File  		    3595	I:\hkshell\.git\objects\c8\62b07bbdd15971c98b5b6405406f4b808c0c82100%  
-	    New File  		    1993	I:\hkshell\.git\objects\c8\79f8fa60adde87140c52f45f4873c9d439350c100%  
-	    New File  		    1161	I:\hkshell\.git\objects\c8\826ca33b0fefbf86bc90baf1fb81e747a08be9100%  
-	    New File  		     203	I:\hkshell\.git\objects\c8\f3b4fe830a4e190f02b0ecb11afdeecd1a2327100%  
-	    New File  		     219	I:\hkshell\.git\objects\c9\0c3f209b255605f270cf3e9cc25d1a58a4056d100%  
-	    New File  		     151	I:\hkshell\.git\objects\c9\6e9b2a816c8c101ea6f9accf103ae215f70eb5100%  
-	    New File  		    1170	I:\hkshell\.git\objects\c9\a454a448d5354db2710248067d4f9a63081158100%  
-	    New File  		    1379	I:\hkshell\.git\objects\c9\b82bb0afedf60590f42679ac5f2a40c8550811100%  
-	    New File  		     486	I:\hkshell\.git\objects\c9\ef216759d6eff8de9244664846288da22ca5a4100%  
-	    New File  		     905	I:\hkshell\.git\objects\c9\fecd08f8c36afb374875c523cb1598cc7c9c17100%  
-	    New File  		     209	I:\hkshell\.git\objects\ca\2e21136d1388441aea2e3c167ba237205e2477100%  
-	    New File  		     115	I:\hkshell\.git\objects\ca\61e66bdc570fe021b6b47b5c065a7d37a3fa54100%  
-	    New File  		      80	I:\hkshell\.git\objects\bc\3ca2ffaaeb6a3dde907f2fd8cbe5e2a31476ee100%  
-	    New File  		     120	I:\hkshell\.git\objects\b9\9edccae8e1070c923cacd38a9de053eea2ebfd100%  
-	    New File  		     121	I:\hkshell\.git\objects\b9\d6c4881c566f7fdc1489fb60263a9f0f767d5f100%  
-	    New File  		    2804	I:\hkshell\.git\objects\b9\f051378b873343c08e13eaad2a4e9c637a9b06100%  
-	    New File  		      49	I:\hkshell\.git\objects\b9\fe156851502f2be4b93f34e09611795100e06c100%  
-	    New File  		     120	I:\hkshell\.git\objects\b9\ffb39eb33ddf89c88cebb24b022f01b47ea6fc100%  
-	    New File  		    5198	I:\hkshell\.git\objects\cd\1766a5044bc83c5ceea011e3eea813861c937f100%  
-	    New File  		      57	I:\hkshell\.git\objects\ce\97d44cb8988175553e708b7605f52c4c49e655100%  
-	    New File  		      46	I:\hkshell\.git\objects\ce\fba941006e1cc8c7fc8fcf6b24f08381029579100%  
-	    New File  		      49	I:\hkshell\.git\objects\d0\0b981f550deb4010262e654aca4fc7a17303ad100%  
-	    New File  		     178	I:\hkshell\.git\objects\d0\66fbc4d87c51ea46c9d12cac6982cd1e7f85a1100%  
-	    New File  		      50	I:\hkshell\.git\objects\d0\85bf13eeb36fa6f9a34cffac3d15596fb19a90100%  
-	    New File  		     603	I:\hkshell\.git\objects\d0\85cfc72bfcfa81493a0053aaba92f11f380eae100%  
-	    New File  		   16449	I:\hkshell\.git\objects\bf\101d14abc0047d5463e7d6e9d2a14ce7c1b465100%  
-	    New File  		      47	I:\hkshell\.git\objects\d2\0bb462a40850cdaefae9afbc20ae82129fca48100%  
-	    New File  		     649	I:\hkshell\.git\objects\d2\55e4ef42137f80b2cf83f7eaf90c58c6c875c9100%  
-	    New File  		      79	I:\hkshell\.git\objects\d2\5761680a9a83347a71eaba0cd5303158708b73100%  
-	    New File  		     486	I:\hkshell\.git\objects\d2\859bac67d760d1336c6246a666801c26233afd100%  
-	    New File  		    8453	I:\hkshell\.git\objects\d2\e8fd7d566f65cd9d9f6f53ea8cb756b824bfe5100%  
-	    New File  		     258	I:\hkshell\.git\objects\d2\ffe34f5e910e6a8a1d7cad44d91054bdbea0a0100%  
-	    New File  		    5374	I:\hkshell\.git\objects\d1\3fa29492e262a51ceff0488aa4983f28559796100%  
-	    New File  		     814	I:\hkshell\.git\objects\d1\5a94596b48b5635b54a5d666cb3b3de16a9164100%  
-	    New File  		    5086	I:\hkshell\.git\objects\d1\ba4aee66c5448da2f6c2fb4ed1c3bedf0c9c7d100%  
-	    New File  		     151	I:\hkshell\.git\objects\d4\2ad321863532e1579ed7badecc321105b77e52100%  
-	    New File  		    3613	I:\hkshell\.git\objects\d4\6c395e182cefeebeebd204af7573266646e801100%  
-	    New File  		      52	I:\hkshell\.git\objects\c6\df9245263a297f5166b91c624efd125682e260100%  
-	    New File  		      63	I:\hkshell\.git\objects\c6\f82245199ddbed0c897ddf0471f357ed6a1ddf100%  
-	    New File  		      91	I:\hkshell\.git\objects\d7\4219e9407fb46e3ab56b84bc4f105f75f566c4100%  
-	    New File  		    8584	I:\hkshell\.git\objects\d7\f8865c976a348be80471405e0253757552de7a100%  
-	    New File  		    3119	I:\hkshell\.git\objects\d6\a64ea0809a1490fe8f519da1b3103a2f073902100%  
-	    New File  		     115	I:\hkshell\.git\objects\d6\db62fce578662862d20e64db2a754d05d0e50f100%  
-	    New File  		    1262	I:\hkshell\.git\objects\d6\ec45da7dc048d41d11b414d29bda02610c153e100%  
-	    New File  		      49	I:\hkshell\.git\objects\c1\112e93febe381f18f042b010ee1f2174bc5ac0100%  
-	    New File  		      80	I:\hkshell\.git\objects\c1\3dfe8ce624fcc3312b23d021cba6fe3a7e9cb5100%  
-	    New File  		      51	I:\hkshell\.git\objects\db\5309401aee3809acbaaec3b55776e57efdf0b3100%  
-	    New File  		      49	I:\hkshell\.git\objects\db\7a732a801889c232adfcda17635de50366ba93100%  
-	    New File  		     152	I:\hkshell\.git\objects\db\9a27d24ffb9b4cfe9855ae0e469eb88bc5c63c100%  
-	    New File  		      60	I:\hkshell\.git\objects\db\ac0fbd73c29ee1736e7a5b074d4eef8fae8268100%  
-	    New File  		     544	I:\hkshell\.git\objects\db\b8041ac92033971089e31eb9be156c4b06434b100%  
-	    New File  		     114	I:\hkshell\.git\objects\d9\0442fd37de395ff2dd05f3f29f4cfb04722e65100%  
-	    New File  		      46	I:\hkshell\.git\objects\d9\c834ba614ccb58241a92e64e8c116f49798361100%  
-	    New File  		    3517	I:\hkshell\.git\objects\d9\cbff803a8ec573b4f51da3eea8d640f6fbfc16100%  
-	    New File  		      46	I:\hkshell\.git\objects\cf\41b74c66b449e7f492fc4bd9d5821c63b44b5f100%  
-	    New File  		    3134	I:\hkshell\.git\objects\cf\6c16073a9b26924c13d7ce4cc8de49dd7001b0100%  
-	    New File  		      50	I:\hkshell\.git\objects\cf\a4d09658012f1053ae9a9de7841c40e4f2f71b100%  
-	    New File  		      57	I:\hkshell\.git\objects\cf\a9469a5a179045fa35a345c28fa0cadc9bd9a2100%  
-	    New File  		     152	I:\hkshell\.git\objects\dc\3fac932d076e9220710ef8c89454fefcc01ceb100%  
-	    New File  		      60	I:\hkshell\.git\objects\dc\86fda5030e5b9ad0a0d15d1c146c22ddf0f963100%  
-	    New File  		     120	I:\hkshell\.git\objects\dc\8df58ced2123344b52ec794e46c32870df0059100%  
-	    New File  		      91	I:\hkshell\.git\objects\cc\75bbe2ef56051375bc8891a74c30d57d2948df100%  
-	    New File  		      55	I:\hkshell\.git\objects\cc\80e3e6f655e4d49972b3bc71ef76c67ddc199a100%  
-	    New File  		     962	I:\hkshell\.git\objects\cc\b4f23eec78bed442a56f79d5edca002428bd51100%  
-	    New File  		     171	I:\hkshell\.git\objects\d8\aba76232f17ae29d8794e7bb04438dc6b44092100%  
-	    New File  		      49	I:\hkshell\.git\objects\e1\8f83192738aaca56f54e72c7b13ffe519da946100%  
-	    New File  		    5448	I:\hkshell\.git\objects\e1\b2ba43014a4a4685d6268b7482ad3b884b789b100%  
-	    New File  		      80	I:\hkshell\.git\objects\e4\04a0e56480673a25b104b36f0e44ef91795f68100%  
-	    New File  		    2818	I:\hkshell\.git\objects\e4\540144e8f52bad8ba77754ead412c57ab4a471100%  
-	    New File  		     192	I:\hkshell\.git\objects\e4\b2a0a8644ce6d8d410747c1a9f72ccdb7a7a19100%  
-	    New File  		     808	I:\hkshell\.git\objects\d5\6b6d5456aa9155d2a973d5178defabd5e258eb100%  
-	    New File  		      49	I:\hkshell\.git\objects\d5\fa0efe95f92e6c20bdb1076c28d17cdd8ee52f100%  
-	    New File  		      51	I:\hkshell\.git\objects\da\0850ae5ad4aeee9620333ca21d53fd16a01308100%  
-	    New File  		    4800	I:\hkshell\.git\objects\e6\269e16e9217da1df486d22f87e70c53d1914d4100%  
-	    New File  		      15	I:\hkshell\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391100%  
-	    New File  		    3275	I:\hkshell\.git\objects\e6\e79383ae9fc2e3ec5b049d46b0b99e45f3ed24100%  
-	    New File  		      80	I:\hkshell\.git\objects\e7\cd7475f6175c609e5c906d1201328b47feddac100%  
-	    New File  		      46	I:\hkshell\.git\objects\e9\4084509a7261e010fe8e71f7ed6e93cbe3c3d1100%  
-	    New File  		     193	I:\hkshell\.git\objects\e9\aa7acd1f97f1346b9e8608acdcf780c2ed9177100%  
-	    New File  		    5220	I:\hkshell\.git\objects\e9\c080f109590aa7107e6ce37e6f6ded836db86f100%  
-	    New File  		    1234	I:\hkshell\.git\objects\e9\f5f908dab95bf7438752d32ee9f8abab981d8c100%  
-	    New File  		      54	I:\hkshell\.git\objects\ea\debe6d3b697b3a2144a768136c9fe873cfcc39100%  
-	    New File  		      52	I:\hkshell\.git\objects\de\61f154e82bc125f9db782e3a6811e0cd03789d100%  
-	    New File  		    8610	I:\hkshell\.git\objects\ec\47482ea205fd904444d9d9b7c742643f1b5857100%  
-	    New File  		      49	I:\hkshell\.git\objects\ec\a8715656b091c4b60c8032f5b30644953e60e5100%  
-	    New File  		    8801	I:\hkshell\.git\objects\ec\bd4e17dba39d983df8c4d29eff03d34d7231ac100%  
-	    New File  		    2117	I:\hkshell\.git\objects\df\786ab6550fe7339e10c0e4cbfb36ba97dca298100%  
-	    New File  		     151	I:\hkshell\.git\objects\df\af872e8ef8f005206ef3c8af9336b1401bb29f100%  
-	    New File  		   10527	I:\hkshell\.git\objects\ed\0ca9dc7885e104837474f90358d9c5cbc6fb32100%  
-	    New File  		     830	I:\hkshell\.git\objects\ed\385b6d9d064e1eebe2badf137267e2db5ba003100%  
-	    New File  		      46	I:\hkshell\.git\objects\ed\6db98b84c18bc2c45cb96dd228c3d32de15dc2100%  
-	    New File  		     157	I:\hkshell\.git\objects\ed\cbe4fc3600cbf10967f3cb508b7f82431ccc7b100%  
-	    New File  		     200	I:\hkshell\.git\objects\e5\4e3d4a28ad0be373671191299e6edaa1697062100%  
-	    New File  		      46	I:\hkshell\.git\objects\e5\9619aabe25c2eb287d93a40262a0f96b0f4566100%  
-	    New File  		     178	I:\hkshell\.git\objects\e5\ac0cc390d9ab4bc2ff67d6f62110da742ffa55100%  
-	    New File  		      50	I:\hkshell\.git\objects\e5\ac2cef8f3d6428e524a46f5e7cf6323238a931100%  
-	    New File  		     155	I:\hkshell\.git\objects\f2\0958cae256ee2b848b90ed0480c6fada3fee21100%  
-	    New File  		     487	I:\hkshell\.git\objects\f2\12b32c18c8bd01cfa6692ddb2205a3b6715d58100%  
-	    New File  		     267	I:\hkshell\.git\objects\f2\52c37bbeff782309b830bf4c1b139caf5ed5b2100%  
-	    New File  		    7706	I:\hkshell\.git\objects\f4\649874533747f9560c9dd9d28496420c46598c100%  
-	    New File  		     151	I:\hkshell\.git\objects\f4\d061a726f7b927dd3c6da19ab2b389a3be28c5100%  
-	    New File  		    1425	I:\hkshell\.git\objects\f4\fc53ca056feeb796d0982dd699e1403cd5d833100%  
-	    New File  		     198	I:\hkshell\.git\objects\e3\2d1563170cd68d852a554e34e490c032c400b3100%  
-	    New File  		      55	I:\hkshell\.git\objects\e3\331a8825ecc303c7e258d34277402b5c262e64100%  
-	    New File  		    3897	I:\hkshell\.git\objects\e3\d6eb1b63f9fba5025bf893b96bd11b305f7fca100%  
-	    New File  		      79	I:\hkshell\.git\objects\e3\f1f4297b6af7edf804ddbd0888f0a162ffbe27100%  
-	    New File  		    5623	I:\hkshell\.git\objects\e3\fa92fddd659decf957c50479a1f530a01217b2100%  
-	    New File  		    8604	I:\hkshell\.git\objects\d3\05dab4c977b058b6b6d0723627d17d6377782e100%  
-	    New File  		      49	I:\hkshell\.git\objects\d3\1cf47ba3bcdc0d466ce71b0ddb8ac7147f0bc0100%  
-	    New File  		      91	I:\hkshell\.git\objects\d3\1e62d207ea0be5bf902d37397502a05833fca0100%  
-	    New File  		      57	I:\hkshell\.git\objects\d3\69e21ba7da3c06e71b00e58b024fe711d991ac100%  
-	    New File  		    5334	I:\hkshell\.git\objects\d3\8795ffde612e19719ebb3e3f8076800ab3a80e100%  
-	    New File  		      46	I:\hkshell\.git\objects\f7\6f63b07a0de1e584fc5d41fbd86111acc1dc82100%  
-	    New File  		     116	I:\hkshell\.git\objects\f7\a51d8bc020e83e4a4aaf9761d5e342d24ca0f5100%  
-	    New File  		    1280	I:\hkshell\.git\objects\e0\bf421f91a2f2a5ea927b29d998e981f5375a7d100%  
-	    New File  		     122	I:\hkshell\.git\objects\ee\e910e42c52ef74c0ab3ee64fd73f833b83dab8100%  
-	    New File  		     151	I:\hkshell\.git\objects\fa\aff2d14ab5622db0dcb53ee8539c1f75b63af4100%  
-	    New File  		    1476	I:\hkshell\.git\objects\fc\0acf50fc552b48397361e78e5b4bd1a17bb6ac100%  
-	    New File  		    1322	I:\hkshell\.git\objects\fc\ac70e4e223fc8f1b62684ff385d06d76054807100%  
-	    New File  		    6466	I:\hkshell\.git\objects\fc\b81af942522e6c49cc9536fadd426d4b99de7a100%  
-	    New File  		    2542	I:\hkshell\.git\objects\fc\f285698eb511745217e54f1ffae20f9dd482eb100%  
-	    New File  		    1119	I:\hkshell\.git\objects\eb\060c0e2b4234b6adf529ba235ebd5a4914ee42100%  
-	    New File  		     544	I:\hkshell\.git\objects\eb\0e49138bef1a63fe2c96a890ffe4ed74e62a4d100%  
-	    New File  		     119	I:\hkshell\.git\objects\fe\1a3aad791af3a25cf082fbf32e9f4fdb3724be100%  
-	    New File  		      92	I:\hkshell\.git\objects\fe\aa8a20e0cd1c5d37ae714451ad450b76993d33100%  
-	    New File  		    5325	I:\hkshell\.git\objects\fe\e37f162f74d9d8e293fdc9ea494ae30292b046100%  
-	    New File  		    2965	I:\hkshell\.git\objects\f5\2c463ce2983db3b087a279da2a5b505c75bf3b100%  
-	    New File  		    1495	I:\hkshell\.git\objects\f6\2409a6430e6ca7f7dfda7d41f077afc5dfad18100%  
-	    New File  		     545	I:\hkshell\.git\objects\f6\34e2fa5a22ae90e1886a43a33b75ba92dd38ac100%  
-	    New File  		      50	I:\hkshell\.git\objects\f6\501fbca84cfa9aa2d652c77c658832685b8ec7100%  
-	    New File  		      81	I:\hkshell\.git\objects\f6\55b98a5ae6aaf4d268d9475a6c09b4d9251845100%  
-	    New File  		     218	I:\hkshell\.git\objects\f6\98f561cc29f7cc5270ed566798b1a4f170ce2b100%  
-	    New File  		     564	I:\hkshell\.git\objects\f3\1954356bc72d558ddc556182f328798db8379f100%  
-	    New File  		    1115	I:\hkshell\.git\objects\f3\5487d98b07f9af1c55cf7dbeb688338a1af573100%  
-	    New File  		    3379	I:\hkshell\.git\objects\f3\70051136dbeb145eb2e92d850ebd54bbc092da100%  
-	    New File  		     305	I:\hkshell\.git\objects\f3\a6f1822ce1e7a0fed90013e89030ba9933ebfc100%  
-	    New File  		     406	I:\hkshell\.git\objects\f3\c8c3847e86882a4e66cc27f036f97c2baee733100%  
-	    New File  		     197	I:\hkshell\.git\objects\f3\ee44b5d5d09ab296bc8c57e33995f7f473d5a7100%  
-	    New File  		    5146	I:\hkshell\.git\objects\ef\255f6ae276d56bc2dad6d91ab28ce98c03bd2f100%  
-	    New File  		     200	I:\hkshell\.git\objects\ef\41c0dc819da3d53fa08bd1e3b68c33a04ee0f5100%  
-	    New File  		    4040	I:\hkshell\.git\objects\ef\60e8413870111a1cb21ea17c2b623a63ea6d5d100%  
-	    New File  		    4942	I:\hkshell\.git\objects\ef\711afe370bd794db26ca5781143370a7fd5964100%  
-	    New File  		    2279	I:\hkshell\.git\objects\ef\9d2f0a19e39e89c37243412e7ef61f421afdf8100%  
-	    New File  		      91	I:\hkshell\.git\objects\ef\a7586a2f576e93d9048434ae57545aafd44a0f100%  
-	    New File  		    3521	I:\hkshell\.git\objects\f8\77e7ab7e352c9fc0fe1cb2e0232c7b9ab08abf100%  
-	    New File  		      49	I:\hkshell\.git\objects\f8\9147afd075951b0d11b2d38572be05ab47661f100%  
-	    New File  		    3634	I:\hkshell\.git\objects\f8\a3d7b88da2c62cfd2fa5f093d9f75381bcd284100%  
-	    New File  		     544	I:\hkshell\.git\objects\f8\b11680a1960285b264bcb4b9ab896b450e53af100%  
-	    New File  		     409	I:\hkshell\.git\objects\f8\bac010dda8da392ac653ca6a77ba5f648dadff100%  
-	    New File  		     518	I:\hkshell\.git\objects\fd\1d1adce11af6e22d6161ba468d87cabc35b3d6100%  
-	    New File  		     544	I:\hkshell\.git\objects\fd\e146f0275bd09da47da151e92c497b2fc7365f100%  
-	    New File  		     631	I:\hkshell\.git\objects\fb\095b8484c1dafca4fd35a5ca2c9119ca4eeb55100%  
-	    New File  		     115	I:\hkshell\.git\objects\ff\2d2e199cb8a452bb5a2587f46a9716c16ef192100%  
-	    New File  		    2824	I:\hkshell\.git\objects\ff\46d2308ff0f7c51342a4dd2ebe946b60ee83b2100%  
-	    New File  		     650	I:\hkshell\.git\objects\ff\7a0eb041963d8b6741f397bfc75ca300cf161d100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       282       282         0         0         0         0
-   Files :       766       766         0         0         0         0
-   Bytes :    8.85 m    8.85 m         0         0         0         0
-   Times :   0:00:02   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           31,797,184 Bytes/sec.
-   Speed :            1,819.449 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:00:57 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:08:59 PM
-   Source : I:\hkshell\
-     Dest : E:\monthly_backups\Jan\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   12348	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  179777	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		   77411	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    New File  		    3868	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    New File  		   22950	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    New File  		   11909	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    New File  		   13225	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       282       282       282         0         0         0
-   Files :       770         8       762         0         0         0
-   Bytes :    8.98 m    1.66 m    7.31 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           437,450,500 Bytes/sec.
-   Speed :            25,031.119 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:08:59 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:09:36 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		  394876	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-24Dec23.log
-	  *EXTRA File 		  206858	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-25Dec23.log
-	  *EXTRA File 		  282074	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-24Dec23.log
-	  *EXTRA File 		  146324	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-25Dec23.log
-	  *EXTRA File 		  281538	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-24Dec23.log
-	  *EXTRA File 		  146046	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-25Dec23.log
-	  *EXTRA File 		  571068	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-24Dec23.log
-	  *EXTRA File 		  291105	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-25Dec23.log
-	  *EXTRA File 		  283146	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-24Dec23.log
-	  *EXTRA File 		  146880	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-25Dec23.log
-	  *EXTRA File 		  281036	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-24Dec23.log
-	  *EXTRA File 		  145270	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-25Dec23.log
-	  *EXTRA File 		  281002	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-24Dec23.log
-	  *EXTRA File 		  145768	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-25Dec23.log
-	  *EXTRA File 		  279394	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-24Dec23.log
-	  *EXTRA File 		  144934	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-25Dec23.log
-	    Newer     		   20641	I:\hkshell\hkshell\powershell\main\modules\projects\projects.psm1100%  
-	    New File  		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    New File  		   13398	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    New File  		  180825	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    New File  		   79492	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   22218	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-31Dec23.log100%  
-	    New File  		    4925	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		    7398	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-31Dec23.log100%  
-	    New File  		   23995	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		    9300	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-31Dec23.log100%  
-	    New File  		   12958	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		    7342	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-31Dec23.log100%  
-	    New File  		   14268	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-	    Newer     		    7300	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-31Dec23.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       282       282       282         0         0         0
-   Files :       753        14       739         0         0        16
-   Bytes :    5.15 m    1.75 m    3.40 m         0         0    3.84 m
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           204,153,444 Bytes/sec.
-   Speed :            11,681.754 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:09:36 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:14:58 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   14448	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  181873	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		   84295	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		    5979	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   25037	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   14004	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   15308	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       282       282       282         0         0         0
-   Files :       754         8       746         0         0         0
-   Bytes :    5.16 m    1.69 m    3.47 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           355,080,800 Bytes/sec.
-   Speed :            20,317.887 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:14:58 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:20:19 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   15498	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  182921	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		   86373	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		    7033	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   26079	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   15050	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   16348	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       282       282       282         0         0         0
-   Files :       754         8       746         0         0         0
-   Bytes :    5.17 m    1.70 m    3.47 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           446,202,500 Bytes/sec.
-   Speed :            25,531.912 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:20:19 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:26:01 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   16548	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  183969	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		   88451	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		    8087	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   27121	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   16096	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   17388	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       282       282       282         0         0         0
-   Files :       754         8       746         0         0         0
-   Bytes :    5.18 m    1.71 m    3.47 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           448,576,750 Bytes/sec.
-   Speed :            25,667.768 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:26:01 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:31:43 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   17598	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  185017	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		   90529	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		    9141	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   28163	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   17142	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   18428	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       282       282       282         0         0         0
-   Files :       754         8       746         0         0         0
-   Bytes :    5.19 m    1.72 m    3.47 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           257,686,285 Bytes/sec.
-   Speed :            14,744.928 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:31:43 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:37:03 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   18648	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  186065	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		   92607	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   10195	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   29205	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   18188	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   19468	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       282       282       282         0         0         0
-   Files :       754         8       745         0         0         0
-   Bytes :    5.20 m    1.72 m    3.47 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           259,030,000 Bytes/sec.
-   Speed :            14,821.815 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:37:03 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:42:45 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   19698	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  187113	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		   94685	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   11249	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   30247	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   19234	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   20508	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       282       282       282         0         0         0
-   Files :       754         8       746         0         0         0
-   Bytes :    5.20 m    1.73 m    3.47 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           455,676,750 Bytes/sec.
-   Speed :            26,074.033 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:42:45 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:48:27 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		    3806	I:\hkshell\.git\COMMIT_EDITMSG100%  
-	    Newer     		    9057	I:\hkshell\.git\index100%  
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   20748	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  188161	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		   96763	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   12303	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   31289	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   20280	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   21548	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-	    Newer     		   14587	I:\hkshell\.git\logs\HEAD100%  
-	    Newer     		      41	I:\hkshell\.git\refs\heads\master100%  
-	    New File  		  134656	I:\hkshell\.git\objects\13\f2b6997c8f49ace7ff7f078d6f86c3c071ebeb100%  
-	    New File  		     764	I:\hkshell\.git\objects\1f\97f8fdf7e7a76d2791eda953887ca20306aa85100%  
-	    New File  		      80	I:\hkshell\.git\objects\2e\3c118b9c75a173dda3ebe5266df53cbd5f5ec9100%  
-	    New File  		    2830	I:\hkshell\.git\objects\30\5157a79062f0dc3c495886b56757e0e38f62f1100%  
-	    New File  		    4188	I:\hkshell\.git\objects\33\749640312d44c12a8527bd975ad3bd81b82ed4100%  
-	    New File  		    7478	I:\hkshell\.git\objects\48\e8dc330111b65af2381c97078dc4a94979159d100%  
-	    New File  		     920	I:\hkshell\.git\objects\4d\0301f8403f898782c2c984b7d88a126e919297100%  
-	    New File  		    3614	I:\hkshell\.git\objects\4c\d12b825819228d994ea6654ca82917d177362a100%  
-	    New File  		      91	I:\hkshell\.git\objects\64\52c3152883342045644c75310245362bfd55d9100%  
-	    New File  		    1360	I:\hkshell\.git\objects\62\2a5b9689f89161042984d20a3453076ab48aca100%  
-	    New File  		     212	I:\hkshell\.git\objects\68\c63026e1be731c4f31cc91f398851738a1f8b8100%  
-	    New File  		     526	I:\hkshell\.git\objects\6c\97b48e6149df572e55ccefb8c4d3f36ceab60f100%  
-	    New File  		      57	I:\hkshell\.git\objects\6b\7587a84539ab67b61932ab03fca81ea259ad7c100%  
-	    New File  		   25288	I:\hkshell\.git\objects\7e\81cbb384c2c5a3bbfcd301a36f7edd20c0c5be100%  
-	    New File  		      46	I:\hkshell\.git\objects\85\99c447904d9074de021826c11949a0e3d6877e100%  
-	    New File  		     542	I:\hkshell\.git\objects\84\61c6b5ed8863d407ef75cdbdf749a8650b9323100%  
-	    New File  		     152	I:\hkshell\.git\objects\8c\4c3a73099efb9b1bb649ec7cc4d20a389b1301100%  
-	    New File  		     115	I:\hkshell\.git\objects\8c\63dd7065f6cf9452e74ccdbe7d6e4673f0b642100%  
-	    New File  		    5549	I:\hkshell\.git\objects\8e\1c3a9ee4ea1c72d1aefc5a5d56005efc7047f6100%  
-	    New File  		     120	I:\hkshell\.git\objects\ad\7334878d85f4dc80a225135f55a5b69d4fc339100%  
-	    New File  		      49	I:\hkshell\.git\objects\bc\5d5e812d7833e56f02c0113b06d65e434303ff100%  
-	    New File  		     547	I:\hkshell\.git\objects\c2\434f3386ebf6154275000ff77c51aa586e02e7100%  
-	    New File  		   16383	I:\hkshell\.git\objects\bb\9dd6e14e512ace1e5039e1763242a551d60fd1100%  
-	    New File  		    4147	I:\hkshell\.git\objects\c0\946e7bec8d3b3472dca38821d7f6efec600101100%  
-	    New File  		     161	I:\hkshell\.git\objects\d0\74eb969b0705fe937a51c3aa6099f1f64759d8100%  
-	    New File  		     516	I:\hkshell\.git\objects\d4\a54d228ac8ab70518681a9be78349cb452da04100%  
-	    New File  		   43164	I:\hkshell\.git\objects\e2\46cc8ab1e1a60d3c7d20a834058153bfe3c431100%  
-	    New File  		   40972	I:\hkshell\.git\objects\e3\30252c16114d5a96e64ced172d40cc96d38da6100%  
-	    New File  		    1269	I:\hkshell\.git\objects\f2\45d7946e80cbd84164ee461365e7e30686207a100%  
-	    New File  		     520	I:\hkshell\.git\objects\f1\ae24f53ee7a7b0c8bacac6878bee39df34c2c1100%  
-	    New File  		     519	I:\hkshell\.git\objects\f1\ba716fa806a3a93da55e0f122867455c1cf179100%  
-	    New File  		    2401	I:\hkshell\.git\objects\f7\9f5f6ed086a5a45e9431784d9a31d6084476f8100%  
-	    Newer     		   14587	I:\hkshell\.git\logs\refs\heads\master100%  
-	    New File  		     121	I:\hkshell\.git\objects\fe\1ff7eda9807987d332ca78371a1807123eba5a100%  
-	    Newer     		      41	I:\hkshell\.git\refs\remotes\origin\master100%  
-	    Newer     		    5214	I:\hkshell\.git\logs\refs\remotes\origin\master100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       282         0         0         0
-   Files :       787        48       739         0         0         0
-   Bytes :    5.51 m    2.07 m    3.43 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           181,574,500 Bytes/sec.
-   Speed :            10,389.776 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:48:27 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:50:08 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   21798	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  189209	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  102622	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   13357	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   32331	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   21326	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   22588	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.52 m    1.75 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           369,078,200 Bytes/sec.
-   Speed :            21,118.824 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:50:08 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 9:55:50 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   22848	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  190257	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  104700	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   14411	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   33373	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   22372	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   23628	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       786         8       778         0         0         0
-   Bytes :    5.53 m    1.76 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           463,722,000 Bytes/sec.
-   Speed :            26,534.385 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 9:55:50 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:02:03 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   23900	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  191307	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  106778	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   15465	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   34415	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   23418	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   24668	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       785         8       778         0         0         0
-   Bytes :    5.53 m    1.78 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           466,632,500 Bytes/sec.
-   Speed :            26,700.926 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:02:03 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:07:23 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   24952	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  192357	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  108858	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   16521	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   35459	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   24466	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   25710	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.55 m    1.78 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           267,993,142 Bytes/sec.
-   Speed :            15,334.690 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:07:23 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:13:29 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   26004	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  193407	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  110938	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   17577	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   36503	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   25514	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   26752	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.56 m    1.79 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           1,885,465,000 Bytes/sec.
-   Speed :             107,887.172 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:13:29 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:19:09 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   27056	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  194457	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  113022	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   18633	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   37547	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   26562	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   27794	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.57 m    1.80 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           378,996,400 Bytes/sec.
-   Speed :            21,686.348 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:19:09 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:24:30 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   28108	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  195507	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  115102	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   19689	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   38591	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   27610	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   28836	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       786         8       778         0         0         0
-   Bytes :    5.57 m    1.81 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           476,101,000 Bytes/sec.
-   Speed :            27,242.717 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:24:30 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:30:12 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   29160	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  196557	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  117182	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   20745	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   39635	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   28658	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   29878	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       778         0         0         0
-   Bytes :    5.58 m    1.82 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           239,239,625 Bytes/sec.
-   Speed :            13,689.401 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:30:12 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:35:54 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   30212	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  197607	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  119262	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   21801	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   40679	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   29706	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   30920	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       785         8       776         0         0         0
-   Bytes :    5.59 m    1.83 m    3.75 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           480,857,500 Bytes/sec.
-   Speed :            27,514.887 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:35:54 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:41:14 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   31264	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  198657	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  121342	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   22857	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   41723	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   30754	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   31962	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.60 m    1.84 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           386,570,400 Bytes/sec.
-   Speed :            22,119.736 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:41:14 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:47:06 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   32316	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  199707	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  123422	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   23913	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   42767	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   31802	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   33004	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.61 m    1.85 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           485,591,250 Bytes/sec.
-   Speed :            27,785.754 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:47:06 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:52:48 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   33368	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  200757	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  125502	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   24969	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   43811	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   32850	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   34046	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.62 m    1.86 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           390,375,600 Bytes/sec.
-   Speed :            22,337.471 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:52:48 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:58:07 PM
-   Source : I:\hkshell\
-     Dest : E:\monthly_backups\Jan\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		    3806	I:\hkshell\.git\COMMIT_EDITMSG100%  
-	    Newer     		    9057	I:\hkshell\.git\index100%  
-	  *EXTRA File 		  394876	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-24Dec23.log
-	  *EXTRA File 		  206858	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-25Dec23.log
-	  *EXTRA File 		  282074	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-24Dec23.log
-	  *EXTRA File 		  146324	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-25Dec23.log
-	  *EXTRA File 		  281538	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-24Dec23.log
-	  *EXTRA File 		  146046	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-25Dec23.log
-	  *EXTRA File 		  571068	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-24Dec23.log
-	  *EXTRA File 		  291105	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-25Dec23.log
-	  *EXTRA File 		  283146	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-24Dec23.log
-	  *EXTRA File 		  146880	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-25Dec23.log
-	  *EXTRA File 		  281036	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-24Dec23.log
-	  *EXTRA File 		  145270	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-25Dec23.log
-	  *EXTRA File 		  281002	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-24Dec23.log
-	  *EXTRA File 		  145768	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-25Dec23.log
-	  *EXTRA File 		  279394	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-24Dec23.log
-	  *EXTRA File 		  144934	E:\monthly_backups\Jan\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-25Dec23.log
-	    Newer     		   14587	I:\hkshell\.git\logs\HEAD100%  
-	    Newer     		   14587	I:\hkshell\.git\logs\refs\heads\master100%  
-	    Newer     		      41	I:\hkshell\.git\refs\heads\master100%  
-	    Newer     		    5214	I:\hkshell\.git\logs\refs\remotes\origin\master100%  
-	    Newer     		      41	I:\hkshell\.git\refs\remotes\origin\master100%  
-	    New File  		  134656	I:\hkshell\.git\objects\13\f2b6997c8f49ace7ff7f078d6f86c3c071ebeb100%  
-	    New File  		     764	I:\hkshell\.git\objects\1f\97f8fdf7e7a76d2791eda953887ca20306aa85100%  
-	    New File  		      80	I:\hkshell\.git\objects\2e\3c118b9c75a173dda3ebe5266df53cbd5f5ec9100%  
-	    New File  		    2830	I:\hkshell\.git\objects\30\5157a79062f0dc3c495886b56757e0e38f62f1100%  
-	    New File  		    4188	I:\hkshell\.git\objects\33\749640312d44c12a8527bd975ad3bd81b82ed4100%  
-	    New File  		    7478	I:\hkshell\.git\objects\48\e8dc330111b65af2381c97078dc4a94979159d100%  
-	    New File  		    3614	I:\hkshell\.git\objects\4c\d12b825819228d994ea6654ca82917d177362a100%  
-	    New File  		     920	I:\hkshell\.git\objects\4d\0301f8403f898782c2c984b7d88a126e919297100%  
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   34423	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  201810	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  127582	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   26025	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   44855	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   33898	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   35088	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-	    New File  		    1360	I:\hkshell\.git\objects\62\2a5b9689f89161042984d20a3453076ab48aca100%  
-	    New File  		      91	I:\hkshell\.git\objects\64\52c3152883342045644c75310245362bfd55d9100%  
-	    New File  		     212	I:\hkshell\.git\objects\68\c63026e1be731c4f31cc91f398851738a1f8b8100%  
-	    New File  		      57	I:\hkshell\.git\objects\6b\7587a84539ab67b61932ab03fca81ea259ad7c100%  
-	    New File  		     526	I:\hkshell\.git\objects\6c\97b48e6149df572e55ccefb8c4d3f36ceab60f100%  
-	    New File  		   25288	I:\hkshell\.git\objects\7e\81cbb384c2c5a3bbfcd301a36f7edd20c0c5be100%  
-	    New File  		     542	I:\hkshell\.git\objects\84\61c6b5ed8863d407ef75cdbdf749a8650b9323100%  
-	    New File  		      46	I:\hkshell\.git\objects\85\99c447904d9074de021826c11949a0e3d6877e100%  
-	    New File  		     152	I:\hkshell\.git\objects\8c\4c3a73099efb9b1bb649ec7cc4d20a389b1301100%  
-	    New File  		     115	I:\hkshell\.git\objects\8c\63dd7065f6cf9452e74ccdbe7d6e4673f0b642100%  
-	    New File  		    5549	I:\hkshell\.git\objects\8e\1c3a9ee4ea1c72d1aefc5a5d56005efc7047f6100%  
-	    New File  		     120	I:\hkshell\.git\objects\ad\7334878d85f4dc80a225135f55a5b69d4fc339100%  
-	    New File  		   16383	I:\hkshell\.git\objects\bb\9dd6e14e512ace1e5039e1763242a551d60fd1100%  
-	    New File  		      49	I:\hkshell\.git\objects\bc\5d5e812d7833e56f02c0113b06d65e434303ff100%  
-	    New File  		    4147	I:\hkshell\.git\objects\c0\946e7bec8d3b3472dca38821d7f6efec600101100%  
-	    New File  		     547	I:\hkshell\.git\objects\c2\434f3386ebf6154275000ff77c51aa586e02e7100%  
-	    New File  		     161	I:\hkshell\.git\objects\d0\74eb969b0705fe937a51c3aa6099f1f64759d8100%  
-	    New File  		     516	I:\hkshell\.git\objects\d4\a54d228ac8ab70518681a9be78349cb452da04100%  
-	    New File  		   43164	I:\hkshell\.git\objects\e2\46cc8ab1e1a60d3c7d20a834058153bfe3c431100%  
-	    New File  		   40972	I:\hkshell\.git\objects\e3\30252c16114d5a96e64ced172d40cc96d38da6100%  
-	    New File  		     520	I:\hkshell\.git\objects\f1\ae24f53ee7a7b0c8bacac6878bee39df34c2c1100%  
-	    New File  		     519	I:\hkshell\.git\objects\f1\ba716fa806a3a93da55e0f122867455c1cf179100%  
-	    New File  		    1269	I:\hkshell\.git\objects\f2\45d7946e80cbd84164ee461365e7e30686207a100%  
-	    New File  		    2401	I:\hkshell\.git\objects\f7\9f5f6ed086a5a45e9431784d9a31d6084476f8100%  
-	    New File  		     121	I:\hkshell\.git\objects\fe\1ff7eda9807987d332ca78371a1807123eba5a100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       282         0         0         0
-   Files :       786        48       738         0         0        16
-   Bytes :    5.63 m    2.20 m    3.42 m         0         0    3.84 m
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           210,012,545 Bytes/sec.
-   Speed :            12,017.015 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:58:07 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 10:58:42 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   35475	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  202860	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  135534	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   27084	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   45902	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   34949	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   36133	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.65 m    1.88 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           494,688,500 Bytes/sec.
-   Speed :            28,306.303 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 10:58:42 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:04:02 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   36527	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  203910	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  137614	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   28140	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   46946	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   35997	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   37175	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.65 m    1.89 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           284,038,142 Bytes/sec.
-   Speed :            16,252.793 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 11:04:02 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:09:43 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   37579	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  204960	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  139694	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   29196	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   47990	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   37045	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   38217	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       778         0         0         0
-   Bytes :    5.66 m    1.90 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           499,445,000 Bytes/sec.
-   Speed :            28,578.473 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 11:09:43 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:15:04 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   38631	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  206010	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  141774	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   30252	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   49034	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   38093	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   39259	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.67 m    1.91 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           501,800,500 Bytes/sec.
-   Speed :            28,713.256 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 11:15:04 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:20:45 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   39683	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  207060	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  143854	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   31308	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   50078	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   39141	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   40301	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.68 m    1.92 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           403,343,000 Bytes/sec.
-   Speed :            23,079.471 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 11:20:45 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:26:26 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   40735	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  208110	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  145934	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   32364	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   51122	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   40189	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   41343	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.69 m    1.93 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           405,245,600 Bytes/sec.
-   Speed :            23,188.340 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 11:26:26 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:31:46 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.3 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   41787	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  209160	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  148014	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   33420	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   52166	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   41237	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   42385	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       785         8       777         0         0         0
-   Bytes :    5.70 m    1.94 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           407,130,000 Bytes/sec.
-   Speed :            23,296.166 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 11:31:46 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:37:28 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.4 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   42839	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  210210	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  150094	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   34476	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   53210	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   42285	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   43427	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       787         8       779         0         0         0
-   Bytes :    5.71 m    1.95 m    3.76 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           409,032,600 Bytes/sec.
-   Speed :            23,405.033 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 11:37:28 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:43:09 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		    8163	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-26Dec23.log
-	  *EXTRA File 		    7378	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-26Dec23.log
-	  *EXTRA File 		    7364	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-26Dec23.log
-	  *EXTRA File 		   15629	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-26Dec23.log
-	  *EXTRA File 		    7406	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-26Dec23.log
-	  *EXTRA File 		    7322	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-26Dec23.log
-	  *EXTRA File 		    7350	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-26Dec23.log
-	  *EXTRA File 		    7308	E:\realtime_backups\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-26Dec23.log
-	    Newer     		   1.4 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   43891	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  211260	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  152174	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   35532	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   54254	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   43333	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   44469	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       779         8       771         0         0         8
-   Bytes :    5.65 m    1.95 m    3.69 m         0         0    66.3 k
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           513,669,000 Bytes/sec.
-   Speed :            29,392.375 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 11:43:09 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:48:29 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.4 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   44943	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  212310	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  155274	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   36588	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   55298	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   44381	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   45511	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       779         8       771         0         0         0
-   Bytes :    5.66 m    1.96 m    3.69 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           516,279,500 Bytes/sec.
-   Speed :            29,541.750 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 11:48:29 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:54:11 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.4 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   45995	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  213360	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  157354	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   37644	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   56342	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   45429	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   46553	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       779         8       770         0         0         0
-   Bytes :    5.67 m    1.97 m    3.69 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           691,543,666 Bytes/sec.
-   Speed :            39,570.445 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 11:54:11 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Tuesday, January 2, 2024 11:59:52 PM
-   Source : I:\hkshell\
-     Dest : E:\realtime_backups\hkshell\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		   1.4 m	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-android-2Jan24.log100%  
-	    Newer     		   47047	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-assembly-2Jan24.log100%  
-	    Newer     		  214410	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-EasyHKS-2Jan24.log100%  
-	    Newer     		  159434	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-hkshell-2Jan24.log100%  
-	    Newer     		   38700	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-NavyFedApi-2Jan24.log100%  
-	    Newer     		   57386	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-nvim-2Jan24.log100%  
-	    Newer     		   46477	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-openai-2Jan24.log100%  
-	    Newer     		   47595	I:\hkshell\hkshell\powershell\main\modules\backup\logs\robocopy-zig-2Jan24.log100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :       284       284       284         0         0         0
-   Files :       779         8       771         0         0         0
-   Bytes :    5.68 m    1.98 m    3.69 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-
-
-   Speed :           521,036,000 Bytes/sec.
-   Speed :            29,813.920 MegaBytes/min.
-   Ended : Tuesday, January 2, 2024 11:59:52 PM
-

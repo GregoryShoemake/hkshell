@@ -1,1727 +1,0 @@
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:11:10 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	    Newer     		     235	J:\android\Planner\project.cfg100%  
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-	    Newer     		       8	J:\android\Planner\.gradle\file-system.probe100%  
-	    Newer     		     756	J:\android\Planner\.idea\deploymentTargetDropDown.xml100%  
-	    Newer     		     409	J:\android\Planner\.idea\misc.xml100%  
-	    Newer     		   10442	J:\android\Planner\.idea\workspace.xml100%  
-	    Newer     		   39486	J:\android\Planner\.git\index100%  
-	    Newer     		      17	J:\android\Planner\.gradle\buildOutputCleanup\buildOutputCleanup.lock100%  
-	    Newer     		  595679	J:\android\Planner\.gradle\buildOutputCleanup\outputFiles.bin100%  
-	    Newer     		       0	J:\android\Planner\.gradle\vcs-1\gc.properties100%  
-	    Newer     		       0	J:\android\Planner\.gradle\7.5\gc.properties100%  
-	    Newer     		      17	J:\android\Planner\.gradle\7.5\checksums\checksums.lock100%  
-	    Newer     		      17	J:\android\Planner\.gradle\7.5\dependencies-accessors\dependencies-accessors.lock100%  
-	    Newer     		       0	J:\android\Planner\.gradle\7.5\dependencies-accessors\gc.properties100%  
-	    Newer     		   2.8 m	J:\android\Planner\.gradle\7.5\executionHistory\executionHistory.bin 53%  100%  
-	    Newer     		      17	J:\android\Planner\.gradle\7.5\executionHistory\executionHistory.lock100%  
-	    Newer     		       1	J:\android\Planner\.gradle\7.5\fileChanges\last-build.bin100%  
-	    Newer     		  531091	J:\android\Planner\.gradle\7.5\fileHashes\fileHashes.bin100%  
-	    Newer     		      17	J:\android\Planner\.gradle\7.5\fileHashes\fileHashes.lock100%  
-	    Newer     		   25671	J:\android\Planner\.gradle\7.5\fileHashes\resourceHashesCache.bin100%  
-	    New File  		     117	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_3y3u4l2q.json100%  
-	    New File  		       2	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_3y3u4l2q.log100%  
-	    New File  		     362	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_3y3u4l2q_key.json100%  
-	    Newer     		     114	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_4g54wo62.json100%  
-	    Newer     		     424	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_4g54wo62.log100%  
-	    Newer     		     369	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_4g54wo62_key.json100%  
-	    Newer     		     117	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_5211h715.json100%  
-	    Newer     		       2	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_5211h715.log100%  
-	    Newer     		     356	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_5211h715_key.json100%  
-	    Newer     		     114	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_x331p2b0.json100%  
-	    Newer     		       2	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_x331p2b0.log100%  
-	    Newer     		     349	J:\android\Planner\app\build\intermediates\cxx\abi_configuration_x331p2b0_key.json100%  
-	    New File  		     232	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_1318_timing.txt100%  
-	    New File  		     266	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_1499_timing.txt100%  
-	    New File  		     516	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_1684_timing.txt100%  
-	    New File  		     218	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_1987_timing.txt100%  
-	    New File  		     250	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_2141_timing.txt100%  
-	    New File  		     297	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_220_timing.txt100%  
-	    New File  		     267	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_2295_timing.txt100%  
-	    New File  		     218	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_2449_timing.txt100%  
-	    Newer     		   18091	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_24_timing.txt100%  
-	    New File  		     218	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_2639_timing.txt100%  
-	    New File  		     218	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_2793_timing.txt100%  
-	    New File  		    1504	J:\android\Planner\app\build\intermediates\cxx\create_cxx_tasks_391_timing.txt100%  
-	    Newer     		     234	J:\android\Planner\app\build\intermediates\cxx\ndk_locator_record_15505g54.json100%  
-	    Newer     		    2060	J:\android\Planner\app\build\intermediates\cxx\ndk_locator_record_15505g54.log100%  
-	    Newer     		     123	J:\android\Planner\app\build\intermediates\cxx\ndk_locator_record_15505g54_key.json100%  
-	    Newer     		  110423	J:\android\Planner\app\build\tmp\compileDebugJavaWithJavac\previous-compilation-data.bin100%  
-	    Newer     		     615	J:\android\Planner\app\.cxx\tools\debug\x86_64\compile_commands.json100%  
-	    Newer     		    1270	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86\configure_fingerprint.bin100%  
-	    Newer     		   23608	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.ninja_deps100%  
-	    Newer     		     225	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.ninja_log100%  
-	    Newer     		       0	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\additional_project_files.txt100%  
-	    Newer     		    1463	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\android_gradle_build.json100%  
-	    Newer     		     999	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\android_gradle_build_mini.json100%  
-	    Newer     		   30979	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\build.ninja100%  
-	    Newer     		      50	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\build_file_index.txt100%  
-	    Newer     		   16524	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeCache.txt100%  
-	    Newer     		    1834	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\cmake_install.cmake100%  
-	    Newer     		     615	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\compile_commands.json100%  
-	    Newer     		     651	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\compile_commands.json.bin100%  
-	    Newer     		    1303	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\configure_fingerprint.bin100%  
-	    Newer     		     997	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\metadata_generation_command.txt100%  
-	    Newer     		      40	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\prefab_config.json100%  
-	    Newer     		      72	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\symbol_folder_index.txt100%  
-	    Newer     		  17.3 m	J:\android\Planner\app\build\intermediates\apk\debug\app-debug.apk 97%  100%  
-	    Newer     		     377	J:\android\Planner\app\build\intermediates\apk\debug\output-metadata.json100%  
-	    Newer     		     368	J:\android\Planner\app\build\intermediates\dex_archive_input_jar_hashes\debug\out100%  
-	    Newer     		      86	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\cmake.check_cache100%  
-	    Newer     		   53779	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\CMakeOutput.log100%  
-	    Newer     		    2761	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\rules.ninja100%  
-	    Newer     		     231	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\TargetDirectories.txt100%  
-	    Newer     		    6658	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\d92b8bbfded0797cbdccb8334c7f9602ad14064755e80f1b7299926edcb8f95d_0.jar100%  
-	    Newer     		    8413	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\d92b8bbfded0797cbdccb8334c7f9602ad14064755e80f1b7299926edcb8f95d_1.jar100%  
-	    Newer     		    8429	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\d92b8bbfded0797cbdccb8334c7f9602ad14064755e80f1b7299926edcb8f95d_2.jar100%  
-	    Newer     		   39869	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\d92b8bbfded0797cbdccb8334c7f9602ad14064755e80f1b7299926edcb8f95d_3.jar100%  
-	    Newer     		   43042	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\d92b8bbfded0797cbdccb8334c7f9602ad14064755e80f1b7299926edcb8f95d_4.jar100%  
-	    Newer     		   92783	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\d92b8bbfded0797cbdccb8334c7f9602ad14064755e80f1b7299926edcb8f95d_5.jar100%  
-	    New File  		    4832	J:\android\Planner\app\build\intermediates\cmake\debug\obj\x86_64\liblog.so100%  
-	    New File  		   96472	J:\android\Planner\app\build\intermediates\cmake\debug\obj\x86_64\libplanner.so100%  
-	    Newer     		  143640	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\planner.dir\native-lib.cpp.o100%  
-	    Newer     		    4311	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCCompiler.cmake100%  
-	    Newer     		    7372	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\3.22.1-g37088a8-dirty\CMakeCXXCompiler.cmake100%  
-	    Newer     		    7128	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_C.bin100%  
-	    Newer     		    7256	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\3.22.1-g37088a8-dirty\CMakeDetermineCompilerABI_CXX.bin100%  
-	    Newer     		    4318	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\3.22.1-g37088a8-dirty\CMakeSystem.cmake100%  
-	    Newer     		  592688	J:\android\Planner\app\build\intermediates\dex\debug\mergeProjectDexDebug\13\classes.dex100%  
-	    Newer     		     781	J:\android\Planner\app\build\intermediates\incremental\packageDebug\tmp\debug\dex-renamer-state.txt100%  
-	    Newer     		   12537	J:\android\Planner\app\src\main\java\com\easyhks\planner\NotesFragment.java100%  
-	  *EXTRA File 		   26378	E:\realtime_backups\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\reply\cache-v2-aae4d5b318d46f6a893e.json
-	  *EXTRA File 		   30893	E:\realtime_backups\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\reply\cmakeFiles-v1-f9ff061ace0719bcc032.json
-	  *EXTRA File 		    1007	E:\realtime_backups\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\reply\codemodel-v2-cf51cc05183244eff8b3.json
-	  *EXTRA File 		    1747	E:\realtime_backups\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\reply\index-2024-01-01T05-11-55-0253.json
-	  *EXTRA File 		    2156	E:\realtime_backups\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\reply\target-planner-Debug-c8cf4dd606c0ef821e51.json
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\dirs_bucket_4\graph.bin100%  
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\dirs_bucket_5\graph.bin100%  
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\dirs_bucket_3\graph.bin100%  
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\dirs_bucket_0\graph.bin100%  
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\dirs_bucket_2\graph.bin100%  
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\dirs_bucket_1\graph.bin100%  
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\jar_4ce6aab41d6125e15a7cedea91374e37942c1f3afed908fcedb8963057528809_bucket_0\graph.bin100%  
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\jar_4ce6aab41d6125e15a7cedea91374e37942c1f3afed908fcedb8963057528809_bucket_1\graph.bin100%  
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\jar_4ce6aab41d6125e15a7cedea91374e37942c1f3afed908fcedb8963057528809_bucket_2\graph.bin100%  
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\jar_4ce6aab41d6125e15a7cedea91374e37942c1f3afed908fcedb8963057528809_bucket_4\graph.bin100%  
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\jar_4ce6aab41d6125e15a7cedea91374e37942c1f3afed908fcedb8963057528809_bucket_3\graph.bin100%  
-	    Newer     		     235	J:\android\Planner\app\build\intermediates\desugar_graph\debug\out\currentProject\jar_4ce6aab41d6125e15a7cedea91374e37942c1f3afed908fcedb8963057528809_bucket_5\graph.bin100%  
-	    Newer     		   25656	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\3.22.1-g37088a8-dirty\CompilerIdC\CMakeCCompilerId.c100%  
-	    Newer     		    2272	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\3.22.1-g37088a8-dirty\CompilerIdC\CMakeCCompilerId.o100%  
-	    Newer     		   25388	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\3.22.1-g37088a8-dirty\CompilerIdCXX\CMakeCXXCompilerId.cpp100%  
-	    Newer     		    2264	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\CMakeFiles\3.22.1-g37088a8-dirty\CompilerIdCXX\CMakeCXXCompilerId.o100%  
-	    Newer     		     172	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\build_command_planner.bat100%  
-	    Newer     		    7507	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\build_model.json100%  
-	    Newer     		       0	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\build_stderr_planner.txt100%  
-	    Newer     		     102	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\build_stdout_planner.txt100%  
-	    Newer     		    1152	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\configure_command.bat100%  
-	    Newer     		       0	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\configure_stderr.txt100%  
-	    Newer     		     977	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\configure_stdout.txt100%  
-	    New File  		     209	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\generate_cxx_metadata_180_timing.txt100%  
-	    New File  		     346	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\generate_cxx_metadata_364_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\generate_cxx_metadata_525_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\generate_cxx_metadata_678_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\generate_cxx_metadata_854_timing.txt100%  
-	    Newer     		    1260	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86_64\metadata_generation_record.json100%  
-	    Newer     		    4832	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\obj\x86_64\liblog.so100%  
-	    Newer     		   96472	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\obj\x86_64\libplanner.so100%  
-	    New File  		       1	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\obj\x86_64\libplanner.so.tmpffedbd8100%  
-	    Newer     		     169	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\build_command_planner.bat100%  
-	    Newer     		    7478	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\build_model.json100%  
-	    Newer     		       0	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\build_stderr_planner.txt100%  
-	    Newer     		      99	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\build_stdout_planner.txt100%  
-	    New File  		     157	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_1012_timing.txt100%  
-	    New File  		     176	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_1162_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_1311_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_1454_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_1632_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_1824_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_1977_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_2127_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_2276_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_2438_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_2588_timing.txt100%  
-	    New File  		      57	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_2773_timing.txt100%  
-	    New File  		     141	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\generate_cxx_metadata_2933_timing.txt100%  
-	    Newer     		    1242	J:\android\Planner\app\build\intermediates\cxx\Debug\201j3l6l\logs\x86\metadata_generation_record.json100%  
-	    Newer     		   92434	J:\android\Planner\app\build\intermediates\incremental\packageDebug\tmp\debug\zip-cache\androidResources100%  
-	    Newer     		    7404	J:\android\Planner\app\build\intermediates\incremental\packageDebug\tmp\debug\zip-cache\javaResources0100%  
-	    Newer     		   12360	J:\android\Planner\app\build\intermediates\merged_native_libs\debug\out\lib\arm64-v8a\liblog.so100%  
-	    Newer     		   97904	J:\android\Planner\app\build\intermediates\merged_native_libs\debug\out\lib\arm64-v8a\libplanner.so100%  
-	    Newer     		    3840	J:\android\Planner\app\build\intermediates\merged_native_libs\debug\out\lib\x86\liblog.so100%  
-	    Newer     		   95680	J:\android\Planner\app\build\intermediates\merged_native_libs\debug\out\lib\x86\libplanner.so100%  
-	    Newer     		    4832	J:\android\Planner\app\build\intermediates\merged_native_libs\debug\out\lib\x86_64\liblog.so100%  
-	    Newer     		   96472	J:\android\Planner\app\build\intermediates\merged_native_libs\debug\out\lib\x86_64\libplanner.so100%  
-	    Newer     		    4016	J:\android\Planner\app\build\intermediates\merged_native_libs\debug\out\lib\armeabi-v7a\liblog.so100%  
-	    Newer     		   96388	J:\android\Planner\app\build\intermediates\merged_native_libs\debug\out\lib\armeabi-v7a\libplanner.so100%  
-	    Newer     		   18832	J:\android\Planner\app\build\intermediates\stripped_native_libs\debug\out\lib\x86_64\libplanner.so100%  
-	    New File  		   26378	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\reply\cache-v2-62a2450ad604e81942a9.json100%  
-	    New File  		   30893	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\reply\cmakeFiles-v1-d82f182947a86ad54960.json100%  
-	    New File  		    1007	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\reply\codemodel-v2-7cf4863230122506ccd4.json100%  
-	    Newer     		     168	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\reply\directory-.-Debug-d0094a50bb2071803777.json100%  
-	    New File  		    1747	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\reply\index-2024-02-08T23-12-51-0019.json100%  
-	    New File  		    2156	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\reply\target-planner-Debug-2607c24955e85b9202fe.json100%  
-	    Newer     		    3987	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\AlarmHandler.class100%  
-	    Newer     		     706	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarDaysFragment$1.class100%  
-	    Newer     		     832	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarDaysFragment$2.class100%  
-	    Newer     		    1112	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarDaysFragment$3.class100%  
-	    Newer     		    1124	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarDaysFragment$4.class100%  
-	    Newer     		    7695	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarDaysFragment.class100%  
-	    Newer     		     682	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$1.class100%  
-	    Newer     		    1058	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$10.class100%  
-	    Newer     		    2480	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$11.class100%  
-	    Newer     		    1996	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$12.class100%  
-	    Newer     		    1428	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$2.class100%  
-	    Newer     		    1106	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$3.class100%  
-	    Newer     		    2364	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$4.class100%  
-	    Newer     		    1292	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$5.class100%  
-	    Newer     		    2152	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$6.class100%  
-	    Newer     		    2153	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$7.class100%  
-	    Newer     		    2698	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$8.class100%  
-	    Newer     		    1992	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$9$1.class100%  
-	    Newer     		    1222	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment$9.class100%  
-	    Newer     		   11750	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarFragment.class100%  
-	    Newer     		    1055	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarRecyclerAdapter$1$1.class100%  
-	    Newer     		    1364	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarRecyclerAdapter$1.class100%  
-	    Newer     		     732	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarRecyclerAdapter$2.class100%  
-	    Newer     		    1018	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarRecyclerAdapter$3$1.class100%  
-	    Newer     		    1294	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarRecyclerAdapter$3.class100%  
-	    Newer     		    1287	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarRecyclerAdapter$CalendarHolder.class100%  
-	    Newer     		   12588	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CalendarRecyclerAdapter.class100%  
-	    Newer     		     947	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CommandHandler$1.class100%  
-	    Newer     		    1471	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CommandHandler$2.class100%  
-	    Newer     		    1471	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CommandHandler$3.class100%  
-	    Newer     		    1421	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CommandHandler$4.class100%  
-	    Newer     		    1441	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CommandHandler$5.class100%  
-	    Newer     		    4508	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CommandHandler$6.class100%  
-	    Newer     		    3315	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CommandHandler$7.class100%  
-	    Newer     		    1970	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CommandHandler$8.class100%  
-	    Newer     		   42614	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\CommandHandler.class100%  
-	    Newer     		    3300	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\DebugHandler.class100%  
-	    Newer     		    1283	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\Event$1.class100%  
-	    Newer     		   17347	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\Event.class100%  
-	    Newer     		    1593	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventConfigurationHandler$EventConfigurationBundle.class100%  
-	    Newer     		     760	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventConfigurationHandler$WorkSpace.class100%  
-	    Newer     		    6996	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventConfigurationHandler.class100%  
-	    Newer     		    1478	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventConfigurationRecyclerAdapter$1.class100%  
-	    Newer     		    1478	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventConfigurationRecyclerAdapter$2.class100%  
-	    Newer     		    1478	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventConfigurationRecyclerAdapter$3.class100%  
-	    Newer     		    1480	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventConfigurationRecyclerAdapter$4.class100%  
-	    Newer     		    1482	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventConfigurationRecyclerAdapter$5.class100%  
-	    Newer     		    1700	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventConfigurationRecyclerAdapter$6.class100%  
-	    Newer     		    1319	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventConfigurationRecyclerAdapter$EventTypeHolder.class100%  
-	    Newer     		    9866	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventConfigurationRecyclerAdapter.class100%  
-	    Newer     		    1745	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$1$1.class100%  
-	    Newer     		    1446	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$1.class100%  
-	    Newer     		    1279	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$10.class100%  
-	    Newer     		    1097	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$11.class100%  
-	    Newer     		    1549	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$12.class100%  
-	    Newer     		    1477	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$13.class100%  
-	    Newer     		    1191	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$14.class100%  
-	    Newer     		    1087	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$15.class100%  
-	    Newer     		    1127	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$16.class100%  
-	    Newer     		    1125	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$17.class100%  
-	    Newer     		    1127	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$18.class100%  
-	    Newer     		    2247	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$19$1.class100%  
-	    Newer     		    1260	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$19.class100%  
-	    Newer     		    1941	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$2$1.class100%  
-	    Newer     		    2872	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$2.class100%  
-	    Newer     		    1125	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$20.class100%  
-	    Newer     		    1621	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$21$1.class100%  
-	    Newer     		    1260	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$21.class100%  
-	    Newer     		    1089	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$22.class100%  
-	    Newer     		     871	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$23.class100%  
-	    Newer     		    1038	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$24$1.class100%  
-	    Newer     		    1923	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$24.class100%  
-	    Newer     		    1354	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$25.class100%  
-	    Newer     		    1363	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$26.class100%  
-	    Newer     		    3023	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$27.class100%  
-	    Newer     		    2057	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$28.class100%  
-	    Newer     		    1903	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$3$1.class100%  
-	    Newer     		    3382	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$3.class100%  
-	    Newer     		    1696	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$4.class100%  
-	    Newer     		    1197	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$5.class100%  
-	    Newer     		    1989	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$6.class100%  
-	    Newer     		    1986	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$7.class100%  
-	    Newer     		    1095	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$8.class100%  
-	    Newer     		    1823	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment$9.class100%  
-	    Newer     		   23107	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventEditorFragment.class100%  
-	    Newer     		    1123	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventManager$1.class100%  
-	    Newer     		     977	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventManager$2.class100%  
-	    Newer     		     982	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventManager$3.class100%  
-	    Newer     		    1037	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventManager$4.class100%  
-	    Newer     		     780	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventManager$EventBundle.class100%  
-	    Newer     		    1305	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventManager$Priority.class100%  
-	    Newer     		   14166	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventManager.class100%  
-	    Newer     		    1993	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$1.class100%  
-	    Newer     		     997	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$10$1.class100%  
-	    Newer     		    1146	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$10.class100%  
-	    Newer     		    2214	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$11.class100%  
-	    Newer     		    1746	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$12.class100%  
-	    Newer     		    1945	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$13.class100%  
-	    Newer     		    1711	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$14.class100%  
-	    Newer     		    1910	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$15.class100%  
-	    Newer     		    1387	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$16.class100%  
-	    Newer     		    1769	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$17.class100%  
-	    Newer     		    1390	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$2.class100%  
-	    Newer     		    2173	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$3$1.class100%  
-	    Newer     		    1529	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$3.class100%  
-	    Newer     		    1994	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$4.class100%  
-	    Newer     		    1386	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$5.class100%  
-	    Newer     		    1182	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$6.class100%  
-	    Newer     		    1036	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$7.class100%  
-	    Newer     		    1144	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$8.class100%  
-	    Newer     		    2720	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$9.class100%  
-	    Newer     		    1711	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter$EventHolder.class100%  
-	    Newer     		   16234	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventRecyclerAdapter.class100%  
-	    Newer     		     820	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventSearchHandler$1.class100%  
-	    Newer     		     925	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventSearchHandler$2.class100%  
-	    Newer     		     813	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventSearchHandler$3.class100%  
-	    Newer     		     918	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventSearchHandler$4.class100%  
-	    Newer     		     818	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventSearchHandler$5.class100%  
-	    Newer     		     826	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventSearchHandler$6.class100%  
-	    Newer     		     826	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventSearchHandler$7.class100%  
-	    Newer     		     827	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventSearchHandler$8.class100%  
-	    Newer     		     827	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventSearchHandler$9.class100%  
-	    Newer     		   10816	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventSearchHandler.class100%  
-	    Newer     		    1081	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventWorkSpace$1.class100%  
-	    Newer     		    6069	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\EventWorkSpace.class100%  
-	    Newer     		    1459	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ExternalHandler.class100%  
-	    Newer     		     658	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$1.class100%  
-	    Newer     		     873	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$10.class100%  
-	    Newer     		    1340	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$11$1$1.class100%  
-	    Newer     		    1067	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$11$1.class100%  
-	    Newer     		    2859	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$11.class100%  
-	    Newer     		     839	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$12.class100%  
-	    Newer     		     633	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$13.class100%  
-	    Newer     		     880	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$14.class100%  
-	    Newer     		     800	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$15.class100%  
-	    Newer     		     786	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$16.class100%  
-	    Newer     		    1838	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$17.class100%  
-	    Newer     		    1739	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$18.class100%  
-	    Newer     		     758	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$19.class100%  
-	    Newer     		     665	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$2.class100%  
-	    Newer     		    2495	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$3$1.class100%  
-	    Newer     		    1193	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$3.class100%  
-	    Newer     		    1598	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$4.class100%  
-	    Newer     		     797	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$5.class100%  
-	    Newer     		    1077	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$6$1.class100%  
-	    Newer     		    2614	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$6.class100%  
-	    Newer     		     796	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$7.class100%  
-	    Newer     		    1161	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$8.class100%  
-	    Newer     		     935	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment$9.class100%  
-	    Newer     		   22622	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FeedFragment.class100%  
-	    Newer     		    4044	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$1.class100%  
-	    Newer     		    1567	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$10.class100%  
-	    Newer     		    1692	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$11.class100%  
-	    Newer     		    1152	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$12.class100%  
-	    Newer     		    3404	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$2.class100%  
-	    Newer     		    3404	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$3.class100%  
-	    Newer     		    3452	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$4.class100%  
-	    Newer     		    3004	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$5.class100%  
-	    Newer     		    2913	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$6.class100%  
-	    Newer     		    1050	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$7.class100%  
-	    Newer     		    1398	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$8.class100%  
-	    Newer     		    1567	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$9.class100%  
-	    Newer     		    1613	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler$FirebaseBundle.class100%  
-	    Newer     		   15745	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FirebaseHandler.class100%  
-	    Newer     		     473	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FragmentInitializerBundle.class100%  
-	    Newer     		     688	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FRAGMENT_TEMPLATE$1.class100%  
-	    Newer     		    2844	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\FRAGMENT_TEMPLATE.class100%  
-	    Newer     		    1682	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\HardwareU$1$1.class100%  
-	    Newer     		    1651	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\HardwareU$1.class100%  
-	    Newer     		    1711	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\HardwareU$2.class100%  
-	    Newer     		    1061	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\HardwareU$3.class100%  
-	    Newer     		    4033	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\HardwareU.class100%  
-	    Newer     		     688	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\IntentionFragment$1.class100%  
-	    Newer     		    2790	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\IntentionFragment.class100%  
-	    Newer     		     694	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\IntentionsFragment$1.class100%  
-	    Newer     		    2797	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\IntentionsFragment.class100%  
-	    Newer     		    2254	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter$1.class100%  
-	    Newer     		    2326	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter$2.class100%  
-	    Newer     		    1450	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter$3.class100%  
-	    Newer     		    2492	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter$4$1.class100%  
-	    Newer     		    1362	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter$4.class100%  
-	    Newer     		    2410	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter$5.class100%  
-	    Newer     		    2081	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter$6.class100%  
-	    Newer     		    2337	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter$7.class100%  
-	    Newer     		    2639	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter$8$1.class100%  
-	    Newer     		    2343	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter$8.class100%  
-	    Newer     		    1302	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter$LinkHolder.class100%  
-	    Newer     		   11056	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\LinkRecyclerAdapter.class100%  
-	    Newer     		    1099	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MacroHandler$MacroBundle.class100%  
-	    Newer     		    3089	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MacroHandler.class100%  
-	    Newer     		    1922	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MacroRecyclerAdapter$1.class100%  
-	    Newer     		     955	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MacroRecyclerAdapter$MacroHolder.class100%  
-	    Newer     		    4334	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MacroRecyclerAdapter.class100%  
-	    Newer     		    1626	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$1$1.class100%  
-	    Newer     		    2771	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$1.class100%  
-	    Newer     		     972	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$10.class100%  
-	    Newer     		     972	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$11.class100%  
-	    Newer     		     660	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$12.class100%  
-	    Newer     		    1783	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$13.class100%  
-	    Newer     		    1567	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$14$1.class100%  
-	    Newer     		    1065	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$14.class100%  
-	    Newer     		    1931	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$15.class100%  
-	    Newer     		    1012	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$16.class100%  
-	    Newer     		    1273	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$17.class100%  
-	    Newer     		     853	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$18.class100%  
-	    Newer     		    2201	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$2.class100%  
-	    Newer     		    2201	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$3.class100%  
-	    Newer     		    2282	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$4.class100%  
-	    Newer     		     978	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$5.class100%  
-	    Newer     		    1181	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$6.class100%  
-	    Newer     		     864	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$7.class100%  
-	    Newer     		     967	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$8.class100%  
-	    Newer     		     972	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$9.class100%  
-	    Newer     		    1343	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity$Page.class100%  
-	    Newer     		   18952	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MainActivity.class100%  
-	    Newer     		    4568	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MediaHandler.class100%  
-	    Newer     		     771	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MemoManager$MemoBundle.class100%  
-	    Newer     		    5409	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MemoManager.class100%  
-	    Newer     		    2575	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MemoRecyclerAdapter$1.class100%  
-	    Newer     		    2410	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MemoRecyclerAdapter$2.class100%  
-	    Newer     		    1166	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MemoRecyclerAdapter$3.class100%  
-	    Newer     		    1479	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MemoRecyclerAdapter$4.class100%  
-	    Newer     		    1554	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MemoRecyclerAdapter$MemoHolder.class100%  
-	    Newer     		    8071	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\MemoRecyclerAdapter.class100%  
-	    Newer     		    1317	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler$1.class100%  
-	    Newer     		    1529	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler$2.class100%  
-	    Newer     		    1149	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler$3.class100%  
-	    Newer     		    1001	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler$4.class100%  
-	    Newer     		    1315	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler$5.class100%  
-	    Newer     		     851	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler$6.class100%  
-	    Newer     		    1752	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler$7.class100%  
-	    Newer     		     912	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler$8.class100%  
-	    Newer     		     865	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler$9.class100%  
-	    Newer     		     433	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler$LoginInterface.class100%  
-	    Newer     		    3233	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler$NetworkBundle.class100%  
-	    Newer     		   15397	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NetworkHandler.class100%  
-	    Newer     		     813	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$1.class100%  
-	    Newer     		    1848	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$10$1.class100%  
-	    Newer     		    1275	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$10.class100%  
-	    Newer     		    2505	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$11$1.class100%  
-	    Newer     		    1247	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$11.class100%  
-	    Newer     		    2198	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$12.class100%  
-	    Newer     		    1106	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$13.class100%  
-	    Newer     		    1162	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$14.class100%  
-	    Newer     		    1591	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$15.class100%  
-	    Newer     		    1541	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$16.class100%  
-	    Newer     		    1859	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$17.class100%  
-	    Newer     		    1714	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$18.class100%  
-	    Newer     		    1029	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$19$1.class100%  
-	    Newer     		    1913	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$19.class100%  
-	    Newer     		     694	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$2.class100%  
-	    Newer     		    1347	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$20.class100%  
-	    Newer     		    1119	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$21.class100%  
-	    Newer     		    1118	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$22.class100%  
-	    Newer     		    1400	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$23.class100%  
-	    Newer     		    1424	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$24.class100%  
-	    Newer     		     704	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$3.class100%  
-	    Newer     		    1455	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$4.class100%  
-	    Newer     		    2335	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$5.class100%  
-	    Newer     		    1189	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$6.class100%  
-	    Newer     		    1599	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$7.class100%  
-	    Newer     		    1596	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$8.class100%  
-	    Newer     		    1957	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment$9.class100%  
-	    Newer     		   19746	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteEditorFragment.class100%  
-	    Newer     		    1554	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemEndRecyclerAdapter$1.class100%  
-	    Newer     		    1306	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemEndRecyclerAdapter$2$1.class100%  
-	    Newer     		    1790	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemEndRecyclerAdapter$2.class100%  
-	    Newer     		    1825	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemEndRecyclerAdapter$3.class100%  
-	    Newer     		    1639	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemEndRecyclerAdapter$4.class100%  
-	    Newer     		     967	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemEndRecyclerAdapter$5$1.class100%  
-	    Newer     		    2086	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemEndRecyclerAdapter$5.class100%  
-	    Newer     		    1345	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemEndRecyclerAdapter$NoteHolder.class100%  
-	    Newer     		    6626	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemEndRecyclerAdapter.class100%  
-	    Newer     		     807	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemManager$NoteItemBundle.class100%  
-	    Newer     		    7087	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemManager.class100%  
-	    Newer     		    1248	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemMiddleRecyclerAdapter$1.class100%  
-	    Newer     		    2565	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemMiddleRecyclerAdapter$2.class100%  
-	    Newer     		    1455	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemMiddleRecyclerAdapter$3$1.class100%  
-	    Newer     		    1932	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemMiddleRecyclerAdapter$3.class100%  
-	    Newer     		    3453	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemMiddleRecyclerAdapter$4.class100%  
-	    Newer     		    1697	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemMiddleRecyclerAdapter$5.class100%  
-	    Newer     		    1669	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemMiddleRecyclerAdapter$6.class100%  
-	    Newer     		    2234	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemMiddleRecyclerAdapter$7.class100%  
-	    Newer     		    1828	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemMiddleRecyclerAdapter$8.class100%  
-	    Newer     		    1548	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemMiddleRecyclerAdapter$NoteHolder.class100%  
-	    Newer     		    9229	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemMiddleRecyclerAdapter.class100%  
-	    Newer     		     839	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$1.class100%  
-	    Newer     		    2214	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$10.class100%  
-	    Newer     		    1471	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$11.class100%  
-	    Newer     		    2335	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$12.class100%  
-	    Newer     		    1160	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$13$1.class100%  
-	    Newer     		    1003	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$13.class100%  
-	    Newer     		    1003	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$14.class100%  
-	    Newer     		     949	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$15$1.class100%  
-	    Newer     		    1768	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$15.class100%  
-	    Newer     		    2178	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$2.class100%  
-	    Newer     		    1353	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$3.class100%  
-	    Newer     		    1566	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$4.class100%  
-	    Newer     		    1269	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$5.class100%  
-	    Newer     		    2306	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$6.class100%  
-	    Newer     		    2365	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$7.class100%  
-	    Newer     		    2462	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$8.class100%  
-	    Newer     		    1778	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$9$1.class100%  
-	    Newer     		    1753	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$9.class100%  
-	    Newer     		    1854	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter$NoteHolder.class100%  
-	    Newer     		   17806	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteItemRecyclerAdapter.class100%  
-	    Newer     		     771	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteManager$NoteBundle.class100%  
-	    Newer     		    5346	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteManager.class100%  
-	    Newer     		    1623	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$1$1.class100%  
-	    Newer     		    3395	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$1.class100%  
-	    Newer     		    2073	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$10.class100%  
-	    Newer     		    1687	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$11.class100%  
-	    Newer     		    2657	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$12.class100%  
-	    Newer     		    3007	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$2.class100%  
-	    Newer     		    2494	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$3.class100%  
-	    Newer     		    1259	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$4.class100%  
-	    Newer     		    1166	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$5.class100%  
-	    Newer     		     986	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$6.class100%  
-	    Newer     		    1275	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$7.class100%  
-	    Newer     		    3157	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$8.class100%  
-	    Newer     		     972	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$9$1.class100%  
-	    Newer     		    1240	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$9.class100%  
-	    Newer     		    1794	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter$NoteHolder.class100%  
-	    Newer     		   16021	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteRecyclerAdapter.class100%  
-	    Newer     		     664	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment$1.class100%  
-	    Newer     		     736	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment$10.class100%  
-	    Newer     		     674	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment$2.class100%  
-	    Newer     		    2111	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment$3.class100%  
-	    Newer     		    1068	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment$4.class100%  
-	    Newer     		    1002	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment$5.class100%  
-	    Newer     		    1720	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment$6$1.class100%  
-	    Newer     		    2715	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment$6.class100%  
-	    Newer     		    1131	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment$7.class100%  
-	    Newer     		    1400	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment$8.class100%  
-	    Newer     		     900	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment$9.class100%  
-	    Newer     		    9178	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotesFragment.class100%  
-	    Newer     		    6650	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NoteWorkSpace.class100%  
-	    Newer     		    7552	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\NotificationHandler.class100%  
-	    Newer     		    1238	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$1.class  0%  100%  
-	    Newer     		    1716	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$10.class100%  
-	    Newer     		    1324	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$100.class100%  
-	    Newer     		    1240	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$101.class100%  
-	    Newer     		    1948	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$102.class100%  
-	    Newer     		    1460	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$103.class100%  
-	    Newer     		     918	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$104.class100%  
-	    Newer     		    1341	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$105.class100%  
-	    Newer     		    1341	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$106.class100%  
-	    Newer     		    1341	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$107.class100%  
-	    Newer     		    1678	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$108.class100%  
-	    Newer     		    2375	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$109.class100%  
-	    Newer     		    2288	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$11.class100%  
-	    Newer     		    2674	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$110.class100%  
-	    Newer     		    1507	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$111.class100%  
-	    Newer     		    2730	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$112.class100%  
-	    Newer     		    1564	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$113.class100%  
-	    Newer     		     906	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$114.class100%  
-	    Newer     		    2595	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$12.class100%  
-	    Newer     		    2595	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$13.class100%  
-	    Newer     		    2316	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$14.class100%  
-	    Newer     		    1855	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$15.class100%  
-	    Newer     		    1396	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$16.class100%  
-	    Newer     		    1843	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$17.class100%  
-	    Newer     		    1782	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$18.class100%  
-	    Newer     		    1326	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$19.class100%  
-	    Newer     		    1236	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$2.class100%  
-	    Newer     		    1326	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$20.class100%  
-	    Newer     		    1326	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$21.class100%  
-	    Newer     		    1534	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$22.class100%  
-	    Newer     		    1537	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$23.class100%  
-	    Newer     		    1535	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$24.class100%  
-	    Newer     		    1534	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$25.class100%  
-	    Newer     		    1366	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$26.class100%  
-	    Newer     		    1366	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$27.class100%  
-	    Newer     		    1366	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$28.class100%  
-	    Newer     		    1366	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$29.class100%  
-	    Newer     		    1960	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$3.class100%  
-	    Newer     		    1366	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$30.class100%  
-	    Newer     		    1393	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$31.class100%  
-	    Newer     		    2948	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$32.class100%  
-	    Newer     		    1921	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$33.class100%  
-	    Newer     		    1916	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$34.class100%  
-	    Newer     		    1915	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$35.class100%  
-	    Newer     		    1952	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$36.class100%  
-	    Newer     		    3859	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$37.class100%  
-	    Newer     		    1169	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$38$1.class100%  
-	    Newer     		    1784	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$38.class100%  
-	    Newer     		    1166	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$39$1.class100%  
-	    Newer     		    1780	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$39.class100%  
-	    Newer     		     846	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$4.class100%  
-	    Newer     		    3330	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$40.class100%  
-	    Newer     		    1409	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$41.class100%  
-	    Newer     		    3353	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$42.class100%  
-	    Newer     		    1938	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$43.class100%  
-	    Newer     		    1940	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$44.class100%  
-	    Newer     		    1939	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$45.class100%  
-	    Newer     		    1943	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$46.class100%  
-	    Newer     		    1942	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$47.class100%  
-	    Newer     		    3043	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$48.class100%  
-	    Newer     		    3047	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$49.class100%  
-	    Newer     		    1216	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$5.class100%  
-	    Newer     		    1546	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$50.class100%  
-	    Newer     		    1547	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$51.class100%  
-	    Newer     		    1549	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$52.class100%  
-	    Newer     		    1548	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$53.class100%  
-	    Newer     		    1546	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$54.class100%  
-	    Newer     		    1548	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$55.class100%  
-	    Newer     		    1547	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$56.class100%  
-	    Newer     		    2126	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$57.class100%  
-	    Newer     		    1776	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$58.class100%  
-	    Newer     		    1500	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$59.class100%  
-	    Newer     		    1692	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$6.class100%  
-	    Newer     		    1503	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$60.class100%  
-	    Newer     		    1501	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$61.class100%  
-	    Newer     		    1500	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$62.class100%  
-	    Newer     		    1914	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$63.class100%  
-	    Newer     		    1988	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$64.class100%  
-	    Newer     		    1989	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$65.class100%  
-	    Newer     		    1915	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$66.class100%  
-	    Newer     		    1640	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$67.class100%  
-	    Newer     		    1628	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$68.class100%  
-	    Newer     		    2519	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$69.class100%  
-	    Newer     		    2386	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$7.class100%  
-	    Newer     		    3324	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$70.class100%  
-	    Newer     		    1398	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$71.class100%  
-	    Newer     		    1160	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$72$1.class100%  
-	    Newer     		    1971	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$72.class100%  
-	    Newer     		    1400	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$73.class100%  
-	    Newer     		    1601	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$74.class100%  
-	    Newer     		    1855	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$75.class100%  
-	    Newer     		    1291	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$76.class100%  
-	    Newer     		    1291	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$77.class100%  
-	    Newer     		    1545	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$78.class100%  
-	    Newer     		    1672	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$79$1.class100%  
-	    Newer     		    1859	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$79.class100%  
-	    Newer     		    1714	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$8.class100%  
-	    Newer     		    1858	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$80.class100%  
-	    Newer     		    1534	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$81.class100%  
-	    Newer     		    2213	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$82.class100%  
-	    Newer     		     846	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$83$1.class100%  
-	    Newer     		    2151	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$83.class100%  
-	    Newer     		    2076	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$84.class100%  
-	    Newer     		    1656	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$85.class100%  
-	    Newer     		    2005	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$86.class100%  
-	    Newer     		    2009	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$87.class100%  
-	    Newer     		    1811	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$88.class100%  
-	    Newer     		    3231	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$89.class100%  
-	    Newer     		    1714	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$9.class100%  
-	    Newer     		    2059	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$90$1.class100%  
-	    Newer     		    3872	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$90.class100%  
-	    Newer     		    1172	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$91.class100%  
-	    Newer     		    1161	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$92.class100%  
-	    Newer     		    1166	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$93.class100%  
-	    Newer     		    1161	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$94.class100%  
-	    Newer     		    1160	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$95.class100%  
-	    Newer     		    1768	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$96$1.class100%  
-	    Newer     		    2194	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$96.class100%  
-	    Newer     		    1161	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$97.class100%  
-	    Newer     		    1319	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$98.class100%  
-	    Newer     		    1246	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$99.class100%  
-	    Newer     		    1456	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor$1.class100%  
-	    Newer     		     914	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor$10.class100%  
-	    Newer     		     874	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor$11.class100%  
-	    Newer     		    1262	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor$2.class100%  
-	    Newer     		    1437	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor$3.class100%  
-	    Newer     		    1458	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor$4.class100%  
-	    Newer     		    1264	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor$5.class100%  
-	    Newer     		    1439	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor$6.class100%  
-	    Newer     		    1035	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor$7.class100%  
-	    Newer     		     963	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor$8.class100%  
-	    Newer     		     913	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor$9.class100%  
-	    Newer     		    6093	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler$PromptExecutor.class100%  
-	    Newer     		   46505	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\PromptHandler.class100%  
-	    Newer     		    7240	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\RecyclerWrapper.class100%  
-	    Newer     		     695	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\RECYCLER_TEMPLATE$TEMPLATE_HOLDER.class100%  
-	    Newer     		    3534	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\RECYCLER_TEMPLATE.class100%  
-	    Newer     		    1041	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ReminderHandler$1.class100%  
-	    Newer     		    1049	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ReminderHandler$2.class100%  
-	    Newer     		    1023	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ReminderHandler$3.class100%  
-	    Newer     		    1145	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ReminderHandler$4.class100%  
-	    Newer     		     910	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ReminderHandler$5.class100%  
-	    Newer     		    1359	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ReminderHandler$ReminderBundle.class100%  
-	    Newer     		    7119	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ReminderHandler.class100%  
-	    Newer     		     682	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$1.class100%  
-	    Newer     		    1021	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$10.class100%  
-	    Newer     		    1403	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$11.class100%  
-	    Newer     		    1406	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$12.class100%  
-	    Newer     		    1404	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$13.class100%  
-	    Newer     		    1403	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$14.class100%  
-	    Newer     		    1322	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$15$1.class100%  
-	    Newer     		    1638	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$15.class100%  
-	    Newer     		    1322	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$16$1.class100%  
-	    Newer     		    1638	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$16.class100%  
-	    Newer     		    1322	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$17$1.class100%  
-	    Newer     		    1638	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$17.class100%  
-	    Newer     		    1321	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$18.class100%  
-	    Newer     		    1324	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$19.class100%  
-	    Newer     		    1355	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$2.class100%  
-	    Newer     		    1952	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$20$1.class100%  
-	    Newer     		    1218	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$20.class100%  
-	    Newer     		     914	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$21.class100%  
-	    Newer     		    1316	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$3$1.class100%  
-	    Newer     		    1633	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$3.class100%  
-	    Newer     		    1283	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$4.class100%  
-	    Newer     		    1316	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$5$1.class100%  
-	    Newer     		    1633	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$5.class100%  
-	    Newer     		    1406	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$6.class100%  
-	    Newer     		    2388	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$7$1.class100%  
-	    Newer     		    2119	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$7.class100%  
-	    Newer     		    1279	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$8.class100%  
-	    Newer     		    1317	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$9$1.class100%  
-	    Newer     		    1634	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment$9.class100%  
-	    Newer     		   11125	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsFragment.class100%  
-	    Newer     		     910	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsHandler$1.class100%  
-	    Newer     		    7183	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SettingsHandler.class100%  
-	    Newer     		    8822	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\SharedHandler.class100%  
-	    Newer     		    1965	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\StateController$1.class100%  
-	    Newer     		    1962	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\StateController$2.class100%  
-	    Newer     		    1962	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\StateController$3.class100%  
-	    Newer     		    1975	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\StateController$4.class100%  
-	    Newer     		    1758	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\StateController$5.class100%  
-	    Newer     		   18076	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\StateController.class100%  
-	    Newer     		     933	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\TextInputHandler$1$1.class100%  
-	    Newer     		    1716	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\TextInputHandler$1.class100%  
-	    Newer     		    1425	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\TextInputHandler$2.class100%  
-	    Newer     		    1592	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\TextInputHandler$3.class100%  
-	    Newer     		    2063	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\TextInputHandler.class100%  
-	    Newer     		    1859	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\TypeRecyclerAdapter$1.class100%  
-	    Newer     		    1286	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\TypeRecyclerAdapter$holder.class100%  
-	    Newer     		    4125	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\TypeRecyclerAdapter.class100%  
-	    Newer     		    1047	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\UpdateHandler$1.class100%  
-	    Newer     		     673	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\UpdateHandler$2.class100%  
-	    Newer     		     668	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\UpdateHandler$3.class100%  
-	    Newer     		     855	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\UpdateHandler$4$1.class100%  
-	    Newer     		    1897	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\UpdateHandler$4$2.class100%  
-	    Newer     		    1938	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\UpdateHandler$4.class100%  
-	    Newer     		    1301	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\UpdateHandler$5.class100%  
-	    Newer     		    3019	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\UpdateHandler$6.class100%  
-	    Newer     		   10840	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\UpdateHandler.class100%  
-	    Newer     		     773	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler$1.class100%  
-	    Newer     		    1137	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler$10.class100%  
-	    Newer     		    1155	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler$11.class100%  
-	    Newer     		     741	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler$2.class100%  
-	    Newer     		     670	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler$3.class100%  
-	    Newer     		    1133	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler$4.class100%  
-	    Newer     		    1326	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler$5.class100%  
-	    Newer     		    1488	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler$6.class100%  
-	    Newer     		     750	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler$7.class100%  
-	    Newer     		    2556	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler$8.class100%  
-	    Newer     		    2647	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler$9.class100%  
-	    Newer     		   13972	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewHandler.class100%  
-	    Newer     		    1492	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewUtilities$1.class100%  
-	    Newer     		    1441	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewUtilities$2.class100%  
-	    Newer     		    4339	J:\android\Planner\app\build\intermediates\javac\debug\classes\com\easyhks\planner\ViewUtilities.class100%  
-	    Newer     		     988	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$1.dex100%  
-	    Newer     		    1124	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$10.dex100%  
-	    Newer     		    1512	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$11$1$1.dex100%  
-	    Newer     		    1344	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$11$1.dex100%  
-	    Newer     		    2596	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$11.dex100%  
-	    Newer     		    1184	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$12.dex100%  
-	    Newer     		     964	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$13.dex100%  
-	    Newer     		    1192	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$14.dex100%  
-	    Newer     		    1128	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$15.dex100%  
-	    Newer     		    1160	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$16.dex100%  
-	    Newer     		    2148	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$17.dex100%  
-	    Newer     		    1952	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$18.dex100%  
-	    Newer     		    1124	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$19.dex100%  
-	    Newer     		     996	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$2.dex100%  
-	    Newer     		    2560	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$3$1.dex100%  
-	    Newer     		    1484	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$3.dex100%  
-	    Newer     		    1808	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$4.dex100%  
-	    Newer     		    1076	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$5.dex100%  
-	    Newer     		    1316	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$6$1.dex100%  
-	    Newer     		    2580	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$6.dex100%  
-	    Newer     		    1076	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$7.dex100%  
-	    Newer     		    1460	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$8.dex100%  
-	    Newer     		    1172	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment$9.dex100%  
-	    Newer     		   18232	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\FeedFragment.dex100%  
-	    Newer     		     992	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment$1.dex100%  
-	    Newer     		    1092	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment$10.dex100%  
-	    Newer     		    1004	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment$2.dex100%  
-	    Newer     		    2164	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment$3.dex100%  
-	    Newer     		    1336	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment$4.dex100%  
-	    Newer     		    1268	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment$5.dex100%  
-	    Newer     		    1860	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment$6$1.dex100%  
-	    Newer     		    2812	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment$6.dex100%  
-	    Newer     		    1300	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment$7.dex100%  
-	    Newer     		    1648	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment$8.dex100%  
-	    Newer     		    1232	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment$9.dex100%  
-	    Newer     		    7200	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotesFragment.dex100%  
-	    Newer     		    6404	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NoteWorkSpace.dex100%  
-	    Newer     		    6176	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\NotificationHandler.dex100%  
-	    Newer     		    1776	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ObjectU.dex100%  
-	    Newer     		    2324	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\Pair.dex100%  
-	    Newer     		    1416	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ParseException.dex100%  
-	    Newer     		     620	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PrettyPrint$1.dex100%  
-	    Newer     		    2240	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PrettyPrint$PrettyPrintWriter.dex100%  
-	    Newer     		    1636	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PrettyPrint.dex100%  
-	    Newer     		    1632	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$1.dex100%  
-	    Newer     		    1868	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$10.dex100%  
-	    Newer     		    1660	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$100.dex100%  
-	    Newer     		    1496	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$101.dex100%  
-	    Newer     		    2064	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$102.dex100%  
-	    Newer     		    1668	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$103.dex100%  
-	    Newer     		    1260	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$104.dex100%  
-	    Newer     		    1584	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$105.dex100%  
-	    Newer     		    1584	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$106.dex100%  
-	    Newer     		    1584	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$107.dex100%  
-	    Newer     		    1684	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$108.dex100%  
-	    Newer     		    2312	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$109.dex100%  
-	    Newer     		    2368	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$11.dex100%  
-	    Newer     		    2688	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$110.dex  0%  100%  
-	    Newer     		    1616	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$111.dex100%  
-	    Newer     		    2784	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$112.dex100%  
-	    Newer     		    1720	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$113.dex100%  
-	    Newer     		    1328	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$114.dex100%  
-	    Newer     		    2560	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$12.dex100%  
-	    Newer     		    2560	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$13.dex100%  
-	    Newer     		    2108	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$14.dex100%  
-	    Newer     		    1984	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$15.dex100%  
-	    Newer     		    1636	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$16.dex100%  
-	    Newer     		    2036	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$17.dex100%  
-	    Newer     		    1920	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$18.dex100%  
-	    Newer     		    1548	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$19.dex100%  
-	    Newer     		    1628	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$2.dex100%  
-	    Newer     		    1548	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$20.dex100%  
-	    Newer     		    1548	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$21.dex100%  
-	    Newer     		    1600	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$22.dex100%  
-	    Newer     		    1604	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$23.dex100%  
-	    Newer     		    1600	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$24.dex100%  
-	    Newer     		    1600	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$25.dex100%  
-	    Newer     		    1552	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$26.dex100%  
-	    Newer     		    1552	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$27.dex100%  
-	    Newer     		    1552	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$28.dex100%  
-	    Newer     		    1552	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$29.dex100%  
-	    Newer     		    2120	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$3.dex100%  
-	    Newer     		    1552	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$30.dex100%  
-	    Newer     		    1604	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$31.dex100%  
-	    Newer     		    2840	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$32.dex100%  
-	    Newer     		    1992	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$33.dex100%  
-	    Newer     		    1988	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$34.dex100%  
-	    Newer     		    1988	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$35.dex100%  
-	    Newer     		    2000	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$36.dex100%  
-	    Newer     		    3632	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$37.dex100%  
-	    Newer     		    1484	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$38$1.dex100%  
-	    Newer     		    2024	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$38.dex100%  
-	    Newer     		    1480	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$39$1.dex100%  
-	    Newer     		    2052	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$39.dex100%  
-	    Newer     		    1180	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$4.dex100%  
-	    Newer     		    2936	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$40.dex100%  
-	    Newer     		    1516	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$41.dex100%  
-	    Newer     		    3228	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$42.dex100%  
-	    Newer     		    2052	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$43.dex100%  
-	    Newer     		    2052	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$44.dex100%  
-	    Newer     		    2052	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$45.dex100%  
-	    Newer     		    2056	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$46.dex100%  
-	    Newer     		    2056	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$47.dex100%  
-	    Newer     		    3116	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$48.dex100%  
-	    Newer     		    3120	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$49.dex100%  
-	    Newer     		    1476	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$5.dex100%  
-	    Newer     		    1772	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$50.dex100%  
-	    Newer     		    1776	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$51.dex100%  
-	    Newer     		    1776	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$52.dex100%  
-	    Newer     		    1776	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$53.dex100%  
-	    Newer     		    1772	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$54.dex100%  
-	    Newer     		    1776	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$55.dex100%  
-	    Newer     		    1772	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$56.dex100%  
-	    Newer     		    2156	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$57.dex100%  
-	    Newer     		    1872	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$58.dex100%  
-	    Newer     		    1596	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$59.dex100%  
-	    Newer     		    1692	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$6.dex100%  
-	    Newer     		    1600	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$60.dex100%  
-	    Newer     		    1600	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$61.dex100%  
-	    Newer     		    1600	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$62.dex100%  
-	    Newer     		    2052	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$63.dex100%  
-	    Newer     		    2184	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$64.dex100%  
-	    Newer     		    2184	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$65.dex100%  
-	    Newer     		    2052	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$66.dex100%  
-	    Newer     		    1768	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$67.dex100%  
-	    Newer     		    1812	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$68.dex100%  
-	    Newer     		    2452	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$69.dex100%  
-	    Newer     		    2408	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$7.dex100%  
-	    Newer     		    2924	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$70.dex100%  
-	    Newer     		    1676	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$71.dex100%  
-	    Newer     		    1476	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$72$1.dex100%  
-	    Newer     		    2312	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$72.dex100%  
-	    Newer     		    1680	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$73.dex100%  
-	    Newer     		    1860	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$74.dex100%  
-	    Newer     		    1992	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$75.dex100%  
-	    Newer     		    1564	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$76.dex100%  
-	    Newer     		    1564	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$77.dex100%  
-	    Newer     		    1768	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$78.dex100%  
-	    Newer     		    1856	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$79$1.dex100%  
-	    Newer     		    2044	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$79.dex100%  
-	    Newer     		    1864	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$8.dex100%  
-	    Newer     		    1984	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$80.dex100%  
-	    Newer     		    1748	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$81.dex100%  
-	    Newer     		    2260	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$82.dex100%  
-	    Newer     		    1148	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$83$1.dex100%  
-	    Newer     		    2228	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$83.dex100%  
-	    Newer     		    2128	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$84.dex100%  
-	    Newer     		    1864	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$85.dex100%  
-	    Newer     		    2144	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$86.dex100%  
-	    Newer     		    2148	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$87.dex100%  
-	    Newer     		    1948	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$88.dex100%  
-	    Newer     		    2936	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$89.dex100%  
-	    Newer     		    1864	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$9.dex100%  
-	    Newer     		    2148	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$90$1.dex100%  
-	    Newer     		    3444	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$90.dex100%  
-	    Newer     		    1400	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$91.dex100%  
-	    Newer     		    1388	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$92.dex100%  
-	    Newer     		    1396	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$93.dex100%  
-	    Newer     		    1388	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$94.dex100%  
-	    Newer     		    1388	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$95.dex100%  
-	    Newer     		    2004	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$96$1.dex100%  
-	    Newer     		    2256	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$96.dex100%  
-	    Newer     		    1388	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$97.dex100%  
-	    Newer     		    1652	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$98.dex100%  
-	    Newer     		    1496	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$99.dex100%  
-	    Newer     		    1484	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor$1.dex100%  
-	    Newer     		    1224	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor$10.dex100%  
-	    Newer     		    1160	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor$11.dex100%  
-	    Newer     		    1416	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor$2.dex100%  
-	    Newer     		    1788	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor$3.dex100%  
-	    Newer     		    1500	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor$4.dex100%  
-	    Newer     		    1436	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor$5.dex100%  
-	    Newer     		    1796	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor$6.dex100%  
-	    Newer     		    1316	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor$7.dex100%  
-	    Newer     		    1292	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor$8.dex100%  
-	    Newer     		    1240	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor$9.dex100%  
-	    Newer     		    5128	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler$PromptExecutor.dex100%  
-	    Newer     		   35716	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\PromptHandler.dex100%  
-	    Newer     		    1408	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\RebootHandler.dex100%  
-	    Newer     		   10464	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\Recurrence.dex100%  
-	    Newer     		    2044	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\RecyclerItemClickHandler$1.dex100%  
-	    Newer     		     896	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\RecyclerItemClickHandler$OnItemClickListener.dex100%  
-	    Newer     		     912	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\RecyclerItemClickHandler$OnItemLongClickListener.dex100%  
-	    Newer     		    4360	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\RecyclerItemClickHandler.dex100%  
-	    Newer     		     900	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\RecyclerItemClickListener$OnItemClickListener.dex100%  
-	    Newer     		     916	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\RecyclerItemClickListener$OnItemLongClickListener.dex100%  
-	    Newer     		    2496	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\RecyclerItemClickListener.dex100%  
-	    Newer     		    5480	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\RecyclerWrapper.dex100%  
-	    Newer     		    1028	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\RECYCLER_TEMPLATE$TEMPLATE_HOLDER.dex100%  
-	    Newer     		    2812	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\RECYCLER_TEMPLATE.dex100%  
-	    Newer     		    3592	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\Reminder.dex100%  
-	    Newer     		    1424	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ReminderHandler$1.dex100%  
-	    Newer     		    1376	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ReminderHandler$2.dex100%  
-	    Newer     		    1384	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ReminderHandler$3.dex100%  
-	    Newer     		    1436	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ReminderHandler$4.dex100%  
-	    Newer     		    1332	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ReminderHandler$5.dex100%  
-	    Newer     		    1668	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ReminderHandler$ReminderBundle.dex100%  
-	    Newer     		    6292	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ReminderHandler.dex100%  
-	    Newer     		     808	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SearchInterface.dex100%  
-	    Newer     		     912	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SERIALIZABLE_TEMPLATE.dex100%  
-	    Newer     		    4152	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\Settings.dex100%  
-	    Newer     		    1004	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$1.dex100%  
-	    Newer     		    1276	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$10.dex100%  
-	    Newer     		    1516	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$11.dex100%  
-	    Newer     		    1520	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$12.dex100%  
-	    Newer     		    1520	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$13.dex100%  
-	    Newer     		    1516	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$14.dex100%  
-	    Newer     		    1592	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$15$1.dex100%  
-	    Newer     		    1912	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$15.dex100%  
-	    Newer     		    1592	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$16$1.dex100%  
-	    Newer     		    1912	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$16.dex100%  
-	    Newer     		    1592	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$17$1.dex100%  
-	    Newer     		    1912	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$17.dex100%  
-	    Newer     		    1624	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$18.dex100%  
-	    Newer     		    1624	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$19.dex100%  
-	    Newer     		    1624	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$2.dex100%  
-	    Newer     		    2248	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$20$1.dex100%  
-	    Newer     		    1452	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$20.dex100%  
-	    Newer     		    1336	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$21.dex100%  
-	    Newer     		    1588	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$3$1.dex100%  
-	    Newer     		    1908	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$3.dex100%  
-	    Newer     		    1520	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$4.dex100%  
-	    Newer     		    1588	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$5$1.dex100%  
-	    Newer     		    1908	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$5.dex100%  
-	    Newer     		    1660	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$6.dex100%  
-	    Newer     		    2596	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$7$1.dex100%  
-	    Newer     		    2348	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$7.dex100%  
-	    Newer     		    1516	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$8.dex100%  
-	    Newer     		    1588	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$9$1.dex100%  
-	    Newer     		    1908	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment$9.dex100%  
-	    Newer     		    9444	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsFragment.dex100%  
-	    Newer     		    1332	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsHandler$1.dex100%  
-	    Newer     		    5952	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SettingsHandler.dex100%  
-	    Newer     		    7000	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\SharedHandler.dex100%  
-	    Newer     		    1416	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\StateBundle.dex100%  
-	    Newer     		    2168	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\StateController$1.dex100%  
-	    Newer     		    2164	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\StateController$2.dex100%  
-	    Newer     		    2164	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\StateController$3.dex100%  
-	    Newer     		    2176	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\StateController$4.dex100%  
-	    Newer     		    2160	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\StateController$5.dex100%  
-	    Newer     		   14232	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\StateController.dex100%  
-	    Newer     		    4104	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\StringU.dex100%  
-	    Newer     		     788	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TEMPLATE.dex100%  
-	    Newer     		    1256	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TextInputHandler$1$1.dex100%  
-	    Newer     		    2012	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TextInputHandler$1.dex100%  
-	    Newer     		    1608	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TextInputHandler$2.dex100%  
-	    Newer     		    1756	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TextInputHandler$3.dex100%  
-	    Newer     		    2036	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TextInputHandler.dex100%  
-	    Newer     		     584	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TextInputInterface.dex100%  
-	    Newer     		    5896	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TimeInterval.dex100%  
-	    Newer     		    5808	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TimeUtilities.dex100%  
-	    Newer     		    1856	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TTSService$1.dex100%  
-	    Newer     		    2788	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TTSService.dex100%  
-	    Newer     		    1968	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TypeRecyclerAdapter$1.dex100%  
-	    Newer     		    1424	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TypeRecyclerAdapter$holder.dex100%  
-	    Newer     		    3404	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\TypeRecyclerAdapter.dex100%  
-	    Newer     		    1376	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\UpdateHandler$1.dex100%  
-	    Newer     		    1104	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\UpdateHandler$2.dex100%  
-	    Newer     		    1100	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\UpdateHandler$3.dex100%  
-	    Newer     		    1208	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\UpdateHandler$4$1.dex100%  
-	    Newer     		    2056	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\UpdateHandler$4$2.dex100%  
-	    Newer     		    2240	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\UpdateHandler$4.dex100%  
-	    Newer     		    1588	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\UpdateHandler$5.dex100%  
-	    Newer     		    3120	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\UpdateHandler$6.dex100%  
-	    Newer     		    9444	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\UpdateHandler.dex100%  
-	    Newer     		    9036	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\Utilities.dex100%  
-	    Newer     		    1156	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler$1.dex100%  
-	    Newer     		    1568	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler$10.dex100%  
-	    Newer     		    1568	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler$11.dex100%  
-	    Newer     		    1156	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler$2.dex100%  
-	    Newer     		    1008	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler$3.dex100%  
-	    Newer     		    1436	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler$4.dex100%  
-	    Newer     		    1660	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler$5.dex100%  
-	    Newer     		    1836	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler$6.dex100%  
-	    Newer     		    1164	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler$7.dex100%  
-	    Newer     		    2588	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler$8.dex100%  
-	    Newer     		    2676	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler$9.dex100%  
-	    Newer     		   10944	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewHandler.dex100%  
-	    Newer     		    1792	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewUtilities$1.dex100%  
-	    Newer     		    1780	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewUtilities$2.dex100%  
-	    Newer     		    3936	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\ViewUtilities.dex100%  
-	    Newer     		    1096	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\WaitHandler$1.dex100%  
-	    Newer     		    1184	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\WaitHandler$2.dex100%  
-	    Newer     		    5712	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\WaitHandler.dex100%  
-	    Newer     		     712	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\WaitInterface.dex100%  
-	    Newer     		     956	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\WriterConfig$1.dex100%  
-	    Newer     		     972	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\WriterConfig.dex100%  
-	    Newer     		    1764	J:\android\Planner\app\build\intermediates\project_dex_archive\debug\out\com\easyhks\planner\WritingBuffer.dex100%  
-	    Newer     		       0	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\query\client-agp\cache-v2100%  
-	    Newer     		       0	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\query\client-agp\cmakeFiles-v1100%  
-	    Newer     		       0	J:\android\Planner\app\.cxx\Debug\201j3l6l\x86_64\.cmake\api\v1\query\client-agp\codemodel-v2100%  
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2647         0         0         0
-   Files :     10198       999      9200         0         0         6
-   Bytes :  395.00 m   25.30 m  369.69 m         0         0    60.7 k
-   Times :   0:00:07   0:00:01                       0:00:00   0:00:00
-
-
-   Speed :           19,938,071 Bytes/sec.
-   Speed :            1,140.866 MegaBytes/min.
-   Ended : Monday, March 25, 2024 5:11:12 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:16:53 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10190         0     10190         0         0         1
-   Bytes :  394.99 m         0  394.99 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:16:53 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:22:26 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10193         0     10193         0         0         0
-   Bytes :  394.97 m         0  394.98 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:22:27 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:28:23 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10184         0     10184         0         0         1
-   Bytes :  394.98 m         0  394.98 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:28:23 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:34:18 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10190         0     10192         0         0         1
-   Bytes :  394.97 m         0  394.99 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:34:19 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:39:54 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10187         0     10189         0         0         0
-   Bytes :  394.97 m         0  394.99 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:39:54 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:45:51 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10189         0     10190         0         0         1
-   Bytes :  393.45 m         0  394.95 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:45:51 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:51:48 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10198         0     10197         0         0         1
-   Bytes :  395.00 m         0  395.00 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:51:48 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:57:23 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10197         0     10196         0         0         0
-   Bytes :  395.00 m         0  394.99 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:57:24 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:03:21 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10198         0     10197         0         0         1
-   Bytes :  395.00 m         0  394.91 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:03:21 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:09:18 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10192         0     10193         0         0         1
-   Bytes :  394.85 m         0  394.85 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:09:18 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:14:53 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10179         0     10180         0         0         0
-   Bytes :  394.83 m         0  394.88 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:14:53 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:20:52 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10190         0     10189         0         0         1
-   Bytes :  394.98 m         0  394.98 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:20:52 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:26:50 AM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2647         0         0         0
-   Files :     10188         0     10185         0         0         1
-   Bytes :  394.98 m         0  394.97 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:26:51 AM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:26:07 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10195         0     10196         0         0         0
-   Bytes :  394.98 m         0  395.00 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:26:08 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:32:06 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10187         0     10194         0         0         1
-   Bytes :  394.97 m         0  394.99 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:32:07 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:38:01 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10188         0     10188         0         0         1
-   Bytes :  394.93 m         0  393.32 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:38:01 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:43:35 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10195         0     10192         0         0         0
-   Bytes :  394.98 m         0  394.97 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:43:36 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:49:49 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10193         0     10191         0         0         1
-   Bytes :  394.99 m         0  394.98 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:49:49 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 5:55:45 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2647         0         0         0
-   Files :     10197         0     10196         0         0         1
-   Bytes :  394.99 m         0  394.61 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 5:55:45 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:01:20 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10189         0     10186         0         0         0
-   Bytes :  394.97 m         0  394.77 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:01:20 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:07:15 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10194         0     10193         0         0         1
-   Bytes :  394.98 m         0  394.99 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:07:15 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:13:10 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10190         0     10191         0         0         1
-   Bytes :  394.75 m         0  394.87 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:13:10 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:18:45 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10184         0     10182         0         0         0
-   Bytes :  394.97 m         0  394.96 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:18:45 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:24:39 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10182         0     10183         0         0         1
-   Bytes :  394.93 m         0  394.92 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:24:40 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:30:35 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10195         0     10197         0         0         1
-   Bytes :  394.96 m         0  395.00 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:30:35 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:36:10 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10196         0     10198         0         0         0
-   Bytes :  395.00 m         0  394.99 m         0         0         0
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:36:10 PM
-
-
--------------------------------------------------------------------------------
-   ROBOCOPY     ::     Robust File Copy for Windows                              
--------------------------------------------------------------------------------
-
-  Started : Monday, March 25, 2024 6:42:06 PM
-   Source : J:\android\
-     Dest : E:\realtime_backups\android\
-
-    Files : *.*
-	    
-  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /MIR /MT:8 /R:1000000 /W:30 
-
-------------------------------------------------------------------------------
-
-	  *EXTRA File 		       9	E:\realtime_backups\android\APKs\planner\12.31.2023\version.txt
-
-------------------------------------------------------------------------------
-
-               Total    Copied   Skipped  Mismatch    FAILED    Extras
-    Dirs :      2648      2648      2648         0         0         0
-   Files :     10199         0     10193         0         0         1
-   Bytes :  395.00 m         0  394.97 m         0         0         9
-   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
-   Ended : Monday, March 25, 2024 6:42:06 PM
-

@@ -399,7 +399,7 @@ function Invoke-Query {
             }
         } else {
             $null = importhks nav
-            $res = $set | Foreach-Object {
+            Format-ChildItem $($set | Foreach-Object {
                 $name_ = $_.name
                 $isDir_ = $_.PSisDirectory
                 if(!$isDir_ -and ($null -ne $content)) { $content_ = Get-Content $_.fullname -Force -ErrorAction SilentlyContinue }
@@ -419,8 +419,7 @@ function Invoke-Query {
                         return $_ 
                     }
                 }
-            }
-            Format-ChildItem $res
+            })
             return
         }
     }
@@ -692,44 +691,39 @@ function installed {
         }
     }
 
+    $i = 5
     foreach ($d in $drives) {
         if ($global:prolix) { Write-Host "-------------------`n  > Querying $d - Shallow Sweeep" -ForegroundColor DarkCyan }
-        for ($i = 1; $i -lt 6; $i++) {
-            if ($global:prolix) { Write-Host "`n    < Depth $i >" -ForegroundColor DarkGray }
-            $res = hquery "$d" -depth $i -ErrorAction SilentlyContinue -filter $filter | Where-Object { ($exact -and ($_.name -match "^$app\.[a-zA-Z]+$") ) -or ( !$exact -and ($_.name -match $app)) } | Select-Object -First 1
+        if ($global:prolix) { Write-Host "`n    < Depth $i >" -ForegroundColor DarkGray }
+        $res = hquery "$d" -depth $i -ErrorAction SilentlyContinue -filter $filter | Where-Object { ($exact -and ($_.name -match "^$app\.[a-zA-Z]+$") ) -or ( !$exact -and ($_.name -match $app)) } | Select-Object -First 1
+        if ($null -ne $res) {
+            return $res
+        }
+    }
+
+    foreach ($d in $drives) {
+        if ($global:prolix) { Write-Host "-------------------`n  > Querying $d - Mid Focused sweep" -ForegroundColor DarkCyan }
+        foreach ($l in $standardLocations) {
+            if (!(Test-Path "$d$l") ) {
+                Write-Host "`n    < $l does not exist in $d >" -ForegroundColor DarkYellow
+                continue
+            }
+            if ($global:prolix) { Write-Host "`n    < Depth $i : Searching $d$l >" -ForegroundColor DarkGray }
+            $res = hquery "$d$l" -depth $i -ErrorAction SilentlyContinue -filter $filter | Where-Object { ($exact -and ($_.name -match "^$app\.[a-zA-Z]+$") ) -or ( !$exact -and ($_.name -match $app)) } | Select-Object -First 1
             if ($null -ne $res) {
                 return $res
             }
         }
     }
 
-
-    foreach ($d in $drives) {
-        if ($global:prolix) { Write-Host "-------------------`n  > Querying $d - Mid Focused sweep" -ForegroundColor DarkCyan }
-        for ($i = 6; $i -lt 10; $i++) {
-            foreach ($l in $standardLocations) {
-                if (!(Test-Path "$d$l") ) {
-                    Write-Host "`n    < $l does not exist in $d >" -ForegroundColor DarkYellow
-                    continue
-                }
-                if ($global:prolix) { Write-Host "`n    < Depth $i : Searching $d$l >" -ForegroundColor DarkGray }
-                $res = hquery "$d$l" -depth $i -ErrorAction SilentlyContinue -filter $filter | Where-Object { ($exact -and ($_.name -match "^$app\.[a-zA-Z]+$") ) -or ( !$exact -and ($_.name -match $app)) } | Select-Object -First 1
-                if ($null -ne $res) {
-                    return $res
-                }
-            }
-        }
-    }
-
     if ($deep) {
+        $i = 20
         foreach ($d in $drives) {
             if ($global:prolix) { Write-Host "-------------------`n  > Querying $d - Deep Unfocused sweep" -ForegroundColor DarkCyan }
-            for ($i = 6; $i -lt 20; $i++) {
                 if ($global:prolix) { Write-Host "`n    < Depth $i >" -ForegroundColor DarkGray }
-                $res = hquery "$d" -depth $i -ErrorAction SilentlyContinue -filter $filter | Where-Object { ($exact -and ($_.name -match "^$app\.[a-zA-Z]+$") ) -or ( !$exact -and ($_.name -match $app)) } | Select-Object -First 1
-                if ($null -ne $res) {
-                    return $res
-                }
+            $res = hquery "$d" -depth $i -ErrorAction SilentlyContinue -filter $filter | Where-Object { ($exact -and ($_.name -match "^$app\.[a-zA-Z]+$") ) -or ( !$exact -and ($_.name -match $app)) } | Select-Object -First 1
+            if ($null -ne $res) {
+                return $res
             }
         }
     }
@@ -784,11 +778,39 @@ function installedBulk {
         }
     }
 
+    $i = 5
     foreach ($d in $drives) {
         if ($global:prolix) { Write-Host "-------------------`n  > Querying $d - Shallow Sweeep" -ForegroundColor DarkCyan }
-        for ($i = 1; $i -lt 6; $i++) {
-            if ($global:prolix) { Write-Host "`n    < Depth $i >" -ForegroundColor DarkGray }
-            $res = hquery "$d" -depth $i -ErrorAction SilentlyContinue -filter $filter | ForEach-Object {
+        if ($global:prolix) { Write-Host "`n    < Depth $i >" -ForegroundColor DarkGray }
+        $res = hquery "$d" -depth $i -ErrorAction SilentlyContinue -filter $filter | ForEach-Object {
+            if ($exact) {
+                foreach ($a in $app) {
+                    if ($_.name -match "^$a\.[a-zA-Z]+$") {
+                        return $_
+                    }
+                }
+            }
+            else {
+                foreach ($a in $app) {
+                    if ($_.name -match $app) {
+                        return $_
+                    }
+                }
+            } } | Select-Object -First 1
+        if ($null -ne $res) {
+            return $res
+        }
+    }
+
+    foreach ($d in $drives) {
+        if ($global:prolix) { Write-Host "-------------------`n  > Querying $d - Mid Focused sweep" -ForegroundColor DarkCyan }
+        foreach ($l in $standardLocations) {
+            if (!(Test-Path "$d$l") ) {
+                Write-Host "`n    < $l does not exist in $d >" -ForegroundColor DarkYellow
+                continue
+            }
+            if ($global:prolix) { Write-Host "`n    < Depth $i : Searching $d$l >" -ForegroundColor DarkGray }
+            $res = hquery "$d$l" -depth $i -ErrorAction SilentlyContinue -filter $filter | ForEach-Object {
                 if ($exact) {
                     foreach ($a in $app) {
                         if ($_.name -match "^$a\.[a-zA-Z]+$") {
@@ -809,61 +831,28 @@ function installedBulk {
         }
     }
 
-
-    foreach ($d in $drives) {
-        if ($global:prolix) { Write-Host "-------------------`n  > Querying $d - Mid Focused sweep" -ForegroundColor DarkCyan }
-        for ($i = 6; $i -lt 10; $i++) {
-            foreach ($l in $standardLocations) {
-                if (!(Test-Path "$d$l") ) {
-                    Write-Host "`n    < $l does not exist in $d >" -ForegroundColor DarkYellow
-                    continue
-                }
-                if ($global:prolix) { Write-Host "`n    < Depth $i : Searching $d$l >" -ForegroundColor DarkGray }
-                $res = hquery "$d$l" -depth $i -ErrorAction SilentlyContinue -filter $filter | ForEach-Object {
-                    if ($exact) {
-                        foreach ($a in $app) {
-                            if ($_.name -match "^$a\.[a-zA-Z]+$") {
-                                return $_
-                            }
-                        }
-                    }
-                    else {
-                        foreach ($a in $app) {
-                            if ($_.name -match $app) {
-                                return $_
-                            }
-                        }
-                    } } | Select-Object -First 1
-                if ($null -ne $res) {
-                    return $res
-                }
-            }
-        }
-    }
-
+    $i = 20
     if ($deep) {
         foreach ($d in $drives) {
             if ($global:prolix) { Write-Host "-------------------`n  > Querying $d - Deep Unfocused sweep" -ForegroundColor DarkCyan }
-            for ($i = 6; $i -lt 20; $i++) {
-                if ($global:prolix) { Write-Host "`n    < Depth $i >" -ForegroundColor DarkGray }
-                $res = hquery "$d" -depth $i -ErrorAction SilentlyContinue -filter $filter | ForEach-Object {
-                    if ($exact) {
-                        foreach ($a in $app) {
-                            if ($_.name -match "^$a\.[a-zA-Z]+$") {
-                                return $_
-                            }
+            if ($global:prolix) { Write-Host "`n    < Depth $i >" -ForegroundColor DarkGray }
+            $res = hquery "$d" -depth $i -ErrorAction SilentlyContinue -filter $filter | ForEach-Object {
+                if ($exact) {
+                    foreach ($a in $app) {
+                        if ($_.name -match "^$a\.[a-zA-Z]+$") {
+                            return $_
                         }
                     }
-                    else {
-                        foreach ($a in $app) {
-                            if ($_.name -match $app) {
-                                return $_
-                            }
-                        }
-                    } } | Select-Object -First 1
-                if ($null -ne $res) {
-                    return $res
                 }
+                else {
+                    foreach ($a in $app) {
+                        if ($_.name -match $app) {
+                            return $_
+                        }
+                    }
+                } } | Select-Object -First 1
+            if ($null -ne $res) {
+                return $res
             }
         }
     }
