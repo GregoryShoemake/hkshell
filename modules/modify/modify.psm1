@@ -291,13 +291,19 @@ function New-Tunnel ($targetDirectory){
     }
 }
 
-function m_copy ($path, $destination) {
+function m_copy ($path, $destination, [switch] $mirror, [switch] $passthru) {
     try {
 	$i = Get-Item $path -Force -ErrorAction Stop
 	if($i.psIsContainer) {
-	    return Robocopy $i.FullName $destination /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
+	    if($mirror) {
+		Robocopy $i.FullName $destination /MT /MIR /NFL /NDL /NJH /NJS /NC /NS > NUL 
+	    } else {
+		Robocopy $i.FullName $destination /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
+	    }
+	    if($passthru) { return $(Get-Item $destination -Force) }
 	} else {
-	    return Copy-Item $i.FullName $destination -Force
+	    Robocopy $(Split-Path $i.FullName) $destination $i.name /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
+	    if($passthru) { return $(Get-Item "$destination\$($i.name)" -Force) }
 	}
     } catch {
 	Write-Error $_

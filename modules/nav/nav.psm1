@@ -572,6 +572,12 @@ function Invoke-Go {
     )
     n_debug_function "Invoke-Go"
 
+    if($null -ne (Get-Module persist)) {
+	if(Invoke-Persist clearHostOnInvokeGo?) {
+	    Clear-Host
+	}
+    }
+
     if ($null -ne $Until) {
 
         $res = Get-ChildItem -Force -Recurse $(Get-Location) | Where-Object { $_.psiscontainer } | Where-Object { $_.name -eq $Until }

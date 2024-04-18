@@ -77,11 +77,11 @@ function n_match {
     if ($getMatch) { return $null }
     return $false
 }
-function Test-Ping ($target, $wait = 200) {
+function Test-Ping ($target="google.com", $wait = 1000) {
     return [boolean]((ping -n 1 -w $wait $target) -match "Received = 1")
 }
 New-Alias -Name boing -Value Test-Ping -Scope Global -Force
-function Test-Request ($target, $wait = 200) {
+function Test-Request ($target = "google.com", $wait = 1000) {
     return (Invoke-WebRequest $target -TimeoutSec ($wait / 1000)).statuscode -eq 200
 }
 New-Alias -Name bocurl -Value Test-Request -Scope Global -Force

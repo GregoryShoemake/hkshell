@@ -645,7 +645,7 @@ $global:p_error_action = "Continue"
 #               C O N S T A N T S                 #
 <#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#>
 
-$global:SCOPES_PATH = "$global:_persist_module_location\persist.scopes.conf"
+$global:SCOPES_PATH = "$userDir\persist.scopes.conf"
 $global:INSTANCE_PATH = "$global:_persist_module_location\persist.cfg"
 $global:INSTANCE_SCOPE = "INSTANCE::$global:INSTANCE_PATH"
 
@@ -913,6 +913,19 @@ function Invoke-PushWrapper {
     $res = Invoke-Expression $a_
     Invoke-Push
     return $res
+}
+
+function Invoke-PopScope {
+	Invoke-Persist -> $Script:S_BK
+}
+
+function Invoke-PushScope ([string]$TemporaryScope) {
+	if($scope -eq "") {
+		Write-Host "Invalid scope: $TemporaryScope" -ForegroundColor Red
+		return
+	}
+	$Script:S_BK = p_match $Scope "(.+?)::" -GetMatch -Index 1
+	Invoke-Persist -> $TemporaryScope
 }
 
 function Invoke-Push {

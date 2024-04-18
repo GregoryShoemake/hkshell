@@ -923,27 +923,26 @@ function get-pastcommand {
         [string]
         $search,
         [Parameter()]
-        $setDepth
+        $depth
     )
-    if ($null -ne $setDepth) {
-        if ($setDepth -match "def") {
+    if ($null -ne $depth) {
+        if ($depth -match "def") {
             $global:commandSearchDepth = 100
         }
         else {
-            $global:commandSearchDepth = $setDepth
+            $global:commandSearchDepth = $depth
         }
     }
     $commands = Get-Content (Get-PSReadlineOption).HistorySavePath
+    $len = $commands.length
     if ($last) {
         return ati $commands -last -offset 2
     }
-    elseif (!(q_nullemptystr $search)) {
-        if ($null -eq $global:commandSearchDepth) { $global:commandSearchDepth = 100 }
-        $commands = q_truncate $commands -fromStart ($commands.Length - $global:commandSearchDepth)
-        return $commands | Select-String $search
-    }
     elseif ($i -eq -1) {
-        return $commands
+        if ($null -eq $global:commandSearchDepth) { $global:commandSearchDepth = 100 }
+	#$commands = $command[($len - $global:commandSearchDepth)..($len - 1)]
+        $commands = q_truncate $commands -fromStart ($len - $global:commandSearchDepth)
+        return $commands | Select-String $search
     }
     else {
         return $commands[$i]
