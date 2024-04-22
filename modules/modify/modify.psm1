@@ -6,255 +6,13 @@ if ($null -eq $global:_modify_module_location ) {
         $global:_modify_module_location = Split-Path -Parent $MyInvocation.MyCommand.Definition
     }
 }
-function mod_debug ($message, $messageColor, $meta) {
-    if (!$global:_debug_) { return }
-    if ($null -eq $messageColor) { $messageColor = "DarkYellow" }
-    Write-Host "    \\$message" -ForegroundColor $messageColor
-    if ($null -ne $meta) {
-        write-Host -NoNewline " $meta " -ForegroundColor Yellow
-    }
-}
-function mod_debug_function ($function, $messageColor, $meta) {
-    if (!$global:_debug_) { return }
-    if ($null -eq $messageColor) { $messageColor = "Yellow" }
-    Write-Host ">_ $function" -ForegroundColor $messageColor
-    if ($null -ne $meta) {
-        write-Host -NoNewline " $meta " -ForegroundColor Yellow
-    }
-}
-function mod_debug_return {
-    if (!$global:_debug_) { return }
-    Write-Host "#return# $($args -join " ")" -ForegroundColor Black -BackgroundColor DarkGray
-    return
-}
-
-function mod_prolix ($message, $messageColor) {
-    if (!$global:prolix) { return }
-    if ($null -eq $messageColor) { $messageColor = "Cyan" }
-    Write-Host $message -ForegroundColor $messageColor
-}
-function mod_choice ($prompt) {
-    while((Read-Host $prompt) -notmatch "[Yy]([EeSs])?|[Nn]([Oo])?") {
-            $prompt = ""
-            Write-Host "Please input a [Y]es or [N]o answer" -ForegroundColor yellow
-        }
-    if($MATCHES[0] -match "[Yy]"){ return $true }
-    return $false
-}
-function mod_int_equal {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        [int]
-        $int,
-        # single int or array of ints to compare
-        [Parameter()]
-        $ints
-    )
-    if ($null -eq $ints) { return $false }
-    foreach ($i in $ints) {
-        if ($int -eq $i) { return $true }
-    }
-    return $false
-}
-function mod_truncate {
-    [CmdletBinding()]
-    param (
-        # Array object passed to truncate
-        [Parameter(Mandatory = $false, Position = 0)]
-        [System.Array]
-        $array,
-        [Parameter()]
-        [int]
-        $fromStart = 0,
-        [Parameter()]
-        [int]
-        $fromEnd = 0,
-        [int[]]
-        $indexAndDepth
-    )
-    mod_debug_function "_truncate"
-    mod_debug "array:
-$(Out-String -inputObject $array)//"
-
-    $l = $array.Length
-    if ($fromStart -gt 0) {
-        $l = $l - $fromStart
-    }
-    if ($fromEnd -gt 0) {
-        $l = $l - $fromEnd
-    }
-    elseif(($fromStart -eq 0) -and ($null -eq $indexAndDepth)) {
-        $fromEnd = 1
-    }
-    $fromEnd = $array.Length - $fromEnd
-    if (($null -ne $indexAndDepth) -and ($indexAndDepth[1] -gt 0)) {
-        $l = $l - $indexAndDepth[1]
-    }
-    if ($l -le 0) {
-        mod_debug_return empty array
-        return @()
-    }
-    $res = @()
-    $fromStart--
-    if ($null -ne $indexAndDepth) {
-        $middleStart = $indexAndDepth[0]
-        $middleEnd = $indexAndDepth[0] + $indexAndDepth[1] - 1
-        $middle = $middleStart..$middleEnd
-    }
-    for ($i = 0; $i -lt $array.Length; $i ++) {
-        if (($i -gt $fromStart) -and !(mod_int_equal $i $middle ) -and ($i -lt $fromEnd)) {
-            $res += $array[$i]
-        }
-    }
-    mod_debug_return $(Out-String -inputObject $res)
-    return $res
-}
-function mod_search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$untilSwitch) {
-    mod_debug_function "mod_search_args"    
-    $c_ = $a_.Count
-    mod_debug "args:$a_ | len:$c_"
-    mod_debug "param:$param"
-    mod_debug "switch:$switch"
-    if($switch) { 
-        for ($i = 0; $i -lt $c_; $i++) {
-            $a = $a_[$i]
-            mod_debug "a[$i]:$a"
-            if ($a -ne $param) { continue }
-            if($null -eq $res) { 
-                $res = $true 
-                $a_ = mod_truncate $a_ -indexAndDepth @($i,1)
-            }
-            else {
-                throw [System.ArgumentException] "Duplicate argument passed: $param"
-            }
-        }
-        $res = $res -and $true
-        mod_debug_return "@{ RES=$res ; ARGS=$a_ }"
-        return @{
-            RES = $res
-            ARGS = $a_
-        }
-    } else {
-        for ($i = 0; $i -lt $a_.length; $i++) {
-            $a = $a_[$i]
-            mod_debug "a[$i]:$a"
-            if ($a -ne $param) { continue }
-            if(($null -eq $res) -and ($i -lt ($c_ - 1))) {
-                if($all) {
-                    $ibak = $i
-                    $res = @()
-                    $remove = 1
-                    for ($i = $i + 1; $i -lt ($c_); $i++) {
-                        if($untilSwitch -and ($a_[$i] -match "^-")) {
-                            mod_debug "[-untilSwitch] next switch found"
-                            break
-                        }
-                        $res += $a_[$i]
-                        $remove++
-                    }
-                    $res = $res -join " "
-                    $a_ = mod_truncate $a_ -indexAndDepth @($ibak, $remove)
-                } else {
-                    $res = $a_[$i + 1]
-                    if($res -match "^-") { 
-                        $res = $null 
-                        mod_debug "switch argument expected, not found" Red
-                    } else {
-                        $a_ = mod_truncate $a_ -indexAndDepth @($i,2)
-                    }
-                }
-            }
-            elseif ($i -ge ($c_ - 1)) {
-                 throw [System.ArgumentOutOfRangeException] "Argument value at position $($i + 1) out of $c_ does not exist for param $param"
-            }
-            elseif ($null -ne $res) {
-                throw [System.ArgumentException] "Duplicate argument passed: $param"
-            }
-        }
-        mod_debug_return "@{ RES=$res ; ARGS=$a_ }"
-        return @{
-            RES = $res
-            ARGS = $a_
-        }
-    }
-}
-function mod_default ($variable, $value) {
-    mod_debug_function "e_default"
-    if ($null -eq $variable) { 
-        mod_debug_return variable is null
-        return $value 
-    }
-    switch ($variable.GetType().name) {
-        String { 
-            if($variable -eq "") {
-                mod_debug_return
-                return $value
-            } else {
-                mod_debug_return
-                return $variable
-            }
-        }
-    }
-}
-function mod_match {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false, Position = 0)]
-        $string,
-        [Parameter(Mandatory = $false, Position = 1)]
-        $regex,
-        [Parameter()]
-        [switch]
-        $getMatch = $false,
-        [Parameter()]
-        $logic = "OR"
-    )
-    mod_debug_function "mod_match"
-    if ($null -eq $string) {
-        mod_debug_return string is null
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if ($null -eq $regex) {
-        mod_debug_return regex is null
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if (($string -is [System.Array])) {
-        $string = $string -join "`n"
-    }
-    if ($regex -is [System.Array]) {
-        foreach ($r in $regex) {
-            $f = p_match $string $r
-            if (($logic -eq "OR") -and $f) { return $true }
-            if (($logic -eq "AND") -and !$f) { return $false }
-            if (($logic -eq "NOT") -and $f) { return $false }
-        }
-        mod_debug_return
-        return ($logic -eq "AND") -or ($logic -eq "NOT")
-    }
-    $found = $string -match $regex
-    if ($found) {
-        if ($getMatch) {
-            mod_debug_return
-            return $Matches[0]
-        }
-        mod_debug_return
-        return $logic -ne "NOT"
-    }
-    mod_debug_return
-    if ($logic -eq "NOT") { return $true }
-    if ($getMatch) { return $null }
-    return $false
-}
 
 $null = importhks nav
 
 function New-Symlink ($RealTarget, [string]$NewSymPath){
-    mod_debug_function "New-Symlink"
-    mod_debug "realTarget:$RealTarget"
-    mod_debug "newSymPath:$NewSymPath"
+    ___start "New-Symlink"
+    ___debug "realTarget:$RealTarget"
+    ___debug "newSymPath:$NewSymPath"
     $RealTarget = Get-Path $RealTarget
     if($NewSymPath -eq "") {
         $name = Get-Item $RealTarget | Select-Object -ExpandProperty Name
@@ -262,16 +20,18 @@ function New-Symlink ($RealTarget, [string]$NewSymPath){
     }
     if($RealTarget -eq $NewSymPath) {
         Write-Host "The real target:$RealTarget `nexists at the path provided:$NewSymPath" -ForegroundColor Yellow
-        mod_debug_return
-        return
+        return ___return
     }
     New-Item -ItemType SymbolicLink -Path $NewSymPath -Value $RealTarget -Force
+    ___end
 }
 
 function New-Tunnel ($targetDirectory){
+    ___start New-Tunnel
     if($targetDirectory -is [System.IO.DirectoryInfo]){
         $targetDirectory = $targetDirectory.FullName
     }
+    ___debug "targetDirectory:$targetDirectory"
     if($targetDirectory -is [String]) {
         try {
             $current = Get-Item "$pwd" -ErrorAction Stop
@@ -282,16 +42,18 @@ function New-Tunnel ($targetDirectory){
             New-Item -ItemType SymbolicLink -Path $b -Value $current.FullName -Force -ErrorAction Stop
         }
         catch {
-            Write-Host "!_Failed to create tunnel_____!`n`n$_`n" -ForegroundColor Red
-            return
+            Write-Host "!_Failed to create tunnelmod_modmod_!`n`n$_`n" -ForegroundColor Red
+            return ___return
         }
     } else {
-        Write-Host "!_target_directory_type_: $($targetDirectory.GetType) :_is_invalid_____!`n`n$_`n" -ForegroundColor Red
-        return
+        Write-Host "!_target_directory_type_: $($targetDirectory.GetType) :_is_invalidmod_modmod_!`n`n$_`n" -ForegroundColor Red
+        return ___return
     }
+    ___end
 }
 
 function m_copy ($path, $destination, [switch] $mirror, [switch] $passthru) {
+    ___start m_copy
     try {
 	$i = Get-Item $path -Force -ErrorAction Stop
 	if($i.psIsContainer) {
@@ -300,40 +62,100 @@ function m_copy ($path, $destination, [switch] $mirror, [switch] $passthru) {
 	    } else {
 		Robocopy $i.FullName $destination /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
 	    }
-	    if($passthru) { return $(Get-Item $destination -Force) }
+	    if($passthru) { return ___return $(Get-Item $destination -Force) }
 	} else {
 	    Robocopy $(Split-Path $i.FullName) $destination $i.name /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
-	    if($passthru) { return $(Get-Item "$destination\$($i.name)" -Force) }
+	    if($passthru) { return ___return $(Get-Item "$destination\$($i.name)" -Force) }
 	}
     } catch {
 	Write-Error $_
     }
+    ___end
 }
 
 function Invoke-GetItem ($item, [switch]$all) {
+    ___start Invoke-GetItem
     if($null -eq $global:clip) { $global:clip = @() }
     if($all){
-        return Get-ChildItem "$PWD" | ForEach-Object {
+        return ___return $(Get-ChildItem "$PWD" | ForEach-Object {
             Invoke-GetItem $_.FullName
-        }
+        })
     }
     if($item -is [System.Array]) {
-        return $item | ForEach-Object {
+        return ___return $($item | ForEach-Object {
             Invoke-GetItem $_
-        }
+        })
     }
     $global:clip += Get-Path $item
     $null = $global:clip ## To remove debug message
+    ___end
 }
 
+function Invoke-Rename ($from,[string]$to) {
+	___start Invoke-Rename
+	if(__is $from @("System.IO.FileInfo","System.IO.DirectoryInfo")) {
+		$from = $from.FullName
+	}
+	if($from -isnot [string]) {
+	    if($from -is [int]) { $from = "$from" }
+	    else {
+		Write-Host "`n! Invalid type of $('$from') variable: $($from.GetType()) !`n" -ForegroundColor Red
+		return ___return
+	    }
+	}
+
+	[string]$from_STRING = $from
+
+	if($from_STRING -match "^[0-9]+$") {
+		$from_STRING = Get-Path $from_STRING
+	}
+	elseif($from_STRING -notmatch "\.[a-zA-Z0-9]+") {
+		[string]$from_PARENT = Split-Path $from_STRING
+		if($from_PARENT -eq "") { $from_PARENT = "$pwd" }
+
+		$from_ITEM = Get-ChildItem $from_PARENT | Where-Object { $_.name -match $from_LEAF }
+
+		if($from_ITEM.Count -gt 1) {
+			$i = Read-Host "Multiple matches found for '$from_LEAF', input the index of the correct file from the list above`n$($from_ITEM | Foreach-Object { $i++; Write-Host "[$i] - $($_.Name)" })"
+			$from_ITEM = $from_ITEM[$i - 1]
+		}
+
+		$from_STRING = $from_ITEM.FullName
+	}
+
+	[string]$from_LEAF = Split-Path -Leaf $from_STRING
+ 	[string]$from_NAME = __match $from_LEAF "(.+?)\..+?$" -Get -Index 1
+ 	[string]$from_EXT = __match $from_LEAF ".+?(\..+?)$" -Get -Index 1
+	
+	___debug "from_LEAF:$from_LEAF"
+	___debug "from_NAME:$from_NAME"
+	___debug "from_EXT:$from_EXT"
+
+
+ 	[string]$to_NAME = __match $to "((?!.).+?)\..+?$" -Get -Index 1
+ 	[string]$to_EXT = __match $to "((?!.).+?)?(\..+?)$" -Get -Index 2
+
+	___debug "to_LEAF:$to"
+	___debug "to_NAME:$to_NAME"
+	___debug "to_EXT:$to_EXT"
+
+	$final_NAME = if($to_NAME -eq "") { $from_NAME } else { $to_NAME }
+	$final_EXT = if($to_EXT -eq "") { $from_EXT } else { $to_EXT }
+
+	$final = "$final_NAME$final_EXT"
+
+	Rename-Item -Path $from_STRING -NewName $final -Force
+	___end
+}
 function Invoke-MoveItem ([string]$path, [int]$index = -1, [switch]$force, [switch] $all,[switch] $removeItemFromClip) {
+    ___start Invoke-MoveItem
     if ($all) {
         $n = $clip.count
         for ($i = $n - 1; $i -ge 1; $i--) {
             Invoke-MoveItem -index $i -force:$force -removeItemFromClip:$removeItemFromClip -path $path
         }
         Invoke-MoveItem -index 0 -force:$force -removeItemFromClip:$removeItemFromClip -path $path
-        return
+        return ___return
     }
     if($index -eq -1) { $index = $global:clip.Count - 1 }
     if($path -eq "") {
@@ -345,26 +167,28 @@ function Invoke-MoveItem ([string]$path, [int]$index = -1, [switch]$force, [swit
     if($removeItemFromClip){
         if($global:clip.count -eq 1) {
             $global:clip = $null
-            return
+            return ___return
         }
         if($global:clip.count -eq 2) {
             $global:clip = @($global:clip[1-$index])
-            return
+            return ___return
         }
-        $global:clip = mod_truncate -array $global:clip -indexAndDepth @($index, 1)
+        $global:clip = __truncate -array $global:clip -indexAndDepth @($index, 1)
     } else {
 	$global:clip[$index] = $path
     }
+    ___end
 }
 
 function Invoke-CopyItem ([string]$path, [int]$index = -1, [switch]$force, [switch]$all, [switch] $removeItemFromClip) {
+    ___start Invoke-CopyItem
     if ($all) {
         $n = $clip.count
         for ($i = $n - 1; $i -ge 1; $i--) {
             Invoke-CopyItem -index $i -force:$force -removeItemFromClip:$removeItemFromClip -path $path
         }
         Invoke-CopyItem -index 0 -force:$force -removeItemFromClip:$removeItemFromClip -path $path
-        return
+        return ___return
     }
     if($index -eq -1) { $index = $global:clip.Count - 1 }
     if($path -eq "") {
@@ -375,17 +199,19 @@ function Invoke-CopyItem ([string]$path, [int]$index = -1, [switch]$force, [swit
     if($removeItemFromClip){
         if($global:clip.count -eq 1) {
             $global:clip = $null
-            return
+            return ___return
         }
         if($global:clip.count -eq 2) {
             $global:clip = @($global:clip[1-$index])
-            return
+            return ___return
         }
-        $global:clip = mod_truncate -array $global:clip -indexAndDepth @($index, 1)
+        $global:clip = __truncate -array $global:clip -indexAndDepth @($index, 1)
     }
+    ___end
 }
 
 function Invoke-Extract([string]$archive,[string]$destination,[string]$extractor){
+    ___start Invoke-Extract
     if($extractor -eq ""){
         $7z = "D:\Program Files\7-Zip\7z.exe"
         $7za = "D:\Program Files\7-Zip\7za.exe"
@@ -395,7 +221,7 @@ function Invoke-Extract([string]$archive,[string]$destination,[string]$extractor
             $extractor = $7za
         } else {
             Write-Host "failed - could not find valid executable 7z or 7za: $extractor" -ForegroundColor Red
-            return 1
+            return ___return 1
         }
     }
     while(!( Test-Path $archive )){
@@ -407,9 +233,30 @@ function Invoke-Extract([string]$archive,[string]$destination,[string]$extractor
         $argument = "x"
     } else {
         Write-Host "failed - invalid extraction executable: $extractor" -ForegroundColor Red
-        return 2
+        return ___return 2
     }
      
     $destination = if($destination -ne "") { " -o'$destination'" } else { "" }
     Start-Process -NoNewWindow -Wait -FilePath $extractor -ArgumentList "$argument $('"')$archive$('"')$destination"
+    ___end
+}
+
+function Invoke-Compress ( $files, [string]$destination, [string]$level = "Fastest"){
+    ___start Invoke-Compress
+    if($files -isnot [System.Array]){
+        $files =  @($files)
+    }
+    if($destination -eq "") {
+        $destination = "$pwd"
+    }
+    ___debug "files:$files"
+    ___debug "destination:$destination"
+    ___debug "level/speed:$level"
+    $compress = @{
+        Path = $files
+        CompressionLevel = $level
+        DestinationPath = $destination
+    }
+    Compress-Archive $compress -Force
+    ___end
 }

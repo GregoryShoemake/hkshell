@@ -259,10 +259,7 @@ function .. {
     }
 }
 function p_replace($string, $regex, [string] $replace) {
-    if ($null -eq $string) {
-        return $string
-    }
-    if ($null -eq $regex) {
+    if ($null -eq $string -or $null -eq $regex) {
         return $string
     }
     foreach ($r in $regex) {
@@ -545,12 +542,16 @@ function p_parseNumber ($numberable) {
     }
     return $numberable
 }
-function p_eq ($a_, $b_) {
+function p_eq ($a_, $b_, $logic = "OR") {
     if ($b_ -is [System.Array]) {
         foreach ($b in $b_) {
-            if ($a_ -eq $b) { return $true }
+	    switch ($logic) {
+    	    	OR {  if ($a_ -eq $b) { return $true } }
+		AND { if ($a_ -ne $b) { return $false } }
+	    	Default {}
+	    }
         }
-        return $false
+        return $logic -eq "AND"
     }
     else { return $a_ -eq $b_ }
 }
@@ -671,9 +672,14 @@ Invoke-Scopes
 #           Initializer Functions                 #
 <#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#>
 
-function Set-Scope ([string]$scope="USER") {
+function Set-Scope ([string]$scope="USER", [boolean]$save) {
     p_debug_function "Set-Scope"
-    p_debug "scope:$scope"
+    p_debug "scope:$scope"  
+
+    if($save) {
+	Invoke-Push
+    }
+
     if($scope -eq "NETWORK"){
         $netScope = Invoke-Persist networkLocation
         if($null -eq $netScope) {
@@ -762,7 +768,7 @@ function p_foo_remove ($parameters) {
             return
         }
         Default {
-            $removeReg = "(^|`n)(\[[a-z]+])?$parameters=.+?(`n|$)"
+            $removeReg = "(^|`n)(\[[a-z]+])?$parameters=.+"
             $content = $global:c_
             $global:PERSIST = $content -replace $removeReg, ""
         }
@@ -1447,7 +1453,31 @@ function p_foo ($name, $params) {
                 Write-Host "!___Failed to get content from $($v_)___!`n`n$_`n" -ForegroundColor Red
                 return
             }
-        }
+        } 
+	{ $_ -match "^(append|add-content)$" } {
+	    $split = $params -split ":"
+	    $path = $split[0]
+            $l_ = p_getLine $global:c_ $path
+            $v_ = (p_getVal $l_) -replace "(?!^)\\\\","\" -replace "\\$",""
+            if($v_ -match "^vol::") {
+                try {
+                    $null = Import-HKShell nav -ErrorAction Stop
+                } catch {
+                    Write-Host "!__Failed to import hkshell navigation module___!`n`n$_`n" -ForegroundColor Red
+                    return
+                }
+                $v_ = Get-Path $v_
+            }
+            try {
+		for ($i = 1; $i -lt $split.Count; $i++) {
+		    Add-Content -Path $v_ -Value $split[$i] -Force -ErrorAction Stop
+		}
+            } catch {
+                Write-Host "!___Failed to add item {$($split[$i]) @ $i} to $($v_)___!`n`n$_`n" -ForegroundColor Red
+                return
+            }
+
+	}
         pop {
             $s_ = $params -split ":"
             if($s_.Count -eq 3){

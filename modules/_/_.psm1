@@ -6,56 +6,149 @@ if ($null -eq $global:_MODNAME_module_location ) {
         $global:_MODNAME_module_location = Split-Path -Parent $MyInvocation.MyCommand.Definition
     }
 }
-function __debug ($message, $messageColor, $meta) {
-    if (!$global:_debug_) { return }
-    if ($null -eq $messageColor) { $messageColor = "DarkYellow" }
-    Write-Host "    \\$message" -ForegroundColor $messageColor
-    if ($null -ne $meta) {
-        write-Host -NoNewline " $meta " -ForegroundColor Yellow
-    }
-}
-function __debug_function ($function, $messageColor, $meta) {
-    if (!$global:_debug_) { return }
-    if ($null -eq $messageColor) { $messageColor = "Yellow" }
-    Write-Host ">_ $function" -ForegroundColor $messageColor
-    if ($null -ne $meta) {
-        write-Host -NoNewline " $meta " -ForegroundColor Yellow
-    }
-}
-function __debug_return {
-    if (!$global:_debug_) { return }
-    Write-Host "#return# $($args -join " ")" -ForegroundColor Black -BackgroundColor DarkGray
-    return
+
+
+<#
+.GLOBAL FUNCTIONS
+#>
+
+function ___reset {
+    $global:_fns_ = $null
 }
 
+function ___start {
+	if($null -eq $global:_fns_) { $global:_fns_ = @() } 
+	$global:_fns_ += "$args"
+	if($global:_debug_) {
+	    Write-Host ""
+	    Write-Host -NoNewLine "START >_ $args  |  nested functions - " -ForegroundColor Green -BackgroundColor Black
+	    Write-Host -NoNewLine "$($global:_fns_ -join " { ")" -ForegroundColor White -BackgroundColor Black
+	    Write-Host " |  depth[$($global:_fns_.Count)]" -ForegroundColor Green -BackgroundColor Black
+
+	}
+}
+
+function ___pop ($array) {
+    $array_LENGTH = $array.Count
+    $array_NEW = @()
+    for ($i = 0; $i -lt $array_LENGTH - 1; $i++) {
+	$array_NEW += $array[$i]
+    }
+    return $array_NEW
+}
+
+function ___end {
+	if($global:_debug_) {
+	    Write-Host ""
+	    Write-Host "END >_ $($global:_fns_[($global:_fns_.Count - 1)])  |  depth[$($global:_fns_.Count - 1)]" -ForegroundColor Magenta -BackgroundColor Black
+	}
+	$global:_fns_ = ___pop $global:_fns_
+	if($global:_fns_ -isnot [System.Array]) { 
+	    if($null -ne $global:_fns_) {
+		$global:_fns_ = @($global:_fns_) 
+	    }
+	}
+}
+
+function ___return  {
+    if($global:_debug_) {
+	Write-Host ""
+	Write-Host "return ___return >_ $($global:_fns_[($global:_fns_.Count - 1)]) -> $(Out-String -InputObject $args)" -ForegroundColor Yellow -BackgroundColor Black
+    }
+    ___end
+    return $args
+} 
+ 
+function ___debug ([string]$message, [string]$color = "Cyan") {
+    if($global:_debug_) { 
+	$fn = if($null -eq $global:_fns_) { "___" } else { $($global:_fns_[($global:_fns_.Count - 1)]) }
+	Write-Host "" 
+	Write-Host "DEBUG >_ $fn \\ $message" -ForegroundColor $color
+    }
+}
+
+
+
+<#
+.GLOBAL FUNCTIONS
+#>
+
+
+
 function __prolix ($message, $messageColor) {
-    if (!$global:prolix) { return }
+    if (!$global:prolix) { return ___return }
     if ($null -eq $messageColor) { $messageColor = "Cyan" }
     Write-Host $message -ForegroundColor $messageColor
 }
+
 function __choice ($prompt) {
+    ___start __choice
     while((Read-Host $prompt) -notmatch "^(y|Y|yes|Yes|YES|n|N|no|No|NO)$") {
             $prompt = "?"
             Write-Host "Please input a [Y]es or [N]o answer" -ForegroundColor yellow
         }
-    if($MATCHES[0] -match "[Yy]"){ return $true }
-    return $false
+    if($MATCHES[0] -match "[Yy]"){ return ___return $true }
+    return ___return $false
+}
+function __eq ($a_, $b_, $logic = "OR") {
+    ___start __eq
+    if ($b_ -is [System.Array]) {
+        foreach ($b in $b_) {
+	    switch ($logic) {
+    	    	OR {  if ($a_ -eq $b) { return ___return $true } }
+		AND { if ($a_ -ne $b) { return ___return $false } }
+	    	Default {}
+	    }
+        }
+        return ___return $logic -eq "AND"
+    }
+    else { return ___return $a_ -eq $b_ }
+}
+function __replace($string, $regex, [string] $replace) {
+    ___start __replace
+    if (__eq $null @($string, $regex)) {
+        return ___return $string
+    }
+    foreach ($r in $regex) {
+        $string = $string -replace $r, $replace
+    }
+    return ___return $string
+}
+function __is ($obj, $class) {
+    ___start __is
+    if ($null -eq $obj) { return ___return $null -eq $class }
+    if ($null -eq $class) { return ___return $false }
+    if ($class -is [System.Array]) {
+        foreach ($c in $class) {
+            if ($obj -is $c) { return ___return $true }
+        }
+        return ___return $false
+    }
+    return ___return $obj -is [type](__replace $class @("\[", "]") "")
 }
 function __int_equal {
     [CmdletBinding()]
     param (
-        [Parameter()]
         [int]
         $int,
         # single int or array of ints to compare
-        [Parameter()]
         $ints
     )
-    if ($null -eq $ints) { return $false }
-    foreach ($i in $ints) {
-        if ($int -eq $i) { return $true }
+    if(!$SkipDebug) { 
+	___start __int_equal 
+	___Debug "int:$int"
+	___Debug "ints:$ints"
     }
-    return $false
+
+    if ($null -eq $ints) { 
+	return ___return $false 
+    }
+    foreach ($i in $ints) {
+        if ($int -eq $i) { 
+	    return ___return $true 
+	}
+    }
+    return ___return $false
 }
 function __truncate {
     [CmdletBinding()]
@@ -64,18 +157,23 @@ function __truncate {
         [Parameter(Mandatory = $false, Position = 0)]
         [System.Array]
         $array,
-        [Parameter()]
         [int]
         $fromStart = 0,
-        [Parameter()]
         [int]
         $fromEnd = 0,
         [int[]]
         $indexAndDepth
     )
-    __debug_function "_truncate"
-    __debug "array:
-$(Out-String -inputObject $array)//"
+
+    if(!$SkipDebug) { 
+	___start __truncate 
+	___Debug "array:$array"
+	___Debug "fromStart:$fromStart"
+	___Debug "fromEnd:$fromEnd"
+	___Debug "indexAndDepth:$indexAndDepth"
+    }
+
+
 
     $l = $array.Length
     if ($fromStart -gt 0) {
@@ -92,8 +190,7 @@ $(Out-String -inputObject $array)//"
         $l = $l - $indexAndDepth[1]
     }
     if ($l -le 0) {
-        __debug_return empty array
-        return @()
+        return ___return @()
     }
     $res = @()
     $fromStart--
@@ -107,19 +204,19 @@ $(Out-String -inputObject $array)//"
             $res += $array[$i]
         }
     }
-    __debug_return $(Out-String -inputObject $res)
-    return $res
+    return ___return $res
 }
 function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$untilSwitch) {
-    __debug_function "__search_args"    
+    ___start __search_args
+
     $c_ = $a_.Count
-    __debug "args:$a_ | len:$c_"
-    __debug "param:$param"
-    __debug "switch:$switch"
+    ___debug "args:$a_ | len:$c_"
+    ___debug "param:$param"
+    ___debug "switch:$switch"
     if($switch) { 
         for ($i = 0; $i -lt $c_; $i++) {
             $a = $a_[$i]
-            __debug "a[$i]:$a"
+            ___debug "a[$i]:$a"
             if ($a -ne $param) { continue }
             if($null -eq $res) { 
                 $res = $true 
@@ -130,15 +227,14 @@ function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$unt
             }
         }
         $res = $res -and $true
-        __debug_return "@{ RES=$res ; ARGS=$a_ }"
-        return @{
+        return ___return @{
             RES = $res
             ARGS = $a_
         }
     } else {
         for ($i = 0; $i -lt $a_.length; $i++) {
             $a = $a_[$i]
-            __debug "a[$i]:$a"
+            ___debug "a[$i]:$a"
             if ($a -ne $param) { continue }
             if(($null -eq $res) -and ($i -lt ($c_ - 1))) {
                 if($all) {
@@ -147,7 +243,7 @@ function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$unt
                     $remove = 1
                     for ($i = $i + 1; $i -lt ($c_); $i++) {
                         if($untilSwitch -and ($a_[$i] -match "^-")) {
-                            __debug "[-untilSwitch] next switch found"
+                            ___debug "[-untilSwitch] next switch found"
                             break
                         }
                         $res += $a_[$i]
@@ -159,7 +255,7 @@ function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$unt
                     $res = $a_[$i + 1]
                     if($res -match "^-") { 
                         $res = $null 
-                        __debug "switch argument expected, not found" Red
+                        ___debug "switch argument expected, not found" Red
                     } else {
                         $a_ = __truncate $a_ -indexAndDepth @($i,2)
                     }
@@ -172,27 +268,23 @@ function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$unt
                 throw [System.ArgumentException] "Duplicate argument passed: $param"
             }
         }
-        __debug_return "@{ RES=$res ; ARGS=$a_ }"
-        return @{
+        return ___return @{
             RES = $res
             ARGS = $a_
         }
     }
 }
 function __default ($variable, $value) {
-    __debug_function "e_default"
+    ___start e_default
     if ($null -eq $variable) { 
-        __debug_return variable is null
-        return $value 
+        return ___return $value 
     }
     switch ($variable.GetType().name) {
         String { 
             if($variable -eq "") {
-                __debug_return
-                return $value
+                return ___return $value
             } else {
-                __debug_return
-                return $variable
+                return ___return $variable
             }
         }
     }
@@ -212,16 +304,15 @@ function __match {
         [Parameter()]
         [int]$index = 0
     )
-    __debug_function "__match"
+    ___start __match
+
     if ($null -eq $string) {
-        __debug_return string is null
-        if ($getMatch) { return $null }
-        return $false
+        if ($getMatch) { return ___return $null }
+        return ___return $false
     }
     if ($null -eq $regex) {
-        __debug_return regex is null
-        if ($getMatch) { return $null }
-        return $false
+        if ($getMatch) { return ___return $null }
+        return ___return $false
     }
     if (($string -is [System.Array])) {
         $string = $string -join "`n"
@@ -229,24 +320,20 @@ function __match {
     if ($regex -is [System.Array]) {
         foreach ($r in $regex) {
             $f = p_match $string $r
-            if (($logic -eq "OR") -and $f) { return $true }
-            if (($logic -eq "AND") -and !$f) { return $false }
-            if (($logic -eq "NOT") -and $f) { return $false }
+            if (($logic -eq "OR") -and $f) { return ___return $true }
+            if (($logic -eq "AND") -and !$f) { return ___return $false }
+            if (($logic -eq "NOT") -and $f) { return ___return $false }
         }
-        __debug_return
-        return ($logic -eq "AND") -or ($logic -eq "NOT")
+        return ___return ($logic -eq "AND") -or ($logic -eq "NOT")
     }
     $found = $string -match $regex
     if ($found) {
         if ($getMatch) {
-            __debug_return
-            return $Matches[$index]
+            return ___return $Matches[$index]
         }
-        __debug_return
-        return $logic -ne "NOT"
+        return ___return $logic -ne "NOT"
     }
-    __debug_return
-    if ($logic -eq "NOT") { return $true }
-    if ($getMatch) { return $null }
-    return $false
+    if ($logic -eq "NOT") { return ___return $true }
+    if ($getMatch) { return ___return $null }
+    return ___return $false
 }
