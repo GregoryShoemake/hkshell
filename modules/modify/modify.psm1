@@ -124,16 +124,16 @@ function Invoke-Rename ($from,[string]$to) {
 	}
 
 	[string]$from_LEAF = Split-Path -Leaf $from_STRING
- 	[string]$from_NAME = __match $from_LEAF "(.+?)\..+?$" -Get -Index 1
- 	[string]$from_EXT = __match $from_LEAF ".+?(\..+?)$" -Get -Index 1
+ 	[string]$from_NAME = __match $from_LEAF "(((?!\.).+?)(\..+|$))" -Get -Index 2
+ 	[string]$from_EXT = __match $from_LEAF "(((?!\.).+?)(\..+|$))"  -Get -Index 3
 	
 	___debug "from_LEAF:$from_LEAF"
 	___debug "from_NAME:$from_NAME"
 	___debug "from_EXT:$from_EXT"
 
 
- 	[string]$to_NAME = __match $to "((?!.).+?)\..+?$" -Get -Index 1
- 	[string]$to_EXT = __match $to "((?!.).+?)?(\..+?)$" -Get -Index 2
+ 	[string]$to_NAME = __match $to "(((?!\.).+?)(\..+|$))"  -Get -Index 2
+ 	[string]$to_EXT = __match $to "(((?!\.).+?)(\..+|$))"  -Get -Index 3
 
 	___debug "to_LEAF:$to"
 	___debug "to_NAME:$to_NAME"
@@ -143,6 +143,8 @@ function Invoke-Rename ($from,[string]$to) {
 	$final_EXT = if($to_EXT -eq "") { $from_EXT } else { $to_EXT }
 
 	$final = "$final_NAME$final_EXT"
+
+	___debug "final:$final"
 
 	Rename-Item -Path $from_STRING -NewName $final -Force
 	___end
@@ -162,8 +164,13 @@ function Invoke-MoveItem ([string]$path, [int]$index = -1, [switch]$force, [swit
         $path = "$pwd"
     }
     $path = Get-Path $path
-    m_copy $global:clip[$index] $path
-    Remove-Item $global:clip[$index] -Force
+    $clip_ITEM = Get-Item $global:clip[$index]
+    if($clip_ITEM.psIsContainer) {
+	m_copy $global:clip[$index] "$path\$(Split-Path $global:clip[$index] -Leaf)"
+    } else {
+	m_copy $global:clip[$index] $path
+    }
+    Remove-Item $global:clip[$index] -Force -Recurse
     if($removeItemFromClip){
         if($global:clip.count -eq 1) {
             $global:clip = $null
@@ -195,7 +202,12 @@ function Invoke-CopyItem ([string]$path, [int]$index = -1, [switch]$force, [swit
         $path = "$pwd"
     }
     $path = Get-Path $path
-    m_copy $global:clip[$index] $path
+    $clip_ITEM = Get-Item $global:clip[$index]
+    if($clip_ITEM.psIsContainer) {
+	m_copy $global:clip[$index] "$path\$(Split-Path $global:clip[$index] -Leaf)"
+    } else {
+	m_copy $global:clip[$index] $path
+    }
     if($removeItemFromClip){
         if($global:clip.count -eq 1) {
             $global:clip = $null
