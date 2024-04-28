@@ -247,7 +247,13 @@ function p_stringify_regex ($regex) {
 }
 
 function p_npath ($path) { return !(test-path $path) }
-function p_elevated { return (new-object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator) }
+function p_elevated { 
+    if($IsLinux) {
+	return "$(whoami)" -eq "root"
+    } elseif ($IsWindows) {
+	return (new-object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator) 
+    }
+}
 function .. {
     [CmdletBinding()]
     param (
