@@ -519,15 +519,15 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
             }
             $msg = if($defaultMessage) { "$(Get-Date) - $(git status)" }  else { $(pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)") }
 	    if($defaultMessage) {
-		$null = git add . --quiet
-		$null = git commit -a -m $msg --quiet
+		$null = git add .
+		$null = git commit -a -m $msg
 	    } else {
 		git add .
 		git commit -a -m $msg
 	    }
             If(Invoke-Git -Path $path -Action Remote) {
 		if($defaultMessage) {
-		    $null = git push --quiet
+		    $null = git push
 		} else {
 		    git push
 		}
