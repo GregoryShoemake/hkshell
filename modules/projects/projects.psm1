@@ -276,7 +276,9 @@ function pr_search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$un
 
 
 
-$global:projectsPath = (((Get-Content "$userDir/projects.conf") | Select-String "projects-root") -split "=")[1]
+$conf_path = "$userDir/projects.conf"
+if(!(Test-Path $conf_path)) { New-Item $conf_path -ItemType File -Force }
+$global:projectsPath = (((Get-Content $conf_path ) | Select-String "projects-root") -split "=")[1]
 $global:projectsPath = Get-Path $global:projectsPath
 pr_debug "Populating user PROJECTS global projects path variable ->
     global:projectsPath=$global:projectsPath"
