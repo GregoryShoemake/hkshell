@@ -17,13 +17,13 @@ $showParents = $false
 .PREFERENCES
 #>
 
-$userDir = "~\.hkshell\nav"
+$userDir = "~/.hkshell/nav"
 if(!(Test-Path $userDir)) { mkdir $userDir }
 
 
 
 function Get-Shortcuts {
-    $global:shortcuts = Get-Content "$userDir\nav.shortcuts.conf" 
+    $global:shortcuts = Get-Content "$userDir/nav.shortcuts.conf" 
 }
 Get-Shortcuts
 
@@ -37,7 +37,7 @@ function Add-Shortcut ([string]$shortcut) {
         Write-Host "!_Shortcut Path Is Invalid: $shortcut :_____!`n`n$_`n" -ForegroundColor Red
         return
     }
-    Add-Content -Path "$userDir\nav.shortcuts.conf" -Value $shortcut
+    Add-Content -Path "$userDir/nav.shortcuts.conf" -Value $shortcut
     Get-Shortcuts
 }
 
@@ -207,7 +207,7 @@ function Test-Access($Path)
     }
 }
 function Get-PathDepth ($path) {
-    $split = $path -split "\\"
+    $split = $path -split "/"
     for ($i = 0; $i -lt $split.length; $i++) {
         if (n_nullemptystr $split[$i]) {
             $split = n_truncate $split -indexAndDepth @($i, 1)
@@ -809,6 +809,7 @@ function Get-Path {
             $path = n_match $_ "vol::(.+)::(.+)" -getMatch -index 2
             $res =  "$(Get-Volume | Where-Object {$_.FileSystemLabel -eq $vol } | Select-Object -ExpandProperty DriveLetter ):$path"
             $res = $res -replace "(?!^)\\\\","\"
+            $res = $res -replace "\\","/"
             n_debug "res:$res"
             if ($clip) { Set-Clipboard $res } else { return $res }
         }
@@ -827,6 +828,7 @@ function Get-Path {
         }
         { !(Test-Path $_) } {
             $res =  $_ -replace "(?!^)\\\\","\"
+            $res =  $res -replace "\\","/"
             $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
             if ($clip) { Set-Clipboard $res } else { return $res }
         }

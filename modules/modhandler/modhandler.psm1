@@ -2,7 +2,7 @@ $global:_module_location_modhandler = Split-Path -Parent $MyInvocation.MyCommand
 
 
 
-if(!(Test-Path "~\.hkshell")) { mkdir "~\.hkshell" }
+if(!(Test-Path "~/.hkshell")) { mkdir "~/.hkshell" }
 
 function Import-HKShell {
     [CmdletBinding()]
@@ -21,7 +21,7 @@ function Import-HKShell {
         $global:moduleDirectory = Split-Path $global:_module_location_modhandler
     }
 
-    $path_ = "$global:moduleDirectory\$module"
+    $path_ = "$global:moduleDirectory/$module"
 
     if($global:_debug_) { Write-Host "    \\ module:$path_" -ForegroundColor DarkMagenta }
     
@@ -59,7 +59,7 @@ function Import-HKShell {
 }
 New-Alias -Name importhks -Value Import-HKShell -Scope Global -Force
 
-$global:loadedModules = @("$moduleDirectory\modhandler")
+$global:loadedModules = @("$moduleDirectory/modhandler")
 
 
 $null = Import-HKShell _ -ErrorAction SilentlyContinue
