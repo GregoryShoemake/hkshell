@@ -23,7 +23,10 @@ if(!(Test-Path $userDir)) { mkdir $userDir }
 
 
 function Get-Shortcuts {
+    $conf_path = "$userDir/nav.shortcuts.conf" 
+    if(!(Test-Path $conf_path)) { New-Item $conf_path -ItemType File -Force }
     $global:shortcuts = Get-Content "$userDir/nav.shortcuts.conf" 
+    $null = $global:shortcuts
 }
 Get-Shortcuts
 
