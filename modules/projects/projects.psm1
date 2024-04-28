@@ -357,6 +357,8 @@ function Start-Project ($name) {
             $null = importhks nav
             $null = importhks query
             $null = importhks persist
+	    $prj_cfg_path = "$global:projectsPath/$name/project.cfg"
+	    if(!(Test-Path $prj_cfg_path)) { return New-Project $name }
             $global:project = Invoke-Expression (Get-Content "$global:projectsPath/$name/project.cfg")
             Invoke-PushWrapper Invoke-Persist default>_project:$name; 
             if($null -eq $subName) {
