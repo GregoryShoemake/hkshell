@@ -444,7 +444,10 @@ No project is currently loaded
 }
 New-Alias -name eprj -value Exit-Project -Scope Global -Force
 function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMessage) {
-    pr_debug_function Invoke-Git
+    ___start Invoke-Git
+    ___debug "path:$path"
+    ___debug "action:$action"
+    ___debug "defaultMessage:$defaultMessage"
     if($path -eq "") {
 	$path = pr_default $(Get-Path $global:project.Path) "$pwd"
     } else {
@@ -452,7 +455,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
     }
     if(!(Test-Path $path)){
 	Write-Host "!_Path does not exist: $path_____!`n`n$_`n" -ForegroundColor Red
-	return
+	return ___return
     }
     switch ($action.ToLower()) {
         {$_ -match "^exists$"} {
@@ -462,10 +465,10 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
                 pr_debug "Testing: $p_"
                 $p_ = Split-Path $p_
             }
-            return Test-Path "$p_/.git"
+            return ___return Test-Path "$p_/.git"
         }
         {$_ -match "^notexists$"} {
-            return !$(Invoke-Git -Path $path -Action Exists)
+            return ___return !$(Invoke-Git -Path $path -Action Exists)
         }
         {$_ -eq "REMOTE-TEST"} {
             $p_ = $path
@@ -475,15 +478,15 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
                 $p_ = Split-Path $p_
             }
             $exists = Test-Path "$p_/.git"   
-            if(!$exists) { return $false }
+            if(!$exists) { return ___return $false }
             $res = $(git ls-remote)
-            return $res -notmatch "No remote configured"
+            return ___return $($res -notmatch "No remote configured")
         }
         {$_ -match "^remote$"} {
-            return !$(!$(Invoke-Git -Path $path -Action REMOTE-TEST))
+            return ___return $(!$(!$(Invoke-Git -Path $path -Action REMOTE-TEST)))
         }
         {$_ -match "^notremote$"} {
-            return !$(Invoke-Git -Path $path -Action REMOTE-TEST)
+            return ___return $(!$(Invoke-Git -Path $path -Action REMOTE-TEST))
         }
         {$_ -match "^initialize$"} {
             pr_debug "initializing git"
@@ -491,7 +494,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
             pr_debug "path:$path"
 	    Push-Location $path
             if(Invoke-Git -Path $path -Action Exists) { 
-                Write-Host "Existing git repository already exists!" -ForegroundColor Red; return $false
+                Write-Host "Existing git repository already exists!" -ForegroundColor Red; return ___return $false
             }
             pr_prolix "Initializing Git"
             git init
@@ -506,12 +509,12 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
                 git push -u origin master
             }
 	    Pop-Location
-            return $true
+            return ___return $true
         }
         {$_ -match "^save$"} { 
 	    Push-Location $path
 	    if(Invoke-Git -Path $path -Action NotExists) { 
-                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return ___return 
             }
             $msg = if($defaultMessage) { "$(Get-Date) - $(git status)" }  else { $(pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)") }
             git add .
@@ -524,7 +527,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
         {$_ -match "^(add)$"} { 
 	    Push-Location $path
             if(Invoke-Git -Path $path -Action NotExists) { 
-                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return ___return
             }
             git add .
 	    Pop-Location
@@ -532,7 +535,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
         {$_ -match "^(commit)$"} { 
 	    Push-Location $path
             if(Invoke-Git -Path $path -Action NotExists) { 
-                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return ___return
             }
             $msg = if($defaultMessage) { "$(Get-Date) - $(git status)" }  else { $(pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)") }
             git commit -a -m $msg
@@ -541,10 +544,10 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
         {$_ -match "^(push)$"} { 
 	    Push-Location $path
             if(Invoke-Git -Path $path -Action NotExists) { 
-                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return ___return
             }
             if(Invoke-Git -Path $path -Action NotRemote) { 
-                Write-Host "Git repository at $path does not have a remote repository!" -ForegroundColor Red; git status; return 
+                Write-Host "Git repository at $path does not have a remote repository!" -ForegroundColor Red; git status; return ___return
             }
             git push
 	    Pop-Location
@@ -552,16 +555,17 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
         {$_ -match "^(pull)$"} { 
 	    Push-Location $path
             if(Invoke-Git -Path $path -Action NotExists) { 
-                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
+                Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return ___return
             }
             if(Invoke-Git -Path $path -Action NotRemote) { 
-                Write-Host "Git repository at $path does not have a remote repository!" -ForegroundColor Red; git status; return 
+                Write-Host "Git repository at $path does not have a remote repository!" -ForegroundColor Red; git status; return ___return
             }
             git pull
 	    Pop-Location
         }
         Default { git status }
     }
+    ___end
 }
 New-Alias -name igit -Value Invoke-Git -Scope Global -Force
 
