@@ -12,12 +12,17 @@ param (
 #These functions allow this module to be completely independent of other modules, but still have 
 #the legibility desired
 
-$userRoot = if($IsWindows) {
+$global:userRoot = if($IsWindows) {
     "C:/Users/$ENV:USERNAME"
 } elseif($IsLinux) {
     "/home/$(whoami)"
 }
+
+___debug "$userRoot"
+
 $userDir = "$userRoot/.hkshell/persist"
+
+___debug "$userDir"
 
 if(!(Test-Path $userDir)) { mkdir $userDir }
 
