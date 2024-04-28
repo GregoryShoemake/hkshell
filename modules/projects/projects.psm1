@@ -518,10 +518,19 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
                 Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return ___return 
             }
             $msg = if($defaultMessage) { "$(Get-Date) - $(git status)" }  else { $(pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)") }
-            git add .
-            git commit -a -m $msg
+	    if($defaultMessage) {
+		$null = git add .
+		$null = git commit -a -m $msg
+	    } else {
+		git add .
+		git commit -a -m $msg
+	    }
             If(Invoke-Git -Path $path -Action Remote) {
-                git push
+		if($defaultMessage) {
+		    $null = git push
+		} else {
+		    git push
+		}
             }
 	    Pop-Location
         }
