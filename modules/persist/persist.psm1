@@ -12,8 +12,13 @@ param (
 #These functions allow this module to be completely independent of other modules, but still have 
 #the legibility desired
 
+$userRoot = if($IsWindows) {
+    "C:/Users/$ENV:USERNAME"
+} elseif($IsLinux) {
+    "/home/$(whoami)"
+}
+$userDir = "$userRoot/.hkshell/persist"
 
-$userDir = "~\.hkshell\persist"
 if(!(Test-Path $userDir)) { mkdir $userDir }
 
 function p_ehe {
@@ -646,21 +651,26 @@ $global:p_error_action = "Continue"
 #               C O N S T A N T S                 #
 <#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#>
 
-$global:SCOPES_PATH = "$userDir\persist.scopes.conf"
-$global:INSTANCE_PATH = "$global:_persist_module_location\persist.cfg"
+$global:SCOPES_PATH = "$userDir/persist.scopes.conf"
+$global:INSTANCE_PATH = "$global:_persist_module_location/persist.cfg"
 $global:INSTANCE_SCOPE = "INSTANCE::$global:INSTANCE_PATH"
+$global:HOST_PERSIST_PATH = if($IsWindows) {
+    "C:/Windows/System32/WindowsPowerShell/v1.0"
+} elseif($IsLinux) {
+    "/root/powershell/hkshell"
+}
 
 function Invoke-Scopes ([switch]$rebuild){
     if(!(Test-Path $global:SCOPES_PATH) -or $rebuild) {
         p_debug "creating persist scopes file at $global:SCOPES_PATH"
         New-Item $global:SCOPES_PATH -ItemType File -Force
         p_debug "populating persist scopes file with default scopes"
-        if(!(test-path "C:\Users\$ENV:USERNAME\contacts" )) { mkdir "C:\Users\$ENV:USERNAME\contacts" }
-        if(!(test-path "C:\Users\$ENV:USERNAME\.ssh"  )) { mkdir "C:\Users\$ENV:USERNAME\.ssh" }
-        Set-Content -Path $global:SCOPES_PATH -Value 'USER::C:\Users\$ENV:USERNAME\.powershell\persist.cfg
-HOST::C:\Windows\System32\WindowsPowerShell\v1.0\persist.cfg
-CONTACTS::C:\Users\$ENV:USERNAME\contacts\persist.cfg
-SSH::C:\Users\$ENV:USERNAME\.ssh\persist.cfg'
+        if(!(test-path "$userRoot/contacts" )) { mkdir "$userRoot/contacts" }
+        if(!(test-path "$userRoot/.ssh"  )) { mkdir "$userRoot/.ssh" }
+        Set-Content -Path $global:SCOPES_PATH -Value "USER::$userRoot/.powershell/persist.cfg
+HOST::$global:HOST_PERSIST_PATH/persist.cfg
+CONTACTS::$userRoot/contacts/persist.cfg
+SSH::$userRoot/.ssh/persist.cfg"
     }
     p_debug 'pushing content to memory in variable $global:SCOPES'
     $global:SCOPES = Get-Content -Path $global:SCOPES_PATH
@@ -687,7 +697,7 @@ function Set-Scope ([string]$scope="USER", [boolean]$save) {
             return
         }
         if($netScope -notmatch "persist\.cfg$") {
-            if($netScope -notmatch "\\$") { $netScope += "\" }
+            if($netScope -notmatch "/$") { $netScope += "/" }
             $netScope += "persist.cfg"
         }
         $global:SCOPE = "NETWORK::$(persist networkLocation)"
@@ -1395,7 +1405,7 @@ function p_foo ($name, $params) {
             if($params -match "vol::") {
                 $null = importhks nav
                 $appendVol = $true
-                $volSyn = p_match $params "(vol::.+?::\\.+?)(::|$)" -getmatch -index 1
+                $volSyn = p_match $params "(vol::.+?::/.+?)(::|$)" -getmatch -index 1
                 $volPath = Get-Path $volSyn
                 $params = $params -replace (p_stringify_regex $volSyn),"vol"
             }
@@ -1412,7 +1422,7 @@ function p_foo ($name, $params) {
             p_debug "split: [0]$($spl[0]) [1]$($spl[1]) [2]$($yesno)"
             $yesno = if($yesno.toLower() -match "^(y|yes)$") { $true } else { $false }
             if($path -notmatch "persist\.cfg$") {
-                if($path -notmatch "\\$") { $path += "\" }
+                if($path -notmatch "/$") { $path += "/" }
                 $path += "persist.cfg"
             }
             p_debug "YesNo:$yesNo"
@@ -1437,7 +1447,7 @@ function p_foo ($name, $params) {
         }
         { $_ -match "^(cat|content|get-content)$"} {
             $l_ = p_getLine $global:c_ $params
-            $v_ = (p_getVal $l_) -replace "(?!^)\\\\","\" -replace "\\$",""
+            $v_ = (p_getVal $l_) -replace "(?!^)//","/" -replace "/$",""
             if($v_ -match "^vol::") {
                 try {
                     $null = Import-HKShell nav -ErrorAction Stop
@@ -1458,7 +1468,7 @@ function p_foo ($name, $params) {
 	    $split = $params -split ":"
 	    $path = $split[0]
             $l_ = p_getLine $global:c_ $path
-            $v_ = (p_getVal $l_) -replace "(?!^)\\\\","\" -replace "\\$",""
+            $v_ = (p_getVal $l_) -replace "(?!^)//","/" -replace "/$",""
             if($v_ -match "^vol::") {
                 try {
                     $null = Import-HKShell nav -ErrorAction Stop

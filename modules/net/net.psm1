@@ -87,7 +87,11 @@ function Test-Request ($target = "google.com", $wait = 1000) {
 New-Alias -Name bocurl -Value Test-Request -Scope Global -Force
 function monitor($target, [float]$wait = 200, [float]$duration = [float]::MaxValue, [float]$frequency = 1, [switch] $curl) {
     $duration__ = $duration
-    $logPath = "C:\Users\$ENV:USERNAME\.powershell\~logs\$target.log"
+    if($IsWindows) {
+	$logPath = "C:\Users\$ENV:USERNAME\.powershell\~logs\$target.log"
+    } elseif ($IsLinux) {
+	$logPath = "/Home/$(whoami)/.powershell/~logs/$target.log"
+    }
     Write-Host "Monitoring: $target | From: INT[$(gip)] EXT[$(gpip)] | Wait: $wait ms | Log Location: $logPath"
     $null = New-Item $logPath -ItemType File -Force
     [float]$disconnectedDuration = 0

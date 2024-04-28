@@ -1,4 +1,4 @@
-$global:_module_location_modhandler = Split-Path -Parent $MyInvocation.MyCommand.Definition
+$global:_module_location_modhandler = $(Split-Path -Parent $MyInvocation.MyCommand.Definition) -replace "\\","/"
 
 
 
@@ -18,12 +18,28 @@ function Import-HKShell {
     )
 
     if ($null -eq $moduleDirectory) {
-        $global:moduleDirectory = Split-Path $global:_module_location_modhandler
+	$global:moduleDirectory = $(Split-Path $global:_module_location_modhandler) -replace "\\","/"
     }
 
     $path_ = "$global:moduleDirectory/$module"
 
+    try {
+	$DebugPreference = 'Stop'
+	___debug "path:$path_"
+    }
+    catch {
+	if($global:_debug_) {
+	    Write-Host "path:$path_"
+	}
+    }
+    $DebugPreference = 'SilentlyContinue'
+
     if($global:_debug_) { Write-Host "    \\ module:$path_" -ForegroundColor DarkMagenta }
+
+    if($(Get-Item "$pwd").PSProvider.Name -eq "Registry") {
+	Push-Location C:\
+	$pop_location = $true
+    }
     
     if (test-path $path_) {
         
@@ -33,9 +49,11 @@ function Import-HKShell {
 
             if($global:_debug_) { 
 		Write-Host "    \\ module:$path_ -- already imported" -ForegroundColor Red 
+		if($pop_location){ Pop-Location }
 		return
 	    }
 	    else {
+		if($pop_location){ Pop-Location }
 		return "module $module is already imported" 
 	    } 
 
@@ -54,7 +72,9 @@ function Import-HKShell {
 
     else {
         Write-Host Path to module: $path_ :does not exist -ForegroundColor Red
-    }
+    } 
+     
+    if($pop_location){ Pop-Location }
 
 }
 New-Alias -Name importhks -Value Import-HKShell -Scope Global -Force

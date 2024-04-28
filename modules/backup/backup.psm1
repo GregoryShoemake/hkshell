@@ -7,20 +7,24 @@ if ($null -eq $global:_backup_module_location ) {
     }
 }
 
-$userDir = "~\.hkshell\backup"
+$userDir = "~/.hkshell/backup"
 if(!(Test-Path $userDir)) { mkdir $userDir }
 
 
 $null = importhks persist
 $null = importhks nav
 
-$global:backupLogsPath = "$userDir\logs"
+$global:backupLogsPath = "$userDir/logs"
 if(!(Test-Path $global:backupLogsPath)) { $null = mkdir $global:backupLogsPath }
 
 function Invoke-EnsureBackupScope {
     ___start Invoke-EnsureBackupScope
     if(!(Get-Scope backup -exists)) {
-        $backupPath = "C:\users\$ENV:USERNAME\.powershell\scopes\backup"
+	if($IsWindows) {
+	    $backupPath = "C:\users\$ENV:USERNAME\.powershell\scopes\backup"
+	} elseif ($IsLinux) {
+	    $backupPath = "/home/$(whoami)/.powershell/scopes/backup"
+	}
         if(!(Test-Path $backupPath)) { mkdir $backupPath } 
         Invoke-Persist addScope>_backup::$backupPath\persist.cfg::yes
     }  
@@ -50,7 +54,7 @@ function Format-BackupConfiguration {
             $location = Get-Path $location
             ___debug "$goto : $location"
             while(!(Test-Path $location)) {
-                if($location -notmatch "^(\\\\.+?\\|[a-zA-Z]:\\).+$") {
+                if($location -notmatch "^(\\\\.+?\\|[a-zA-Z]:\\|^/).+$") {
                     ___debug "location isn't in the expected format" red
                     $location = Read-Host "Input a valid directory syntax"
                     $lbak = $location
@@ -185,7 +189,7 @@ function Start-Backup {
                 return ___return
             }
         }
-        $items = Get-Content "$userDir\backup.items.conf"
+        $items = Get-Content "$userDir/backup.items.conf"
         ___debug "ITEMS\\`n$items`n    \\ITEMS\\" Blue
         foreach ($i in $items) {
             $i = Get-Path $i
@@ -196,11 +200,11 @@ function Start-Backup {
                         $loginfo = "$(Get-Date -Format "dMMMy@H:m:s:fff") <::> Backing up directory: $i  =>  $backupDirectory"
                         ___debug $loginfo
                         $source = $item.fullname
-                        $destination = "$backupDirectory\$($item.name)"
+                        $destination = "$backupDirectory/$($item.name)"
                         if($null -ne $logPath) {
                             Add-Content -Path $logPath -Value $loginfo
                         }
-                        $robocopyLogPath = "$global:backupLogsPath\robocopy-$($item.name)-$(Get-Date -Format dMMMy).log"
+                        $robocopyLogPath = "$global:backupLogsPath/robocopy-$($item.name)-$(Get-Date -Format dMMMy).log"
                         if(!(Test-Path $robocopyLogPath )) { New-Item $robocopyLogPath -ItemType File }
                         $null = Robocopy.exe $source $destination /mir /mt /log+:$robocopyLogPath } 
                     else {

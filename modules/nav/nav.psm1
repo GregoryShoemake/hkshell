@@ -303,7 +303,7 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache) {
 	$Script:lastParent = $null
         $items | Foreach-Object {
 
-            $isReg = "$($_.PSProvider)" -eq "Microsoft.PowerShell.Core\Registry"
+            $isReg = "$($_.PSProvider.Name)" -eq "Registry"
             $isDir = $_.psiscontainer
             $isSym = $_.mode -eq "l----" -or $_.mode -eq "la---"
             if($isSym) { $resolved = $_.ResolvedTarget }
@@ -631,7 +631,6 @@ function Invoke-Go {
                 return
             }
             $in = $global:QueryResult[$in]
-            $global:QueryResult = $null
             return Invoke-Go $in.FullName -C:$C -A:$A
         }
         foreach ($s in $global:QueryResult) {
@@ -717,18 +716,23 @@ function Invoke-Go {
             }
         }
 	if(!$backTracking) {
-		$global:last = "$pwd"
-		$null = $global:last
+	    $global:last = "$pwd"
+	    $null = $global:last
 
-		if($null -eq $global:history) {
-			[string[]]$global:history = @("$pwd")
-		} else {
-			$global:history += "$pwd"
-		}
+	    if($null -eq $global:history) {
+		    [string[]]$global:history = @("$pwd")
+	    } else {
+		    $global:history += "$pwd"
+	    }
 	}	
 
         Set-Location $in
-        $global:first = Get-ChildItem "$pwd" | Select-Object -ExpandProperty FullName -First 1
+	$first_item = Get-ChildItem "$pwd" | Select-Object -First 1
+	if($first_item.PSProvider.Name -eq "Registry") {
+	    $global:first = $first_item.Name
+	} else {
+	    $global:first = $first_item.FullName
+	}
         $null = $global:first
         D -D:$D
     }
@@ -764,6 +768,10 @@ function Get-PathPipe {
     return Get-Path $pipe
 }
 
+function ConvertTo-LixuxPathDelimiter ($path) {
+    return $path -replace "\\","/"
+}
+
 function Get-Path {
     [CmdletBinding()]
     param (
@@ -772,68 +780,125 @@ function Get-Path {
         [Parameter(ValueFromRemainingArguments)]
         $a_
     )
-    n_debug_function "Get-Path"
+    ___start Get-Path
     if($a_ -is [System.Array]) { $a_ = $a_ -join " " }
-    n_debug "args: _a:$a_, clip:$clip"
+    ___debug "a_:$a_"
+    ___debug "clip:$clip"
     $l_ = "$(Get-Location)"
     switch ($a_) { 
+	    { $null -ne $global:QueryResult } {
+	    ___debug "Parsing Query Results"
+	    $in = $_
+	    if($in -match "^([0-9]+|f)$"){
+		___debug "Returning index of query results: i = $in"
+		if($in -match "^f$"){$in = 0} 
+		$in = $([int]$in) 
+		if($global:QueryResult.length -le $in) { 
+		    Write-Host "Out of index for QueryResults: $in out of $(Query.Length)" -ForegroundColor Red
+		    return ___return
+		}
+		$in = $global:QueryResult[$in]
+		$global:QueryResult = $null
+		return ___return $(ConvertTo-LixuxPathDelimiter $in.FullName)
+	    }
+	    foreach ($s in $global:QueryResult) {
+		___debug "Iterating through query results: current = $s"
+		$replaced = $s
+		if ($replaced.name -match $in) {
+		    if ($null -eq $arr) { $arr = @($s) }
+		    else { $arr += $s }
+		}
+	    }
+	    if ($null -ne $arr) {
+		if($arr.length -eq 1) { $in = $arr[0].fullname }
+		elseif ($arr.length -gt 1) {
+		    Write-Host "`nMultiple matches found:"
+		    $i = 0
+		    foreach ($p in $arr) {
+			Write-Host "[$i] $($p.fullname)"
+			$i++
+		    }
+		    $i = [int](Read-Host "Pick index of desired path")
+		    $in = $arr[$i].$fullname
+		}
+	    }
+	    if($null -ne $in) {
+		$global:QueryResult = $null
+		return ___return $(ConvertTo-LixuxPathDelimiter $in)
+	    }
+	}
+
         { ($_ -is [System.IO.FileInfo]) -or ($_ -is [System.IO.DirectoryInfo]) } {
-            $isSym = $_.mode -eq "l----"
+	    ___debug "System.IO object passed, returning literal path"
+            $isSym = $_.mode -eq "l(-|a)---" 
+            $isReg = $_.PSProvider.Name -eq "Registry"
             if($isSym){
-                if ($clip) { Set-Clipboard $_.ResolvedTarget } else { return $_.ResolvedTarget } 
-            } else {
-                if ($clip) { Set-Clipboard $_.FullName } else { return $_.FullName } 
+                if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $_.ResolvedTarget) } else { return ___return $(ConvertTo-LixuxPathDelimiter $_.ResolvedTarget) } 
+            } elseif($isReg) {
+                if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $_.Name) } else { return ___return $(ConvertTo-LixuxPathDelimiter $_.Name) } 
+	    } else {
+                if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $_.FullName) } else { return ___return $(ConvertTo-LixuxPathDelimiter $_.FullName) } 
             }
         }
-        { $_ -match "^match:.+$" } { 
+        { $_ -match "^m:.+$" } { 
 
             $regex = $($_ -split ":")[1]
+	    ___debug "Checking current directory for name matching regex: $regex"
             Get-ChildItem $l_ -Force | Where-Object { $_.name -match $regex } | Foreach-Object {
                     if($null -eq $res){ $res = @($_.fullname) }
                     else { $res += ";$($_.fullname)" }
                 }
-             if ($clip) { Set-Clipboard $res } else { return $res }
+             if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res) }
         }
         { $_ -match "^[0-9]+$" } {
+	    ___debug "Checking current directory for index: $_"
             $res = $(Get-ChildItem $l_ -Force)[$([int]$_)]
-            $isSym = $res.mode -eq "l----"
+            $isSym = $res.mode -eq "l(-|a)---"
+	    ___debug "isSym:$isSym"
+	    ___debug "PSProvider:$($res.PSProvider)"
+            $isReg = $res.PSProvider.Name -eq "Registry"
+	    ___debug "IsReg:$isReg"
             if($isSym){
-                if ($clip) { Set-Clipboard $res.ResolvedTarget } else { return $res.ResolvedTarget } 
+                if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res.ResolvedTarget) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res.ResolvedTarget) } 
+            } elseif($isReg){
+                if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res.Name) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res.Name) } 
             } else {
-                if ($clip) { Set-Clipboard $res.FullName } else { return $res.FullName } 
+                if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res.FullName) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res.FullName) } 
             }
         }
         { $_ -match "vol::(.+)::(.+)"} {
-            n_debug "parsing volume"
+	    ___debug "Parsing for volume: $_"
             $vol = n_match $_ "vol::(.+)::(.+)" -getMatch -index 1
             $path = n_match $_ "vol::(.+)::(.+)" -getMatch -index 2
             $res =  "$(Get-Volume | Where-Object {$_.FileSystemLabel -eq $vol } | Select-Object -ExpandProperty DriveLetter ):$path"
-            $res = $res -replace "(?!^)\\\\","\"
-            $res = $res -replace "\\","/"
+            $res = $res -replace "(?!^)\\\\","\" -replace "\\","/"
             n_debug "res:$res"
-            if ($clip) { Set-Clipboard $res } else { return $res }
+            if ($clip) { Set-Clipboard $res } else { return ___return $res }
         }
         { Test-Path $_ } { 
+	    ___debug "Relative path passed is valid: $_"
             try {
                 $item = Get-Item $_ -Force -ErrorAction Stop
             } catch {
                 Write-Host "Path exists, but cannot read object" -ForegroundColor Red
-                return
+                return ___return
             }
-            $isSym = $item.mode -eq "l----"
-            if($isSym){ $res = $item.ResolvedTarget } else { $res = $item.FullName }
+            $isSym = $item.mode -eq "l(a|-)---"
+            $isReg = $item.PSProvider.Name -eq "Registry"
+            if($isSym){ $res = $item.ResolvedTarget } elseif($isReg) { $res = $item.Name } else { $res = $item.FullName }
             if($null -eq $res) { $res = $item.name }
             $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
-            if ($clip) { Set-Clipboard $res } else { return $res }
+            if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res) }
         }
         { !(Test-Path $_) } {
-            $res =  $_ -replace "(?!^)\\\\","\"
-            $res =  $res -replace "\\","/"
+	    ___debug "Relative path passed may be invalid: $_"
+            $res =  $_ -replace "(?!^)\\\\","\" -replace "\\","/"
             $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
-            if ($clip) { Set-Clipboard $res } else { return $res }
+            if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res) }
         }
-        Default { if($clip) { Set-Clipboard $l_ } else { return $l_ } }
+        Default { if($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $l_) } else { return ___return $(ConvertTo-LixuxPathDelimiter $l_) } }
     }
+    ___end
 }
 New-Alias -Name gtp -Value Get-Path -Scope Global -Force
 function Get-Root ($inputObject) {

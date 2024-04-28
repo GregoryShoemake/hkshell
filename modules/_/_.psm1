@@ -7,6 +7,16 @@ if ($null -eq $global:_MODNAME_module_location ) {
     }
 }
 
+<#
+.GLOBAL VARIABLES
+#>
+
+$global:PATH_DELIMITER = if ($IsWindows) { "\" } elseif ($IsLinux) { "/" }
+$global:PATH_DELIMITER_REGEX = if ($IsWindows) { "\\" } elseif ($IsLinux) { "/" }
+<#
+.GLOBAL VARIABLES
+#>
+
 
 <#
 .GLOBAL FUNCTIONS
