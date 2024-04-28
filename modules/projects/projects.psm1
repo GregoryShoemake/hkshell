@@ -433,11 +433,11 @@ No project is currently loaded
                 Invoke-Git -Action Save
             }
         }
-        { $_.toLower() -match "add" } { Invoke-Git -Action Add }
-        { $_.toLower() -match "commit" } { Invoke-Git -Action Commit }
-        { $_.toLower() -match "push" } { Invoke-Git -Action Push }
-        { $_.toLower() -match "savedefault" } { Invoke-Git -Action Save -DefaultMessage }
-        { $_.toLower() -match "save" } { Invoke-Git -Action Save }
+        { $_.toLower() -match "^add$" } { Invoke-Git -Action Add }
+        { $_.toLower() -match "^commit$" } { Invoke-Git -Action Commit }
+        { $_.toLower() -match "^push$" } { Invoke-Git -Action Push }
+        { $_.toLower() -match "^savedefault$" } { Invoke-Git -Action Save -DefaultMessage }
+        { $_.toLower() -match "^save$" } { Invoke-Git -Action Save }
     }
     $global:project = $null
     $ENV:PATH = $global:originalPath
@@ -455,7 +455,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
 	return
     }
     switch ($action.ToLower()) {
-        {$_ -match "^e$|^exists$"} {
+        {$_ -match "^exists$"} {
             $p_ = $path
             pr_debug "Testing: $p_"
             while(($p_ -ne "") -and (!(Test-Path "$p_/.git"))){
@@ -464,7 +464,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
             }
             return Test-Path "$p_/.git"
         }
-        {$_ -match "^ne$|^notexists$"} {
+        {$_ -match "^notexists$"} {
             return !$(Invoke-Git -Path $path -Action Exists)
         }
         {$_ -eq "REMOTE-TEST"} {
@@ -479,13 +479,13 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
             $res = $(git ls-remote)
             return $res -notmatch "No remote configured"
         }
-        {$_ -match "^r$|^remote$"} {
+        {$_ -match "^remote$"} {
             return !$(!$(Invoke-Git -Path $path -Action REMOTE-TEST))
         }
-        {$_ -match "^nr$|^notremote$"} {
+        {$_ -match "^notremote$"} {
             return !$(Invoke-Git -Path $path -Action REMOTE-TEST)
         }
-        {$_ -match "^i$|^init$|^initialize$"} {
+        {$_ -match "^initialize$"} {
             pr_debug "initializing git"
             pr_debug "pwd:$pwd"
             pr_debug "path:$path"
@@ -508,7 +508,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
 	    Pop-Location
             return $true
         }
-        {$_ -match "^sa$|^save$"} { 
+        {$_ -match "^save$"} { 
 	    Push-Location $path
 	    if(Invoke-Git -Path $path -Action NotExists) { 
                 Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return 
