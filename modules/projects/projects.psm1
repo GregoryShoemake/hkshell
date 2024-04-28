@@ -445,7 +445,7 @@ No project is currently loaded
 New-Alias -name eprj -value Exit-Project -Scope Global -Force
 function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMessage) {
     pr_debug_function Invoke-Git
-    if($null -eq $path) {
+    if($path -eq "") {
 	$path = pr_default $(Get-Path $global:project.Path) "$pwd"
     } else {
 	$path = Get-Path $path
@@ -564,6 +564,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
     }
 }
 New-Alias -name igit -Value Invoke-Git -Scope Global -Force
+
 function Start-Edit ($item, [switch]$last) {
     ___start Start-Edit
     ___debug "item:$item"
@@ -582,6 +583,7 @@ function Start-Edit ($item, [switch]$last) {
         }
     }
     Invoke-Expression "$global:editor $path"
+    ___end
 }
 New-Alias -Name ed -Value Start-Edit -Scope Global -Force -ErrorAction SilentlyContinue
 function edl { Start-Edit -last }
