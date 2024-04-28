@@ -4,7 +4,7 @@ Set-Location: Cannot find path 'K:\nand2tetris\projects\03\:\nand2tetris' becaus
 
 #>
 
-$userDir = "~\.hkshell\projects"
+$userDir = "~/.hkshell/projects"
 if(!(Test-Path $userDir)) { mkdir $userDir }
 
 
@@ -276,13 +276,13 @@ function pr_search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$un
 
 
 
-$global:projectsPath = (((Get-Content "$userDir\projects.conf") | Select-String "projects-root") -split "=")[1]
+$global:projectsPath = (((Get-Content "$userDir/projects.conf") | Select-String "projects-root") -split "=")[1]
 $global:projectsPath = Get-Path $global:projectsPath
 pr_debug "Populating user PROJECTS global projects path variable ->
     global:projectsPath=$global:projectsPath"
 $global:originalPath = $ENV:PATH
 
-$global:editor = (((Get-Content "$userDir\projects.conf") | Select-String "default-editor") -split "=")[1]
+$global:editor = (((Get-Content "$userDir/projects.conf") | Select-String "default-editor") -split "=")[1]
 pr_debug "Populated user defined preferred editor ->
     global:editor=$global:editor"
 
@@ -301,13 +301,13 @@ function New-Project ($name) {
     Set-Location $global:projectsPath
     pr_debug "pwd:$pwd"
     if($null -eq $name) { $name = Read-Host "Project Name" }
-    mkdir "$global:projectsPath\$name" 
-    Set-Location ".\$name"
+    mkdir "$global:projectsPath/$name" 
+    Set-Location "./$name"
     pr_debug "pwd:$pwd"
-    Set-Content -Path $(New-Item "$global:projectsPath\$name\project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project'; LastDirectory='$global:projectsPath\$name'; LastFile='$global:projectsPath\$name\project.cfg'; RunLoop='True' }"
-    if($global:_debug_){Write-Host "$(Get-Content "$global:projectsPath\$name\project.cfg")"}
-    Copy-Item "$global:_projects_module_location\project.ps1" "$global:projectsPath\$name"
-    if(Invoke-Git -Path "$global:projectsPath\$name" -Action Initialize) { 
+    Set-Content -Path $(New-Item "$global:projectsPath/$name/project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath/$name'; Description='a new project'; LastDirectory='$global:projectsPath/$name'; LastFile='$global:projectsPath/$name/project.cfg'; RunLoop='True' }"
+    if($global:_debug_){Write-Host "$(Get-Content "$global:projectsPath/$name/project.cfg")"}
+    Copy-Item "$global:_projects_module_location/project.ps1" "$global:projectsPath/$name"
+    if(Invoke-Git -Path "$global:projectsPath/$name" -Action Initialize) { 
         if(pr_choice "Start project now?"){
             Start-Project $name
         }
@@ -328,13 +328,14 @@ function Get-Project ($get = "all"){
 New-Alias -name gprj -value Get-Project -Scope Global -Force
 
 function Start-Project ($name) {
+    $name = $name -replace "\\","/"
     pr_debug_function "Start-Project"
     pr_debug "args:$args"
     pr_debug "name:$name"
     Invoke-Persist -> user
-    if($name -match "\\") {
-        pr_debug "Split project '\\' requested"
-        $split = $name -split "\\"
+    if($name -match "/") {
+        pr_debug "Split project '/' requested"
+        $split = $name -split "/"
         $name = $split[0]
         $subName = $split[1]
         pr_debug "name:$name | subname:$subName"
@@ -350,15 +351,15 @@ function Start-Project ($name) {
             pr_debug "Project $name found. Starting ~"
             $found = $true
             $null = $found  #Keep getting powershell lint errors saying I don't use it
-            if($null -ne $subName) { $name = "$name\$subName" }
+            if($null -ne $subName) { $name = "$name/$subName" }
             $null = importhks nav
             $null = importhks query
             $null = importhks persist
-            $global:project = Invoke-Expression (Get-Content "$global:projectsPath\$name\project.cfg")
+            $global:project = Invoke-Expression (Get-Content "$global:projectsPath/$name/project.cfg")
             Invoke-PushWrapper Invoke-Persist default>_project:$name; 
             if($null -eq $subName) {
                 $ENV:PATH += ";$($_.fullname)"
-                $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
+                $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath/$name"}
                 if(!(Test-Path $startDir)) { $startDir = $global:project.Path }
                 Invoke-Go $startDir
                 If(pr_choice "Open last file [$($global:project.LastFile)]") {
@@ -367,8 +368,8 @@ function Start-Project ($name) {
             } 
             else { 
                 pr_debug "adding project directory to env:path"
-                $ENV:PATH += ";$($_.fullname)\$subname"
-                $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath\$name"}
+                $ENV:PATH += ";$($_.fullname)/$subname"
+                $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath/$name"}
                 if(!(Test-Path $startDir)) { $startDir = $global:project.Path }
                 try {
                     Invoke-Go $startDir -ErrorAction Stop
@@ -377,10 +378,10 @@ function Start-Project ($name) {
                     return
                 }
             }
-            $prjpth = $global:project.Path -replace "(?!^)\\\\","\" -replace "\\$",""
-            if((Test-Path $prjpth\project.ps1) -and ($Project.RunLoop -eq "True")) {
+            $prjpth = $global:project.Path -replace "(?!^)\\\\","\" -replace "\\$","" -replace "\\","/"
+            if((Test-Path $prjpth/project.ps1) -and ($Project.RunLoop -eq "True")) {
                 pr_debug "running project loop script"
-                $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $prjpth\project.ps1" -Passthru
+                $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $prjpth/project.ps1" -Passthru
             }
             return
         }
@@ -389,9 +390,9 @@ function Start-Project ($name) {
     pr_debug "Project $name not found"
     $prompt =  "Project $name not found, create project in $global:projectsPath?"
     if(pr_choice $prompt) {
-        mkdir "$global:projectsPath\$name"
-        Set-Content -Path $(New-Item "$global:projectsPath\$name\project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath\$name'; Description='a new project'; LastDirectory='$global:projectsPath\$name'; LastFile='$global:projectsPath\$name\project.cfg' }"
-        Copy-Item "$global:_projects_module_location\project.ps1" "$global:projectsPath\$name"
+        mkdir "$global:projectsPath/$name"
+        Set-Content -Path $(New-Item "$global:projectsPath/$name/project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath/$name'; Description='a new project'; LastDirectory='$global:projectsPath/$name'; LastFile='$global:projectsPath/$name/project.cfg' }"
+        Copy-Item "$global:_projects_module_location/project.ps1" "$global:projectsPath/$name"
         if(pr_choice "Start project $name now?") {
             Start-Project $name
         }
@@ -420,7 +421,7 @@ No project is currently loaded
     $name = $project.Name
     Set-Location $(Get-Path $global:project.Path)
     $global:project.GitExitAction = pr_default $global:project.GitExitAction "prompt"
-    Set-Content -Path $(Get-Item "$global:projectsPath\$name\project.cfg" -Force).FullName -Value "$(Format-ProjectConfigurationString)"
+    Set-Content -Path $(Get-Item "$global:projectsPath/$name/project.cfg" -Force).FullName -Value "$(Format-ProjectConfigurationString)"
     git diff
     switch ($global:project.GitExitAction) {
         {$_.toLower() -match "^(prompt|ask|request)$" }{ 
@@ -444,11 +445,11 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
         {$_ -match "^e$|^exists$"} {
             $p_ = $path
             pr_debug "Testing: $p_"
-            while(($p_ -ne "") -and (!(Test-Path "$p_\.git"))){
+            while(($p_ -ne "") -and (!(Test-Path "$p_/.git"))){
                 pr_debug "Testing: $p_"
                 $p_ = Split-Path $p_
             }
-            return Test-Path "$p_\.git"
+            return Test-Path "$p_/.git"
         }
         {$_ -match "^ne$|^notexists$"} {
             return !$(Invoke-Git -Path $path -Action Exists)
@@ -456,11 +457,11 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
         {$_ -eq "REMOTE-TEST"} {
             $p_ = $path
             pr_debug "Testing: $p_"
-            while(($p_ -ne "") -and (!(Test-Path "$p_\.git"))){
+            while(($p_ -ne "") -and (!(Test-Path "$p_/.git"))){
                 pr_debug "Testing: $p_"
                 $p_ = Split-Path $p_
             }
-            $exists = Test-Path "$p_\.git"   
+            $exists = Test-Path "$p_/.git"   
             if(!$exists) { return $false }
             $res = $(git ls-remote)
             return $res -notmatch "No remote configured"
@@ -483,7 +484,7 @@ function Invoke-Git ([string]$path,[string]$action = "status") {
             pr_prolix "Initializing Git"
             git init
             pr_prolix "Adding $(Get-Location) to safe directories"
-            git config --global --add safe.directory .\
+            git config --global --add safe.directory ./
             pr_prolix "Adding all files in project directory"
             git add .
             pr_prolix "Commiting"
@@ -537,7 +538,7 @@ function Start-Edit ($item, [switch]$last) {
         if($last) {
             return Start-Edit $global:project.LastFile
         }
-        if($path -notmatch "([a-zA-Z]:\\|\\\\.+?\\)") { $p = "$(Get-Location)\$path" } else { $p = $path }
+        if($path -notmatch "([a-zA-Z]:\\|\\\\.+?\\|^/)") { $p = "$(Get-Location)/$path" } else { $p = $path }
         if($null -eq $global:project.LastFile) {
             $global:project.add("LastFile",$p)
         } else {
