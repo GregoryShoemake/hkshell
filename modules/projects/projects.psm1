@@ -443,6 +443,7 @@ No project is currently loaded
     $ENV:PATH = $global:originalPath
 }
 New-Alias -name eprj -value Exit-Project -Scope Global -Force
+
 function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMessage) {
     ___start Invoke-Git
     ___debug "path:$path"
@@ -465,10 +466,10 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
                 pr_debug "Testing: $p_"
                 $p_ = Split-Path $p_
             }
-            return ___return Test-Path "$p_/.git"
+            return ___return $(Test-Path "$p_/.git")
         }
         {$_ -match "^notexists$"} {
-            return ___return !$(Invoke-Git -Path $path -Action Exists)
+            return ___return $(!$(Invoke-Git -Path $path -Action Exists))
         }
         {$_ -eq "REMOTE-TEST"} {
             $p_ = $path
