@@ -197,6 +197,30 @@ function n_nullemptystr ($nullable) {
     }
     return $true
 }
+
+function Test-IsSymLink ($InputObject) {
+    ___start Test-IsSymLink
+    if(__is $InputObject @("System.IO.FileInfo","System.IO.DirectoryInfo")) {
+	$input_PATH = $InputObject.FullName
+    } elseif($InputObject -isnot [string]) {
+	Write-Host "!_Expected type System.IO or string, Found: $($InputObject.GetType())_____!`n`n$_`n" -ForegroundColor Red
+	return ___return
+    } else {
+	$input_PATH = $InputObject
+    }
+    
+    try {
+    	$input_ITEM = Get-Item $input_PATH -Force -ErrorAction Stop
+    }
+    catch {
+	Write-Host "!_Failed to get item: $_ _____!`n`n$_`n" -ForegroundColor Red
+	return ___return
+    }
+
+    return ___return $($input_ITEM.FullName -ne $input_ITEM.ResolvedTarget)
+
+}
+
 function Test-Access($Path)
 {
     try
@@ -308,7 +332,7 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache) {
 
             $isReg = "$($_.PSProvider.Name)" -eq "Registry"
             $isDir = $_.psiscontainer
-            $isSym = $_.mode -eq "l----" -or $_.mode -eq "la---"
+            $isSym = Test-IsSymLink $_
             if($isSym) { $resolved = $_.ResolvedTarget }
             $parent = if( $isReg ){ $_ | Select-Object -ExpandProperty Name | Split-Path | Split-Path -leaf }elseif($isDir) { $_.parent.fullname } else { $_.directory.fullname }
             if($script:lastParent -ne $parent) {
@@ -833,7 +857,7 @@ function Get-Path {
 
         { ($_ -is [System.IO.FileInfo]) -or ($_ -is [System.IO.DirectoryInfo]) } {
 	    ___debug "System.IO object passed, returning literal path"
-            $isSym = $_.mode -eq "l(-|a)---" 
+            $isSym = Test-IsSymLink $_
             $isReg = $_.PSProvider.Name -eq "Registry"
             if($isSym){
                 if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $_.ResolvedTarget) } else { return ___return $(ConvertTo-LixuxPathDelimiter $_.ResolvedTarget) } 
@@ -856,7 +880,7 @@ function Get-Path {
         { $_ -match "^[0-9]+$" } {
 	    ___debug "Checking current directory for index: $_"
             $res = $(Get-ChildItem $l_ -Force)[$([int]$_)]
-            $isSym = $res.mode -eq "l(-|a)---"
+            $isSym = Test-IsSymLink $res
 	    ___debug "isSym:$isSym"
 	    ___debug "PSProvider:$($res.PSProvider)"
             $isReg = $res.PSProvider.Name -eq "Registry"
@@ -886,7 +910,7 @@ function Get-Path {
                 Write-Host "Path exists, but cannot read object" -ForegroundColor Red
                 return ___return
             }
-            $isSym = $item.mode -eq "l(a|-)---"
+            $isSym = Test-IsSymLink $item
             $isReg = $item.PSProvider.Name -eq "Registry"
             if($isSym){ $res = $item.ResolvedTarget } elseif($isReg) { $res = $item.Name } else { $res = $item.FullName }
             if($null -eq $res) { $res = $item.name }

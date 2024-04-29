@@ -253,6 +253,24 @@ function Invoke-Extract([string]$archive,[string]$destination,[string]$extractor
     ___end
 }
 
+function Get-Environment ([string]$var) {
+    ___start Get-Environment
+    ___debug "var:$var"
+    if($var -eq ""){
+	return ___return $([System.Environment]::GetEnvironmentVariables())
+    } else {
+	return ___return $([System.Environment]::GetEnvironmentVariable($var))
+    }
+}
+
+function Set-Environment ([string]$variable,[string]$value,[string]$scope = 'Machine') {
+    ___Start Set-Environment
+    ___debug "variable:$variable"
+    ___debug "value:$value"
+    ___debug "scope:$scope"
+    return ___return $([System.Environment]::SetEnvironmentVariable($variable,$value, $scope))
+}
+
 function Invoke-Compress ( $files, [string]$destination, [string]$level = "Fastest"){
     ___start Invoke-Compress
     if($files -isnot [System.Array]){
