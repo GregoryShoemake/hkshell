@@ -1,3 +1,4 @@
+
 if ($null -eq $global:_nav_module_location ) {
     if ($PSVersionTable.PSVersion.Major -ge 3) {
         $global:_nav_module_location = $PSScriptRoot
