@@ -343,7 +343,7 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache) {
                 write-host "|_INDEX_|__TYPE__|_____LAST WRITE TIME_____|__NAME" -ForegroundColor DarkGray
             }
             $index = n_pad "[$i]" 7 " "
-            $type = n_pad $(if( $isReg ){ "[reg]" }elseif($isSym) { if($isDir) {"[tun]"} else {"[sym]"} }elseif($isDir){"[dir]"}else{"[file]"}) 8 " "
+            $type = n_pad $(if( $isReg ){ "[reg]" }elseif($isSym) { if($isDir) {"[tun]"} else {"[link]"} }elseif($isDir){"[dir]"}else{"[file]"}) 8 " "
             $lastWrite = n_pad "$($_.lastwritetime)" 25 " " 
             $name = $_.name
             if($isSym) {

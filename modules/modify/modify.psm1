@@ -140,7 +140,7 @@ function Invoke-Rename ($from,[string]$to) {
 	___debug "to_EXT:$to_EXT"
 
 	$final_NAME = if($to_NAME -eq "") { $from_NAME } else { $to_NAME }
-	$final_EXT = if($to_EXT -eq "") { $from_EXT } else { $to_EXT }
+	$final_EXT = if($to_EXT -eq "") { $from_EXT } elseif($from_STRING -match "\|$") { "" } else { $to_EXT }
 
 	$final = "$final_NAME$final_EXT"
 
@@ -270,6 +270,24 @@ function Set-Environment ([string]$variable,[string]$value,[string]$scope = 'Mac
     ___debug "scope:$scope"
     return ___return $([System.Environment]::SetEnvironmentVariable($variable,$value, $scope))
 }
+
+function Invoke-RemoveItem ($index) {
+    if($null -eq $index) { 
+	$count = $(Get-ChildItem "$pwd").Count - 1
+	return Invoke-RemoveItem @(0..$count)
+    }
+    if($index -is [System.Array]){
+        return $index | Sort-Object -Descending | ForEach-Object { rem $_ } 
+    }
+    $path = Get-Path $index
+    if($null -eq $path) { return }
+    $item = Get-Item -Path $path -Force
+    if($null -eq $item) { return }
+    If( ( Read-Host "Remove $(if($item.PSIsContainer){ "Directory" } else { "File" }): $path ?" ) -match "^(yes|y)$" ){
+        Remove-Item $path -Force -Recurse
+    }
+}
+New-Alias -Name rem -Value Invoke-RemoveItem -Scope Global -Force -ErrorAction SilentlyContinue
 
 function Invoke-Compress ( $files, [string]$destination, [string]$level = "Fastest"){
     ___start Invoke-Compress

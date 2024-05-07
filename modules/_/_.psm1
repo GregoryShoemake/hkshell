@@ -285,7 +285,7 @@ function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$unt
     }
 }
 function __default ($variable, $value) {
-    ___start e_default
+    ___start __default
     if ($null -eq $variable) { 
         return ___return $value 
     }
@@ -297,6 +297,13 @@ function __default ($variable, $value) {
                 return ___return $variable
             }
         }
+	default {
+	    if($null -eq $variable){
+		return ___return $value
+	    } else {
+		return ___return $variable
+	    }
+	}
     }
 }
 function __match {
