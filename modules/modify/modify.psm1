@@ -53,8 +53,18 @@ function New-Tunnel ($targetDirectory){
 }
 
 function m_copy ($path, $destination, [switch] $mirror, [switch] $passthru) {
-    ___start m_copy
-    try {
+    ___start m_copy 
+    if($path -is [System.Array]) {
+	foreach ($p_ in $path) {
+	    m_copy -path $p_ -destination $destination -mirror:$mirror -passthru:$passthru
+	}
+    }
+    if($destination -is [System.Array]) {
+	foreach ($d_ in $destination) {
+	    m_copy -path $path -destination $d_ -mirror:$mirror -passthru:$passthru
+	}
+    }
+   try {
 	$i = Get-Item $path -Force -ErrorAction Stop
 	if($i.psIsContainer) {
 	    if($mirror) {
@@ -64,7 +74,7 @@ function m_copy ($path, $destination, [switch] $mirror, [switch] $passthru) {
 	    }
 	    if($passthru) { return ___return $(Get-Item $destination -Force) }
 	} else {
-	    Robocopy $(Split-Path $i.FullName) $destination $i.name /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
+	    Copy-Item -Path $i.FullName -Destination $destination -Force
 	    if($passthru) { return ___return $(Get-Item "$destination\$($i.name)" -Force) }
 	}
     } catch {
@@ -306,5 +316,110 @@ function Invoke-Compress ( $files, [string]$destination, [string]$level = "Faste
         DestinationPath = $destination
     }
     Compress-Archive $compress -Force
+    ___end
+}
+
+function Get-RelativePath ($Directory, $File) {
+    ___start Get-RelativePath
+    if($Directory -is [System.IO.DirectoryInfo]){
+	$Directory = $Directory.FullName
+    }
+    if($Directory -isnot [string]){
+	Write-Host "!_Directory is not a valid type, Expected string, found: $($Directory.GetType())_____!`n`n$_`n" -ForegroundColor Red
+	return ___return
+    }
+    if($File -is [System.IO.FileInfo]){
+	$File = $File.FullName
+    }
+    if($File -isnot [string]){
+	Write-Host "!_File is not a valid type, Expected string, found: $($File.GetType())_____!`n`n$_`n" -ForegroundColor Red
+	return ___return
+    }
+
+    ___debug "Directory:$Directory"
+    ___debug "File:$File"
+
+    $File = $File -replace "\\","/"
+    $Directory = $Directory -replace "\\","/"
+
+    ___debug "Directory(After Replace):$Directory"
+    ___debug "File(After Replace):$File"
+
+    if($File -notmatch $Directory) {
+	Write-Host "!_File $File is not in Directory $Directory_____!`n`n$_`n" -ForegroundColor Red
+	return ___return $File
+    }
+
+    return ___return $($File -replace "$Directory","")
+
+}
+
+function Invoke-SyncDirectories ([System.Array]$Directories, [switch]$MirrorLatestDirectoryAfter) {
+    ___start Invoke-SyncDirectories
+
+    ___debug "directories:$Directories"
+
+    $latestDirectory = $Directories[0]
+    if($latestDirectory -is [string]){ $latestDirectory = Get-Item $latestDirectory }
+    foreach ($directory in $Directories) {
+	if($directory -is [string]){ $directory = Get-Item $directory }
+	if($directory.LastWriteTime -gt $latestDirectory.LastWriteTime){
+	    $latestDirectory = $directory
+	}
+    }
+
+    ___debug "latestDirectory:$latestDirectory"
+
+    $latestDirectoryItems = Get-ChildItem -Path $latestDirectory.FullName | Where-Object { !$_.PSIsContainer}
+
+    foreach ($file in $latestDirectoryItems) {
+
+	___debug "currentFileBeforeTrim:$($file.FullName)"
+
+	$relativePath = Get-RelativePath -Directory $latestDirectory -File $file
+
+	$latest = $file
+
+	___debug "currentFile:$latest"
+
+	foreach ($curDir in $Directories) {
+	    if($curDir -is [string]) { $curDir = Get-Item $curDir }
+	    $curDirRespFilePath = "$($curDir.FullName)$relativePath"
+	    try {
+	    	$curDirRespFile = Get-Item $curDirRespFilePath -ErrorAction Stop
+	    }
+	    catch {
+	    	continue
+	    }
+	    if($curDirRespFile.LastWriteTime -gt $latest.LastWriteTime){
+		$latest = $curDirRespFile
+	    }
+	}
+
+	___debug "mostCurrentFile:$latest"
+
+	foreach ($curDir in $Directories) {
+
+	    if($curDir -is [string]) { $curDir = Get-Item $curDir }
+
+	    if($curDir.FullName -eq $latest.FullName) { continue }
+
+	    $curDirRelPath = Split-Path "$($curDir.FullName)$relativePath"
+	    Copy-Item -Path $latest.FullName -Destination $curDirRelPath -Force -ErrorAction SilentlyContinue
+	}
+
+    }
+
+    if($MirrorLatestDirectoryAfter) {
+	foreach ($curDir in $Directories) {
+
+	    if($curDir -is [string]) { $curDir = Get-Item $curDir }
+
+	    if($curDir.FullName -eq $latest.FullName) { continue }
+
+	    m_copy -Path $latestDirectory.FullName -destination $curDir.Fullname -Mirror
+	}
+    }
+
     ___end
 }

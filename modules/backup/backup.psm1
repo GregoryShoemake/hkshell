@@ -144,6 +144,8 @@ function Start-Backup {
     ___debug "args:$args"
     $hash = __search_args $args "-directories" -Switch
     $dirs = $hash.RES
+    $hash = __search_args $hash.ARGS "-quiet" -Switch
+    $quiet = $hash.RES
     $hash = __search_args $hash.ARGS "-bareMetal" -Switch
     $bare = $hash.RES
     $hash = __search_args $hash.ARGS "-exclude" -All -UntilSwitch
@@ -200,14 +202,22 @@ function Start-Backup {
                         $loginfo = "$(Get-Date -Format "dMMMy@H:m:s:fff") <::> Backing up directory: $i  =>  $backupDirectory"
                         ___debug $loginfo
                         $source = $item.fullname
+			___debug "source:$source"
                         $destination = "$backupDirectory/$($item.name)"
+			___debug "destination:$destination"
                         if($null -ne $logPath) {
                             Add-Content -Path $logPath -Value $loginfo
                         }
                         $robocopyLogPath = "$global:backupLogsPath/robocopy-$($item.name)-$(Get-Date -Format dMMMy).log"
                         if(!(Test-Path $robocopyLogPath )) { New-Item $robocopyLogPath -ItemType File }
-                        $null = Robocopy.exe $source $destination /mir /mt /log+:$robocopyLogPath } 
-                    else {
+			if($log) {
+			    $null = Robocopy.exe $source $destination /mir /mt /log+:$robocopyLogPath
+			} elseif ($quiet) {
+			    Robocopy.exe $source $destination /mir /mt /NFL /NDL /NJH /NJS /nc /ns /np > NUL
+			} else {
+			    Robocopy.exe $source $destination /mir /mt  
+			}
+                    } else {
                         $loginfo = "$(Get-Date -Format "dMMMy@H:m:s:fff") <::> Backing up file: $i  =>  $backupDirectory"
                         ___debug $loginfo
                         if($null -ne $logPath) {
