@@ -598,7 +598,7 @@ function Start-Edit ($item,[switch]$find, [switch]$last) {
 
         if($path -notmatch "([a-zA-Z]:/|//.+?/|^/)") { $p = "$(Get-Location)/$path" } else { $p = $path }
 
-        if($null -eq $global:project.LastFile) {
+        if($global:project.keys -notcontains "LastFile") {
             $global:project.add("LastFile",$p)
         } else {
             $global:project.LastFile = $p
