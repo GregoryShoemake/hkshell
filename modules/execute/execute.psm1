@@ -447,3 +447,10 @@ function Test-Credential {
 		$DS.ValidateCredentials($credential.GetNetworkCredential().UserName, $credential.GetNetworkCredential().password)
 	}
 }
+
+function Invoke-Do ([int]$repetitions,$block) {
+    for ($i = 0; $i -lt $repetitions; $i++) {
+    	& $block
+    }
+}
+New-Alias -Name ido -Value Invoke-Do -Scope Global -Force -ErrorAction SilentlyContinue

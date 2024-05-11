@@ -579,7 +579,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
 }
 New-Alias -name igit -Value Invoke-Git -Scope Global -Force
 
-function Start-Edit ($item, [switch]$last) {
+function Start-Edit ($item,[switch]$find, [switch]$last) {
     ___start Start-Edit
     ___debug "item:$item"
     ___debug "last:$last"
@@ -590,11 +590,16 @@ function Start-Edit ($item, [switch]$last) {
             return Start-Edit $global:project.LastFile
         }
         if($path -notmatch "([a-zA-Z]:/|//.+?/|^/)") { $p = "$(Get-Location)/$path" } else { $p = $path }
+
         if($null -eq $global:project.LastFile) {
             $global:project.add("LastFile",$p)
         } else {
             $global:project.LastFile = $p
         }
+    }
+
+    if($find) {
+	$path = Get-ChildItem "$pwd" | Where-Object { $_.name -match $path } | Select-Object -ExpandProperty FullName
     }
     Invoke-Expression "$global:editor $path"
     ___end
