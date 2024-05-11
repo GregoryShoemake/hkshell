@@ -590,6 +590,8 @@ function Start-Edit ($item,[switch]$find, [switch]$last) {
 	$path = Get-ChildItem "$pwd" -Recurse | Where-Object { !$_.PsIsContainer -and $_.name -match $path } | Select-Object -ExpandProperty FullName
     }
 
+    ___debug "path:$path"
+
     if($null -ne $global:project){
 
         if($last) {
