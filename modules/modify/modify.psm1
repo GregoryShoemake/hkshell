@@ -360,9 +360,9 @@ function Invoke-SyncDirectories ([System.Array]$Directories, [switch]$MirrorLate
     ___debug "directories:$Directories"
 
     $latestDirectory = $Directories[0]
-    if($latestDirectory -is [string]){ $latestDirectory = Get-Item $latestDirectory }
+    if($latestDirectory -is [string]){ $latestDirectory = Get-Item -Force $latestDirectory }
     foreach ($directory in $Directories) {
-	if($directory -is [string]){ $directory = Get-Item $directory }
+	if($directory -is [string]){ $directory = Get-Item -Force $directory }
 	if($directory.LastWriteTime -gt $latestDirectory.LastWriteTime){
 	    $latestDirectory = $directory
 	}
@@ -370,7 +370,7 @@ function Invoke-SyncDirectories ([System.Array]$Directories, [switch]$MirrorLate
 
     ___debug "latestDirectory:$latestDirectory"
 
-    $latestDirectoryItems = Get-ChildItem -Path $latestDirectory.FullName | Where-Object { !$_.PSIsContainer}
+    $latestDirectoryItems = Get-ChildItem -Path $latestDirectory.FullName -Recurse -Force | Where-Object { !$_.PSIsContainer}
 
     foreach ($file in $latestDirectoryItems) {
 
@@ -383,10 +383,10 @@ function Invoke-SyncDirectories ([System.Array]$Directories, [switch]$MirrorLate
 	___debug "currentFile:$latest"
 
 	foreach ($curDir in $Directories) {
-	    if($curDir -is [string]) { $curDir = Get-Item $curDir }
+	    if($curDir -is [string]) { $curDir = Get-Item -Force $curDir }
 	    $curDirRespFilePath = "$($curDir.FullName)$relativePath"
 	    try {
-	    	$curDirRespFile = Get-Item $curDirRespFilePath -ErrorAction Stop
+	    	$curDirRespFile = Get-Item -Force $curDirRespFilePath -ErrorAction Stop
 	    }
 	    catch {
 	    	continue
@@ -400,7 +400,9 @@ function Invoke-SyncDirectories ([System.Array]$Directories, [switch]$MirrorLate
 
 	foreach ($curDir in $Directories) {
 
-	    if($curDir -is [string]) { $curDir = Get-Item $curDir }
+	    ___debug "curDir:$curDir"
+
+	    if($curDir -is [string]) { $curDir = Get-Item -Force $curDir }
 
 	    if($curDir.FullName -eq $latest.FullName) { continue }
 
@@ -413,7 +415,7 @@ function Invoke-SyncDirectories ([System.Array]$Directories, [switch]$MirrorLate
     if($MirrorLatestDirectoryAfter) {
 	foreach ($curDir in $Directories) {
 
-	    if($curDir -is [string]) { $curDir = Get-Item $curDir }
+	    if($curDir -is [string]) { $curDir = Get-Item -Force $curDir }
 
 	    if($curDir.FullName -eq $latest.FullName) { continue }
 
