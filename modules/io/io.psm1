@@ -39,17 +39,17 @@ function Write-HostLoading {
     ___debug "foregroundcolor:$foregroundcolor"
     ___debug "backgroundcolor:$backgroundcolor"
 
-    if(($seconds + $milliseconds) -eq 0) { $seconds = 5 } else { $seconds += $milliseconds / 1000 }
+    if(($seconds + $milliseconds) -eq 0) { $milliseconds = 5000 } else { $milliseconds += $seconds * 1000 }
 
-    ___debug "final seconds:$seconds"
+    ___debug "final milliseconds:$milliseconds"
 
     $msg = $hash.ARGS
 
     ___debug "msg:$msg"
 
-    $repetitions = [Math]::Sqrt($seconds) * 2
+    [int]$repetitions = [Math]::Sqrt($milliseconds / 1000) * 2
 
-    $duration = (1000 * $seconds) / ($repetitions * 8)
+    $duration = ($milliseconds) / ($repetitions * 8)
 
 
     foreach($i in @(1..$repetitions)) {
