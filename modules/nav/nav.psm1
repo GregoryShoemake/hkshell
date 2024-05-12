@@ -372,14 +372,15 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
             $i++
 
 	    if($isDir -and $tree) {
-		$children = Get-ChildItem $_.FullName
+		$children = Get-ChildItem $_.FullName -Force -ErrorAction SilentlyContinue
 		$children_COUNT = $children.Count
 		$i = 0
 		foreach ($child in $children){
+		    if($child.name -eq "...break"){ break }
 		    if($i -eq $children_COUNT - 1) {
-			write-host -nonewline $(n_pad "└ " 45 " " -Left) -ForegroundColor DarkGray
+			write-host -nonewline $(n_pad "└── " 47 " " -Left) -ForegroundColor DarkGray
 		    } else {
-			write-host -nonewline $(n_pad "├ " 45 " " -Left) -ForegroundColor DarkGray
+			write-host -nonewline $(n_pad "├── " 47 " " -Left) -ForegroundColor DarkGray
 		    }
 		    
 		    $child_SYSORHID = $_.Attributes -band $global:hidden_or_system
@@ -389,7 +390,9 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
 			try { [IO.File]::OpenWrite($child.fullname).close();$child_CANACCESS = $true }
 			catch { $child_CANACCESS = $false }
 		    }
-		    write-host $child.Name -ForegroundColor $(if($child_CANACCESS -and !$child_SYSORHID) { "Gray" } elseif ($child_CANACCESS -and $child_SYSORHID) { "DarkGray" } elseif (!$child_SYSORHID -and !$child_CANACCESS) { "Red" } else { "DarkRed" })
+		    $c_ISDIR = $child.PSIsContainer
+		    $c_ISSYM = Test-IsSymLink $child
+		    write-host "$(if($c_ISSYM){"l"} elseif($c_ISDIR) {"d"} else {"f"}) .. $($child.Name) $(if($c_ISSYM){"-> $($child.ResolvedTarget)"} else {''} )" -ForegroundColor $(if($child_CANACCESS -and !$child_SYSORHID) { "Gray" } elseif ($child_CANACCESS -and $child_SYSORHID) { "DarkGray" } elseif (!$child_SYSORHID -and !$child_CANACCESS) { "Red" } else { "DarkRed" })
 		    $i++
 		}
 	    }
@@ -631,14 +634,14 @@ function Invoke-Go {
         [Parameter()]
         $Until
     )
-    n_debug_function "Invoke-Go"
+    ___start "Invoke-Go"
 
     if($null -ne (Get-Module persist)) {
 	if(Invoke-Persist clearHostOnInvokeGo?) {
 	    Clear-Host
 	}
     }
-
+    
     if ($null -ne $Until) {
 
         $res = Get-ChildItem -Force -Recurse $(Get-Location) | Where-Object { $_.psiscontainer } | Where-Object { $_.name -eq $Until }
@@ -654,7 +657,7 @@ function Invoke-Go {
             $index = Read-Host "Input index of desired directory: "
             $res = $res[$index]
         }
-        return Invoke-Go $res.FullName
+        return ___return $(Invoke-Go $res.FullName -A:$A -C:$C -Tree:$Tree)
 
     }
 
@@ -689,10 +692,10 @@ function Invoke-Go {
             $in = $([int]$in) 
             if($global:QueryResult.length -le $in) { 
                 Write-Host "Out of index for QueryResults: $in out of $(Query.Length)" -ForegroundColor Red
-                return
+                return ___return
             }
             $in = $global:QueryResult[$in]
-            return Invoke-Go $in.FullName -C:$C -A:$A
+            return ___return $(Invoke-Go $in.FullName -C:$C -A:$A -Tree:$Tree)
         }
         foreach ($s in $global:QueryResult) {
             $replaced = $s
@@ -736,7 +739,7 @@ function Invoke-Go {
                 $cin = $children[$in]
                 $path = if("$($cin.PsProvider)" -eq "Microsoft.PowerShell.Core\Registry") { $cin.name } else { $cin.FullName }
                 $path = Get-Path $path
-                return Invoke-Go $path -C:$C -A:$A
+                return ___return $(Invoke-Go $path -C:$C -A:$A -Tree:$Tree)
         }
 
         foreach ($s in $global:shortcuts) {
@@ -788,7 +791,7 @@ function Invoke-Go {
 	}	
 
         Set-Location $in
-	$first_item = Get-ChildItem "$pwd" | Select-Object -First 1
+	$first_item = Get-ChildItem "$pwd" -Force -ErrorAction SilentlyContinue | Select-Object -First 1
 	if($first_item.PSProvider.Name -eq "Registry") {
 	    $global:first = $first_item.Name
 	} else {
@@ -801,7 +804,7 @@ function Invoke-Go {
         try {
             New-Item $in -ItemType Directory -Force -ErrorAction Stop
             Set-Location $in -ErrorAction Stop
-            D -D:$D
+            Show-Directories -D:$D -Tree:$Tree
             if($null -ne $global:project){
                 if($null -eq $global:project.LastDirectory) {
                     $global:project.add("LastDirectory",$in)
