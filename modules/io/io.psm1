@@ -47,15 +47,20 @@ function Write-HostLoading {
 
     ___debug "msg:$msg"
 
-    foreach($i in @(0..$($seconds / 2))) {
-	Write-Host -NoNewline "`r | $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds 125
-	Write-Host -NoNewline "`r / $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds 125
-	Write-Host -NoNewline "`r - $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds 125
-	Write-Host -NoNewline "`r \ $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds 125
-	Write-Host -NoNewline "`r | $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds 125
-	Write-Host -NoNewline "`r / $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds 125
-	Write-Host -NoNewline "`r - $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds 125
-	Write-Host -NoNewline "`r \ $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds 125
+    $repetitions = [Math]::Sqrt($seconds) * 2
+
+    $duration = (1000 * $seconds) / ($repetitions * 8)
+
+
+    foreach($i in @(1..$repetitions)) {
+	Write-Host -NoNewline "`r | $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds $duration
+	Write-Host -NoNewline "`r / $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds $duration
+	Write-Host -NoNewline "`r - $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds $duration
+	Write-Host -NoNewline "`r \ $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds $duration
+	Write-Host -NoNewline "`r | $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds $duration
+	Write-Host -NoNewline "`r / $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds $duration
+	Write-Host -NoNewline "`r - $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds $duration
+	Write-Host -NoNewline "`r \ $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor; Start-Sleep -Milliseconds $duration
     }
     Write-Host -NoNewline "`r * $msg" -ForegroundColor $foregroundColor -BackgroundColor $backgroundColor
 
