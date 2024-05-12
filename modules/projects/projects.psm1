@@ -587,10 +587,10 @@ function Start-Edit ($item,[switch]$find, [switch]$last) {
     ___debug "path:$path"
 
     if($find) {
-	$path = Get-ChildItem "$pwd" -Recurse | Where-Object { !$_.PsIsContainer -and $_.name -match $path } | Select-Object -ExpandProperty FullName
+	$path = Get-Path (Get-ChildItem "$pwd" -Recurse | Where-Object { !$_.PsIsContainer -and $_.name -match $path } | Select-Object -ExpandProperty FullName)
     }
 
-    ___debug "path:$path"
+    ___debug "path(after find):$path"
 
     if($null -ne $global:project){
 
@@ -606,6 +606,15 @@ function Start-Edit ($item,[switch]$find, [switch]$last) {
             $global:project.LastFile = $p
         }
 
+    } else {
+
+	if($last) {
+	    return Start-Edit $global:_last_edit_
+	}
+
+        if($path -notmatch "([a-zA-Z]:/|//.+?/|^/)") { $p = "$(Get-Location)/$path" } else { $p = $path }
+
+	$global:_last_edit_ = $p
     }
 
     Invoke-Expression "$global:editor $path"

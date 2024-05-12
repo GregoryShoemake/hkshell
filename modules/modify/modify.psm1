@@ -101,9 +101,11 @@ function Invoke-GetItem ($item, [switch]$all) {
     ___end
 }
 
-function Invoke-Rename ($from,[string]$to) {
+function Invoke-Rename ($from,[string]$to,[switch]$exact) {
+
 	___start Invoke-Rename
-	if(__is $from @("System.IO.FileInfo","System.IO.DirectoryInfo")) {
+
+	if(__is $from @([System.IO.FileInfo],[System.IO.DirectoryInfo])) {
 		$from = $from.FullName
 	}
 	if($from -isnot [string]) {
@@ -131,6 +133,11 @@ function Invoke-Rename ($from,[string]$to) {
 		}
 
 		$from_STRING = $from_ITEM.FullName
+	}
+
+	if($exact){
+	    Rename-Item -Path $from_STRING -NewName $to | Out-Null
+	    return ___return
 	}
 
 	[string]$from_LEAF = Split-Path -Leaf $from_STRING
@@ -281,19 +288,20 @@ function Set-Environment ([string]$variable,[string]$value,[string]$scope = 'Mac
     return ___return $([System.Environment]::SetEnvironmentVariable($variable,$value, $scope))
 }
 
-function Invoke-RemoveItem ($index) {
-    if($null -eq $index) { 
+function Invoke-RemoveItem ($target) {
+    if($null -eq $target) { 
 	$count = $(Get-ChildItem "$pwd").Count - 1
 	return Invoke-RemoveItem @(0..$count)
     }
-    if($index -is [System.Array]){
-        return $index | Sort-Object -Descending | ForEach-Object { rem $_ } 
+    if($target -is [System.Array]){
+        return $target | Sort-Object -Descending | ForEach-Object { rem $_ } 
     }
-    $path = Get-Path $index
+
+    $path = Get-Path $target -KeepSymlink
     if($null -eq $path) { return }
     $item = Get-Item -Path $path -Force
     if($null -eq $item) { return }
-    If( ( Read-Host "Remove $(if($item.PSIsContainer){ "Directory" } else { "File" }): $path ?" ) -match "^(yes|y)$" ){
+    If( ( Read-Host "Remove $(if(Test-IsSymLink $item) {"Symlink"} elseif($item.PSIsContainer){ "Directory" } else { "File" }): $path ?" ) -match "^(yes|y)$" ){
         Remove-Item $path -Force -Recurse
     }
 }

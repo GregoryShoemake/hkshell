@@ -51,7 +51,7 @@ function shct {
         if($null -eq $items) { $items = @(Get-Item $s -Force -ErrorAction SilentlyContinue) }
         else { $items += Get-item $s -Force -ErrorAction SilentlyContinue }
     }
-    n_dir $items
+    Format-ChildItem $items
 }
 
 $global:hidden_or_system = [System.IO.FileAttributes]::Hidden -bor [System.IO.FileAttributes]::System
@@ -318,7 +318,7 @@ Function Get-RegistryKeyPropertiesAndValues
     Pop-Location
 } #end function Get-RegistryKeyPropertiesAndValues
 
-function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache) {
+function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]$tree) {
     if($cache) {
         $items = $global:QueryResult 
         if($clearCache){
@@ -341,7 +341,8 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache) {
                 $parent
     " -ForegroundColor DarkYellow
                 $script:lastParent = $parent
-                write-host "|_INDEX_|__TYPE__|_____LAST WRITE TIME_____|__NAME" -ForegroundColor DarkGray
+                write-host "│ INDEX │  TYPE  │     LAST WRITE TIME     │  NAME" -ForegroundColor DarkGray
+                write-host "├───────┼────────┼─────────────────────────┼──────" -ForegroundColor DarkGray
             }
             $index = n_pad "[$i]" 7 " "
             $type = n_pad $(if( $isReg ){ "[reg]" }elseif($isSym) { if($isDir) {"[tun]"} else {"[link]"} }elseif($isDir){"[dir]"}else{"[file]"}) 8 " "
@@ -360,15 +361,39 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache) {
                 catch { $canAccess = $false }
             }
             $sysOrHid = $_.Attributes -band $global:hidden_or_system
-            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host -nonewline "│" -ForegroundColor DarkGray
             write-host -nonewline $index
-            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host -nonewline "│" -ForegroundColor DarkGray
             write-host -nonewline $type -ForegroundColor $(if( $isReg ){ "Red" }elseif($isSym){ if($isDir) {"Magenta"} else {"DarkMagenta"} }elseif($isDir){"Cyan"}else{"DarkCyan"})
-            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host -nonewline "│" -ForegroundColor DarkGray
             write-host -nonewline $lastWrite
-            write-host -nonewline "|" -ForegroundColor DarkGray
+            write-host -nonewline "│" -ForegroundColor DarkGray
             write-host $name -ForegroundColor $(if($canAccess -and !$sysOrHid) { "Gray" } elseif ($canAccess -and $sysOrHidden) { "DarkGray" } elseif (!$sysOrHidden -and !$canAccess) { "Red" } else { "DarkRed" })
             $i++
+
+	    if($isDir -and $tree) {
+		$children = Get-ChildItem $_.FullName
+		$children_COUNT = $children.Count
+		$i = 0
+		foreach ($child in $children){
+		    if($i -eq $children_COUNT - 1) {
+			write-host -nonewline $(n_pad "└ " 45 " " -Left) -ForegroundColor DarkGray
+		    } else {
+			write-host -nonewline $(n_pad "├ " 45 " " -Left) -ForegroundColor DarkGray
+		    }
+		    
+		    $child_SYSORHID = $_.Attributes -band $global:hidden_or_system
+		    if($child.PSIsContainer) {
+			$child_CANACCESS = Test-Access $child.fullname
+		    } else {
+			try { [IO.File]::OpenWrite($child.fullname).close();$child_CANACCESS = $true }
+			catch { $child_CANACCESS = $false }
+		    }
+		    write-host $child.Name -ForegroundColor $(if($child_CANACCESS -and !$child_SYSORHID) { "Gray" } elseif ($child_CANACCESS -and $child_SYSORHID) { "DarkGray" } elseif (!$child_SYSORHID -and !$child_CANACCESS) { "Red" } else { "DarkRed" })
+		    $i++
+		}
+	    }
+
         }  
     }
     try {
@@ -412,6 +437,9 @@ function Show-Directories {
         [switch]
         $D,
         [Parameter()]
+        [switch]
+        $Tree,
+        [Parameter()]
         [int]
         $dep = 0
 
@@ -435,7 +463,7 @@ function Show-Directories {
 		Write-Host "
 	$path   is Empty!" -ForegroundColor Red
 	} else {
-		n_dir $res
+		Format-ChildItem $res -Tree:$Tree
 	}
 
         <#
@@ -462,7 +490,8 @@ ChildItems of $par
 ChildItems of $path
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         Write-Host $curPrompt -ForegroundColor Blue
-        n_dir $( Get-ChildItem -Force $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D } )
+        Format-ChildItem $( Get-ChildItem -Force $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D } ) -Tree:$Tree
+
         <#
         
         
@@ -499,7 +528,8 @@ ChildItems of $par
 ChildItems of $path
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         Write-Host $curPrompt -ForegroundColor Blue
-        n_dir $(Get-ChildItem -Force $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D })
+        Format-ChildItem $(Get-ChildItem -Force $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D }) -Tree:$Tree
+
         <#
         
         
@@ -596,6 +626,9 @@ function Invoke-Go {
         [switch]
         $A,
         [Parameter()]
+        [switch]
+        $tree,
+        [Parameter()]
         $Until
     )
     n_debug_function "Invoke-Go"
@@ -617,7 +650,7 @@ function Invoke-Go {
         }
         if ($res.Count -gt 1) {
             Write-Host "Multiple matches for $Until" -ForegroundColor Yellow
-            n_dir $res
+            Format-ChildItem $res
             $index = Read-Host "Input index of desired directory: "
             $res = $res[$index]
         }
@@ -762,7 +795,7 @@ function Invoke-Go {
 	    $global:first = $first_item.FullName
 	}
         $null = $global:first
-        D -D:$D
+        Show-Directories -D:$D -Tree:$Tree
     }
     elseif ($C) {
         try {
@@ -860,7 +893,7 @@ function Get-Path {
 	    ___debug "System.IO object passed, returning literal path"
             $isSym = Test-IsSymLink $_
             $isReg = $_.PSProvider.Name -eq "Registry"
-            if($isSym){
+            if($isSym -and !$KeepSymlink){
                 if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $_.ResolvedTarget) } else { return ___return $(ConvertTo-LixuxPathDelimiter $_.ResolvedTarget) } 
             } elseif($isReg) {
                 if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $_.Name) } else { return ___return $(ConvertTo-LixuxPathDelimiter $_.Name) } 
@@ -886,7 +919,7 @@ function Get-Path {
 	    ___debug "PSProvider:$($res.PSProvider)"
             $isReg = $res.PSProvider.Name -eq "Registry"
 	    ___debug "IsReg:$isReg"
-            if($isSym){
+            if($isSym -and !$KeepSymlink){
                 if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res.ResolvedTarget) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res.ResolvedTarget) } 
             } elseif($isReg){
                 if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res.Name) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res.Name) } 
@@ -913,7 +946,7 @@ function Get-Path {
             }
             $isSym = Test-IsSymLink $item
             $isReg = $item.PSProvider.Name -eq "Registry"
-            if($isSym){ $res = $item.ResolvedTarget } elseif($isReg) { $res = $item.Name } else { $res = $item.FullName }
+            if($isSym -and !$KeepSymlink){ $res = $item.ResolvedTarget } elseif($isReg) { $res = $item.Name } else { $res = $item.FullName }
             if($null -eq $res) { $res = $item.name }
             $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
             if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res) }
