@@ -893,6 +893,20 @@ function Invoke-Go {
 		}
 	}
 
+	if ($null -ne $arr) {
+	    if($arr.length -eq 1) { $in = $arr[0] }
+	    elseif ($arr.length -gt 1) {
+		Write-Host `nMultiple matches found:
+		    $i = 0
+		    foreach ($p in $arr) {
+			Write-Host "'[$i] $p"
+			    $i++
+		    }
+		$i = [int](Read-Host "Pick index of desired path")
+		    $in = $arr[$i]
+	    }
+	}
+
         if($in -match "([0-9]+)?([a-zA-Z]+)?"){
             if($in -match "^f$"){$in = 0} 
 	    elseif($in -match "[a-zA-Z]+"){
@@ -920,19 +934,6 @@ function Invoke-Go {
         }
 
 
-        if ($null -ne $arr) {
-            if($arr.length -eq 1) { $in = $arr[0] }
-            elseif ($arr.length -gt 1) {
-                Write-Host `nMultiple matches found:
-                $i = 0
-                foreach ($p in $arr) {
-                    Write-Host "'[$i] $p"
-                    $i++
-                }
-                $i = [int](Read-Host "Pick index of desired path")
-                $in = $arr[$i]
-            }
-        }
     }
 
     else {
