@@ -903,9 +903,9 @@ function Invoke-Go {
 			    $i++
 		    }
 		$i = [int](Read-Host "Pick index of desired path")
-		Invoke-Go -C:$C -A:$A -Tree:$Tree $arr[$i]
-		return ___return
 	    }
+	    Invoke-Go -C:$C -A:$A -Tree:$Tree $arr[$i]
+	    return ___return
 	}
 
         if($in -match "([0-9]+)?([a-zA-Z]+)?"){
