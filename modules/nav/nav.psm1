@@ -894,7 +894,7 @@ function Invoke-Go {
 	}
 
 	if ($null -ne $arr) {
-	    if($arr.length -eq 1) { $in = $arr[0] }
+	    if($arr.length -eq 1) { $i = 0 }
 	    elseif ($arr.length -gt 1) {
 		Write-Host `nMultiple matches found:
 		    $i = 0
@@ -904,7 +904,7 @@ function Invoke-Go {
 		    }
 		$i = [int](Read-Host "Pick index of desired path")
 	    }
-	    Invoke-Go -C:$C -A:$A -Tree:$Tree $arr[$i]
+	    Invoke-Go $arr[$i] -C:$C -A:$A -Tree:$Tree 
 	    return ___return
 	}
 
