@@ -777,7 +777,7 @@ function Invoke-Go {
     $D = !$A
     if ($global:_debug_) { write-host " GO => $in`n  \ Create Missing Path? $C`n  \ Show All Item Types? $A" -ForegroundColor DarkGray }
     if ($in -eq "..") {
-        $in = ..
+        $in = Split-Path "$PWD"
     }
     elseif ($in -match "vol::(.+)::(.+)$") { $in = Get-Path $in }
     elseif ($null -ne $global:QueryResult) {
