@@ -826,6 +826,52 @@ function Invoke-Go {
             }
         }
     }
+    elseif (Test-Path (Get-Path $in)) {
+	$in = Get-Path $in
+	    if($null -ne $global:project){
+		if($null -eq $global:project.LastDirectory) {
+		    $global:project.add("LastDirectory",$in)
+		} else {
+		    $global:project.LastDirectory = $in
+		}
+	    }
+	if(!$backTracking) {
+	    $global:last = "$pwd"
+		$null = $global:last
+
+		if($null -eq $global:history) {
+		    [string[]]$global:history = @("$pwd")
+		} else {
+		    $global:history += "$pwd"
+		}
+	}	
+
+	Set-Location $in
+	    $first_item = Get-ChildItem "$pwd" -Force -ErrorAction SilentlyContinue | Select-Object -First 1
+	    if($first_item.PSProvider.Name -eq "Registry") {
+		$global:first = $first_item.Name
+	    } else {
+		$global:first = $first_item.FullName
+	    }
+	$null = $global:first
+	    Show-Directories -D:$D -Tree:$Tree
+    }
+    elseif ($C) {
+	try {
+	    New-Item $in -ItemType Directory -Force -ErrorAction Stop
+		Set-Location $in -ErrorAction Stop
+		Show-Directories -D:$D -Tree:$Tree
+		if($null -ne $global:project){
+		    if($null -eq $global:project.LastDirectory) {
+			$global:project.add("LastDirectory",$in)
+		    } else {
+			$global:project.LastDirectory = $in
+		    }
+		}
+	} catch {
+	    Write-Error $_
+	}
+    }
     elseif (!(test-path $in)) {
 
         if ($global:_debug_) {
@@ -834,6 +880,18 @@ function Invoke-Go {
             write-host "`n~~~~~~~~~~    `n" -ForegroundColor DarkCyan 
         }
 
+	foreach ($s in $global:shortcuts) {
+	    n_debug "Checking shortcut: $s ~? $in"
+		$in_regex = n_stringify_regex $in
+		if ($s -match $in_regex) {
+
+		    if ($null -eq $arr) { $arr = @($s) }
+		    else { $arr += $s }
+		    n_debug "   \ true"
+		} else {
+		    n_debug "   \ false"
+		}
+	}
 
         if($in -match "([0-9]+)?([a-zA-Z]+)?"){
             if($in -match "^f$"){$in = 0} 
@@ -861,18 +919,6 @@ function Invoke-Go {
 	    return ___return
         }
 
-        foreach ($s in $global:shortcuts) {
-            n_debug "Checking shortcut: $s ~? $in"
-            $in_regex = n_stringify_regex $in
-            if ($s -match $in_regex) {
-                
-                if ($null -eq $arr) { $arr = @($s) }
-                else { $arr += $s }
-                n_debug "   \ true"
-            } else {
-                n_debug "   \ false"
-            }
-        }
 
         if ($null -ne $arr) {
             if($arr.length -eq 1) { $in = $arr[0] }
@@ -889,52 +935,6 @@ function Invoke-Go {
         }
     }
 
-    $in = Get-Path $in
-    if (Test-Path $in) {
-        if($null -ne $global:project){
-            if($null -eq $global:project.LastDirectory) {
-                $global:project.add("LastDirectory",$in)
-            } else {
-                $global:project.LastDirectory = $in
-            }
-        }
-	if(!$backTracking) {
-	    $global:last = "$pwd"
-	    $null = $global:last
-
-	    if($null -eq $global:history) {
-		    [string[]]$global:history = @("$pwd")
-	    } else {
-		    $global:history += "$pwd"
-	    }
-	}	
-
-        Set-Location $in
-	$first_item = Get-ChildItem "$pwd" -Force -ErrorAction SilentlyContinue | Select-Object -First 1
-	if($first_item.PSProvider.Name -eq "Registry") {
-	    $global:first = $first_item.Name
-	} else {
-	    $global:first = $first_item.FullName
-	}
-        $null = $global:first
-        Show-Directories -D:$D -Tree:$Tree
-    }
-    elseif ($C) {
-        try {
-            New-Item $in -ItemType Directory -Force -ErrorAction Stop
-            Set-Location $in -ErrorAction Stop
-            Show-Directories -D:$D -Tree:$Tree
-            if($null -ne $global:project){
-                if($null -eq $global:project.LastDirectory) {
-                    $global:project.add("LastDirectory",$in)
-                } else {
-                    $global:project.LastDirectory = $in
-                }
-            }
-        } catch {
-            Write-Error $_
-        }
-    }
     else {
         Write-Host Path: $in :does not exist -ForegroundColor Red
     }
