@@ -23,13 +23,13 @@ if(!(Test-Path $userDir)) { mkdir $userDir }
 
 
 
-function Get-Shortcuts {
+function Import-Shortcuts {
     $conf_path = "$userDir/nav.shortcuts.conf" 
     if(!(Test-Path $conf_path)) { New-Item $conf_path -ItemType File -Force }
     $global:shortcuts = Get-Content "$userDir/nav.shortcuts.conf" 
     $null = $global:shortcuts
 }
-Get-Shortcuts
+Import-Shortcuts
 
 function Add-Shortcut ([string]$shortcut) {
     if($shortcut -eq ""){
@@ -45,13 +45,13 @@ function Add-Shortcut ([string]$shortcut) {
     Get-Shortcuts
 }
 
-function shct {
+function Get-Shortcuts ([switch]$Tree) {
     foreach ($s in $global:shortcuts) {
         if(($null -eq $s) -or ($s -eq "")) { continue }
         if($null -eq $items) { $items = @(Get-Item $s -Force -ErrorAction SilentlyContinue) }
         else { $items += Get-item $s -Force -ErrorAction SilentlyContinue }
     }
-    Format-ChildItem $items
+    Format-ChildItem $items -Tree:$Tree
 }
 
 $global:hidden_or_system = [System.IO.FileAttributes]::Hidden -bor [System.IO.FileAttributes]::System
@@ -318,6 +318,72 @@ Function Get-RegistryKeyPropertiesAndValues
     Pop-Location
 } #end function Get-RegistryKeyPropertiesAndValues
 
+function n_write_virtual_dirs {
+    write-host -nonewline "│" -ForegroundColor DarkGray
+    $index = n_pad "[.]" 7 " "
+    write-host -nonewline $index
+    write-host -nonewline "│" -ForegroundColor DarkGray
+    $type = n_pad "[dir]" 8 " "
+    write-host -nonewline $type -ForegroundColor Cyan
+    write-host -nonewline "│" -ForegroundColor DarkGray
+    $lastWrite = n_pad "$((Get-Item "$pwd").lastwritetime)" 25 " " 
+    write-host -nonewline $lastWrite
+    write-host -nonewline "│" -ForegroundColor DarkGray
+    $name = (Get-Item "$pwd").Name
+    write-host $name -ForegroundColor $("Gray")
+
+    write-host -nonewline "│" -ForegroundColor DarkGray
+    $index = n_pad "[..]" 7 " "
+    write-host -nonewline $index
+    write-host -nonewline "│" -ForegroundColor DarkGray
+    $type = n_pad "[dir]" 8 " "
+    write-host -nonewline $type -ForegroundColor Cyan
+    write-host -nonewline "│" -ForegroundColor DarkGray
+    $lastWrite = n_pad "$((Get-Item "$pwd").Parent.LastWriteTime)" 25 " " 
+    write-host -nonewline $lastWrite
+    write-host -nonewline "│" -ForegroundColor DarkGray
+    $name = (Get-Item "$pwd").Parent.Name
+    write-host $name -ForegroundColor $("Gray")
+}
+
+function n_convert_index ($index) {
+    ___start n_convert_index
+    ___debug "index:$index"
+    $index_NEW = ""
+    if("$index" -match "[0-9]+") {
+	foreach ($number in [char[]]"$index") {
+	    switch($number) {
+		1 { $index_NEW += "a" }
+		2 { $index_NEW += "b" }
+		3 { $index_NEW += "c" }
+		4 { $index_NEW += "d" }
+		5 { $index_NEW += "e" }
+		6 { $index_NEW += "f" }
+		7 { $index_NEW += "g" }
+		8 { $index_NEW += "h" }
+		9 { $index_NEW += "i" }
+		0 { $index_NEW += "z" }
+	    }
+	}
+    } else {
+	foreach ($letter in [char[]]"$index") {
+	    switch ($letter) {
+	    	a { $index_NEW += "1" }
+	    	b { $index_NEW += "2" }
+	    	c { $index_NEW += "3" }
+	    	d { $index_NEW += "4" }
+	    	e { $index_NEW += "5" }
+	    	f { $index_NEW += "6" }
+	    	g { $index_NEW += "7" }
+	    	h { $index_NEW += "8" }
+	    	i { $index_NEW += "9" }
+	    	z { $index_NEW += "0" }
+	    }
+	}
+    }
+    return ___return $index_NEW
+}
+
 function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]$tree) {
     if($cache) {
         $items = $global:QueryResult 
@@ -330,6 +396,15 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
     if($items.Count -gt 0) {
 	$Script:lastParent = $null
         $items | Foreach-Object {
+
+	    if($_ -is [string] -and (Test-Path $_)) {
+		try {
+		    $_ = Get-Item -Force -ErrorAction Stop
+		}
+		catch {
+		    return
+		}
+	    }
 
             $isReg = "$($_.PSProvider.Name)" -eq "Registry"
             $isDir = $_.psiscontainer
@@ -344,6 +419,10 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
                 write-host "│ INDEX │  TYPE  │     LAST WRITE TIME     │  NAME" -ForegroundColor DarkGray
                 write-host "├───────┼────────┼─────────────────────────┼──────" -ForegroundColor DarkGray
             }
+	    if(!$WrittenVirtuals){
+		n_write_virtual_dirs
+		$WrittenVirtuals = $true
+	    }
             $index = n_pad "[$i]" 7 " "
             $type = n_pad $(if( $isReg ){ "[reg]" }elseif($isSym) { if($isDir) {"[tun]"} else {"[link]"} }elseif($isDir){"[dir]"}else{"[file]"}) 8 " "
             $lastWrite = n_pad "$($_.lastwritetime)" 25 " " 
@@ -374,13 +453,13 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
 	    if($isDir -and $tree) {
 		$children = Get-ChildItem $_.FullName -Force -ErrorAction SilentlyContinue
 		$children_COUNT = $children.Count
-		$i = 0
+		$j = 0
 		foreach ($child in $children){
 		    if($child.name -eq "...break"){ break }
-		    if($i -eq $children_COUNT - 1) {
-			write-host -nonewline $(n_pad "└── " 47 " " -Left) -ForegroundColor DarkGray
+		    if($j -eq $children_COUNT - 1) {
+			write-host -nonewline $(n_pad "[$(n_convert_index $j)]└── " 47 " " -Left) -ForegroundColor DarkGray
 		    } else {
-			write-host -nonewline $(n_pad "├── " 47 " " -Left) -ForegroundColor DarkGray
+			write-host -nonewline $(n_pad "[$(n_convert_index $j)]├── " 47 " " -Left) -ForegroundColor DarkGray
 		    }
 		    
 		    $child_SYSORHID = $_.Attributes -band $global:hidden_or_system
@@ -393,7 +472,7 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
 		    $c_ISDIR = $child.PSIsContainer
 		    $c_ISSYM = Test-IsSymLink $child
 		    write-host "$(if($c_ISSYM){"l"} elseif($c_ISDIR) {"d"} else {"f"}) .. $($child.Name) $(if($c_ISSYM){"-> $($child.ResolvedTarget)"} else {''} )" -ForegroundColor $(if($child_CANACCESS -and !$child_SYSORHID) { "Gray" } elseif ($child_CANACCESS -and $child_SYSORHID) { "DarkGray" } elseif (!$child_SYSORHID -and !$child_CANACCESS) { "Red" } else { "DarkRed" })
-		    $i++
+		    $j++
 		}
 	    }
 
@@ -427,6 +506,7 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
             write-host $name -ForegroundColor DarkGray
         }
     }
+    
 }
 New-Alias -Name n_dir -Value Format-ChildItem -Scope Global -Force
 New-Alias -Name fchi -Value Format-ChildItem -Scope Global -Force
@@ -434,7 +514,6 @@ function Show-Directories {
     [CmdletBinding()]
     param (
         [Parameter()]
-        [string]
         $path,
         [Parameter()]
         [switch]
@@ -447,8 +526,20 @@ function Show-Directories {
         $dep = 0
 
     )
-    if (n_nullemptystr $path) {
+    ___start Show-Directories
+    ___debug "D:$D"
+    ___debug "Tree:$Tree"
+    ___debug "dep:$dep"
+    if ($null -eq $path) {
         $path = "$(Get-Location)"
+    }
+    ___debug "path:$path as $($path.GetType())"
+    if($path -is [System.Array] -or $path.Count -gt 1) {
+	foreach ($p in $path) {
+	    if($null -eq $p) { continue }
+	    Show-Directories $p -D:$D -Tree:$Tree
+	}
+	return ___return
     }
     $path = Get-Path $path
     $depth = Get-PathDepth $path
@@ -540,6 +631,7 @@ ChildItems of $path
     }
     write-host "
     "
+    ___end
 }
 New-Alias -Name 'sdir' -Value 'Show-Directories' -Scope Global -Force
 
@@ -687,15 +779,28 @@ function Invoke-Go {
     elseif ($in -match "vol::(.+)::(.+)$") { $in = Get-Path $in }
     elseif ($null -ne $global:QueryResult) {
         n_debug "Parsing Query Results"
-        if($in -match "^([0-9]+|f)$"){
+        if($in -match "([0-9]+)?([a-zA-Z]+)?"){
             if($in -match "^f$"){$in = 0} 
+	    elseif($in -match "[a-zA-Z]+"){
+		if($in -notmatch "[0-9]+") {
+		    Write-Host "!_Invalid target format!    Expected [0-9]+[a-zA-Z]+   Found: $in _____!`n`n$_`n" -ForegroundColor Red
+		    return ___return
+		}
+		$in_ = n_convert_index $(__match $in "[a-zA-Z]+" -Get)
+		$in = __match $in "[0-9]+" -Get
+	    }
             $in = $([int]$in) 
             if($global:QueryResult.length -le $in) { 
                 Write-Host "Out of index for QueryResults: $in out of $(Query.Length)" -ForegroundColor Red
                 return ___return
             }
             $in = $global:QueryResult[$in]
-            return ___return $(Invoke-Go $in.FullName -C:$C -A:$A -Tree:$Tree)
+	    if($null -ne $in_){
+		Invoke-Go $(Get-ChildItem $in.FullName)[[int]$in_].FullName -C:$C -A:$A -Tree:$Tree
+	    } else {
+		Invoke-Go $in.FullName -C:$C -A:$A -Tree:$Tree
+	    }
+	    return ___return
         }
         foreach ($s in $global:QueryResult) {
             $replaced = $s
@@ -730,16 +835,30 @@ function Invoke-Go {
         }
 
 
-        if($in -match "^([0-9]+|f)$"){
+        if($in -match "([0-9]+)?([a-zA-Z]+)?"){
             if($in -match "^f$"){$in = 0} 
+	    elseif($in -match "[a-zA-Z]+"){
+		if($in -notmatch "[0-9]+") {
+		    Write-Host "!_Invalid target format!    Expected [0-9]+[a-zA-Z]+   Found: $in _____!`n`n$_`n" -ForegroundColor Red
+		    return ___return
+		}
+		$in_ = n_convert_index $(__match $in "[a-zA-Z]+" -Get)
+		$in = __match $in "[0-9]+" -Get
+	    }
+
             n_debug "Parsing index: $in"
                 
-                $children = Get-ChildItem $(Get-Location) -Force | Where-Object { $_.PSIsContainer }
-                $in = $([int]$in) 
-                $cin = $children[$in]
-                $path = if("$($cin.PsProvider)" -eq "Microsoft.PowerShell.Core\Registry") { $cin.name } else { $cin.FullName }
-                $path = Get-Path $path
-                return ___return $(Invoke-Go $path -C:$C -A:$A -Tree:$Tree)
+	    $children = Get-ChildItem $(Get-Location) -Force | Where-Object { $_.PSIsContainer }
+	    $in = $([int]$in) 
+	    $cin = $children[$in]
+	    $path = if("$($cin.PsProvider)" -eq "Microsoft.PowerShell.Core\Registry") { $cin.name } else { $cin.FullName }
+	    $path = Get-Path $path
+	    if($null -ne $in_){
+		Invoke-Go $(Get-ChildItem $path)[[int]$in_].FullName -C:$C -A:$A -Tree:$Tree
+	    } else {
+		Invoke-Go $path -C:$C -A:$A -Tree:$Tree
+	    }
+	    return ___return
         }
 
         foreach ($s in $global:shortcuts) {
@@ -819,8 +938,8 @@ function Invoke-Go {
     else {
         Write-Host Path: $in :does not exist -ForegroundColor Red
     }
+    ___end
 }
-New-Alias -Name 'Go' -Value 'Invoke-Go' -Scope Global -Force
 
 function Get-PathPipe {
     [CmdletBinding()]

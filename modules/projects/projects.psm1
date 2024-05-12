@@ -366,7 +366,7 @@ function Start-Project ($name) {
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath/$name"}
                 if(!(Test-Path $startDir)) { $startDir = $global:project.Path }
                 Invoke-Go $startDir
-                If(pr_choice "Open last file [$($global:project.LastFile)]") {
+                If(__choice "Open last file [$($global:project.LastFile)]") {
                     Invoke-Expression $("$global:editor" + ' $global:project.LastFile')
                 }
             } 

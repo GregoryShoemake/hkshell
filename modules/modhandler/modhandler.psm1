@@ -1,8 +1,9 @@
 $global:_module_location_modhandler = $(Split-Path -Parent $MyInvocation.MyCommand.Definition) -replace "\\","/"
 
-
-
 if(!(Test-Path "~/.hkshell")) { mkdir "~/.hkshell" }
+if(!(Test-Path "~/.hkshell/hkshell.conf")) { New-Item "~/.hkshell/hkshell.conf" | Set-Content "enablehints=true" }
+
+$global:_enable_hints_ = "$(Get-Item "~/.hkshell/hkshell.conf" -Force -ErrorAction SilentlyContinue | Get-Content)" -match "enablehints=true"
 
 function Import-HKShell {
     [CmdletBinding()]
