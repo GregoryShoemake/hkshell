@@ -903,7 +903,8 @@ function Invoke-Go {
 			    $i++
 		    }
 		$i = [int](Read-Host "Pick index of desired path")
-		    $in = $arr[$i]
+		Invoke-Go -C:$C -A:$A -Tree:$Tree $arr[$i]
+		return ___return
 	    }
 	}
 
