@@ -326,7 +326,7 @@ function n_write_virtual_dirs {
     $type = n_pad "[dir]" 8 " "
     write-host -nonewline $type -ForegroundColor Cyan
     write-host -nonewline "│" -ForegroundColor DarkGray
-    $lastWrite = n_pad "$((Get-Item "$pwd").lastwritetime)" 25 " " 
+    $lastWrite = n_pad "$((Get-Item "$pwd" -Force -ErrorAction SilentlyContinue).lastwritetime)" 25 " " 
     write-host -nonewline $lastWrite
     write-host -nonewline "│" -ForegroundColor DarkGray
     $name = (Get-Item "$pwd").Name
@@ -339,7 +339,7 @@ function n_write_virtual_dirs {
     $type = n_pad "[dir]" 8 " "
     write-host -nonewline $type -ForegroundColor Cyan
     write-host -nonewline "│" -ForegroundColor DarkGray
-    $lastWrite = n_pad "$((Get-Item "$pwd").Parent.LastWriteTime)" 25 " " 
+    $lastWrite = n_pad "$((Get-Item "$pwd" -Force -ErrorAction SilentlyContinue).Parent.LastWriteTime)" 25 " " 
     write-host -nonewline $lastWrite
     write-host -nonewline "│" -ForegroundColor DarkGray
     $name = (Get-Item "$pwd").Parent.Name
