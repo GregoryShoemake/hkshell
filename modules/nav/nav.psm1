@@ -796,7 +796,7 @@ function Invoke-Go {
             }
             $in = $global:QueryResult[$in]
 	    if($null -ne $in_){
-		Invoke-Go $(Get-ChildItem $in.FullName)[[int]$in_].FullName -C:$C -A:$A -Tree:$Tree
+		Invoke-Go $(Get-ChildItem $in.FullName -Force -ErrorAction SilentlyContinue)[[int]$in_].FullName -C:$C -A:$A -Tree:$Tree
 	    } else {
 		Invoke-Go $in.FullName -C:$C -A:$A -Tree:$Tree
 	    }
@@ -854,7 +854,7 @@ function Invoke-Go {
 	    $path = if("$($cin.PsProvider)" -eq "Microsoft.PowerShell.Core\Registry") { $cin.name } else { $cin.FullName }
 	    $path = Get-Path $path
 	    if($null -ne $in_){
-		Invoke-Go $(Get-ChildItem $path)[[int]$in_].FullName -C:$C -A:$A -Tree:$Tree
+		Invoke-Go $(Get-ChildItem $path -Force -ErrorAction SilentlyContinue)[[int]$in_].FullName -C:$C -A:$A -Tree:$Tree
 	    } else {
 		Invoke-Go $path -C:$C -A:$A -Tree:$Tree
 	    }
