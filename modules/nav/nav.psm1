@@ -34,6 +34,8 @@ Import-Shortcuts
 function Add-Shortcut ([string]$shortcut) {
     if($shortcut -eq ""){
         $shortcut = Read-Host "Input new shortcut"
+    } elseif ($shortcut -eq ".") {
+	$shortcut = "$pwd"
     }
     $test = Get-Path $shortcut
 
@@ -42,6 +44,7 @@ function Add-Shortcut ([string]$shortcut) {
         return
     }
     Add-Content -Path "$userDir/nav.shortcuts.conf" -Value $shortcut
+    Import-Shortcuts
     Get-Shortcuts
 }
 
