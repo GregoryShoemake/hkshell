@@ -322,31 +322,62 @@ Function Get-RegistryKeyPropertiesAndValues
 } #end function Get-RegistryKeyPropertiesAndValues
 
 function n_write_virtual_dirs {
-    write-host -nonewline "│" -ForegroundColor DarkGray
-    $index = n_pad "[.]" 7 " "
-    write-host -nonewline $index
-    write-host -nonewline "│" -ForegroundColor DarkGray
-    $type = n_pad "[dir]" 8 " "
-    write-host -nonewline $type -ForegroundColor Cyan
-    write-host -nonewline "│" -ForegroundColor DarkGray
-    $lastWrite = n_pad "$((Get-Item "$pwd" -Force -ErrorAction SilentlyContinue).lastwritetime)" 25 " " 
-    write-host -nonewline $lastWrite
-    write-host -nonewline "│" -ForegroundColor DarkGray
-    $name = (Get-Item "$pwd").Name
-    write-host $name -ForegroundColor $("Gray")
+    try {
+	$last = Get-Item $global:history[$global:history.Count -1] -Force -ErrorAction Stop
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$index = n_pad "[.<]" 7 " "
+	write-host -nonewline $index
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$type = n_pad "[dir]" 8 " "
+	write-host -nonewline $type -ForegroundColor Cyan
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$lastWrite = n_pad "$($last.lastwritetime)" 25 " " 
+	write-host -nonewline $lastWrite
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$name = $last.FullName
+	write-host $name -ForegroundColor $("Gray")
+    }
+    catch {
+    	<#Do this if a terminating exception happens#>
+    }
 
-    write-host -nonewline "│" -ForegroundColor DarkGray
-    $index = n_pad "[..]" 7 " "
-    write-host -nonewline $index
-    write-host -nonewline "│" -ForegroundColor DarkGray
-    $type = n_pad "[dir]" 8 " "
-    write-host -nonewline $type -ForegroundColor Cyan
-    write-host -nonewline "│" -ForegroundColor DarkGray
-    $lastWrite = n_pad "$((Get-Item "$pwd" -Force -ErrorAction SilentlyContinue).Parent.LastWriteTime)" 25 " " 
-    write-host -nonewline $lastWrite
-    write-host -nonewline "│" -ForegroundColor DarkGray
-    $name = (Get-Item "$pwd").Parent.Name
-    write-host $name -ForegroundColor $("Gray")
+    try {
+	$current = Get-Item "$pwd" -Force -ErrorAction Stop     
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$index = n_pad "[.]" 7 " "
+	write-host -nonewline $index
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$type = n_pad "[dir]" 8 " "
+	write-host -nonewline $type -ForegroundColor Cyan
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$lastWrite = n_pad "$($current.lastwritetime)" 25 " " 
+	write-host -nonewline $lastWrite
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$name = $current.Name
+	write-host $name -ForegroundColor $("Gray")
+    }
+    catch {
+    	<#Do this if a terminating exception happens#>
+    }
+
+    try {
+	$parent = Get-Item $current.Parent.FullName -Force -ErrorAction Stop
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$index = n_pad "[..]" 7 " "
+	write-host -nonewline $index
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$type = n_pad "[dir]" 8 " "
+	write-host -nonewline $type -ForegroundColor Cyan
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$lastWrite = n_pad "$($parent.LastWriteTime)" 25 " " 
+	write-host -nonewline $lastWrite
+	write-host -nonewline "│" -ForegroundColor DarkGray
+	$name = $parent.Name
+	write-host $name -ForegroundColor $("Gray")
+    }
+    catch {
+    	<#Do this if a terminating exception happens#>
+    }
 }
 
 function n_convert_index ($index) {
