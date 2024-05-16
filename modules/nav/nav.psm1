@@ -1006,7 +1006,22 @@ function Get-Path {
     ___debug "clip:$clip"
     $l_ = "$(Get-Location)"
     switch ($a_) { 
-	    { $null -ne $global:QueryResult } {
+	{ Test-Path $_ } { 
+			     ___debug "Relative path passed is valid: $_"
+				 try {
+				     $item = Get-Item $_ -Force -ErrorAction Stop
+				 } catch {
+				     Write-Host "Path exists, but cannot read object" -ForegroundColor Red
+					 return ___return
+				 }
+			     $isSym = Test-IsSymLink $item
+				 $isReg = $item.PSProvider.Name -eq "Registry"
+				 if($isSym -and !$KeepSymlink){ $res = $item.ResolvedTarget } elseif($isReg) { $res = $item.Name } else { $res = $item.FullName }
+			     if($null -eq $res) { $res = $item.name }
+			     $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
+				 if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res) }
+			 }
+	{ $null -ne $global:QueryResult } {
 	    ___debug "Parsing Query Results"
 	    $in = $_
 	    if($in -match "^([0-9]+|f)$"){
@@ -1094,21 +1109,6 @@ function Get-Path {
             $res = $res -replace "(?!^)\\\\","\" -replace "\\","/"
             n_debug "res:$res"
             if ($clip) { Set-Clipboard $res } else { return ___return $res }
-        }
-        { Test-Path $_ } { 
-	    ___debug "Relative path passed is valid: $_"
-            try {
-                $item = Get-Item $_ -Force -ErrorAction Stop
-            } catch {
-                Write-Host "Path exists, but cannot read object" -ForegroundColor Red
-                return ___return
-            }
-            $isSym = Test-IsSymLink $item
-            $isReg = $item.PSProvider.Name -eq "Registry"
-            if($isSym -and !$KeepSymlink){ $res = $item.ResolvedTarget } elseif($isReg) { $res = $item.Name } else { $res = $item.FullName }
-            if($null -eq $res) { $res = $item.name }
-            $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
-            if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res) }
         }
         { !(Test-Path $_) } {
 	    ___debug "Relative path passed may be invalid: $_"
