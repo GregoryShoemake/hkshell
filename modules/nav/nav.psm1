@@ -221,7 +221,7 @@ function Test-IsSymLink ($InputObject) {
 	return ___return
     }
 
-    return ___return $($input_ITEM.FullName -ne $input_ITEM.ResolvedTarget)
+    return ___return $($input_ITEM.FullName -ne $input_ITEM.ResolvedTarget -and "$($input_ITEM.ResolvedTarget)" -ne "")
 
 }
 
@@ -759,9 +759,18 @@ function Invoke-Go {
         [switch]
         $tree,
         [Parameter()]
+        [switch]
+        $passthru,
+        [Parameter()]
         $Until
     )
     ___start "Invoke-Go"
+    ___debug "in:$in"
+    ___debug "C:$C"
+    ___debug "A:$A"
+    ___debug "tree:$tree"
+    ___debug "passthru:$passthru"
+    ___debug "until:$until"
 
     if($null -ne (Get-Module persist)) {
 	if(Invoke-Persist clearHostOnInvokeGo?) {
@@ -784,7 +793,12 @@ function Invoke-Go {
             $index = Read-Host "Input index of desired directory: "
             $res = $res[$index]
         }
-        return ___return $(Invoke-Go $res.FullName -A:$A -C:$C -Tree:$Tree)
+	___debug " -> $($res.FullName)"
+	Invoke-Go $res.FullName -A:$A -C:$C -Tree:$Tree
+	if($passthru) {
+	    return ___return $($res.FullName)
+	}
+        return ___return 
 
     }
 
@@ -811,7 +825,6 @@ function Invoke-Go {
     if ($in -eq "..") {
         $in = Split-Path "$PWD"
     }
-    elseif ($in -match "vol::(.+)::(.+)$") { $in = Get-Path $in }
     elseif ($null -ne $global:QueryResult) {
         n_debug "Parsing Query Results"
         if($in -match "([0-9]+)?([a-zA-Z]+)?"){
@@ -831,9 +844,14 @@ function Invoke-Go {
             }
             $in = $global:QueryResult[$in]
 	    if($null -ne $in_){
-		Invoke-Go $(Get-ChildItem $in.FullName -Force -ErrorAction SilentlyContinue)[[int]$in_].FullName -C:$C -A:$A -Tree:$Tree
+		$dest = $(Get-ChildItem $in.FullName -Force -ErrorAction SilentlyContinue)[[int]$in_].FullName
 	    } else {
-		Invoke-Go $in.FullName -C:$C -A:$A -Tree:$Tree
+		$dest = $in.FullName
+	    }
+	    ___debug " -> $dest"
+	    Invoke-Go $dest -C:$C -A:$A -Tree:$Tree
+	    if($passthru) {
+		return ___return $dest
 	    }
 	    return ___return
         }
@@ -939,7 +957,11 @@ function Invoke-Go {
 		    }
 		$i = [int](Read-Host "Pick index of desired path")
 	    }
-	    Invoke-Go $arr[$i] -C:$C -A:$A -Tree:$Tree 
+	    ___debug " -> $($arr[$i])"
+	    $null = Invoke-Go $arr[$i] -C:$C -A:$A -Tree:$Tree -PassThru
+	    if($passthru) {
+		return ___return $arr[$i]
+	    }
 	    return ___return
 	}
 
@@ -962,9 +984,14 @@ function Invoke-Go {
 	    $path = if("$($cin.PsProvider)" -eq "Microsoft.PowerShell.Core\Registry") { $cin.name } else { $cin.FullName }
 	    $path = Get-Path $path
 	    if($null -ne $in_){
-		Invoke-Go $(Get-ChildItem $path -Force -ErrorAction SilentlyContinue)[[int]$in_].FullName -C:$C -A:$A -Tree:$Tree
+		$dest = $(Get-ChildItem $path -Force -ErrorAction SilentlyContinue)[[int]$in_].FullName 
 	    } else {
-		Invoke-Go $path -C:$C -A:$A -Tree:$Tree
+		$dest = $path
+	    }
+	    ___debug " -> $dest"
+	    Invoke-Go $dest -C:$C -A:$A -Tree:$Tree
+	    if($passthru) {
+		return ___return $passthru
 	    }
 	    return ___return
         }
@@ -989,7 +1016,7 @@ function Get-PathPipe {
 }
 
 function ConvertTo-LixuxPathDelimiter ($path) {
-    return $path -replace "\\","/"
+    return $($path -replace "\\","/")
 }
 
 function Get-Path {
@@ -1007,20 +1034,22 @@ function Get-Path {
     $l_ = "$(Get-Location)"
     switch ($a_) { 
 	{ Test-Path $_ } { 
-			     ___debug "Relative path passed is valid: $_"
-				 try {
-				     $item = Get-Item $_ -Force -ErrorAction Stop
-				 } catch {
-				     Write-Host "Path exists, but cannot read object" -ForegroundColor Red
-					 return ___return
-				 }
-			     $isSym = Test-IsSymLink $item
-				 $isReg = $item.PSProvider.Name -eq "Registry"
-				 if($isSym -and !$KeepSymlink){ $res = $item.ResolvedTarget } elseif($isReg) { $res = $item.Name } else { $res = $item.FullName }
-			     if($null -eq $res) { $res = $item.name }
-			     $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
-				 if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res) }
-			 }
+	     ___debug "Relative path passed is valid: $_"
+	     try {
+		 $item = Get-Item $_ -Force -ErrorAction Stop
+	     } catch {
+		 Write-Host "Path exists, but cannot read object" -ForegroundColor Red
+		     return ___return
+	     }
+	     $isSym = Test-IsSymLink $item
+	     $isReg = $item.PSProvider.Name -eq "Registry"
+	    ___debug "isSym:$isSym"
+	    ___debug "isReg:$isReg"
+	     if($isSym -and !$KeepSymlink){ $res = $item.ResolvedTarget } elseif($isReg) { $res = $item.Name } else { $res = $item.FullName }
+	     if($null -eq $res) { $res = $item.name }
+	     $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
+	     if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res) }
+	 }
 	{ $null -ne $global:QueryResult } {
 	    ___debug "Parsing Query Results"
 	    $in = $_
