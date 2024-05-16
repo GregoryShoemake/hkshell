@@ -343,6 +343,25 @@ function n_write_virtual_dirs {
 
     try {
 	$current = Get-Item "$pwd" -Force -ErrorAction Stop     
+	$parent = Get-Item $current.Parent.FullName -Force -ErrorAction Stop
+	    write-host -nonewline "│" -ForegroundColor DarkGray
+	    $index = n_pad "[..]" 7 " "
+	    write-host -nonewline $index
+	    write-host -nonewline "│" -ForegroundColor DarkGray
+	    $type = n_pad "[dir]" 8 " "
+	    write-host -nonewline $type -ForegroundColor Cyan
+	    write-host -nonewline "│" -ForegroundColor DarkGray
+	    $lastWrite = n_pad "$($parent.LastWriteTime)" 25 " " 
+	    write-host -nonewline $lastWrite
+	    write-host -nonewline "│" -ForegroundColor DarkGray
+	    $name = $parent.Name
+	    write-host $name -ForegroundColor $("Gray")
+    }
+    catch {
+	<#Do this if a terminating exception happens#>
+    }
+
+    try {
 	write-host -nonewline "│" -ForegroundColor DarkGray
 	$index = n_pad "[.]" 7 " "
 	write-host -nonewline $index
@@ -360,24 +379,6 @@ function n_write_virtual_dirs {
     	<#Do this if a terminating exception happens#>
     }
 
-    try {
-	$parent = Get-Item $current.Parent.FullName -Force -ErrorAction Stop
-	write-host -nonewline "│" -ForegroundColor DarkGray
-	$index = n_pad "[..]" 7 " "
-	write-host -nonewline $index
-	write-host -nonewline "│" -ForegroundColor DarkGray
-	$type = n_pad "[dir]" 8 " "
-	write-host -nonewline $type -ForegroundColor Cyan
-	write-host -nonewline "│" -ForegroundColor DarkGray
-	$lastWrite = n_pad "$($parent.LastWriteTime)" 25 " " 
-	write-host -nonewline $lastWrite
-	write-host -nonewline "│" -ForegroundColor DarkGray
-	$name = $parent.Name
-	write-host $name -ForegroundColor $("Gray")
-    }
-    catch {
-    	<#Do this if a terminating exception happens#>
-    }
 }
 
 function n_convert_index ($index) {

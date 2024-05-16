@@ -1168,6 +1168,9 @@ function p_foo ($name, $params) {
     p_debug "name:$name" darkGray
     p_debug "params:$params" darkGray
     switch ($name) {
+	commands {
+	    Write-Host "$(@("assign","add","add_assign","minus","minus_assign","multiply","multiply_assign","divide","divide_assign","exponentiate","exponentiate_assign","void","insert","pushinsert","nullOrEmpty","nonnull","remove","search","setNetworkDir","clearNetworkDir","outOfDate","upToDate","writeToday","writeDate","parse","equal","match","clip","setall","length","default","split","addScope","get-content","add-content","pop","push","pushadd","pushsub","pushcompare"))"
+	}
         assign { 
             $split = $params -split ":"
             if ($split.length -gt 3) {
