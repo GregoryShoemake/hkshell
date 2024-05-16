@@ -595,7 +595,8 @@ function Start-Edit ($item,[switch]$find, [switch]$last) {
     if($null -ne $global:project){
 
         if($last) {
-            return ___return $(Start-Edit $global:project.LastFile)
+	    ___end
+            return Start-Edit $global:project.LastFile
         }
 
         if($path -notmatch "([a-zA-Z]:/|//.+?/|^/)") { $p = "$(Get-Location)/$path" } else { $p = $path }
@@ -609,7 +610,8 @@ function Start-Edit ($item,[switch]$find, [switch]$last) {
     } else {
 
 	if($last) {
-	    return ___return $(Start-Edit $global:_last_edit_)
+	    ___end
+	    return Start-Edit $global:_last_edit_
 	}
 
         if($path -notmatch "([a-zA-Z]:/|//.+?/|^/)") { $p = "$(Get-Location)/$path" } else { $p = $path }
