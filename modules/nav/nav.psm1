@@ -1114,8 +1114,9 @@ function Get-Path {
                 }
              if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res) }
         }
-        { $_ -match "^[0-9]+$" } {
+        { $_ -match "^([0-9]+|f)$" } { 
 	    ___debug "Checking current directory for index: $_"
+	    if($_ -eq "f") { $_ = "0" }
             $res = $(Get-ChildItem $l_ -Force)[$([int]$_)]
             $isSym = Test-IsSymLink $res
 	    ___debug "isSym:$isSym"
