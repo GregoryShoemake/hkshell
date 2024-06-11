@@ -288,6 +288,11 @@ function Get-AllVolumes {
         OutInfo $i
         return
     }
+    
+    if($IsLinux) {
+        return Get-ChildItem /dev | Where-Object { $_.name -match "^s.+?[0-9]+" -and $_.group -eq "disk" }
+    }
+    
     if ($forceWMI) {
         $volumes = Get-WmiObject Win32_Volume | Where-Object { ($_.driveLetter -match "[A-Z]") -and (@("NTFS", "FAT32", "EXFAT") -contains $_.FileSystem) }
         $hash = @{ Function = "Get-WmiObject"; Volumes = $volumes }

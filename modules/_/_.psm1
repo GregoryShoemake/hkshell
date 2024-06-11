@@ -83,7 +83,30 @@ function ___debug ([string]$message, [string]$color = "Cyan") {
 .GLOBAL FUNCTIONS
 #>
 
-
+function __stringify_regex ($regex) {
+    if ($null -eq $regex) { return $regex }
+    $needReplace = @(
+        "\\"
+        "\@"
+        "\~" 
+        "\%"
+        "\$" 
+        "\&"
+        "\^" 
+        "\*"
+        "\("
+        "\)" 
+        "\[" 
+        "\]" 
+        "\." 
+        "\+" 
+        "\?" 
+    )
+    foreach ($n in $needReplace) {
+        $regex = $regex -replace $n, $n
+    }
+    return $regex
+}
 
 function __prolix ($message, $messageColor) {
     if (!$global:prolix) { return ___return }

@@ -308,19 +308,7 @@ function e_run ($params) {
     if(($null -eq $params) -or ($c_ -eq 0) -or (($c_ -eq 1)-and($null -eq $params[0]))){
         throw [System.ArgumentNullException] "No arguments passed to execute.e_run"
     } 
-    $target = $params[0]
-    if ($target -is [string]) { 
-        if($target -match "^[0-9]+$"){
-            $target = (Get-ChildItem $(Get-Location))[$target]
-        } else {
-            $target = Get-Item $target -Force -ErrorAction Stop
-        }
-    } elseif ($target -is [int]) {
-         $target = (Get-ChildItem $(Get-Location))[$target]       
-    }
-    if ($target -isnot [System.IO.FileInfo]) {
-        throw [System.ArgumentException] "Invalid target type $($target.GetType()), expected [string] (as path) or [System.IO.FileInfo]"
-    }
+    $target = Get-Path $params[0] | Get-Item
     $ext = e_get_ext $target.name
     $hash = e_search_args $params "-runas" -switch
     $verb = if($hash.RES) { "RunAs" } else { "Open" }
@@ -354,6 +342,12 @@ function e_run ($params) {
             return Start-Process bash -Verb $verb -WindowStyle $style -ArgumentList "$($target.fullname)" -Wait:$wait -PassThru:$passthru -ErrorAction Stop
         }
         bat {
+            if($null -eq $arguments) {
+                return Start-Process $target.fullname -Verb $verb -WindowStyle $style -Wait:$wait -PassThru:$passthru
+            }
+            return Start-Process $target.fullname -Verb $verb -WindowStyle $style -Wait:$wait -PassThru:$passthru -ArgumentList $arguments
+        }
+        default {
             if($null -eq $arguments) {
                 return Start-Process $target.fullname -Verb $verb -WindowStyle $style -Wait:$wait -PassThru:$passthru
             }

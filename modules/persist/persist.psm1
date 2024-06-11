@@ -1663,7 +1663,7 @@ function p_throw ($code, $message, $meta ) {
     write-host "| persist.psm1 |" -ForegroundColor RED
     switch ($code) {
         { ($_ -eq -1) -or ($_ -eq "SyntaxParseFailure") } { $code = -1; write-host "Syntax parse failed with code ($message)" -ForegroundColor Red }
-        { ($_ -eq 01) -or ($_ -eq "ElementAlreadyAssigned") } { $code = 1; write-host "[$message] already assigned" -ForegroundColor Red }
+        { ($_ -eq 01) -or ($_ -eq "ElementAlreadyAssigned") } { $code = 1; write-host "[$message] already assigned as '$meta'" -ForegroundColor Red }
         { ($_ -eq 10) -or ($_ -eq "IllegalValueAssignment") } { $code = 10; write-host "illegal character: $message :when trying to record [$meta]"  -ForegroundColor Red }
         { ($_ -eq 20) -or ($_ -eq "IllegalRecordBefore") } { $code = 20; write-host "Cannot record [$message] before [$meta] has been defined"  -ForegroundColor Red }
         { ($_ -eq 21) -or ($_ -eq "IllegalRecordAfter") } { $code = 21; write-host "Cannot record [$message] after [$meta] has been defined"  -ForegroundColor Red }
@@ -1717,7 +1717,7 @@ function p_parse_syntax ($a_) {
                     $cast += $a 
                 }
                 "NAME" { 
-                    if ($a -notmatch "[0-9a-zA-Z_]") {
+                    if ($a -notmatch "[0-9a-zA-Z_\-]") {
                         $recording = $null
                         p_debug "recording stopped:$name" DarkRed
                         $i-- 
@@ -1800,7 +1800,7 @@ function p_parse_syntax ($a_) {
                 elseif ($null -ne $name) {
                     #Attempt to record [index] 
                     if ($null -ne $index) { 
-                        return p_throw ElementAlreadyAssigned "index" 
+                        return p_throw ElementAlreadyAssigned "index" $index
                     }
                     $index = "["
                     $recording = "INDEX" 
@@ -1842,7 +1842,7 @@ function p_parse_syntax ($a_) {
                     $recording = "parameters"
                     p_debug "recording [param]" DarkGreen 
                 }
-                else { return p_throw 1 "parameters" }
+                else { return p_throw 1 "parameters" $parameters }
                 
             }
             elseif (($a -eq '"') -or ($a -eq ':')) { 
@@ -1861,13 +1861,13 @@ function p_parse_syntax ($a_) {
                     p_debug "recording [param] as string" DarkGreen 
                 } 
                 else {
-                    return p_throw ElementAlreadyAssigned "parameters" 
+                    return p_throw ElementAlreadyAssigned "parameters" $parameters
                 } 
             }
             elseif (p_match $a $symbols) { 
                 #Attempt to record [op] 
                 if ($null -ne $operator) { 
-                    return p_throw 1 "operator" 
+                    return p_throw 1 "operator" $operator
                 } 
                 else { 
                     $operator = $a
