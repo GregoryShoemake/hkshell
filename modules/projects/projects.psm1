@@ -585,7 +585,7 @@ function Start-Edit ($item,[switch]$find, [switch]$quick, [switch]$last) {
     ___debug "last:$last"
 
     if($find) {
-	$path = Get-ChildItem "$pwd" -Recurse | Where-Object { !$_.PsIsContainer -and $_.name -match $item } | Select-Object -ExpandProperty FullName
+	$path = Get-ChildItem "$pwd" -Recurse | Where-Object { !$_.PsIsContainer -and $_.name -match $item }
         if($path.Count -gt 1) {
             if($quick) {
                 $path = $path[0]
