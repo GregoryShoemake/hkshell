@@ -579,15 +579,23 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
 }
 New-Alias -name igit -Value Invoke-Git -Scope Global -Force
 
-function Start-Edit ($item,[switch]$find, [switch]$last) {
+function Start-Edit ($item,[switch]$find, [switch]$quick, [switch]$last) {
     ___start Start-Edit
     ___debug "item:$item"
     ___debug "last:$last"
-    $path = Get-Path $item
-    ___debug "path:$path"
 
     if($find) {
-	$path = Get-Path (Get-ChildItem "$pwd" -Recurse | Where-Object { !$_.PsIsContainer -and $_.name -match $path } | Select-Object -ExpandProperty FullName)
+	$path = Get-ChildItem "$pwd" -Recurse | Where-Object { !$_.PsIsContainer -and $_.name -match $item } | Select-Object -ExpandProperty FullName
+        if($path.Count -gt 1) {
+            if($quick) {
+                $path = $path[0]
+            } else {
+                $path = $path[$(__choose_item $path)]            
+            }
+        }
+        $path = Get-Path $path
+    } else {
+        $path = Get-Path $item
     }
 
     ___debug "path(after find):$path"

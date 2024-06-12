@@ -282,22 +282,7 @@ function Get-ParentDirectory {
     return split-path $path
 }
 New-Alias -Name ".." -Value Get-ParentDirectory -Scope Global -Force
-function n_pad ($string, $length, $padChar = " " ,[switch]$left) {
-    n_debug_function "n_pad"
-    n_debug "string:$string"
-    n_debug "length:$length"
-    n_debug "left:$left"
-    if($null -eq $length) { $length = $string.length }
-    $diff = $length - $string.length
-    n_debug "difference:$diff"
-    $pad = ""
-    foreach ($i in $(1..$diff)) { $pad += $padChar }
-    n_debug "pad:$pad | pad length: $($pad.length)"
-    if($left) { $string = $pad + $string } else { $string = $string + $pad }
-    $res = $string.substring(0,$length)
-    n_debug_function "res:$res"
-    return $res
-}
+New-Alias -Name n_pad -Value __pad -Scope Global -Force -ErrorAction SilentlyContinue
 
 Function Get-RegistryKeyPropertiesAndValues
 {

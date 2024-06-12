@@ -83,6 +83,38 @@ function ___debug ([string]$message, [string]$color = "Cyan") {
 .GLOBAL FUNCTIONS
 #>
 
+function __pad ($string, $length, $padChar = " " ,[switch]$left) {
+    ___start __pad
+    ___debug "string:$string"
+    ___debug "length:$length"
+    ___debug "left:$left"
+    if($null -eq $length) { $length = $string.length }
+    $diff = $length - $string.length
+    ___debug "difference:$diff"
+    $pad = ""
+    foreach ($i in $(1..$diff)) { $pad += $padChar }
+    ___debug "pad:$pad | pad length: $($pad.length)"
+    if($left) { $string = $pad + $string } else { $string = $string + $pad }
+    $res = $string.substring(0,$length)
+    return ___return $res
+}
+
+function __choose_item ($items, $property = "name") {
+    ___start __choise_item
+    ___debug "items:$items"
+    ___debug "property:$property"
+    Write-Host "|_INDEX__|_ITEM_________________________"
+    for ($i = 0; $i -lt $items.Count; $i++) {
+        $item = $items[$i]
+        ___debug "item:$item"
+        $item = Select-Object -InputObject $item -Property $property
+        ___debug "item.$($property):$item"
+        Write-Host "|$(__pad "$i" 8)| $(__pad "$item" 30)"
+    }
+    ___end
+    return Read-Host "`nEnter index of desired item"
+}
+
 function __stringify_regex ($regex) {
     if ($null -eq $regex) { return $regex }
     $needReplace = @(
