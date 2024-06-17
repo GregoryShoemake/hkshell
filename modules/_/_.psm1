@@ -103,16 +103,29 @@ function __choose_item ($items, $property = "name") {
     ___start __choise_item
     ___debug "items:$items"
     ___debug "property:$property"
-    Write-Host "|_INDEX__|_ITEM_________________________"
+    Write-Host "│  INDEX  │ ITEM" -ForegroundColor DarkGray
+    Write-Host "├─────────┼───────────────────────────────" -ForegroundColor DarkGray
     for ($i = 0; $i -lt $items.Count; $i++) {
         $item = $items[$i]
         ___debug "item:$item"
         $item = Select-Object -InputObject $item -Property $property
         ___debug "item.$($property):$item"
-        Write-Host "|$(__pad "$i" 8)| $(__pad "$item" 30)"
+        if($i -eq 0) {
+            $index = "0 or 'f'"
+        } else {
+            $index = "$i"
+        }
+        Write-Host "│" -NoNewline -ForegroundColor DarkGray
+        Write-Host "$(__pad "$index" 9)" -NoNewline
+        Write-Host "│" -NoNewline -ForegroundColor DarkGray
+        Write-Host "$(__pad "$($item.$property)" 30)"
+    }
+    $return = Read-Host "`n`n    Enter index of desired item"
+    if($return -eq "f") {
+        $return = 0
     }
     ___end
-    return Read-Host "`nEnter index of desired item"
+    return $return
 }
 
 function __stringify_regex ($regex) {

@@ -177,16 +177,16 @@ New-Alias -Name gpip -Value Get-PublicAddress -Scope Global -Force
 function Invoke-IPSweep ([switch]$thread) {
 
 
-    n_debug_function "Invoke-IPSweep" DarkCyan
+    ___start "Invoke-IPSweep"
     $n = ((gip) -split "\.")[2].trim()
 
-    n_debug "Sweeping 192.168.$n.*" DarkGray
+    ___debug "Sweeping 192.168.$n.*" DarkGray
     $ips = @()
 
     if($thread) {
-        n_prolix "Running multi-threading"
+        ___debug  "Running multi-threading"
         
-        $thCnt = $( Get-Wmiobject win32_Processor | select -expand ThreadCount)[0]
+        $threads = $( Get-Wmiobject win32_Processor | Select-Object -expand ThreadCount)[0]
 
         $countPer = [Math]::Floor(255 / $threads)
 
@@ -194,7 +194,7 @@ function Invoke-IPSweep ([switch]$thread) {
         for($i = 0; $i -lt $threads; $i++) {
             
             $start = $countPer * $i 
-            $end = $start + $counterPer
+            $end = $start + $countPer
             $arr = $start..$end
             $jobs += Start-Job -ScriptBlock {
                 param ($n, $arr)
@@ -208,21 +208,23 @@ function Invoke-IPSweep ([switch]$thread) {
             }
         }
         foreach ($j_ in $jobs) {
-            while($j_.State -eq "Running") { sleep 1 }
+            while($j_.State -eq "Running") { Start-Sleep -Milliseconds 125 }
             $jobIPs = Receive-Job -job $j_
             $ips += $jobIPs
         }
-        return $ips
+        return ___return $ips
     }
-    foreach($i in $(1..254)) {
-        $ip = "192.168.$n.$i"
-        n_debug "Boinging $ip" DarkGray
-        if(boing $ip){
-            n_prolix "Pinged $ip Successfully" Green
-            $ips += $ip
-        }
+
+    ___end
+    return $(1..255) | ForEach-Object {
+        $ip = "192.168.$n.$_"
+            ___debug "Boinging $ip"
+            if(Test-Ping -target $ip -wait 250){
+                ___debug "Pinged $ip Successfully" Green
+                return $ip
+            }
+            return $null
     }
-    return $ips
 }
 function n_default ($variable, $value) {
     n_debug_function "e_default"

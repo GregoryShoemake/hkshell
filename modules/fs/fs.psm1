@@ -297,7 +297,7 @@ function Invoke-RemoveItem ($target) {
         return $target | Sort-Object -Descending | ForEach-Object { rem $_ } 
     }
 
-    $path = Get-Path $target -KeepSymlink
+    $path = Get-Path $target -IgnoreSymlink
     if($null -eq $path) { return }
     $item = Get-Item -Path $path -Force
     if($null -eq $item) { return }

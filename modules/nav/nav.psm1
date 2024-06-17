@@ -1009,13 +1009,19 @@ function Get-Path {
     param (
         [Parameter()]
         [switch]$clip,
+        [Parameter()]
+        [switch]$ignoreSymlink,
         [Parameter(ValueFromRemainingArguments)]
         $a_
     )
+
+    $resolve = !$ignoreSymlink
     ___start Get-Path
-    if($a_ -is [System.Array]) { $a_ = $a_ -join " " }
-    ___debug "a_:$a_"
     ___debug "clip:$clip"
+    ___debug "resolve:$resolve"
+    ___debug "a_:$a_"
+    
+    if($a_ -is [System.Array]) { return $a_ | ForEach-Object { return Get-Path $_ } }
     $l_ = "$(Get-Location)"
     switch ($a_) { 
 	{ Test-Path $_ } { 
@@ -1030,7 +1036,7 @@ function Get-Path {
 	     $isReg = $item.PSProvider.Name -eq "Registry"
 	    ___debug "isSym:$isSym"
 	    ___debug "isReg:$isReg"
-	     if($isSym -and !$KeepSymlink){ $res = $item.ResolvedTarget } elseif($isReg) { $res = $item.Name } else { $res = $item.FullName }
+	     if($isSym -and $resolve){ $res = $item.ResolvedTarget } elseif($isReg) { $res = $item.Name } else { $res = $item.FullName }
 	     if($null -eq $res) { $res = $item.name }
 	     $res = $res -replace "HKEY_LOCAL_MACHINE", "HKLM:" -replace "HKEY_CURRENT_USER", "HKCU:"
 	     if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res) }
@@ -1081,7 +1087,7 @@ function Get-Path {
 	    ___debug "System.IO object passed, returning literal path"
             $isSym = Test-IsSymLink $_
             $isReg = $_.PSProvider.Name -eq "Registry"
-            if($isSym -and !$KeepSymlink){
+            if($isSym -and $resolve){
                 if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $_.ResolvedTarget) } else { return ___return $(ConvertTo-LixuxPathDelimiter $_.ResolvedTarget) } 
             } elseif($isReg) {
                 if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $_.Name) } else { return ___return $(ConvertTo-LixuxPathDelimiter $_.Name) } 
@@ -1108,7 +1114,7 @@ function Get-Path {
 	    ___debug "PSProvider:$($res.PSProvider)"
             $isReg = $res.PSProvider.Name -eq "Registry"
 	    ___debug "IsReg:$isReg"
-            if($isSym -and !$KeepSymlink){
+            if($isSym -and $resolve){
                 if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res.ResolvedTarget) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res.ResolvedTarget) } 
             } elseif($isReg){
                 if ($clip) { Set-Clipboard $(ConvertTo-LixuxPathDelimiter $res.Name) } else { return ___return $(ConvertTo-LixuxPathDelimiter $res.Name) } 
