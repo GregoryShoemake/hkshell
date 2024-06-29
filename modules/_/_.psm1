@@ -118,7 +118,7 @@ function __choose_item ($items, $property = "name") {
         Write-Host "│" -NoNewline -ForegroundColor DarkGray
         Write-Host "$(__pad "$index" 9)" -NoNewline
         Write-Host "│" -NoNewline -ForegroundColor DarkGray
-        Write-Host "$(__pad "$($item.$property)" 30)"
+        Write-Host "$(__pad "$item" 30)"
     }
     $return = Read-Host "`n`n    Enter index of desired item"
     if($return -eq "f") {
