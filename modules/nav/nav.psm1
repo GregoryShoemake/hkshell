@@ -935,7 +935,7 @@ function Invoke-Go {
 	    if($arr.length -eq 1) { $i = 0 }
 	    elseif ($arr.length -gt 1) {
 		Write-Host "`nMultiple matches found:"
-                $i = __choose_item $($arr | ForEach-Object { return Get-Item $(Get-Path $_) }) 
+                $i = __choose_item $arr $null 
 	    }
 	    ___debug " -> $($arr[$i])"
 	    $null = Invoke-Go $arr[$i] -C:$C -A:$A -Tree:$Tree -PassThru
