@@ -108,7 +108,7 @@ function __choose_item ($items, $property = "name") {
     for ($i = 0; $i -lt $items.Count; $i++) {
         $item = $items[$i]
         ___debug "item:$item"
-        $item = if($property) { Select-Object -InputObject $item -Property $property } else { $item }
+        $item = if($property) { (Select-Object -InputObject $item -Property $property).$property } else { $item }
         ___debug "item.$($property):$item"
         if($i -eq 0) {
             $index = "0 or 'f'"
