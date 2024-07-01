@@ -12,7 +12,6 @@ if ($null -eq $global:_nav_module_location ) {
 .PREFERENCES
 #>
 
-$showParents = $false
 
 <#
 .PREFERENCES
@@ -306,21 +305,25 @@ Function Get-RegistryKeyPropertiesAndValues
     Pop-Location
 } #end function Get-RegistryKeyPropertiesAndValues
 
-function n_write_virtual_dirs {
+function n_write_virtual_dirs ([int]$columns = 1, $nameLength) {
     try {
 	$last = Get-Item $global:history[$global:history.Count -1] -Force -ErrorAction Stop
-	write-host -nonewline "│" -ForegroundColor DarkGray
+	write-host -nonewline "│" -ForegroundColor DarkBlue
 	$index = n_pad "[.<]" 7 " "
 	write-host -nonewline $index
 	write-host -nonewline "│" -ForegroundColor DarkGray
-	$type = n_pad "[dir]" 8 " "
-	write-host -nonewline $type -ForegroundColor Cyan
-	write-host -nonewline "│" -ForegroundColor DarkGray
-	$lastWrite = n_pad "$($last.lastwritetime)" 25 " " 
-	write-host -nonewline $lastWrite
-	write-host -nonewline "│" -ForegroundColor DarkGray
-	$name = $last.FullName
-	write-host $name -ForegroundColor $("Gray")
+        if($columns -lt 4) {
+            $type = n_pad "[last]" 9 " "
+            write-host -nonewline $type -ForegroundColor Cyan
+            write-host -nonewline "│" -ForegroundColor DarkGray
+            if($columns -lt 2) {
+                $lastWrite = n_pad "$($last.lastwritetime)" 25 " " 
+                write-host -nonewline $lastWrite
+                write-host -nonewline "│" -ForegroundColor DarkGray
+            }
+        }
+	$name = n_pad $last.FullName $nameLength " "
+	write-host -NoNewline:$($columns -gt 1) $name -ForegroundColor $("Gray")
     }
     catch {
     	<#Do this if a terminating exception happens#>
@@ -329,35 +332,43 @@ function n_write_virtual_dirs {
     try {
 	$current = Get-Item "$pwd" -Force -ErrorAction Stop     
 	$parent = Get-Item $current.Parent.FullName -Force -ErrorAction Stop
-	    write-host -nonewline "│" -ForegroundColor DarkGray
-	    $index = n_pad "[..]" 7 " "
-	    write-host -nonewline $index
-	    write-host -nonewline "│" -ForegroundColor DarkGray
-	    $type = n_pad "[dir]" 8 " "
-	    write-host -nonewline $type -ForegroundColor Cyan
-	    write-host -nonewline "│" -ForegroundColor DarkGray
-	    $lastWrite = n_pad "$($parent.LastWriteTime)" 25 " " 
-	    write-host -nonewline $lastWrite
-	    write-host -nonewline "│" -ForegroundColor DarkGray
-	    $name = $parent.Name
-	    write-host $name -ForegroundColor $("Gray")
+        write-host -nonewline "│" -ForegroundColor DarkBlue 
+        $index = n_pad "[..]" 7 " "
+        write-host -nonewline $index
+        write-host -nonewline "│" -ForegroundColor DarkGray
+        if($columns -lt 4){
+            $type = n_pad "[parent]" 9 " "
+            write-host -nonewline $type -ForegroundColor Cyan
+            write-host -nonewline "│" -ForegroundColor DarkGray
+            if($columns -lt 2){
+                $lastWrite = n_pad "$($parent.LastWriteTime)" 25 " " 
+                write-host -nonewline $lastWrite
+                write-host -nonewline "│" -ForegroundColor DarkGray
+            }
+        }
+        $name = n_pad $parent.Name $nameLength " "
+        write-host -NoNewline:$($columns -gt 2) $name -ForegroundColor $("Gray")
     }
     catch {
 	<#Do this if a terminating exception happens#>
     }
 
     try {
-	write-host -nonewline "│" -ForegroundColor DarkGray
+	write-host -nonewline "│" -ForegroundColor DarkBlue 
 	$index = n_pad "[.]" 7 " "
 	write-host -nonewline $index
 	write-host -nonewline "│" -ForegroundColor DarkGray
-	$type = n_pad "[dir]" 8 " "
-	write-host -nonewline $type -ForegroundColor Cyan
-	write-host -nonewline "│" -ForegroundColor DarkGray
-	$lastWrite = n_pad "$($current.lastwritetime)" 25 " " 
-	write-host -nonewline $lastWrite
-	write-host -nonewline "│" -ForegroundColor DarkGray
-	$name = $current.Name
+        if($columns -lt 4) {
+            $type = n_pad "[current]" 9 " "
+            write-host -nonewline $type -ForegroundColor Cyan
+            write-host -nonewline "│" -ForegroundColor DarkGray
+            if ($columns -lt 2) {
+                $lastWrite = n_pad "$($current.lastwritetime)" 25 " " 
+                write-host -nonewline $lastWrite
+                write-host -nonewline "│" -ForegroundColor DarkGray
+                }
+        }
+        $name = n_pad $current.Name $nameLength " "
 	write-host $name -ForegroundColor $("Gray")
     }
     catch {
@@ -404,7 +415,7 @@ function n_convert_index ($index) {
     return ___return $index_NEW
 }
 
-function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]$tree) {
+function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]$tree, [int]$columns = -1) {
     if($cache) {
         $items = $global:QueryResult 
         if($clearCache){
@@ -414,6 +425,17 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
     $i = 0
     if($args -notcontains "-force") { $args += " -force" }
     if($items.Count -gt 0) {
+    
+        if($columns -eq -1) {
+            $columns = [System.Math]::Clamp($items.Count / 35, 1, 4)
+        }
+        if($columns -gt 4) {
+            Write-Host "Column count must be between 1 and 4, defaulting to 1" -ForegroundColor Yellow
+            $columns = 1
+        }
+
+        ___debug "columns:$columns"
+
 	$Script:lastParent = $null
         $items | Foreach-Object {
 
@@ -436,15 +458,40 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
                 $parent
     " -ForegroundColor DarkYellow
                 $script:lastParent = $parent
-                write-host "│ INDEX │  TYPE  │     LAST WRITE TIME     │  NAME" -ForegroundColor DarkGray
-                write-host "├───────┼────────┼─────────────────────────┼──────" -ForegroundColor DarkGray
+                
+                switch ($columns) {
+                    2 { 
+                        $nameLength = 52
+write-host "│ INDEX │  TYPE   │  NAME                                              │ INDEX │  TYPE   │  NAME" -ForegroundColor DarkGray
+                        write-host "├───────┼─────────┼─────────────────────────────────────────────────── ├───────┼─────────┼──────" -ForegroundColor DarkGray
+                    }
+                    3 { 
+                        $nameLength = 39
+write-host "│ INDEX │  TYPE   │  NAME                                 │ INDEX │  TYPE   │  NAME                                 │ INDEX │  TYPE   │  NAME" -ForegroundColor DarkGray #34
+                        write-host "├───────┼─────────┼────────────────────────────────────── ├───────┼─────────┼────────────────────────────────────── ├───────┼─────────┼──────" -ForegroundColor DarkGray
+                    }
+                    4 { 
+                        $nameLength = 34
+write-host "│ INDEX │  NAME                            │ INDEX │  NAME                            │ INDEX │  NAME                            │ INDEX │  NAME" -ForegroundColor DarkGray #29
+                        write-host "├───────┼───────────────────────────────── ├───────┼───────────────────────────────── ├───────┼───────────────────────────────── ├───────┼──────" -ForegroundColor DarkGray
+                    }
+                    default {
+                        $nameLength = 80
+write-host "│ INDEX │  TYPE   │     LAST WRITE TIME     │  NAME" -ForegroundColor DarkGray
+                        write-host "├───────┼─────────┼─────────────────────────┼──────" -ForegroundColor DarkGray
+                    }
+                }
             }
-	    if(!$WrittenVirtuals){
-		n_write_virtual_dirs
-		$WrittenVirtuals = $true
-	    }
+
+
+            if(!$WrittenVirtuals){
+                n_write_virtual_dirs $columns $nameLength
+                    $WrittenVirtuals = $true
+            }
+
+
             $index = n_pad "[$i]" 7 " "
-            $type = n_pad $(if( $isReg ){ "[reg]" }elseif($isSym) { if($isDir) {"[tun]"} else {"[link]"} }elseif($isDir){"[dir]"}else{"[file]"}) 8 " "
+            $type = n_pad $(if( $isReg ){ "[reg]" }elseif($isSym) { if($isDir) {"[tun]"} else {"[link]"} }elseif($isDir){"[dir]"}else{"[file]"}) 9 " "
             $lastWrite = n_pad "$($_.lastwritetime)" 25 " " 
             $name = $_.name
             if($isSym) {
@@ -452,7 +499,7 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
             } elseif($isReg){
                 $name = $name | Split-Path -Leaf
             }
-            $name = n_pad $name 80 " "
+            $name = n_pad $name $nameLength " "
             if($isDir) {
                 $canAccess = Test-Access $_.fullname
             } else {
@@ -460,42 +507,45 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
                 catch { $canAccess = $false }
             }
             $sysOrHid = $_.Attributes -band $global:hidden_or_system
-            write-host -nonewline "│" -ForegroundColor DarkGray
+            write-host -nonewline "│" -ForegroundColor DarkBlue
             write-host -nonewline $index
             write-host -nonewline "│" -ForegroundColor DarkGray
-            write-host -nonewline $type -ForegroundColor $(if( $isReg ){ "Red" }elseif($isSym){ if($isDir) {"Magenta"} else {"DarkMagenta"} }elseif($isDir){"Cyan"}else{"DarkCyan"})
-            write-host -nonewline "│" -ForegroundColor DarkGray
-            write-host -nonewline $lastWrite
-            write-host -nonewline "│" -ForegroundColor DarkGray
-            write-host $name -ForegroundColor $(if($canAccess -and !$sysOrHid) { "Gray" } elseif ($canAccess -and $sysOrHidden) { "DarkGray" } elseif (!$sysOrHidden -and !$canAccess) { "Red" } else { "DarkRed" })
+            if($columns -lt 4) {
+                write-host -nonewline $type -ForegroundColor $(if( $isReg ){ "Red" }elseif($isSym){ if($isDir) {"Magenta"} else {"DarkMagenta"} }elseif($isDir){"Cyan"}else{"DarkCyan"})
+                write-host -nonewline "│" -ForegroundColor DarkGray
+                if($columns -lt 2) {
+                    write-host -nonewline $lastWrite
+                    write-host -nonewline "│" -ForegroundColor DarkGray
+                }
+            }
+            write-host -nonewline:$(($i+1)%$columns -ne 0) $name -ForegroundColor $(if($canAccess -and !$sysOrHid) { "Gray" } elseif ($canAccess -and $sysOrHidden) { "DarkGray" } elseif (!$sysOrHidden -and !$canAccess) { "Red" } else { "DarkRed" })
             $i++
 
-	    if($isDir -and $tree) {
-		$children = Get-ChildItem $_.FullName -Force -ErrorAction SilentlyContinue
-		$children_COUNT = $children.Count
-		$j = 0
-		foreach ($child in $children){
-		    if($child.name -eq "...break"){ break }
-		    if($j -eq $children_COUNT - 1) {
-			write-host -nonewline $(n_pad "[$(n_convert_index $j)]└── " 47 " " -Left) -ForegroundColor DarkGray
-		    } else {
-			write-host -nonewline $(n_pad "[$(n_convert_index $j)]├── " 47 " " -Left) -ForegroundColor DarkGray
-		    }
-		    
-		    $child_SYSORHID = $_.Attributes -band $global:hidden_or_system
-		    if($child.PSIsContainer) {
-			$child_CANACCESS = Test-Access $child.fullname
-		    } else {
-			try { [IO.File]::OpenWrite($child.fullname).close();$child_CANACCESS = $true }
-			catch { $child_CANACCESS = $false }
-		    }
-		    $c_ISDIR = $child.PSIsContainer
-		    $c_ISSYM = Test-IsSymLink $child
-		    write-host "$(if($c_ISSYM){"l"} elseif($c_ISDIR) {"d"} else {"f"}) .. $($child.Name) $(if($c_ISSYM){"-> $($child.ResolvedTarget)"} else {''} )" -ForegroundColor $(if($child_CANACCESS -and !$child_SYSORHID) { "Gray" } elseif ($child_CANACCESS -and $child_SYSORHID) { "DarkGray" } elseif (!$child_SYSORHID -and !$child_CANACCESS) { "Red" } else { "DarkRed" })
-		    $j++
-		}
-	    }
+            if($isDir -and $tree -and $columns -eq 1) {
+                $children = Get-ChildItem $_.FullName -Force -ErrorAction SilentlyContinue
+                    $children_COUNT = $children.Count
+                    $j = 0
+                    foreach ($child in $children){
+                        if($child.name -eq "...break"){ break }
+                        if($j -eq $children_COUNT - 1) {
+                            write-host -nonewline $(n_pad "[$(n_convert_index $j)]└── " 47 " " -Left) -ForegroundColor DarkGray
+                        } else {
+                            write-host -nonewline $(n_pad "[$(n_convert_index $j)]├── " 47 " " -Left) -ForegroundColor DarkGray
+                        }
 
+                        $child_SYSORHID = $_.Attributes -band $global:hidden_or_system
+                            if($child.PSIsContainer) {
+                                $child_CANACCESS = Test-Access $child.fullname
+                            } else {
+                                try { [IO.File]::OpenWrite($child.fullname).close();$child_CANACCESS = $true }
+                                catch { $child_CANACCESS = $false }
+                            }
+                        $c_ISDIR = $child.PSIsContainer
+                            $c_ISSYM = Test-IsSymLink $child
+                            write-host "$(if($c_ISSYM){"l"} elseif($c_ISDIR) {"d"} else {"f"}) .. $($child.Name) $(if($c_ISSYM){"-> $($child.ResolvedTarget)"} else {''} )" -ForegroundColor $(if($child_CANACCESS -and !$child_SYSORHID) { "Gray" } elseif ($child_CANACCESS -and $child_SYSORHID) { "DarkGray" } elseif (!$child_SYSORHID -and !$child_CANACCESS) { "Red" } else { "DarkRed" })
+                            $j++
+                    }
+            }
         }  
     }
     try {
@@ -562,93 +612,18 @@ function Show-Directories {
 	return ___return
     }
     $path = Get-Path $path
-    $depth = Get-PathDepth $path
-    if ($depth -eq 1 -or !$showParents) {
-        <#
-        
-        
-        #>
 
-	$res = Get-ChildItem -Force -Path $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D }
+    $res = Get-ChildItem -Force -Path $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D }
 
-	if($null -eq $res) { $res = Get-ChildItem -Force -Path $path -Depth $dep -ErrorAction SilentlyContinue }
+    if($null -eq $res) { $res = Get-ChildItem -Force -Path $path -Depth $dep -ErrorAction SilentlyContinue }
 
-	if($null -eq $res) {
-		Write-Host "
-	$path   is Empty!" -ForegroundColor Red
-	} else {
-		Format-ChildItem $res -Tree:$Tree
-	}
-
-        <#
-        
-        
-        #>
+    if($null -eq $res) {
+        Write-Host "
+            $path   is Empty!" -ForegroundColor Red
+    } else {
+        Format-ChildItem $res -Tree:$Tree
     }
-    elseif ($depth -eq 2) {
-        <#
-        
-        
-        #>
-        $par = .. $path
-        $parPrompt = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ChildItems of $par
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        Write-Host $parPrompt -ForegroundColor Green
-        $parC = Get-ChildItem $par -Force
-        foreach ($c in $parC) {
-            if ($c.psiscontainer) { Write-Host $c.name -ForegroundColor DarkCyan }
-            elseif (!$D) { Write-Host $c.name -ForegroundColor DarkGreen }
-        }
-        $curPrompt = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ChildItems of $path
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        Write-Host $curPrompt -ForegroundColor Blue
-        Format-ChildItem $( Get-ChildItem -Force $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D } ) -Tree:$Tree
 
-        <#
-        
-        
-        #>
-    }
-    else {
-        <#
-        
-        
-        #>
-        $par = .. $path
-        $Gpar = .. $par
-
-        $GparPrompt = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ChildItems of $Gpar
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        Write-Host $GparPrompt -ForegroundColor Red
-        $GparC = Get-ChildItem $Gpar -Force
-        foreach ($c in $GparC) {
-            if ($c.psiscontainer) { Write-Host $c.name }
-        }
-
-        $parPrompt = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ChildItems of $par
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        Write-Host $parPrompt -ForegroundColor Green
-        $parC = Get-ChildItem $par -Force
-        foreach ($c in $parC) {
-            if ($c.psiscontainer) { Write-Host $c.name -ForegroundColor DarkCyan }
-            elseif (!$D) { Write-Host $c.name -ForegroundColor DarkGreen }
-        }
-
-        $curPrompt = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ChildItems of $path
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        Write-Host $curPrompt -ForegroundColor Blue
-        Format-ChildItem $(Get-ChildItem -Force $path -depth $dep -ErrorAction SilentlyContinue | Where-Object { ($_.psiscontainer -and $D) -or !$D }) -Tree:$Tree
-
-        <#
-        
-        
-        #>
-    }
     write-host "
     "
     ___end
