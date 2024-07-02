@@ -14,40 +14,7 @@ function q_debug_function ($function, $functionColor, $meta) {
         write-Host -NoNewline " $meta " -ForegroundColor Yellow
     }
 }
-function q_prolix ($message, $messageColor) {
-    if (!$global:prolix) { return }
-    if ($null -eq $messageColor) { $messageColor = "Gray" }
-    Write-Host $message -ForegroundColor $messageColor
-}
 
-function q_replace($string, $regex, [string] $replace) {
-    if ($null -eq $string) {
-        return $string
-    }
-    if ($null -eq $regex) {
-        return $string
-    }
-    if ($string -is [System.Array]) {
-        $string = $string -join "`n"
-    }
-    if ($regex -is [System.Array]) {
-        foreach ($r in $regex) {
-            $string = $string -replace $r, $replace
-        }
-    }
-    return $string -replace $regex, $replace
-}
-function q_is ($obj, $class) {
-    if ($null -eq $obj) { return $null -eq $class }
-    if ($null -eq $class) { return $false }
-    if ($class -is [System.Array]) {
-        foreach ($c in $class) {
-            if ($obj -is $c) { return $true }
-        }
-        return $false
-    }
-    return $obj -is [type](q_replace $class @("\[", "]"))
-}
 function q_isnot ($obj, $class) {
     if ($null -eq $obj) { return $null -ne $class }
     if ($null -eq $class) { return $true }
@@ -57,42 +24,9 @@ function q_isnot ($obj, $class) {
         }
         return $true
     }
-    return $obj -isnot [type](q_replace $class @("\[", "]"))
+    return $obj -isnot [type](__replace $class @("\[", "]"))
 }
 
-function q_for ([int]$iMax, [int]$jMax, [int]$kmax, [string] $startCommand, [string] $loopCommand, [string] $endCommand) {
-    Invoke-Expression $startCommand
-    for ($i = 0; $i -lt $iMax; $i++) {
-        for ($j = 0; $j -lt $jMax; $j++) {
-            for ($k = 0; $k -lt $kMax; $k++) {
-                Invoke-Expression $loopCommand
-            }
-        }
-    }
-    Invoke-Expression $endCommand
-}
-function q_nullemptystr ($nullable) {
-    if ($null -eq $nullable) { return $true }
-    if ($nullable -isnot [string]) { return $false }
-    if ($nullable.length -eq 0) { return $true }
-    return q_for $nullable.length 1 1 '$result = $true' 'if(($nullable[$i] -ne " ") -and ($nullable[$i] -ne "`n")){ $result = $false}' 'return $result'
-}
-function q_int_eq {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        [int]
-        $int,
-        # single int or array of ints to compare
-        [Parameter()]
-        $ints
-    )
-    if ($null -eq $ints) { return $false }
-    foreach ($i in $ints) {
-        if ($int -eq $i) { return $true }
-    }
-    return $false
-}
 
 function q_parseString ($stringable) {
     if ($stringable -is [string]) { return $stringable }
@@ -106,53 +40,6 @@ function q_parseString ($stringable) {
     else { return "$stringable" }
 }
 
-function q_truncate {
-    [CmdletBinding()]
-    param (
-        # Array object passed to truncate
-        [Parameter(Mandatory = $false, Position = 0)]
-        [System.Array]
-        $array,
-        [Parameter()]
-        [int]
-        $fromStart = 0,
-        [Parameter()]
-        [int]
-        $fromEnd = 0,
-        [int[]]
-        $indexAndDepth
-    )
-    $l = $array.Length
-    if ($fromStart -gt 0) {
-        $l = $l - $fromStart
-    }
-    if ($fromEnd -gt 0) {
-        $l = $l - $fromEnd
-    }
-    else {
-        $fromEnd = 1
-    }
-    $fromEnd = $array.Length - $fromEnd
-    if (($null -ne $indexAndDepth) -and ($indexAndDepth[1] -gt 0)) {
-        $l = $l - $indexAndDepth[1]
-    }
-    if ($l -le 0) {
-        return @()
-    }
-    $res = @()
-    $fromStart--
-    if ($null -ne $indexAndDepth) {
-        $middleStart = $indexAndDepth[0]
-        $middleEnd = $indexAndDepth[0] + $indexAndDepth[1] - 1
-        $middle = $middleStart..$middleEnd
-    }
-    for ($i = 0; $i -lt $array.Length; $i ++) {
-        if (($i -gt $fromStart) -and !(q_int_eq $i $middle ) -and ($i -lt $fromEnd)) {
-            $res += $array[$i]
-        }
-    }
-    return $res
-}
 function q_convert_bytes_string ($bytes) {
     if ($bytes / 1PB -gt 1) {
         return "$([Math]::Round($bytes / 1PB, 3)) PB"
@@ -511,7 +398,7 @@ function hquery {
     }
 }
 
-function q_benchmark {
+function Start-BenchMark {
     [CmdletBinding()]
     param (
         [Parameter()]
@@ -527,48 +414,6 @@ function q_benchmark {
 }
 
 
-function q_match {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false, Position = 0)]
-        $string,
-        [Parameter(Mandatory = $false, Position = 1)]
-        $regex,
-        [Parameter()]
-        [switch]
-        $getMatch = $false,
-        [Parameter()]
-        $logic = "OR"
-    )
-    if ($null -eq $string) {
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if ($null -eq $regex) {
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if (($string -is [System.Array])) {
-        $string = $string -join "`n"
-    }
-    if ($regex -is [System.Array]) {
-        foreach ($r in $regex) {
-            $f = q_match $string $r
-            if (($logic -eq "OR") -and $f) { return $true }
-            if (($logic -eq "AND") -and !$f) { return $false }
-        }
-        return ($logic -eq "AND")
-    }
-    $found = $string -match $regex
-    if ($found) {
-        if ($getMatch) {
-            return $Matches[0]
-        }
-        return $true
-    }
-    if ($getMatch) { return $null }
-    return $false
-}
 function Get-MsiDatabaseVersion {
     param (
         [string] $fn
@@ -640,7 +485,7 @@ function q_version {
     }
 }
 
-function installed {
+function Test-Installed {
     [CmdletBinding()]
     param (
         [Parameter()]
@@ -655,7 +500,7 @@ function installed {
         $filter = "*.exe"
     )
     if ($app -is [System.Array]) {
-        return installedBulk $app -allDrives:$allDrives -deep:$deep -exact:$exact -filter $filter
+        return Test-InstalledBulk $app -allDrives:$allDrives -deep:$deep -exact:$exact -filter $filter
     }
     if ($app -is [System.IO.FileInfo]) {
         $app = $app.name
@@ -734,7 +579,7 @@ function installed {
     }
 }
 
-function installedBulk {
+function Test-InstalledBulk {
     [CmdletBinding()]
     param (
         [Parameter()]
@@ -863,7 +708,7 @@ function installedBulk {
     }
 }
 
-function installedVersion {
+function Get-InstalledVersion {
     [CmdletBinding()]
     param (
         [Parameter()]
@@ -878,7 +723,7 @@ function installedVersion {
         $filter = "*.exe"
     )
     
-    $found = installed $app -allDrives:$allDrives -deep:$deep -exact:$exact -filter $filter
+    $found = Test-Installed $app -allDrives:$allDrives -deep:$deep -exact:$exact -filter $filter
     if ($null -ne $found) {
         return q_version $found
     }
@@ -946,7 +791,7 @@ function get-pastcommand {
     elseif ($i -eq -1) {
         if ($null -eq $global:commandSearchDepth) { $global:commandSearchDepth = 100 }
 	#$commands = $command[($len - $global:commandSearchDepth)..($len - 1)]
-        $commands = q_truncate $commands -fromStart ($len - $global:commandSearchDepth)
+        $commands = __truncate $commands -fromStart ($len - $global:commandSearchDepth)
         return $commands | Select-String $search
     }
     else {

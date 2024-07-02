@@ -73,133 +73,6 @@ function n_debug_function ($function, $functionColor, $meta) {
         write-Host -NoNewline " $meta " -ForegroundColor Yellow
     }
 }
-function n_prolix ($message, $messageColor) {
-    if (!$global:prolix) { return }
-    if ($null -eq $messageColor) { $messageColor = "Cyan" }
-    Write-Host $message -ForegroundColor $messageColor
-}
-function n_replace($string, $regex, [string] $replace) {
-    if ($null -eq $string) {
-        return $string
-    }
-    if ($null -eq $regex) {
-        return $string
-    }
-    foreach ($r in $regex) {
-        $string = $string -replace $r, $replace
-    }
-    return $string
-}
-function n_is ($obj, $class) {
-    if ($null -eq $obj) { return $null -eq $class }
-    if ($null -eq $class) { return $false }
-    if ($class -is [System.Array]) {
-        foreach ($c in $class) {
-            if ($obj -is $c) { return $true }
-        }
-        return $false
-    }
-    return $obj -is [type](n_replace $class @("\[", "]"))
-}
-function n_int_eq {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        [int]
-        $int,
-        # single int or array of ints to compare
-        [Parameter()]
-        $ints
-    )
-    if ($null -eq $ints) { return $false }
-    foreach ($i in $ints) {
-        if ($int -eq $i) { return $true }
-    }
-    return $false
-}
-function n_stringify_regex ($regex) {
-    if ($null -eq $regex) { return $regex }
-    $needReplace = @(
-        "\\"
-        "\@"
-        "\~" 
-        "\%"
-        "\$" 
-        "\&"
-        "\^" 
-        "\*"
-        "\("
-        "\)" 
-        "\[" 
-        "\]" 
-        "\." 
-        "\+" 
-        "\?" 
-    )
-    foreach ($n in $needReplace) {
-        $regex = $regex -replace $n, $n
-    }
-    return $regex
-}
-function n_truncate {
-    [CmdletBinding()]
-    param (
-        # Array object passed to truncate
-        [Parameter(Mandatory = $false, Position = 0)]
-        [System.Array]
-        $array,
-        [Parameter()]
-        [int]
-        $fromStart = 0,
-        [Parameter()]
-        [int]
-        $fromEnd = 0,
-        [int[]]
-        $indexAndDepth
-    )
-    $l = $array.Length
-    if ($fromStart -gt 0) {
-        $l = $l - $fromStart
-    }
-    if ($fromEnd -gt 0) {
-        $l = $l - $fromEnd
-    }
-    else {
-        $fromEnd = 1
-    }
-    $fromEnd = $array.Length - $fromEnd
-    if (($null -ne $indexAndDepth) -and ($indexAndDepth[1] -gt 0)) {
-        $l = $l - $indexAndDepth[1]
-    }
-    if ($l -le 0) {
-        return @()
-    }
-    $res = @()
-    $fromStart--
-    if ($null -ne $indexAndDepth) {
-        $middleStart = $indexAndDepth[0]
-        $middleEnd = $indexAndDepth[0] + $indexAndDepth[1] - 1
-        $middle = $middleStart..$middleEnd
-    }
-    for ($i = 0; $i -lt $array.Length; $i ++) {
-        if (($i -gt $fromStart) -and !(n_int_eq $i $middle ) -and ($i -lt $fromEnd)) {
-            $res += $array[$i]
-        }
-    }
-    return $res
-}
-
-function n_nullemptystr ($nullable) {
-    if ($null -eq $nullable) { return $true }
-    if ($nullable -isnot [string]) { return $false }
-    if ($nullable.length -eq 0) { return $true }
-    for ($i = 0; $i -lt $nullable.length; $i++) {
-        if (($nullable[$i] -ne " ") -and ($nullable[$i] -ne "`n")) { 
-            return $false 
-        }
-    }
-    return $true
-}
 
 function Test-IsSymLink ($InputObject) {
     ___start Test-IsSymLink
@@ -239,13 +112,13 @@ function Test-Access($Path)
 function Get-PathDepth ($path) {
     $split = $path -split "/"
     for ($i = 0; $i -lt $split.length; $i++) {
-        if (n_nullemptystr $split[$i]) {
-            $split = n_truncate $split -indexAndDepth @($i, 1)
+        if (__nullemptystr $split[$i]) {
+            $split = __truncate $split -indexAndDepth @($i, 1)
         }
     }
     return $split.length
 }
-function n_is ($obj, $class) {
+function __is ($obj, $class) {
     if ($null -eq $obj) { return $null -eq $class }
     if ($null -eq $class) { return $false }
     if ($class -is [System.Array]) {
@@ -267,10 +140,10 @@ function Get-ParentDirectory {
         [Parameter()]
         [int]$count = 0
     )
-    if (n_nullemptystr $path) {
+    if (__nullemptystr $path) {
         $path = Get-Location
     }
-    if (n_is $path  @([System.IO.FileInfo], [System.IO.DirectoryInfo])) {
+    if (__is $path  @([System.IO.FileInfo], [System.IO.DirectoryInfo])) {
         $path = $path.fullname
     }
     if ($count -gt 0){
@@ -767,7 +640,7 @@ function Invoke-Go {
     if($in -match "\.<") {
 	$num = $in.replace(".","").split("<").Count - 1
 	$in = $global:history[($global:history.Count - $num)]
-	$global:history = n_truncate $global:history -FromEnd ($num)
+	$global:history = __truncate $global:history -FromEnd ($num)
 	$backTracking = $true
     } elseif($in -match "\.\^") {
 	$num = $in.replace(".","").split("^").Count - 1
@@ -895,7 +768,7 @@ function Invoke-Go {
 
 	foreach ($s in $global:shortcuts) {
 	    n_debug "Checking shortcut: $s ~? $in"
-		$in_regex = n_stringify_regex $in
+		$in_regex = __stringify_regex $in
 		if ($s -match $in_regex) {
 
 		    if ($null -eq $arr) { $arr = @($s) }

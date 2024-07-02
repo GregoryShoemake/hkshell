@@ -1,8 +1,8 @@
-function user_decrypt_secure ([securestring] $secure) {
+function u_decrypt_secure ([securestring] $secure) {
     $passN = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure))
     return $passN
 }
-function user_get ($name, [switch]$wmi) {
+function Invoke-HandleUser ($name, [switch]$wmi) {
 
     if ($wmi) {
         if ($null -eq $name) {
@@ -76,7 +76,7 @@ function user_set_password ([string]$name, [securestring]$password) {
             Set-LocalUser $name -Password $password -Verbose
         }
         else {
-            [string]$password = user_decrypt_secure $password
+            [string]$password = u_decrypt_secure $password
             net user $name $password
         }
         $ErrorActionPreference = "Continue"
@@ -115,7 +115,7 @@ function user_create ([string]$name, [securestring] $password, [switch] $passthr
         $hostname = hostname   
         $comp = [adsi] "WinNT://$hostname"
         $user = $comp.Create("User", $name)   
-        [string]$password = user_decrypt_secure $password
+        [string]$password = u_decrypt_secure $password
         $user.SetPassword($password)   
         $user.SetInfo()   
     }
@@ -159,9 +159,9 @@ function user_handle {
     if ($yes -and $no) { Write-Host "InvalidParameterCombination ! Cannot pass -yes and -no together" -ForegroundColor Red; return $null }
     if ($create -and $delete) { Write-Host "InvalidParameterCombination ! Cannot pass -create and -delete together" -ForegroundColor Red; return $null }
 
-    $h = user_get $name -wmi:$wmi
+    $h = Invoke-HandleUser $name -wmi:$wmi
     $u = $h.Users
-    if ($null -ne $pass) { $pN = user_decrypt_secure $pass }
+    if ($null -ne $pass) { $pN = u_decrypt_secure $pass }
     $w = ($null -ne $pass) -or $($null -ne $username) -or ($null -ne $rights) -or ($null -ne $active) -or $create -or $preClient
     $r = $isAdmin -or $exists -or $SID -or $isactive
     $n = $null -eq $u

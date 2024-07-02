@@ -22,59 +22,6 @@ function t_debug_function ($function, $functionColor, $meta) {
     }
 }
 
-function t_eq ($a_, $b_) {
-    if ($b_ -is [System.Array]) {
-        foreach ($b in $b_) {
-            if ($a_ -eq $b) { return $true }
-        }
-        return $false
-    }
-    else { return $a_ -eq $b_ }
-}
-function t_match {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false, Position = 0)]
-        $string,
-        [Parameter(Mandatory = $false, Position = 1)]
-        $regex,
-        [Parameter()]
-        [switch]
-        $getMatch = $false,
-        [Parameter()]
-        $logic = "OR"
-    )
-    if ($null -eq $string) {
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if ($null -eq $regex) {
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if (($string -is [System.Array])) {
-        $string = $string -join "`n"
-    }
-    if ($regex -is [System.Array]) {
-        foreach ($r in $regex) {
-            $f = t_match $string $r
-            if (($logic -eq "OR") -and $f) { return $true }
-            if (($logic -eq "AND") -and !$f) { return $false }
-            if (($logic -eq "NOT") -and $f) { return $false }
-        }
-        return ($logic -eq "AND") -or ($logic -eq "NOT")
-    }
-    $found = $string -match $regex
-    if ($found) {
-        if ($getMatch) {
-            return $Matches[0]
-        }
-        return $logic -ne "NOT"
-    }
-    if ($logic -eq "NOT") { return $true }
-    if ($getMatch) { return $null }
-    return $false
-}
 function ConvertTo-TimeInterval ($quantity = 0, [string]$from = "milliseconds") {
 
     $millis = ConvertTo-Milliseconds $quantity $from
@@ -96,23 +43,23 @@ function ConvertTo-TimeInterval ($quantity = 0, [string]$from = "milliseconds") 
 New-Alias -Name convert2TimeInt -Value ConvertTo-TimeInterval -Scope Global -Force
 function ConvertTo-Milliseconds ($quantity = 0, [string]$from = "milliseconds") {
     switch ($from) {
-        { t_eq $_ @("millis", "ms", "milliseconds", "millisecond") } { return $quantity }
-        { t_eq $_ @("secs", "s", "seconds", "second", "sec") } { return $quantity * $global:second }
-        { t_eq $_ @("mins", "min", "minutes", "minute") } { return $quantity * $global:minute }
-        { t_eq $_ @("hrs", "hr", "hours", "hour") } { return $quantity * $global:hour }
-        { t_eq $_ @("days", "day") } { return $quantity * $global:day }
-        { t_eq $_ @("wks", "wk", "weeks", "week") } { return $quantity * $global:week }
+        { __eq $_ @("millis", "ms", "milliseconds", "millisecond") } { return $quantity }
+        { __eq $_ @("secs", "s", "seconds", "second", "sec") } { return $quantity * $global:second }
+        { __eq $_ @("mins", "min", "minutes", "minute") } { return $quantity * $global:minute }
+        { __eq $_ @("hrs", "hr", "hours", "hour") } { return $quantity * $global:hour }
+        { __eq $_ @("days", "day") } { return $quantity * $global:day }
+        { __eq $_ @("wks", "wk", "weeks", "week") } { return $quantity * $global:week }
     }
 }
 New-Alias -Name convertToMS -Value ConvertTo-Milliseconds -Scope Global -Force
 function ConvertFrom-Milliseconds ($quantity = 0, [string]$to = "milliseconds") {
     switch ($to) {
-        { t_eq $_ @("millis", "ms", "milliseconds", "millisecond") } { return $quantity }
-        { t_eq $_ @("secs", "s", "seconds", "second", "sec") } { return $quantity / $global:second }
-        { t_eq $_ @("mins", "min", "minutes", "minute") } { return $quantity / $global:minute }
-        { t_eq $_ @("hrs", "hr", "hours", "hour") } { return $quantity / $global:hour }
-        { t_eq $_ @("days", "day") } { return $quantity / $global:day }
-        { t_eq $_ @("wks", "wk", "weeks", "week") } { return $quantity / $global:week }
+        { __eq $_ @("millis", "ms", "milliseconds", "millisecond") } { return $quantity }
+        { __eq $_ @("secs", "s", "seconds", "second", "sec") } { return $quantity / $global:second }
+        { __eq $_ @("mins", "min", "minutes", "minute") } { return $quantity / $global:minute }
+        { __eq $_ @("hrs", "hr", "hours", "hour") } { return $quantity / $global:hour }
+        { __eq $_ @("days", "day") } { return $quantity / $global:day }
+        { __eq $_ @("wks", "wk", "weeks", "week") } { return $quantity / $global:week }
     }
 }
 New-Alias -Name convertFrMS -Value ConvertFrom-Milliseconds -Scope Global -Force
@@ -161,7 +108,7 @@ function ConvertTo-DateTime ($dateHash = @{ Parse = "01JAN1970@0000" }) {
                 $month = $date.Month
                 $day = $date.Day 
             }
-            { t_eq $_ @("monday", "mon", "m", "lunes") } {
+            { __eq $_ @("monday", "mon", "m", "lunes") } {
                 $date = (Get-Date)
                 while ($date.DayOfWeek -ne "Monday" ) {
                     $date = $date.AddDays(1)
@@ -170,7 +117,7 @@ function ConvertTo-DateTime ($dateHash = @{ Parse = "01JAN1970@0000" }) {
                 $month = $date.Month
                 $day = $date.Day 
             }
-            { t_eq $_ @("tueday", "tue", "t", "martes") } {
+            { __eq $_ @("tueday", "tue", "t", "martes") } {
                 $date = (Get-Date)
                 while ($date.DayOfWeek -ne "Tuesday" ) {
                     $date = $date.AddDays(1)
@@ -179,7 +126,7 @@ function ConvertTo-DateTime ($dateHash = @{ Parse = "01JAN1970@0000" }) {
                 $month = $date.Month
                 $day = $date.Day 
             }
-            { t_eq $_ @("wednesday", "wed", "w", "miercoles") } {
+            { __eq $_ @("wednesday", "wed", "w", "miercoles") } {
                 $date = (Get-Date)
                 while ($date.DayOfWeek -ne "Wednesday" ) {
                     $date = $date.AddDays(1)
@@ -188,7 +135,7 @@ function ConvertTo-DateTime ($dateHash = @{ Parse = "01JAN1970@0000" }) {
                 $month = $date.Month
                 $day = $date.Day 
             }
-            { t_eq $_ @("thursday", "thu", "th", "jueves") } {
+            { __eq $_ @("thursday", "thu", "th", "jueves") } {
                 $date = (Get-Date)
                 while ($date.DayOfWeek -ne "Thursday" ) {
                     $date = $date.AddDays(1)
@@ -197,7 +144,7 @@ function ConvertTo-DateTime ($dateHash = @{ Parse = "01JAN1970@0000" }) {
                 $month = $date.Month
                 $day = $date.Day 
             }
-            { t_eq $_ @("friday", "fri", "f", "viernes") } {
+            { __eq $_ @("friday", "fri", "f", "viernes") } {
                 $date = (Get-Date)
                 while ($date.DayOfWeek -ne "Friday" ) {
                     $date = $date.AddDays(1)
@@ -206,7 +153,7 @@ function ConvertTo-DateTime ($dateHash = @{ Parse = "01JAN1970@0000" }) {
                 $month = $date.Month
                 $day = $date.Day 
             }
-            { t_eq $_ @("saturday", "sat", "s", "sabado") } {
+            { __eq $_ @("saturday", "sat", "s", "sabado") } {
                 $date = (Get-Date)
                 while ($date.DayOfWeek -ne "Saturday" ) {
                     $date = $date.AddDays(1)
@@ -215,7 +162,7 @@ function ConvertTo-DateTime ($dateHash = @{ Parse = "01JAN1970@0000" }) {
                 $month = $date.Month
                 $day = $date.Day 
             }
-            { t_eq $_ @("sunday", "sun", "s", "domingo") } {
+            { __eq $_ @("sunday", "sun", "s", "domingo") } {
                 $date = (Get-Date)
                 while ($date.DayOfWeek -ne "Sunday" ) {
                     $date = $date.AddDays(1)
@@ -231,9 +178,9 @@ function ConvertTo-DateTime ($dateHash = @{ Parse = "01JAN1970@0000" }) {
         t_debug "dateHash.Time: $($dateHash.Time)"
         switch ($dateHash.Time) {
             { $_ -match "^([0-9]{1,2}|[0-9]{4})(:)?([0-9]{2})?(am|pm)?$" } {
-                $hour = t_match $dateHash.Time "^[0-9]{1,2}" -getMatch
+                $hour = __match $dateHash.Time "^[0-9]{1,2}" -getMatch
                 t_debug "dateHash.Time - hour: $hour" darkGray
-                $ampm = t_match $dateHash.Time "(am|pm)" -getMatch
+                $ampm = __match $dateHash.Time "(am|pm)" -getMatch
                 t_debug "dateHash.Time - ampm: $ampm" darkGray
                 if ($null -ne $ampm) {
                     if ($hour -eq 12) { $hour -= 12 }

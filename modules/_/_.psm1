@@ -440,7 +440,7 @@ function __match {
     }
     if ($regex -is [System.Array]) {
         foreach ($r in $regex) {
-            $f = p_match $string $r
+            $f = __match $string $r
             if (($logic -eq "OR") -and $f) { return ___return $true }
             if (($logic -eq "AND") -and !$f) { return ___return $false }
             if (($logic -eq "NOT") -and $f) { return ___return $false }

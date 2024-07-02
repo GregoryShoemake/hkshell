@@ -27,56 +27,7 @@ function n_debug_return {
     Write-Host "#return# $($args -join " ")" -ForegroundColor Black -BackgroundColor DarkGray
     return
 }
-function n_prolix ($message, $messageColor) {
-    if (!$global:prolix) { return }
-    if ($null -eq $messageColor) { $messageColor = "Cyan" }
-    Write-Host $message -ForegroundColor $messageColor
-}
 
-function n_match {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false, Position = 0)]
-        $string,
-        [Parameter(Mandatory = $false, Position = 1)]
-        $regex,
-        [Parameter()]
-        [switch]
-        $getMatch = $false,
-        [Parameter()]
-        $logic = "OR"
-    )
-    if ($null -eq $string) {
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if ($null -eq $regex) {
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if (($string -is [System.Array])) {
-        $string = $string -join "`n"
-    }
-    if ($regex -is [System.Array]) {
-        foreach ($r in $regex) {
-            $f = p_match $string $r
-            if (($logic -eq "OR") -and $f) { return $true }
-            if (($logic -eq "AND") -and !$f) { return $false }
-            if (($logic -eq "NOT") -and $f) { return $false }
-        }
-        return ($logic -eq "AND") -or ($logic -eq "NOT")
-    }
-    $found = $string -match $regex
-    if ($found) {
-        if ($getMatch) {
-            return $Matches[0]
-        }
-        return $logic -ne "NOT"
-    }
-    if ($logic -eq "NOT") { return $true }
-    if ($getMatch) { return $null }
-    return $false
-}
 function Test-Ping ($target="google.com", $wait = 1000) {
     return [boolean]((ping -n 1 -w $wait $target) -match "Received = 1")
 }
@@ -226,80 +177,14 @@ function Invoke-IPSweep ([switch]$thread) {
             return $null
     }
 }
-function n_default ($variable, $value) {
-    n_debug_function "e_default"
-    if ($null -eq $variable) { 
-        n_debug_return variable is null
-        return $value 
-    }
-    switch ($variable.GetType().name) {
-        String { 
-            if($variable -eq "") {
-                n_debug_return
-                return $value
-            } else {
-                n_debug_return
-                return $variable
-            }
-        }
-    }
-}
-function n_search_args ($a_, $param, [switch]$switch) {
-    n_debug_function "e_search_args"    
-    $c_ = $a_.Count
-    n_debug "args:$a_ | len:$c_"
-    n_debug "param:$param"
-    n_debug "switch:$switch"
-    if($switch) { 
-        for ($i = 0; $i -lt $c_; $i++) {
-            $a = $a_[$i]
-            n_debug "a[$i]:$a"
-            if ($a -ne $param) { continue }
-            if($null -eq $res) { 
-                $res = $true 
-                $a_ = e_truncate $a_ -indexAndDepth @($i,1)
-            }
-            else {
-                throw [System.ArgumentException] "Duplicate argument passed: $param"
-            }
-        }
-        $res = $res -and $true
-        n_debug_return
-        return @{
-            RES = $res
-            ARGS = $a_
-        }
-    } else {
-        for ($i = 0; $i -lt $a_.length; $i++) {
-            $a = $a_[$i]
-            n_debug "a[$i]:$a"
-            if ($a -ne $param) { continue }
-            if(($null -eq $res) -and ($i -lt ($c_ - 1))) { 
-                $res = $a_[$i + 1]
-                $a_ = e_truncate $a_ -indexAndDepth @($i,2)
-            }
-            elseif ($i -ge ($c_ - 1)) {
-                 throw [System.ArgumentOutOfRangeException] "Argument value at position $($i + 1) out of $c_ does not exist for param $param"
-            }
-            elseif ($null -ne $res) {
-                throw [System.ArgumentException] "Duplicate argument passed: $param"
-            }
-        }
-        n_debug_return
-        return @{
-            RES = $res
-            ARGS = $a_
-        }
-    }
-}
 function https {
    n_debug_function "https"
-   $hash = n_search_args $args "-method"
-   $method = n_default $hash.RES $args[0]
-   $hash = n_search_args $hash.ARGS "-client"
-   $client = n_default $hash.RES $args[1]
-   $hash = n_search_args $hash.ARGS "-argumentList"
-   $arguments = n_default $hash.RES $($args[2..$($args.Count)] -join " ")
+   $hash = __search_args $args "-method"
+   $method = __default $hash.RES $args[0]
+   $hash = __search_args $hash.ARGS "-client"
+   $client = __default $hash.RES $args[1]
+   $hash = __search_args $hash.ARGS "-argumentList"
+   $arguments = __default $hash.RES $($args[2..$($args.Count)] -join " ")
 
    $response = Invoke-Expression "$global:_net_module_location\https.exe '$method' '$client' '$arguments'"
    return $response

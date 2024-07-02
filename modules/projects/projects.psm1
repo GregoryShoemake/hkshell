@@ -32,38 +32,6 @@ function pr_debug_return {
     Write-Host "#return# $($args -join " ")" -ForegroundColor Black -BackgroundColor DarkGray
     return
 }
-function pr_prolix ($message, $messageColor) {
-    if (!$global:prolix) { return }
-    if ($null -eq $messageColor) { $messageColor = "Cyan" }
-    Write-Host $message -ForegroundColor $messageColor
-}
-function pr_choice ($prompt) {
-    while((Read-Host $prompt) -notmatch "^(y|Y|yes|Yes|YES|n|N|no|No|NO)$") {
-            $prompt = "?"
-            Write-Host "Please input a [Y]es or [N]o answer" -ForegroundColor yellow
-        }
-    if($MATCHES[0] -match "[Yy]"){ return $true }
-    return $false
-}
-function pr_default ($variable, $value) {
-    pr_debug_function "e_default"
-    if ($null -eq $variable) { 
-        pr_debug_return variable is null
-        return $value 
-    }
-    switch ($variable.GetType().name) {
-        String { 
-            if($variable -eq "") {
-                pr_debug_return
-                return $value
-            } else {
-                pr_debug_return
-                return $variable
-            }
-
-        }
-    }
-}
 
 if ($null -eq $global:_projects_module_location ) {
     if ($PSVersionTable.PSVersion.Major -ge 3) {
@@ -75,7 +43,7 @@ if ($null -eq $global:_projects_module_location ) {
 }
 pr_debug "Populating module PROJECTS global path variable ->
     global:_projects_module_location=$global:_projects_module_location"
-function pr_choice ($prompt) {
+function __choice ($prompt) {
     while((Read-Host $prompt) -notmatch "[Yy]([EeSs])?|[Nn]([Oo])?") {
             $prompt = ""
             Write-Host "Please input a [Y]es or [N]o answer" -ForegroundColor yellow
@@ -83,58 +51,7 @@ function pr_choice ($prompt) {
     if($MATCHES[0] -match "[Yy]"){ return $true }
     return $false
 }
-function pr_match {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false, Position = 0)]
-        $string,
-        [Parameter(Mandatory = $false, Position = 1)]
-        $regex,
-        [Parameter()]
-        [switch]
-        $getMatch = $false,
-        [Parameter()]
-        $logic = "OR"
-    )
-    pr_debug_function "pr_match"
-    if ($null -eq $string) {
-        pr_debug_return string is null
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if ($null -eq $regex) {
-        pr_debug_return regex is null
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if (($string -is [System.Array])) {
-        $string = $string -join "`n"
-    }
-    if ($regex -is [System.Array]) {
-        foreach ($r in $regex) {
-            $f = p_match $string $r
-            if (($logic -eq "OR") -and $f) { return $true }
-            if (($logic -eq "AND") -and !$f) { return $false }
-            if (($logic -eq "NOT") -and $f) { return $false }
-        }
-        pr_debug_return
-        return ($logic -eq "AND") -or ($logic -eq "NOT")
-    }
-    $found = $string -match $regex
-    if ($found) {
-        if ($getMatch) {
-            pr_debug_return
-            return $Matches[0]
-        }
-        pr_debug_return
-        return $logic -ne "NOT"
-    }
-    pr_debug_return
-    if ($logic -eq "NOT") { return $true }
-    if ($getMatch) { return $null }
-    return $false
-}
-function pr_int_equal {
+function __int_equal {
     [CmdletBinding()]
     param (
         [Parameter()]
@@ -150,130 +67,6 @@ function pr_int_equal {
     }
     return $false
 }
-function pr_truncate {
-    [CmdletBinding()]
-    param (
-        # Array object passed to truncate
-        [Parameter(Mandatory = $false, Position = 0)]
-        [System.Array]
-        $array,
-        [Parameter()]
-        [int]
-        $fromStart = 0,
-        [Parameter()]
-        [int]
-        $fromEnd = 0,
-        [int[]]
-        $indexAndDepth
-    )
-    pr_debug_function "_truncate"
-    pr_debug "array:
-$(Out-String -inputObject $array)//"
-
-    $l = $array.Length
-    if ($fromStart -gt 0) {
-        $l = $l - $fromStart
-    }
-    if ($fromEnd -gt 0) {
-        $l = $l - $fromEnd
-    }
-    elseif(($fromStart -eq 0) -and ($null -eq $indexAndDepth)) {
-        $fromEnd = 1
-    }
-    $fromEnd = $array.Length - $fromEnd
-    if (($null -ne $indexAndDepth) -and ($indexAndDepth[1] -gt 0)) {
-        $l = $l - $indexAndDepth[1]
-    }
-    if ($l -le 0) {
-        pr_debug_return empty array
-        return @()
-    }
-    $res = @()
-    $fromStart--
-    if ($null -ne $indexAndDepth) {
-        $middleStart = $indexAndDepth[0]
-        $middleEnd = $indexAndDepth[0] + $indexAndDepth[1] - 1
-        $middle = $middleStart..$middleEnd
-    }
-    for ($i = 0; $i -lt $array.Length; $i ++) {
-        if (($i -gt $fromStart) -and !(pr_int_equal $i $middle ) -and ($i -lt $fromEnd)) {
-            $res += $array[$i]
-        }
-    }
-    pr_debug_return $(Out-String -inputObject $res)
-    return $res
-}
-function pr_search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$untilSwitch) {
-    pr_debug_function "pr_search_args"    
-    $c_ = $a_.Count
-    pr_debug "args:$a_ | len:$c_"
-    pr_debug "param:$param"
-    pr_debug "switch:$switch"
-    if($switch) { 
-        for ($i = 0; $i -lt $c_; $i++) {
-            $a = $a_[$i]
-            pr_debug "a[$i]:$a"
-            if ($a -ne $param) { continue }
-            if($null -eq $res) { 
-                $res = $true 
-                $a_ = pr_truncate $a_ -indexAndDepth @($i,1)
-            }
-            else {
-                throw [System.ArgumentException] "Duplicate argument passed: $param"
-            }
-        }
-        $res = $res -and $true
-        pr_debug_return "@{ RES=$res ; ARGS=$a_ }"
-        return @{
-            RES = $res
-            ARGS = $a_
-        }
-    } else {
-        for ($i = 0; $i -lt $a_.length; $i++) {
-            $a = $a_[$i]
-            pr_debug "a[$i]:$a"
-            if ($a -ne $param) { continue }
-            if(($null -eq $res) -and ($i -lt ($c_ - 1))) {
-                if($all) {
-                    $ibak = $i
-                    $res = @()
-                    $remove = 1
-                    for ($i = $i + 1; $i -lt ($c_); $i++) {
-                        if($untilSwitch -and ($a_[$i] -match "^-")) {
-                            pr_debug "[-untilSwitch] next switch found"
-                            break
-                        }
-                        $res += $a_[$i]
-                        $remove++
-                    }
-                    $res = $res -join " "
-                    $a_ = pr_truncate $a_ -indexAndDepth @($ibak, $remove)
-                } else {
-                    $res = $a_[$i + 1]
-                    if($res -match "^-") { 
-                        $res = $null 
-                        pr_debug "switch argument expected, not found" Red
-                    } else {
-                        $a_ = pr_truncate $a_ -indexAndDepth @($i,2)
-                    }
-                }
-            }
-            elseif ($i -ge ($c_ - 1)) {
-                 throw [System.ArgumentOutOfRangeException] "Argument value at position $($i + 1) out of $c_ does not exist for param $param"
-            }
-            elseif ($null -ne $res) {
-                throw [System.ArgumentException] "Duplicate argument passed: $param"
-            }
-        }
-        pr_debug_return "@{ RES=$res ; ARGS=$a_ }"
-        return @{
-            RES = $res
-            ARGS = $a_
-        }
-    }
-}
-
-
 
 
 $conf_path = "$userDir/projects.conf"
@@ -310,7 +103,7 @@ function New-Project ($name) {
     if($global:_debug_){Write-Host "$(Get-Content "$global:projectsPath/$name/project.cfg")"}
     Copy-Item "$global:_projects_module_location/project.ps1" "$global:projectsPath/$name"
     if(Invoke-Git -Path "$global:projectsPath/$name" -Action Initialize) { 
-        if(pr_choice "Start project now?"){
+        if(__choice "Start project now?"){
             Start-Project $name
         }
     }
@@ -393,11 +186,11 @@ function Start-Project ($name) {
     if($found) { return }
     pr_debug "Project $name not found"
     $prompt =  "Project $name not found, create project in $global:projectsPath?"
-    if(pr_choice $prompt) {
+    if(__choice $prompt) {
         mkdir "$global:projectsPath/$name"
         Set-Content -Path $(New-Item "$global:projectsPath/$name/project.cfg" -ItemType File -Force).FullName -Value "@{ Name='$name'; Path='$global:projectsPath/$name'; Description='a new project'; LastDirectory='$global:projectsPath/$name'; LastFile='$global:projectsPath/$name/project.cfg' }"
         Copy-Item "$global:_projects_module_location/project.ps1" "$global:projectsPath/$name"
-        if(pr_choice "Start project $name now?") {
+        if(__choice "Start project $name now?") {
             Start-Project $name
         }
     } else {
@@ -424,12 +217,12 @@ No project is currently loaded
     $Script:projectLoop | Stop-Process
     $name = $project.Name
     Set-Location $(Get-Path $global:project.Path)
-    $global:project.GitExitAction = pr_default $global:project.GitExitAction "prompt"
+    $global:project.GitExitAction = __default $global:project.GitExitAction "prompt"
     Set-Content -Path $(Get-Item "$global:projectsPath/$name/project.cfg" -Force).FullName -Value "$(Format-ProjectConfigurationString)"
     git diff
     switch ($global:project.GitExitAction) {
         {$_.toLower() -match "^(prompt|ask|request)$" }{ 
-            if(pr_choice "Add, Commit, and Push changes to Master?") {
+            if(__choice "Add, Commit, and Push changes to Master?") {
                 Invoke-Git -Action Save
             }
         }
@@ -450,7 +243,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
     ___debug "action:$action"
     ___debug "defaultMessage:$defaultMessage"
     if($path -eq "") {
-	$path = pr_default $(Get-Path $global:project.Path) "$pwd"
+	$path = __default $(Get-Path $global:project.Path) "$pwd"
     } else {
 	$path = Get-Path $path
     }
@@ -497,15 +290,15 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
             if(Invoke-Git -Path $path -Action Exists) { 
                 Write-Host "Existing git repository already exists!" -ForegroundColor Red; return ___return $false
             }
-            pr_prolix "Initializing Git"
+            pr_debug "Initializing Git"
             git init
-            pr_prolix "Adding $(Get-Location) to safe directories"
+            pr_debug "Adding $(Get-Location) to safe directories"
             git config --global --add safe.directory ./
-            pr_prolix "Adding all files in project directory"
+            pr_debug "Adding all files in project directory"
             git add .
-            pr_prolix "Commiting"
+            pr_debug "Commiting"
             git commit -a -m "Initial Commit $(Get-Date)"
-            If(pr_choice "Push to a remote repository?") {
+            If(__choice "Push to a remote repository?") {
                 git remote add origin "$(Read-Host "Input URL to remote repository")"
                 git push -u origin master
             }
@@ -517,7 +310,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
 	    if(Invoke-Git -Path $path -Action NotExists) { 
                 Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return ___return 
             }
-            $msg = if($defaultMessage) { "$(Get-Date) - $(git status)" }  else { $(pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)") }
+            $msg = if($defaultMessage) { "$(Get-Date) - $(git status)" }  else { $(__default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)") }
 	    if($defaultMessage) {
 		$null = git add .
 		$null = git commit -a -m $msg
@@ -547,7 +340,7 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
             if(Invoke-Git -Path $path -Action NotExists) { 
                 Write-Host "Git repository at $path doesn't exist!" -ForegroundColor Red; git status; return ___return
             }
-            $msg = if($defaultMessage) { "$(Get-Date) - $(git status)" }  else { $(pr_default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)") }
+            $msg = if($defaultMessage) { "$(Get-Date) - $(git status)" }  else { $(__default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)") }
             git commit -a -m $msg
 	    Pop-Location
         }
