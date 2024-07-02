@@ -108,20 +108,91 @@ function Open-SFTPConnection ($target, $user, $command) {
 } 
 New-Alias -Name resftp -Value Open-SFTPConnection
 
-function Copy-SFTP ($computer, $target, $destination) {
-    foreach ($t in $target) {
-        if ($t -isnot [string]) {
-            if (($t -is [System.IO.FileInfo]) -or ($t -is [System.IO.DirectoryInfo])) {
-                $t = $t.fullname
-            } else {
-                Write-Host "Invalid object type $($t.GetType())"
-                continue
-            }
-            if($t -match "\\\\") {
-                Open-SFTPConnection -target $Computer -command $('get "' + $target + '" "' + $destination + '"' ) 
-            } else {
-                Open-SFTPConnection -target $Computer -command $('put "' + $target + '" "' + $destination + '"' )
-            }
-        }
+function Copy-SFTP {
+    ___start 'Copy-SFTP'
+        # Expected format "vol:/path../file -> hks@hostname://root/path../dest"
+        # Expected format "hks@hostname://root/path../file -> vol:/path../dest"
+    $command = $args -join " "
+
+    if($command.toLower() -match "h(elp)$") {
+        return '
+### NAME
+`Copy-SFTP` - A PowerShell function to copy files to and from remote servers using SFTP.
+
+### SYNOPSIS
+`Copy-SFTP` `source -> destination`
+
+### DESCRIPTION
+The `Copy-SFTP` function allows users to copy files or directories to and from remote servers using the SFTP protocol. The command can handle both local-to-remote and remote-to-local transfers based on the specified source and destination paths.
+
+### USAGE
+The function expects the source and destination paths to be in one of the following formats:
+- `vol:/local/path/file -> user@hostname:/remote/path/dest`
+- `user@hostname:/remote/path/file -> vol:/local/path/dest`
+
+### PARAMETERS
+`source`
+Specifies the source file or directory. The source can be either a local path or a remote path.
+
+`destination`
+Specifies the destination file or directory. The destination can be either a local path or a remote path.
+
+### EXAMPLES
+#### Example 1: Copy a local file to a remote server
+```powershell
+Copy-SFTP "vol:/local/path/file -> user@hostname:/remote/path/dest"
+```
+This command copies the local file `/local/path/file` to the remote path `/remote/path/dest` on the specified server.
+
+#### Example 2: Copy a remote file to a local directory
+```powershell
+Copy-SFTP "user@hostname:/remote/path/file -> vol:/local/path/dest"
+```
+This command copies the remote file `/remote/path/file` from the specified server to the local path `/local/path/dest`.
+
+### DEBUGGING
+The function includes debugging statements (denoted by `___debug`) which can be uncommented to provide additional output for troubleshooting.
+
+### NOTES
+- Ensure that the paths are correctly specified and that the remote server supports SFTP.
+- The function uses `sftp` to perform the file transfer. Make sure `sftp` is installed and available in your environment.
+- Authentication to the remote server will be required. Ensure you have the necessary permissions and credentials.
+
+### AUTHOR
+Atypic - Chill Hipster Coder Master
+
+### SEE ALSO
+`sftp(1)`, `scp(1)`
+        '
     }
+
+    ___debug "command:$command"
+    $split = ($command -split "(/s)?->(/s)?").trim()
+
+    $target = $split[0]
+    ___debug "target:$target"
+    $destination = $split[1]
+    ___debug "destination:$destination"
+
+    if(Test-Path $(Get-Path $target)) {
+        $target = Get-Path $target
+        $recurse = if((Get-Item $target).PsIsContainer) {" -R"} else {""}
+        $destSplit = $destination -split ":"
+        $userHost = $destSplit[0]
+        $destination = $destSplit[1]
+        ___debug "put$recurse $target $destination | sftp $($userHost)" 
+        "put$recurse $target $destination" | sftp $userHost
+    }elseif(Test-Path $(Get-Path $destination)) {
+        $destination = Get-Path $destination
+        $targetSplit = $target -split ":"
+        $userHost = $targetSplit[0]
+        $target = $targetSplit[1]
+        #___debug "sftp $($userHost):$target $destination" 
+        ___debug "get $target $destination | sftp $($userHost)" 
+    
+        "get $target $destination" | sftp $userHost
+        #sftp -q "$($userHost):$target $destination"
+    }
+
+    ___end
 }

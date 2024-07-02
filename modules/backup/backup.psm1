@@ -53,7 +53,7 @@ function Format-BackupConfiguration {
             $lbak = $location
             $location = Get-Path $location
             ___debug "$goto : $location"
-            while(!(Test-Path $location)) {
+            while(!(Test-Path $location) -and $($location -notmatch "(.+?)@(.+?):")) {
                 if($location -notmatch "^(\\\\.+?\\|[a-zA-Z]:\\|^/).+$") {
                     ___debug "location isn't in the expected format" red
                     $location = Read-Host "Input a valid directory syntax"
@@ -179,16 +179,18 @@ function Start-Backup {
         }
         $backupDirectory = Get-PersistentVariable backupDirectory
         $backupDirectory = Get-Path $backupDirectory
-        try {
-            $null = Get-Item $backupDirectory -ErrorAction Stop
-        }
-        catch {
-            Write-Host "Could not retrieve backupDirectory ($backupDirectory) : $_" -ForegroundColor Red
-            return ___return
-        }
-        if($validate) {
-            if(!(Start-CheckDiskIntegrity -Path $backupDirectory -Log $log)) {
-                return ___return
+        if($backupDirectory -notmatch "(.+?)@(.+?):") {
+            try {
+                $null = Get-Item $backupDirectory -ErrorAction Stop
+            }
+            catch {
+                Write-Host "Could not retrieve backupDirectory ($backupDirectory) : $_" -ForegroundColor Red
+                    return ___return
+            }
+            if($validate) {
+                if(!(Start-CheckDiskIntegrity -Path $backupDirectory -Log $log)) {
+                    return ___return
+                }
             }
         }
         $items = Get-Content "$userDir/backup.items.conf"
@@ -196,37 +198,20 @@ function Start-Backup {
         foreach ($i in $items) {
             $i = Get-Path $i
             if(Test-Path $i) {
+                if($log) {
+                    $logPath = "$global:backupLogsPath/$($item.name)-$(Get-Date -Format dMMMy).log"
+                    if(!(Test-Path $logPath )) { New-Item $logPath -ItemType File }
+                    Add-Content -Path $logPath -Value "[$(Get-Date)]Pushing $i to $backupDirectory" -Force
+                }
                 try {
-                    $item = Get-item $i -Force -ErrorAction Stop
-                    if($item.PsIsContainer) {
-                        $loginfo = "$(Get-Date -Format "dMMMy@H:m:s:fff") <::> Backing up directory: $i  =>  $backupDirectory"
-                        ___debug $loginfo
-                        $source = $item.fullname
-			___debug "source:$source"
-                        $destination = "$backupDirectory/$($item.name)"
-			___debug "destination:$destination"
-                        if($null -ne $logPath) {
-                            Add-Content -Path $logPath -Value $loginfo
-                        }
-                        $robocopyLogPath = "$global:backupLogsPath/robocopy-$($item.name)-$(Get-Date -Format dMMMy).log"
-                        if(!(Test-Path $robocopyLogPath )) { New-Item $robocopyLogPath -ItemType File }
-			if($log) {
-			    $null = Robocopy.exe $source $destination /mir /mt /log+:$robocopyLogPath
-			} elseif ($quiet) {
-			    Robocopy.exe $source $destination /mir /mt /NFL /NDL /NJH /NJS /nc /ns /np > NUL
-			} else {
-			    Robocopy.exe $source $destination /mir /mt  
-			}
-                    } else {
-                        $loginfo = "$(Get-Date -Format "dMMMy@H:m:s:fff") <::> Backing up file: $i  =>  $backupDirectory"
-                        ___debug $loginfo
-                        if($null -ne $logPath) {
-                            Add-Content -Path $logPath -Value $loginfo
-                        }
-                        Copy-Item $item.fullname $backupDirectory -ErrorAction Stop
-                    }
+                    m_copy $i $backupDirectory -ErrorAction Stop
                 } catch {
                     Write-Host "Failed to backup $i -- $_" -ForegroundColor Red -BackgroundColor DarkGray
+                    if($log) {
+                        $logPath = "$global:backupLogsPath/$($item.name)-$(Get-Date -Format dMMMy).log"
+                        if(!(Test-Path $logPath )) { New-Item $logPath -ItemType File }
+                        Add-Content -Path $logPath -Value "[$(Get-Date)] >> Failed to push $i to $backupDirectory" -Force
+                    }
                 }  
             }
         }

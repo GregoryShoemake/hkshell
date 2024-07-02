@@ -52,8 +52,91 @@ function New-Tunnel ($targetDirectory){
     ___end
 }
 
-function m_copy ($path, $destination, [switch] $mirror, [switch] $passthru) {
+function m_copy ($path, $destination, [switch] $mirror, [switch] $passthru, [switch]$help) {
+    
     ___start m_copy 
+    ___debug "initial:path:$path"
+    ___debug "initial:destination:$destination"
+    ___debug "initial:mirror:$mirror"
+    ___debug "initial:passthru:$passthru"
+    ___debug "initial:help:$help"
+
+    if($help) {
+        return '
+---
+
+## NAME
+`m_copy` - Copy files and directories with optional mirroring and passthru capabilities.
+
+## SYNOPSIS
+```powershell
+m_copy [-path] <string[]> [-destination] <string[]> [-mirror] [-passthru] [-help]
+```
+
+## DESCRIPTION
+The `m_copy` function copies files and directories from a source path to a destination path. It supports multiple paths and destinations, optional mirroring of the directory structure, and passthru functionality to return the copied item.
+
+## PARAMETERS
+
+- **-path** `<string[]>`
+    Specifies the source path(s) of the item(s) to copy. This parameter is required.
+
+- **-destination** `<string[]>`
+    Specifies the destination path(s) where the item(s) will be copied to. This parameter is required.
+
+- **-mirror** `[switch]`
+    If specified, the directory structure is mirrored at the destination using `Robocopy /MIR`.
+
+- **-passthru** `[switch]`
+    If specified, the function returns the copied item.
+
+- **-help** `[switch]`
+    Displays help information about the `m_copy` function.
+
+## EXAMPLES
+
+### Example 1: Basic Copy
+```powershell
+m_copy -path "C:\source\file.txt" -destination "C:\destination\"
+```
+Copies `file.txt` from `C:\source\` to `C:\destination\`.
+
+### Example 2: Mirroring a Directory
+```powershell
+m_copy -path "C:\source\dir" -destination "C:\destination\" -mirror
+```
+Mirrors the directory `dir` from `C:\source\` to `C:\destination\`.
+
+### Example 3: Passthru Return
+```powershell
+$item = m_copy -path "C:\source\file.txt" -destination "C:\destination\" -passthru
+```
+Copies `file.txt` and returns the copied item.
+
+## NOTES
+- The function supports multiple source paths and multiple destination paths. If either is an array, the function performs the copy operation for each combination of source and destination.
+- If the source or destination indicates an SFTP path, the `Copy-SFTP` helper function is used for the transfer.
+- The `Robocopy` tool is utilized for efficient copying and mirroring operations for local paths.
+- Debug messages are output using `___debug` for tracing the function`s execution.
+
+## DEBUGGING
+Debugging information is logged at various points in the function to trace the input parameters and the internal state. These messages can be used to diagnose issues during execution.
+
+## RETURN VALUE
+When the `-passthru` switch is used, the function returns the copied item as a `FileInfo` or `DirectoryInfo` object.
+
+## AUTHOR
+Atypic, your chill hipster coder master.
+
+## SEE ALSO
+- `Copy-Item`
+- `Robocopy`
+- `Copy-SFTP`
+
+---
+        '
+    }
+
     if($path -is [System.Array]) {
 	foreach ($p_ in $path) {
 	    m_copy -path $p_ -destination $destination -mirror:$mirror -passthru:$passthru
@@ -64,21 +147,36 @@ function m_copy ($path, $destination, [switch] $mirror, [switch] $passthru) {
 	    m_copy -path $path -destination $d_ -mirror:$mirror -passthru:$passthru
 	}
     }
-   try {
+    $path = Get-Path $path
+    $destination = Get-Path $destination
+
+    ___debug "path:$path"
+    ___debug "destination:$destination"
+    try {
 	$i = Get-Item $path -Force -ErrorAction Stop
 	if($i.psIsContainer) {
 	    if($mirror) {
-		Robocopy $i.FullName $destination /MT /MIR /NFL /NDL /NJH /NJS /NC /NS > NUL 
-	    } else {
-		Robocopy $i.FullName $destination /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
+		Robocopy $i.FullName "$destination/$($i.Name)" /MT /MIR /NFL /NDL /NJH /NJS /NC /NS > NUL 
+	    } elseif ($destination -match "(.+?)@(.+?):") {
+                Copy-SFTP $i.FullName -> $destination
+            } else {
+		Robocopy $i.FullName "$destination/$($i.Name)" /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
 	    }
 	    if($passthru) { return ___return $(Get-Item $destination -Force) }
-	} else {
+	} elseif($destination -match "(.+?)@(.+?):") {
+            Copy-SFTP $path -> $destination
+        } else {
 	    Copy-Item -Path $i.FullName -Destination $destination -Force
 	    if($passthru) { return ___return $(Get-Item "$destination\$($i.name)" -Force) }
 	}
     } catch {
-	Write-Error $_
+        #copy-sftp $(gtp 62) -> hks@hkscenter://home/hks/
+        if($path -match "(.+?)@(.+?):") {
+            $null = Import-HKShell remote
+            Copy-SFTP $path -> $destination
+        } else {
+            Write-Error $_
+        }
     }
     ___end
 }
