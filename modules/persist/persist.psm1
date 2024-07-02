@@ -26,10 +26,6 @@ ___debug "$userDir"
 
 if(!(Test-Path $userDir)) { mkdir $userDir }
 
-function p_ehe {
-    Write-Error 'administrative rights required to access host global cfg'
-}
-
 function p_debug ($message, $messageColor, $meta) {
     if (!$global:_debug_) { return }
     if ($null -eq $messageColor) { $messageColor = "DarkYellow" }
@@ -83,345 +79,13 @@ function p_hash_to_string {
         }
     }
 }
-function p_int_equal {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        [int]
-        $int,
-        # single int or array of ints to compare
-        [Parameter()]
-        $ints
-    )
-    if ($null -eq $ints) { return $false }
-    foreach ($i in $ints) {
-        if ($int -eq $i) { return $true }
-    }
-    return $false
-}
-function p_truncate {
-    [CmdletBinding()]
-    param (
-        # Array object passed to truncate
-        [Parameter(Mandatory = $false, Position = 0)]
-        [System.Array]
-        $array,
-        [Parameter()]
-        [int]
-        $fromStart = 0,
-        [Parameter()]
-        [int]
-        $fromEnd = 0,
-        [int[]]
-        $indexAndDepth
-    )
-    p_debug_function "p_truncate"
-    p_debug "array:
-$(Out-String -inputObject $array)//"
 
-    $l = $array.Length
-    if ($fromStart -gt 0) {
-        $l = $l - $fromStart
-    }
-    if ($fromEnd -gt 0) {
-        $l = $l - $fromEnd
-    }
-    elseif(($fromStart -eq 0) -and ($null -eq $indexAndDepth)) {
-        $fromEnd = 1
-    }
-    $fromEnd = $array.Length - $fromEnd
-    if (($null -ne $indexAndDepth) -and ($indexAndDepth[1] -gt 0)) {
-        $l = $l - $indexAndDepth[1]
-    }
-    if ($l -le 0) {
-        p_debug_return empty array
-        return @()
-    }
-    $res = @()
-    $fromStart--
-    if ($null -ne $indexAndDepth) {
-        $middleStart = $indexAndDepth[0]
-        $middleEnd = $indexAndDepth[0] + $indexAndDepth[1] - 1
-        $middle = $middleStart..$middleEnd
-    }
-    for ($i = 0; $i -lt $array.Length; $i ++) {
-        if (($i -gt $fromStart) -and !(p_int_equal $i $middle ) -and ($i -lt $fromEnd)) {
-            $res += $array[$i]
-        }
-    }
-    p_debug_return $(Out-String -inputObject $res)
-    return $res
-}
-function p_search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$untilSwitch) {
-    p_debug_function "p_search_args"    
-    $c_ = $a_.Count
-    p_debug "args:$a_ | len:$c_"
-    p_debug "param:$param"
-    p_debug "switch:$switch"
-    if($switch) { 
-        for ($i = 0; $i -lt $c_; $i++) {
-            $a = $a_[$i]
-            p_debug "a[$i]:$a"
-            if ($a -ne $param) { continue }
-            if($null -eq $res) { 
-                $res = $true 
-                $a_ = p_truncate $a_ -indexAndDepth @($i,1)
-            }
-            else {
-                throw [System.ArgumentException] "Duplicate argument passed: $param"
-            }
-        }
-        $res = $res -and $true
-        p_debug_return "@{ RES=$res ; ARGS=$a_ }"
-        return @{
-            RES = $res
-            ARGS = $a_
-        }
-    } else {
-        for ($i = 0; $i -lt $a_.length; $i++) {
-            $a = $a_[$i]
-            p_debug "a[$i]:$a"
-            if ($a -ne $param) { continue }
-            if(($null -eq $res) -and ($i -lt ($c_ - 1))) {
-                if($all) {
-                    $ibak = $i
-                    $res = @()
-                    $remove = 1
-                    for ($i = $i + 1; $i -lt ($c_); $i++) {
-                        if($untilSwitch -and ($a_[$i] -match "^-")) {
-                            p_debug "[-untilSwitch] next switch found"
-                            break
-                        }
-                        $res += $a_[$i]
-                        $remove++
-                    }
-                    $res = $res -join " "
-                    $a_ = p_truncate $a_ -indexAndDepth @($ibak, $remove)
-                } else {
-                    $res = $a_[$i + 1]
-                    if($res -match "^-") { 
-                        $res = $null 
-                        p_debug "switch argument expected, not found" Red
-                    } else {
-                        $a_ = p_truncate $a_ -indexAndDepth @($i,2)
-                    }
-                }
-            }
-            elseif ($i -ge ($c_ - 1)) {
-                 throw [System.ArgumentOutOfRangeException] "Argument value at position $($i + 1) out of $c_ does not exist for param $param"
-            }
-            elseif ($null -ne $res) {
-                throw [System.ArgumentException] "Duplicate argument passed: $param"
-            }
-        }
-        p_debug_return "@{ RES=$res ; ARGS=$a_ }"
-        return @{
-            RES = $res
-            ARGS = $a_
-        }
-    }
-}
-function p_stringify_regex ($regex) {
-    if ($null -eq $regex) { return $regex }
-    $needReplace = @(
-        "\\"
-        "\@"
-        "\~" 
-        "\%"
-        "\$" 
-        "\&"
-        "\^" 
-        "\*"
-        "\("
-        "\)" 
-        "\[" 
-        "\]" 
-        "\." 
-        "\+" 
-        "\?" 
-    )
-    foreach ($n in $needReplace) {
-        $regex = $regex -replace $n, $n
-    }
-    return $regex
-}
-
-function p_npath ($path) { return !(test-path $path) }
 function p_elevated { 
     if($IsLinux) {
 	return "$(whoami)" -eq "root"
     } elseif ($IsWindows) {
 	return (new-object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator) 
     }
-}
-function .. {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        $path
-    )
-    if ($null -eq $path) { $path = "$(Get-Location)" }
-    if ($path -is [string]) {
-        $path = Split-Path $path
-    }
-    if ($path -is [System.IO.FileInfo]) {
-        $path = $path.Directory.fullname
-    }
-    if ($path -is [System.IO.DirectoryInfo]) {
-        $path = $path.parent.fullname
-    }
-    else {
-        return $path
-    }
-}
-function p_replace($string, $regex, [string] $replace) {
-    if ($null -eq $string -or $null -eq $regex) {
-        return $string
-    }
-    foreach ($r in $regex) {
-        $string = $string -replace $r, $replace
-    }
-    return $string
-}
-function p_for ([int]$iMax, [int]$jMax, [int]$kmax, [string] $startCommand, [string] $loopCommand, [string] $endCommand) {
-    Invoke-Expression $startCommand
-    for ($i = 0; $i -lt $iMax; $i++) {
-        for ($j = 0; $j -lt $jMax; $j++) {
-            for ($k = 0; $k -lt $kMax; $k++) {
-                Invoke-Expression $loopCommand
-            }
-        }
-    }
-    Invoke-Expression $endCommand
-}
-function p_split ($string, $regex) {
-    if ($null -eq $string) {
-        return $string
-    }
-    if ($null -eq $regex) {
-        return $string
-    }
-    if ($string -is [System.Array]) {
-        for ($i = 0; $i -lt $string.length; $i++) {
-            $string[$i] = p_split $string[$i] $regex
-        }
-        return $string
-    }
-    if ($regex -is [System.Array]) {
-        foreach ($r in $regex) {
-            $string = p_split $string $r
-        }
-        return $string
-    }
-    return $string -split $regex
-}
-function p_null {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        $nullable
-    )
-    if ($null -eq $nullable) { return $true }
-    if ($nullable -is [System.Array]) {
-        foreach ($n in $nullable) {
-            if ($null -ne $n) {
-                return $false
-            }
-        }
-        return $true
-    }
-    return $false
-}
-function p_nullemptystr ($nullable) {
-    if ($null -eq $nullable) { return $true }
-    if ($nullable -isnot [string]) { return $false }
-    if ($nullable.length -eq 0) { return $true }
-
-    for ($i = 0; $i -lt $nullable.length; $i++) {
-        if (($nullable[$i] -ne " ") -and ($nullable[$i] -ne "`n")) {
-            return $false
-        }
-    }
-    return $true
-}
-function p_nonnull {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        $nullable
-    )
-    if ($null -eq $nullable) { return $false }
-    if ($nullable -is [System.Array]) {
-        foreach ($n in $nullable) {
-            if ($null -eq $n) {
-                return $false
-            }
-        }
-        return $true
-    }
-    return $true
-}
-function p_is ($obj, $class) {
-    if ($null -eq $obj) { return $null -eq $class }
-    if ($null -eq $class) { return $false }
-    if ($class -is [System.Array]) {
-        foreach ($c in $class) {
-            if ($obj -is $c) { return $true }
-        }
-        return $false
-    }
-    return $obj -is [type](p_replace $class @("\[", "]"))
-}
-
-function p_between ($val, $min, $max) {
-    if ($val -lt $min) { return $false }
-    return $val -lt $max
-}
-function p_match {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false, Position = 0)]
-        $string,
-        [Parameter(Mandatory = $false, Position = 1)]
-        $regex,
-        [Parameter()]
-        [switch]
-        $getMatch = $false,
-        [Parameter()]
-        $logic = "OR", 
-        [Parameter()]
-        $index = 0
-    )
-    if ($null -eq $string) {
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if ($null -eq $regex) {
-        if ($getMatch) { return $null }
-        return $false
-    }
-    if (($string -is [System.Array])) {
-        $string = $string -join "`n"
-    }
-    if ($regex -is [System.Array]) {
-        foreach ($r in $regex) {
-            $f = p_match $string $r
-            if (($logic -eq "OR") -and $f) { return $true }
-            if (($logic -eq "AND") -and !$f) { return $false }
-            if (($logic -eq "NOT") -and $f) { return $false }
-        }
-        return ($logic -eq "AND") -or ($logic -eq "NOT")
-    }
-    $found = $string -match $regex
-    if ($found) {
-        if ($getMatch) {
-            return $Matches[$index]
-        }
-        return $logic -ne "NOT"
-    }
-    if ($logic -eq "NOT") { return $true }
-    if ($getMatch) { return $null }
-    return $false
 }
 function p_castString ($stringable) {
     if ($stringable -is [string]) { return $stringable }
@@ -439,9 +103,9 @@ function p_castBool ($boolable) {
     if ($boolable -is [boolean]) { return $boolable }
     if ($null -eq $boolable) { return $false }
     if ($boolable -is [string]) {
-        return p_match $boolable  @("true", "yes", "y", "1")
+        return __match $boolable  @("true", "yes", "y", "1")
     }
-    if (p_is $boolable @([int], [long], [float], [double])) {
+    if (__is $boolable @([int], [long], [float], [double])) {
         return $boolable -gt 0
     }
     return $true
@@ -450,7 +114,7 @@ function p_castBool ($boolable) {
 function p_castInt ($intable) {
     if ($intable -is [int]) { return $intable }
     if ($null -eq $intable) { return 0 }
-    if (p_is $intable @([long], [float], [double], [string])) { return [int]$intable }
+    if (__is $intable @([long], [float], [double], [string])) { return [int]$intable }
     if ($intable -is [boolean]) { if ($intable) { return 1 } else { return 0 } }
     if ($intable -is [System.Array]) { return $intable.length }
     return [int] $intable
@@ -458,7 +122,7 @@ function p_castInt ($intable) {
 function p_castFloat ($floatable) {
     if ($floatable -is [float]) { return $floatable }
     if ($null -eq $floatable) { return 0 }
-    if (p_is $floatable @([long], [int], [double], [string])) { return [float]$floatable }
+    if (__is $floatable @([long], [int], [double], [string])) { return [float]$floatable }
     if ($floatable -is [boolean]) { if ($floatable) { return 1 } else { return 0 } }
     if ($floatable -is [System.Array]) { return $intable.length }
     return [float] $floatable
@@ -466,7 +130,7 @@ function p_castFloat ($floatable) {
 function p_castLong ($longable) {
     if ($longable -is [long]) { return $longable }
     if ($null -eq $longable) { return 0 }
-    if (p_is $longable @([int], [float], [double], [string])) { return [long]$longable }
+    if (__is $longable @([int], [float], [double], [string])) { return [long]$longable }
     if ($longable -is [boolean]) { if ($longable) { return 1 } else { return 0 } }
     if ($longable -is [System.Array]) { return $intable.length }
     return [long] $longable
@@ -474,7 +138,7 @@ function p_castLong ($longable) {
 function p_castDouble ($doubleable) {
     if ($doubleable -is [double]) { return $doubleable }
     if ($null -eq $doubleable) { return 0 }
-    if (p_is $doubleable @([long], [float], [int], [string])) { return [double]$doubleable }
+    if (__is $doubleable @([long], [float], [int], [string])) { return [double]$doubleable }
     if ($doubleable -is [boolean]) { if ($doubleable) { return 1 } else { return 0 } }
     if ($doubleable -is [System.Array]) { return $intable.length }
     return [double] $doubleable
@@ -509,11 +173,11 @@ function p_castDateTime($datetimeable) {
     return $datetime
 }
 function p_cast ($cast, $var) {
-    switch (p_replace $cast @("\[", "]")) {
+    switch (__replace $cast @("\[", "]")) {
         "boolean" { 
             return p_castBool $var
         }
-        { p_match $_ @("int", "integer") } { 
+        { __match $_ @("int", "integer") } { 
             return p_castInt $var
         }
         "long" { 
@@ -558,19 +222,6 @@ function p_parseNumber ($numberable) {
     }
     return $numberable
 }
-function p_eq ($a_, $b_, $logic = "OR") {
-    if ($b_ -is [System.Array]) {
-        foreach ($b in $b_) {
-	    switch ($logic) {
-    	    	OR {  if ($a_ -eq $b) { return $true } }
-		AND { if ($a_ -ne $b) { return $false } }
-	    	Default {}
-	    }
-        }
-        return $logic -eq "AND"
-    }
-    else { return $a_ -eq $b_ }
-}
 
 function p_getCast ([string]$line) {
     p_debug_function p_getCast darkyellow
@@ -607,7 +258,7 @@ function p_getVal ($line, [switch]$array) {
     $l = $line.length
     $val = ""
     if ($Null -eq $line) { return $null }
-    for ($i = $l - 1; p_between $i -1 $l; $i += $d) {
+    for ($i = $l - 1; __between $i -1 $l; $i += $d) {
         if ($d -eq 1) {
             $val += $line[$i]
         }
@@ -713,7 +364,7 @@ function Set-Scope ([string]$scope="USER", [boolean]$save) {
         }
         $global:SCOPE = "NETWORK::$(persist networkLocation)"
     } else {
-        $global:SCOPE = p_match $global:SCOPES "$scope.+" -getMatch
+        $global:SCOPE = __match $global:SCOPES "$scope.+" -getMatch
     }
     $spl = $global:SCOPE -split "::"
     $spl[1] = Invoke-Expression "$('"'+$spl[1]+'"')"
@@ -726,30 +377,6 @@ function Set-Scope ([string]$scope="USER", [boolean]$save) {
 }
 p_debug "defaulting scope to user: $ENV:USERNAME"
 Set-Scope
-
-<#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#>
-#                   M A N U A L                   #
-<#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#>
-
-if ($null -eq $env:global) {
-    $global:man_persist = '
-.SYNOPSIS
-
-
-.DESCRIPTION
-
-
-.USAGES
-
-    global apiKey = ajf7rj1ml4lfda8s
-
-    global [int] apiKey
-    
-'
-    if (p_elevated) {
-        [Environment]::SetEnvironmentVariable("PERSIST", $global:man_persist, [System.EnvironmentVariableTarget]::Machine)
-    }
-}
 
 <#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#>
 #               F U N C T I O N S                 #
@@ -822,7 +449,7 @@ function p_foo_clearNetworkDir {
     $line = p_getLine ($global:c_) networkLocation
     $v_ = p_getVal $line
     Remove-Item $v_ -ErrorAction SilentlyContinue -Force
-    $line = p_stringify_regex $line
+    $line = __stringify_regex $line
     $line = "(`n)?$line"
     if ($global:_debug_) { write-host "p_foo_clearNetworkDir:`n  \ Scope:$global:scope`n   \ Line:$line" -ForegroundColor Green }
     $global:PERSIST = $global:PERSIST -replace $line, ""
@@ -903,7 +530,7 @@ function Get-Scope ([string]$scope, [switch]$exists) {
 function Get-PersistItem ($inputScope){
     if ($null -eq $inputScope) { $inputScope = $global:SCOPE }
     $name = ($inputScope -split "::")[0] 
-    $freshScope = p_match $global:SCOPES "$name.+" -getMatch
+    $freshScope = __match $global:SCOPES "$name.+" -getMatch
     $spl = $freshScope -split "::"
     $path = Invoke-Expression "$('"'+$spl[1]+'"')"
     return Get-Item $path
@@ -951,7 +578,7 @@ function Invoke-PushScope ([string]$TemporaryScope) {
 		Write-Host "Invalid scope: $TemporaryScope" -ForegroundColor Red
 		return
 	}
-	$Script:S_BK = p_match $Scope "(.+?)::" -GetMatch -Index 1
+	$Script:S_BK = __match $Scope "(.+?)::" -GetMatch -Index 1
 	Invoke-Persist -> $TemporaryScope
 }
 
@@ -978,7 +605,7 @@ function p_network_wrapper {
 New-Alias -Name Use-Network -Value p_network_wrapper -Scope Global -Force
 function p_scope_wrapper {
     $wrapper = $args[0]
-    $argz = p_truncate $args -FromStart 1
+    $argz = __truncate $args -FromStart 1
     if(Get-Scope $wrapper -Exists) {
         $scope_bak = ("$SCOPE" -split "::")[0]
         Invoke-Persist -> $wrapper
@@ -1006,7 +633,7 @@ function Set-PersistContent ($params) {
             $line = p_getLine $content $var
             $replace = "$cast$var=$val"
             if($null -ne $line) {
-                $line = p_stringify_regex $line
+                $line = __stringify_regex $line
                 p_debug "replacing: $line => $replace"
                 $global:PERSIST = $content -replace $line, $replace
             } else {
@@ -1276,7 +903,7 @@ function p_foo ($name, $params) {
             $val = p_exponentiate @{Cast = $split[0]; Name = $split[1]; Value = $split[2] }
             return Set-PersistContent @{Cast = $split[0]; Name = $split[1]; Value = $val }
         }
-        { p_eq $_ @("void", "_") } {
+        { __eq $_ @("void", "_") } {
             $null = Invoke-Expression "persist $params"
         }
         insert {
@@ -1292,13 +919,13 @@ function p_foo ($name, $params) {
             return Set-PersistContent @{Cast = "[array]"; Name = $split[0]; Value = $v_a }
 
         }
-        { p_match $_ @("pushinsert","pin") } {
+        { __match $_ @("pushinsert","pin") } {
             $split = $params -split "="
-            $i_a = p_match $split[0] "\[([0-9]+)" -index 1 -get
+            $i_a = __match $split[0] "\[([0-9]+)" -index 1 -get
             p_debug "i_a:$i_a"
             $a = $split[0] -replace "\[[0-9]+]",""
             p_debug "a:$a"
-            $i_b = p_match $split[1] "\[([0-9]+)" -index 1 -get
+            $i_b = __match $split[1] "\[([0-9]+)" -index 1 -get
             p_debug "i_b:$i_b"
             $b = $split[1] -replace "\[[0-9]+]",""
             p_debug "b:$b"
@@ -1316,15 +943,15 @@ function p_foo ($name, $params) {
             $v_ = p_getVal $l_
             return $null -eq $v_  
         }
-        { p_eq $_ @("nonnull", "nn") } { 
+        { __eq $_ @("nonnull", "nn") } { 
             $l_ = p_getLine $global:c_ $params
             $v_ = p_getVal $l_
             return $null -ne $v_ 
         }
-        { p_eq $_ @("remove", "rm") } {
+        { __eq $_ @("remove", "rm") } {
             return p_foo_remove $params 
         }
-        { p_eq $_ @("search", "find") } { 
+        { __eq $_ @("search", "find") } { 
             return p_foo_search $params 
         }
         setNetworkDir { 
@@ -1387,14 +1014,14 @@ function p_foo ($name, $params) {
                 Set-PersistContent @{Cast = $ct_ ; Name = $nm_; Value = $v_ }
             }
         }
-        { p_eq $_ @("sz", "len", "length", "size") } { 
+        { __eq $_ @("sz", "len", "length", "size") } { 
             $l_ = p_getLine $global:c_ $params
             $v_ = p_getVal $l_
             $c_ = p_getCast $l_
             $p_ = p_cast $c_ $v_
             return $p_.length
         }
-        { p_eq $_ @("def", "default") } {
+        { __eq $_ @("def", "default") } {
             $split = $params -split ":"
             $l_ = p_getLine $global:c_ $split[0]
             $v_ = p_getVal $l_
@@ -1419,9 +1046,9 @@ function p_foo ($name, $params) {
             if($params -match "vol::") {
                 $null = importhks nav
                 $appendVol = $true
-                $volSyn = p_match $params "(vol::.+?::/.+?)(::|$)" -getmatch -index 1
+                $volSyn = __match $params "(vol::.+?::/.+?)(::|$)" -getmatch -index 1
                 $volPath = Get-Path $volSyn
-                $params = $params -replace (p_stringify_regex $volSyn),"vol"
+                $params = $params -replace (__stringify_regex $volSyn),"vol"
             }
             $spl = $params -split "::"
             if(($spl.count -ne 2) -and ($spl.count -ne 3)) {
@@ -1512,7 +1139,7 @@ function p_foo ($name, $params) {
                 $v_ = p_getVal $l_ -Array
                 if($v_ -is [System.Array] -and $v_.Count -gt $index){
                     $pop = $v_[$index]
-                    $v_ = p_truncate $v_ -indexAndDepth @($index,1)
+                    $v_ = __truncate $v_ -indexAndDepth @($index,1)
                     Invoke-Persist _>_ [array] "$source" = $($v_ -join ":")
                 } else {
                     Write-Host "!_$index is invalid for array: $v_ _____!`n`n$_`n" -ForegroundColor Red
@@ -1526,7 +1153,7 @@ function p_foo ($name, $params) {
                 $v_ = p_getVal $l_ -Array
                 if($v_ -is [System.Array] -and $v_.Count -gt 1){
                     $pop = $v_[($v_.count - 1)]
-                    $v_ = p_truncate $v_ -fromEnd 1
+                    $v_ = __truncate $v_ -fromEnd 1
                     Invoke-Persist _>_ [array] "$source" = $($v_ -join ":")
                 } elseif($null -ne $v_) {
                     $pop = $v_
@@ -1541,7 +1168,7 @@ function p_foo ($name, $params) {
                 $v_ = p_getVal $l_ -Array
                 if($v_ -is [System.Array] -and $v_.Count -gt 1){
                     $pop = $v_[($v_.count - 1)]
-                    $v_ = p_truncate $v_ -fromEnd 1
+                    $v_ = __truncate $v_ -fromEnd 1
                     Invoke-Persist _>_ [array] "$s_" = $($v_ -join ":")
                 } elseif ($null -ne $v_) {
                     $pop = $v_
@@ -1654,6 +1281,9 @@ function p_foo ($name, $params) {
             p_debug "res;$res"
             Invoke-Persist Push>_ "$($source):$res"
         }
+        scopes {
+            return $global:SCOPES
+        }
         Default {}
     }
 }
@@ -1725,7 +1355,7 @@ function p_parse_syntax ($a_) {
                     else { $name += $a } 
                 }
                 "OPERATOR" { 
-                    if (p_match $a $symbols -logic NOT) {
+                    if (__match $a $symbols -logic NOT) {
                         $recording = $null
                         $i--
                         if ($null -eq $name) { $operator += '|' }
@@ -1825,9 +1455,9 @@ function p_parse_syntax ($a_) {
                 elseif ($null -eq $operator) { 
                     return p_throw IllegalRecordBefore "parameter" "operator" 
                 }
-                elseif (p_nonnull @($operator, $index)) {
-                    $oR = p_stringify_regex $operator
-                    $iR = p_stringify_regex $index
+                elseif ($($null -ne $operator) -and $($null -ne $index)) {
+                    $oR = __stringify_regex $operator
+                    $iR = __stringify_regex $index
                     if ($a_ -match "(.+)?$oR(.+)?$iR") {
                         return p_throw IllegalRecordOrder "[op][index][param]"
                     }
@@ -1864,7 +1494,7 @@ function p_parse_syntax ($a_) {
                     return p_throw ElementAlreadyAssigned "parameters" $parameters
                 } 
             }
-            elseif (p_match $a $symbols) { 
+            elseif (__match $a $symbols) { 
                 #Attempt to record [op] 
                 if ($null -ne $operator) { 
                     return p_throw 1 "operator" $operator
@@ -1894,7 +1524,7 @@ function p_parse_syntax ($a_) {
 function p_index ($indexable, $index) {
     p_debug_function p_foo DarkMagenta
     p_debug "index:$index" darkGray
-    $index = p_replace $index @("\[", "]")
+    $index = __replace $index @("\[", "]")
     if ($indexable -is [string]) {
         if ($indexable -match ":") {
             $indexable = $indexable -split ":"
@@ -1911,6 +1541,490 @@ function p_index ($indexable, $index) {
 }
 
 function Invoke-Persist {
+
+    if($args -eq "help") {
+        return '
+---
+
+## NAME
+
+**Invoke-Persist** - A function to manage persistent variables across different scopes in PowerShell.
+
+## SYNOPSIS
+
+**Invoke-Persist** [<CAST>] <NAME> [<OPERATOR>] [<PARAMETER>] [<INDEX>]
+
+## DESCRIPTION
+
+The **Invoke-Persist** function in PowerShell is designed to manage persistent variables and their values across different scopes. It allows for setting, retrieving, modifying, and manipulating variables with various operations such as addition, subtraction, multiplication, division, and more.
+
+## SYNTAX
+
+```powershell
+Invoke-Persist [<CAST>] <NAME> [<OPERATOR>] [<PARAMETER>] [<INDEX>]
+```
+
+## PARAMETERS
+
+- **CAST** : The type to cast the variable to. Examples include `[string]`, `[int]`, `[boolean]`, `[array]`, `[datetime]`, etc.
+- **NAME** : The name of the variable to be managed.
+- **OPERATOR** : The operation to be performed. Supported operators include:
+  - `=` : Assign a value.
+  - `+` : Add a value.
+  - `-` : Subtract a value.
+  - `*` : Multiply by a value.
+  - `/` : Divide by a value.
+  - `^` : Exponentiate by a value.
+  - `>` : Perform a command.
+  - `==` : Compare equality.
+  - `!=` : Compare inequality.
+  - `~=` : Match a pattern.
+  - `!~` : Not match a pattern.
+  - `~>` : Get matched value.
+  - `?` : Check if true.
+  - `!?` : Check if false.
+- **PARAMETER** : The value or argument for the operation.
+- **INDEX** : The index for accessing array elements.
+
+## EXAMPLES
+
+### Retrieving a Variable`s Value
+
+```powershell
+Invoke-Persist [string]variableName
+```
+This retrieves the value of `variableName` cast to a string.
+
+### Assigning a Value
+
+```powershell
+Invoke-Persist [int]variableName = 42
+```
+This assigns the integer value `42` to `variableName`.
+
+### Adding a Value
+
+```powershell
+Invoke-Persist [int]variableName + 10
+```
+This adds `10` to the current value of `variableName`.
+
+### Subtracting a Value
+
+```powershell
+Invoke-Persist [int]variableName - 5
+```
+This subtracts `5` from the current value of `variableName`.
+
+### Multiplying a Value
+
+```powershell
+Invoke-Persist [int]variableName * 2
+```
+This multiplies the current value of `variableName` by `2`.
+
+### Dividing a Value
+
+```powershell
+Invoke-Persist [int]variableName / 3
+```
+This divides the current value of `variableName` by `3`.
+
+### Exponentiating a Value
+
+```powershell
+Invoke-Persist [int]variableName ^ 3
+```
+This raises the current value of `variableName` to the power of `3`.
+
+### Conditional Checks
+
+```powershell
+Invoke-Persist variableName == 42
+```
+This checks if `variableName` is equal to `42`.
+
+### Array Indexing
+
+```powershell
+Invoke-Persist [array]variableName[0]
+```
+This retrieves the first element of the array `variableName`.
+
+
+
+The `>_` operator is used to execute specific commands within this context.
+
+### EXAMPLES
+
+#### Example 1: Default Assignment
+##### SYNOPSIS
+Assign a default value to a possibly unassigned variable.
+##### USAGE
+```powershell
+Invoke-Persist default >_ aPossiblyUnassignedValue:10
+```
+##### DESCRIPTION
+This command checks if the variable `aPossiblyUnassignedValue` is already assigned a value. If it is, the current value is returned. If it is not, the value `10` is assigned to it and returned.
+
+#### Example 2: Set Network Directory
+##### SYNOPSIS
+Set a network directory for the persistent module.
+##### USAGE
+```powershell
+Invoke-Persist setNetworkDir >_ "\\Network\Config"
+```
+##### DESCRIPTION
+Assigns the path `"\\Network\Config"` as the network directory where persistent configurations will be stored.
+
+#### Example 3: Clear Network Directory
+##### SYNOPSIS
+Clear the previously set network directory.
+##### USAGE
+```powershell
+Invoke-Persist clearNetworkDir >_
+```
+##### DESCRIPTION
+Removes the network directory configuration, effectively clearing the set path for storing network-based persistent configurations.
+
+#### Example 4: Check if a Variable is Non-null
+##### SYNOPSIS
+Check if a persistent variable is non-null.
+##### USAGE
+```powershell
+Invoke-Persist nonnull >_ myVariable
+```
+##### DESCRIPTION
+Returns `True` if `myVariable` has been assigned a value, otherwise returns `False`.
+
+#### Example 5: Push and Pop Values
+##### SYNOPSIS
+Push and pop values to/from a persistent variable stack.
+##### USAGE - PUSH
+```powershell
+Invoke-Persist push >_ myStack:42
+
+Invoke-Persist push >_ myStack:12
+```
+##### USAGE - POP
+```powershell
+Invoke-Persist pop >_ myStack
+
+Invoke-Persist pop >_ myStack:Temp
+```
+##### DESCRIPTION
+- **Push**: Adds `42` to the stack `myStack` as an array element.
+- **Push**: Adds `12` to the stack `myStack` as an array element.
+- **Pop**: Removes the value `12` from `myStack` and returns it.
+- **Pop**: Removes the value `42` from `myStack` and pushes it the `Temp` variable as an array element.
+
+#### Example 8: Write Today`s Date
+##### SYNOPSIS
+Write the current date and time to a persistent variable.
+##### USAGE
+```powershell
+Invoke-Persist writeToday >_ currentDate
+```
+##### DESCRIPTION
+Stores the current date and time in the `currentDate` variable in the format `ddMMMyyyy@HHmm`.
+
+
+### Comprehensive List of `foo` Commands
+
+1. **assign**
+   - **Usage:** `Invoke-Persist assign >_ [CAST]:[NAME]:[VALUE]`
+   - **Description:** Assigns a value to a persistent variable.
+
+2. **add**
+   - **Usage:** `Invoke-Persist add >_ [CAST]:[NAME]:[VALUE]`
+   - **Description:** Adds a specified value to a persistent variable.
+
+3. **add_assign**
+   - **Usage:** `Invoke-Persist add_assign >_ [CAST]:[NAME]:[VALUE]`
+   - **Description:** Adds a specified value to a persistent variable and assigns the result back to the variable.
+
+4. **minus**
+   - **Usage:** `Invoke-Persist minus >_ [CAST]:[NAME]:[VALUE]`
+   - **Description:** Subtracts a specified value from a persistent variable.
+
+5. **minus_assign**
+   - **Usage:** `Invoke-Persist minus_assign >_ [CAST]:[NAME]:[VALUE]`
+   - **Description:** Subtracts a specified value from a persistent variable and assigns the result back to the variable.
+
+6. **multiply**
+   - **Usage:** `Invoke-Persist multiply >_ [CAST]:[NAME]:[VALUE]`
+   - **Description:** Multiplies a persistent variable by a specified value.
+
+7. **multiply_assign**
+   - **Usage:** `Invoke-Persist multiply_assign >_ [CAST]:[NAME]:[VALUE]`
+   - **Description:** Multiplies a persistent variable by a specified value and assigns the result back to the variable.
+
+8. **divide**
+   - **Usage:** `Invoke-Persist divide >_ [CAST]:[NAME]:[VALUE]`
+   - **Description:** Divides a persistent variable by a specified value.
+
+9. **divide_assign**
+   - **Usage:** `Invoke-Persist divide_assign >_ [CAST]:[NAME]:[VALUE]`
+   - **Description:** Divides a persistent variable by a specified value and assigns the result back to the variable.
+
+10. **exponentiate**
+    - **Usage:** `Invoke-Persist exponentiate >_ [CAST]:[NAME]:[VALUE]`
+    - **Description:** Raises a persistent variable to the power of a specified value.
+
+11. **exponentiate_assign**
+    - **Usage:** `Invoke-Persist exponentiate_assign >_ [CAST]:[NAME]:[VALUE]`
+    - **Description:** Raises a persistent variable to the power of a specified value and assigns the result back to the variable.
+
+12. **void**
+    - **Usage:** `Invoke-Persist void >_ parameters`
+    - **Description:** Executes a command without returning a value.
+
+13. **insert**
+    - **Usage:** `Invoke-Persist insert >_ [NAME]:[INDEX]:[VALUE]`
+    - **Description:** Inserts a value into an array at the specified index.
+
+14. **pushinsert**
+    - **Usage:** `Invoke-Persist pushinsert >_ [ARRAY_NAME][INDEX]=[OTHER_ARRAY_NAME][INDEX]`
+    - **Description:** Inserts values from one array into another at specified indices.
+
+15. **nullOrEmpty**
+    - **Usage:** `Invoke-Persist nullOrEmpty >_ [NAME]`
+    - **Description:** Checks if a persistent variable is null or empty.
+
+16. **nonnull**
+    - **Usage:** `Invoke-Persist nonnull >_ [NAME]`
+    - **Description:** Checks if a persistent variable is non-null.
+
+17. **remove**
+    - **Usage:** `Invoke-Persist remove >_ [NAME]`
+    - **Description:** Removes a persistent variable.
+
+18. **search**
+    - **Usage:** `Invoke-Persist search >_ [PATTERN]`
+    - **Description:** Searches for a pattern in persistent variables.
+
+19. **setNetworkDir**
+    - **Usage:** `Invoke-Persist setNetworkDir >_ [PATH]`
+    - **Description:** Sets the network directory for persistent storage.
+
+20. **clearNetworkDir**
+    - **Usage:** `Invoke-Persist clearNetworkDir >_`
+    - **Description:** Clears the network directory configuration.
+
+21. **outOfDate**
+    - **Usage:** `Invoke-Persist outOfDate >_ [VARIABLE]:[DAYS]`
+    - **Description:** Checks if the date stored in a variable is older than the specified number of days.
+
+22. **upToDate**
+    - **Usage:** `Invoke-Persist upToDate >_ [VARIABLE]:[DAYS]`
+    - **Description:** Checks if the date stored in a variable is within the specified number of days.
+
+23. **writeToday**
+    - **Usage:** `Invoke-Persist writeToday >_ [VARIABLE]`
+    - **Description:** Writes the current date and time to a persistent variable.
+
+24. **writeDate**
+    - **Usage:** `Invoke-Persist writeDate >_ [VARIABLE]:[DATE]`
+    - **Description:** Writes a specified date and time to a persistent variable.
+
+25. **parse**
+    - **Usage:** `Invoke-Persist parse >_ [VARIABLE]:[CAST]`
+    - **Description:** Parses the value of a persistent variable to the specified type.
+
+26. **equal**
+    - **Usage:** `Invoke-Persist equal >_ [VAR1]:[VAR2]`
+    - **Description:** Checks if two persistent variables are equal.
+
+27. **match**
+    - **Usage:** `Invoke-Persist match >_ [VAR1]:[PATTERN]`
+    - **Description:** Checks if the value of a persistent variable matches a specified pattern.
+
+28. **clip**
+    - **Usage:** `Invoke-Persist clip >_ [VARIABLE]`
+    - **Description:** Copies the value of a persistent variable to the clipboard.
+
+29. **setall**
+    - **Usage:** `Invoke-Persist setall >_ [VAR1:VAR2:VAR3]=[VALUE]`
+    - **Description:** Sets multiple persistent variables to the same value.
+
+30. **length**
+    - **Usage:** `Invoke-Persist length >_ [VARIABLE]`
+    - **Description:** Returns the length of the value of a persistent variable.
+
+31. **default**
+    - **Usage:** `Invoke-Persist default >_ [NAME]:[DEFAULT_VALUE]`
+    - **Description:** Returns the value of a persistent variable or assigns and returns the default value if it is unassigned.
+
+32. **split**
+    - **Usage:** `Invoke-Persist split >_ [VARIABLE]=[DELIMITER]`
+    - **Description:** Splits the value of a persistent variable by the specified delimiter.
+
+33. **addScope**
+    - **Usage:** `Invoke-Persist addScope >_ [SCOPE]::[PATH]`
+    - **Description:** Adds a new scope to the persistent configuration.
+
+34. **get-content**
+    - **Usage:** `Invoke-Persist get-content >_ [VARIABLE]`
+    - **Description:** Retrieves the content at the path assigned to a persistent variable.
+
+35. **add-content**
+    - **Usage:** `Invoke-Persist add-content >_ [VARIABLE]:[CONTENT]`
+    - **Description:** Appends content at the path assigned to a persistent variable.
+
+36. **pop**
+    - **Usage:** `Invoke-Persist pop >_ [SOURCE]:[INDEX]:[DESTINATION]`
+    - **Description:** Pops a value from the source array and pushes it, either a return value, or optionally to a destination variable.
+
+37. **push**
+    - **Usage:** `Invoke-Persist push >_ [DESTINATION]:[VALUE]`
+    - **Description:** Pushes a value to the destination array.
+
+38. **pushadd**
+    - **Usage:** `Invoke-Persist pushadd >_ [STACK_NAME]`
+    - **Description:** Pops two values from the stack, adds them, and pushes the result back to the stack.
+
+39. **pushsub**
+    - **Usage:** `Invoke-Persist pushsub >_ [STACK_NAME]`
+    - **Description:** Pops two values from the stack, subtracts the second from the first, and pushes the result back to the stack.
+
+40. **pushcompare**
+    - **Usage:** `Invoke-Persist pushcompare >_ [STACK_NAME]:[LOGICAL_OPERATOR]`
+    - **Description:** Pops two values from the stack, compares them using the specified logical operator, and pushes the result back to the stack.
+
+41. **scopes**
+    - **Usage:** `Invoke-Persist scopes >__
+    - **Description** Returns all existing scopes, including default and user added scopes
+
+### Additional Insights
+These commands offer a wide range of functionalities to manage persistent variables effectively. From basic assignments and arithmetic operations to more complex stack manipulations and scope management, the `foo` commands provide a robust toolkit for handling persistent data in PowerShell.
+
+
+### Scopes and Scope Selection Functionalities
+
+#### 1. **Set-Scope**
+##### SYNOPSIS
+Sets and switches between different scopes.
+##### USAGE
+```powershell
+Set-Scope -scope "USER" -save $true
+```
+##### DESCRIPTION
+This function sets the current scope to the specified scope (e.g., USER, NETWORK, SSH). If the `-save` parameter is provided and set to `$true`, it saves the current persistent variables to the configuration file before switching scopes.
+
+#### 2. **Invoke-Persist -> SCOPE**
+##### SYNOPSIS
+Changes the current scope and pulls the persistent variables from the scope`s configuration file into memory.
+##### USAGE
+```powershell
+Invoke-Persist -> SSH
+```
+##### DESCRIPTION
+Changes the current scope to the specified scope (e.g., SSH). This operation pulls the persistent variables from the SSH scope`s configuration file into memory, making them available for use.
+
+#### 3. **Invoke-Pull**
+##### SYNOPSIS
+Pulls the persistent variables from the current scope`s configuration file into memory.
+##### USAGE
+```powershell
+Invoke-Pull
+```
+##### DESCRIPTION
+Synchronizes the in-memory persistent variables with the values from the current scope`s configuration file. This ensures that the latest values from the file are loaded into memory.
+
+#### 4. **Invoke-Push**
+##### SYNOPSIS
+Pushes all in-memory persistent variables to the current scope`s configuration file.
+##### USAGE
+```powershell
+Invoke-Push
+```
+##### DESCRIPTION
+Writes all the persistent variables that are currently in memory to the configuration file of the current scope. This ensures that any changes made to the variables are saved to the file.
+
+#### 5. **Invoke-Scopes**
+##### SYNOPSIS
+Initializes and populates the scopes from a configuration file.
+##### USAGE
+```powershell
+Invoke-Scopes -rebuild
+```
+##### DESCRIPTION
+Creates the scopes file if it doesn`t exist and populates it with default scopes. The `-rebuild` switch forces the re-creation of the scopes file.
+
+#### 6. **Get-Scope**
+##### SYNOPSIS
+Retrieves the path or existence of a specified scope.
+##### USAGE
+```powershell
+Get-Scope -scope "SSH" -exists
+```
+##### DESCRIPTION
+Checks if the specified scope exists in the scopes configuration and returns `true` or `false`. Without the `-exists` switch, it returns the path of the scope.
+
+#### 7. **Use-Scope**
+##### SYNOPSIS
+Temporarily switches to a specified scope for the duration of a command.
+##### USAGE
+```powershell
+Use-Scope SSH { <command> }
+```
+##### DESCRIPTION
+Executes the specified command within the context of the specified scope without permanently changing the current scope. After executing the command, it switches back to the original scope.
+
+### Example Scenarios
+
+#### Example 1: Switching to SSH Scope
+```powershell
+Invoke-Persist -> SSH
+```
+- **Operation:** Changes the current scope to SSH.
+- **Result:** Pulls the persistent variables from the SSH configuration file into memory.
+
+#### Example 2: Pulling Variables from the Current Scope
+```powershell
+Invoke-Pull
+```
+- **Operation:** Synchronizes in-memory variables with those from the current scope`s configuration file.
+- **Result:** Ensures the latest values from the file are loaded into memory.
+
+#### Example 3: Pushing Variables to the Current Scope
+```powershell
+Invoke-Push
+```
+- **Operation:** Writes all in-memory persistent variables to the configuration file of the current scope.
+- **Result:** Saves any changes made to the variables to the scope`s configuration file.
+
+#### Example 4: Using a Different Scope Temporarily
+```powershell
+Use-Scope SSH { Invoke-Persist }
+```
+- **Operation:** Executes the `Invoke-Persist` command within the context of the SSH scope.
+- **Result:** Returns all persistent variables assigned to the SSH scope without permanently changing the current scope.
+
+### Insights
+
+- **Scope Management:** The script provides robust functionalities for managing different scopes, allowing you to organize persistent variables by context or use case.
+- **Synchronization:** `Invoke-Pull` and `Invoke-Push` ensure that the in-memory state is synchronized with the persistent storage, providing consistency.
+- **Flexibility:** Temporary scope changes (`Use-Scope`) allow for context-specific operations without altering the global state.
+
+These functionalities make the `Invoke-Persist` tool quite powerful for managing persistent configurations in a modular and organized manner.
+
+
+## NOTES
+
+- **Invoke-Persist** works with multiple data types and supports complex operations.
+- It is crucial to understand the type casting and array indexing to use this function effectively.
+- The function also supports debug messages that can be enabled via the global `_debug_` variable.
+
+For more detailed information and additional command options, refer to the source code and comments within the script.
+
+## AUTHOR
+
+Atypic, your friendly hipster coder master.
+
+---        
+'
+    }
 
     p_debug_function Invoke-Persist White
     
@@ -1940,302 +2054,13 @@ function Invoke-Persist {
     \\ parameter:    $para
     \\ index:        $inde"
     p_debug $prompt darkgray
-   
-    <#
-    Based on the available variables [cast][name][op][param][index], the follow up operations are decided
 
-    __________________________________________________________________________________________________
-    ////////////// 1 /////////////////////////////////////////////////////////////////////////////////
 
-    [cast]              Get all variables with assigned type of [cast]
-    
-    [name]              Get variable with name [name]
 
-    [op]                Illegal[post syntax parse], [name] must be defined, cannot apply [op] to null [name]
 
-    [param]             Illegal, cannot record [param] before/without [name]
-    
-    [index]             Impossible, cannot define [index] if [cast] or [name] are not defined
-    
-    __________________________________________________________________________________________________
-    ////////////// 2 /////////////////////////////////////////////////////////////////////////////////
+   $global:c_ = Get-PersistContent
 
-    [cast]
-        [name]          Apply [cast] to [name] ~ return
-
-        [op]            Illegal[post syntax parse], [name] must be defined, cannot apply [op] to null
-
-        [param]         Illegal, cannot record [param] before/without [name]
-
-        [index]         Illegal, cannot record [index] before/without [name]
-
-    [name]
-        [cast]          Impossible, cannot define [cast] after [name] has been defined
-        
-        [op]            applies [op] to [name] ~ return
-
-        [param]         Illegal, do not define [param] before [op]
-
-        [index]         if [name] returns an indexable value, [name][index] ~ return, else Illegal, 
-                        variable value is not indexable
-
-    [op]
-        [cast]          Illegal[post syntax parse], [name] must be defined, cannot apply [op] to null 
-
-        [name]          if [op] is of the form operation~assign [1|x], [op] is 
-                        applied to [name] ~ return
-                            - [op] will be formatted like ".|" instead of just "."
-
-        [param]         Illegal, cannot record [param] before/without [name]
-        
-        [index]         Impossible, cannot define [index] if [cast] or [name] are not defined
-
-    [param]
-        [x]             Impossible, cannot define [param] before/without [name]
-
-    [index]
-        [x]             Impossible, cannot define [index] before [cast] or [name] are not defined
-        
-    __________________________________________________________________________________________________
-    ////////////// 3 /////////////////////////////////////////////////////////////////////////////////
-
-    [cast]              *Generally [cast] is applied after any operations
-        [name]
-            [op]        Applies [op] to [name], then attempts to convert to [cast]
-
-            [param]     Illegal, do not define [param] before [op]
-
-            [index]     If [name] returns indexable, indexable[index] is pulled then attempted to be 
-                        converted to [cast]
-
-        [op]            
-            [name]      Applies [op] to [name], then attempts to convert to [cast]
-
-            [param]     Illegal, cannot record [x] before/without [name]
-            [index]     Impossible, cannot define [x] before/without [name]
-
-        [param]         Illegal, cannot record [x] before/without [name]
-        [index]         Impossible, cannot define [y] before/without [name]
-            [x]         
-
-    [name]
-        [cast]
-            [x]         Impossible, cannot define [cast] after [name] is defined
-
-        [op]
-            [cast]      Impossible, cannot define [cast] after [name] is defined
-
-            [param]     Applies [op][param] to [name] 
-
-            [index]     Illegal, cannot define [index] after [op]
-
-        [param]         
-            [x]         Illegal, cannot record [param] before/without [op]
-
-        [index]
-            [op]        applies [op] to [name][index], such that the indexing operation
-                        is performed first, so long as [name] is assigned an indexable variable. If a return is requested, the unaltered res will be returned
-            
-            [param]     Illegal, cannot define [param] before/without [op]
-
-            [cast]      Impossible, cannot define [cast] after [name] is defined
-
-    [op]
-        [cast]
-            [name]      [op] is appleid to [name], then [name] is cast to [cast]
-
-            [param]     Illegal, cannot record [param] before/without [name] 
-
-            [index]     Illegal, cannot record [index] before/without [name]
-
-        [name]
-            [cast]      Impossible, cannot record [cast] after [name] is defined
-
-            [param]     Illegal record order [op][name][param]
-
-            [index]     applies [op] to [name][index], such that the indexing operation
-                        is performed first, so long as [name] is assigned an indexable variable. If a return is requested, the altered res will be returned
-
-        [param]
-        [index]
-            [x]         Impossible, cannot record [y] before/without [name]
-
-    [index]
-    [param]
-        [y]
-            [x]         Impossible, cannot record [z] before/without [cast]/[name] 
-                        respectively
-
-    
-    __________________________________________________________________________________________________
-    ////////////// 4 /////////////////////////////////////////////////////////////////////////////////
-
-    [cast]
-        [name]
-            [op]
-                [param] Applies [op][param] to [name] then 
-                        applies [cast]
-
-                [index] Illegal, cannot record [index] after 
-                        [param] has been defined
-
-            [param]     Illegal, cannot record [param] before
-                        /without [op]
-                [x]    
-
-            [index]
-                [op]    Applies [op] to [name][index] then 
-                        applies [cast]
-                
-                [param] Illegal, cannot record [param] before
-                        /without [op]
-
-        [op]
-            [name]
-                [param] Illegal Order [op][name][param]
-
-                [index] Applies [op] to [name][index] then applies [cast]
-
-            [param]
-                [x]     Illegal, Cannot record [parameter] before [name] has been defined
-
-            [index]
-                [x]     Illegal, Cannot record [index] before [name] has been defined
-
-        [param]
-            [x]         Illegal, Cannot record [parameter] before [name] has been defined
-                
-
-        [index]
-            [x]         Illegal, Cannot record [index] before [name] has been defined
-
-    [name]
-        [cast]
-            [x]         Impossible, cannot define [cast] after [name] is defined
-
-        [op]
-            [cast]
-                [x]     Impossible, cannot define [cast] after [name] is defined
-
-            [param]
-                [cast]  Impossible, cannot define [cast] after [name] is defined
-
-                [index] Applies [param][index] via [op] to [name]
-            
-            [index]
-                [cast]  Impossible, cannot define [cast] after [name] is defined
-
-                [param] Illegal, cannot record in the order [op][index][param]
-
-        [param]
-            [x]         Illegal, cannot record [param] before/without [op]
-
-        [index]
-            [cast]
-                [x]     Impossible, cannot define [cast] after [name] is defined
-
-            [op]
-                [cast]  Impossible, cannot define [cast] after [name] is defined
-
-                [param] Applies [param] via [op] to [name][index]
-
-            [param]
-                [cast]  Impossible, cannot define [cast] after [name] is defined
-
-                [op]    Illegal, cannot record [param] before/without [op]
-
-    [op]
-        [cast]
-            [name]
-                [param] Illegal, Cannot record in the order: [op][name][param]
-
-                [index] Applies [op] to [name][index] to applies [cast]
-
-            [param]
-                [x]     Illegal, Cannot record [parameter] before [name] has been defined
-
-            [index]
-                [x]     Illegal, Cannot record [index] before [name] has been defined
-
-        [name]  
-            [cast]
-                [x]     Impossible, cannot define [cast] after [name] is defined
-
-            [param]
-                [x]     Illegal, Cannot record in the order: [op][name][param]
-
-            [index]
-                [cast]  Impossible, cannot define [cast] after [name] is defined
-
-                [param] Illegal, Cannot record in the order: [op][name][param]
-
-        [param]        
-        [index]
-            [x]         Illegal, Cannot record [y] before [name] has been defined
-
-    [param]
-        [x]             Illegal, cannot record [param] before/without [name]
-
-    [index]
-        [x]             Impossible, cannot define [index] before/without [name]
-
-
-
-    __________________________________________________________________________________________________
-    ////////////// 5 /////////////////////////////////////////////////////////////////////////////////
-
-    [cast]
-        [name]
-            [op]
-                [param]
-                    [index]     Applies [param][index] to [name] via [op] then 
-                                applies [cast]
-
-                [index]
-                    [param]     Illegal, Cannot record in the order: [op][index][param]
-
-            [param]
-                [x]             Illegal, Cannot record [parameter] before 
-                                [operator] has been defined
-
-            [index]
-                [op]
-                    [param]     Applies [op][param] to [name][index] then [cast]
-
-                [param]
-                    [op]        Illegal, Cannot record [parameter] before 
-                                [operator] has been defined
-
-        [op]
-            [name]
-                [param]
-                    [x]         Cannot record in the order: [op][name][param]
-
-                [index]
-                    [param]     Cannot record in the order: [op][index][param] 
-
-            [param]
-                [x]             Cannot record [parameter] before [name] has been 
-                                defined
-
-            [index]
-                [x]             Cannot record [index] before [name] has been 
-                                defined
-
-        [param]
-            [x]                 Cannot record [parameter] before [name] has been 
-                                defined
-
-        [index]
-            [x]                 Cannot record [index] before [name] has been 
-                                defined
-
-    [xxxxx]     ** No further combinations will work, [cast] must always be at the start of the function, and all further combinations include the [cast] in a position other than the start
-    #>
-
-    $global:c_ = Get-PersistContent
-
-    if (p_null @($name, $cast)) {
+    if ($($null -eq $name) -or $($null -eq $cast)) {
         return $global:c_
     }   
 
@@ -2243,7 +2068,7 @@ function Invoke-Persist {
         p_debug "content | p_getLine $name | p_getVal" darkGray
         $l_ = p_getLine $global:c_ $name
         $v_ = p_getVal $l_
-        if (P_null @($oper, $inde, $cast, $para)) {
+        if ($($null -eq $oper) -or $($null -eq $para) -or $($null -eq $cast) -or $($null -eq $index)) {
             $cast = p_getCast $l_
             if ($null -eq $cast) {
                 return $v_
@@ -2257,7 +2082,7 @@ function Invoke-Persist {
     if ($Null -ne $inde) {
         p_debug "indexing" darkGray
         if ($null -ne $para) {
-            if(p_match $a_ "$para\[[0-9]+]"){
+            if(__match $a_ "$para\[[0-9]+]"){
                 p_debug "      % param: $para" darkGray
                 $para = p_index $para $inde
                 p_debug "      \ param: $para" darkGray
@@ -2284,10 +2109,10 @@ function Invoke-Persist {
     else {
         switch ($oper) {
             ">_" { 
-                $res = p_foo $name $para 
-                if($null -ne $cast){
-                    $res = p_cast $cast $res
-                }
+                    $res = p_foo $name $para 
+                    if($null -ne $cast){
+                        $res = p_cast $cast $res
+                    }
                 } # getthis (command)
             "=" { 
                 if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator assign [n]" } 
@@ -2395,7 +2220,7 @@ function Invoke-Persist {
             } # compare~match~not [n]
             "~>" { 
                 if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator compare~match~get [n]" } 
-                $res = p_match $v_ $para -getMatch
+                $res = __match $v_ $para -getMatch
             } # compare~match~get [n]
             "?" { 
                 if ($null -ne $para) { return p_throw IllegalOperationSyntax "Cannot pass parameters to compare~true [x]" } 

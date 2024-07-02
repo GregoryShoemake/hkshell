@@ -182,10 +182,25 @@ function __eq ($a_, $b_, $logic = "OR") {
 	    	Default {}
 	    }
         }
-        return ___return $logic -eq "AND"
+        return ___return $($logic -eq "AND")
     }
-    else { return ___return $a_ -eq $b_ }
+    else { return ___return $($a_ -eq $b_) }
 }
+function __nullemptystr ($nullable) {
+    ___start __nullemptystr
+    ___debug "initial:nullable:$nullable"
+    if ($null -eq $nullable) { return ___return $true }
+    if ($nullable -isnot [string]) { return ___return $false }
+    if ($nullable.length -eq 0) { return ___return $true }
+
+    for ($i = 0; $i -lt $nullable.length; $i++) {
+        if (($nullable[$i] -ne " ") -and ($nullable[$i] -ne "`n")) {
+            return ___return $false
+        }
+    }
+    return ___return $true
+}
+
 function __replace($string, $regex, [string] $replace) {
     ___start __replace
     ___debug "string:$string"
@@ -203,7 +218,7 @@ function __is ($obj, $class) {
     ___start __is
     ___debug "obj:$obj"
     ___debug "class:$class"
-    if ($null -eq $obj) { return ___return $null -eq $class }
+    if ($null -eq $obj) { return ___return $($null -eq $class) }
     if ($null -eq $class) { return ___return $false }
     if ($class -is [System.Array]) {
         foreach ($c in $class) {
@@ -211,8 +226,17 @@ function __is ($obj, $class) {
         }
         return ___return $false
     }
-    return ___return $obj -is [type](__replace $class @("\[", "]") "")
+    return ___return $($obj -is [type](__replace $class @("\[", "]") ""))
 }
+function __between ($val, $min, $max) {
+    ___start __between
+    ___debug "initial:val:$val"
+    ___debug "initial:min:$min"
+    ___debug "initial:max:$max"
+    if ($val -lt $min) { return ___return $false }
+    return ___return $($val -lt $max)
+}
+
 function __int_equal {
     [CmdletBinding()]
     param (
