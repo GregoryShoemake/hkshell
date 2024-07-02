@@ -445,14 +445,14 @@ function __match {
             if (($logic -eq "AND") -and !$f) { return ___return $false }
             if (($logic -eq "NOT") -and $f) { return ___return $false }
         }
-        return ___return ($logic -eq "AND") -or ($logic -eq "NOT")
+        return ___return $(($logic -eq "AND") -or ($logic -eq "NOT"))
     }
     $found = $string -match $regex
     if ($found) {
         if ($getMatch) {
-            return ___return $Matches[$index]
+            return ___return $($Matches[$index])
         }
-        return ___return $logic -ne "NOT"
+        return ___return $($logic -ne "NOT")
     }
     if ($logic -eq "NOT") { return ___return $true }
     if ($getMatch) { return ___return $null }
