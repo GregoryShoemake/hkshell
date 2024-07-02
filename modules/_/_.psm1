@@ -121,6 +121,10 @@ function __choose_item ($items, $property = "name") {
         Write-Host "$(__pad "$item" 30)"
     }
     $return = Read-Host "`n`n    Enter index of desired item"
+    while($return -notmatch "(f|[0-9]+)") {
+        Write-Host "Please input a valid answer ('f' or [0-9]+)" -ForegroundColor yellow
+        $return = Read-Host "?"
+    }
     if($return -eq "f") {
         $return = 0
     }
@@ -334,10 +338,10 @@ function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$unt
             }
         }
         $res = $res -and $true
-        return ___return @{
+        return ___return $(@{
             RES = $res
             ARGS = $a_
-        }
+        })
     } else {
         for ($i = 0; $i -lt $a_.length; $i++) {
             $a = $a_[$i]
@@ -375,10 +379,10 @@ function __search_args ($a_, $param, [switch]$switch, [switch]$all, [switch]$unt
                 throw [System.ArgumentException] "Duplicate argument passed: $param"
             }
         }
-        return ___return @{
+        return ___return $(@{
             RES = $res
             ARGS = $a_
-        }
+        })
     }
 }
 function __default ($variable, $value) {
