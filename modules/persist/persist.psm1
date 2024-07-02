@@ -2060,7 +2060,7 @@ Atypic, your friendly hipster coder master.
 
    $global:c_ = Get-PersistContent
 
-    if ($($null -eq $name) -or $($null -eq $cast)) {
+    if ($($null -eq $name) -and $($null -eq $cast)) {
         return $global:c_
     }   
 
@@ -2068,7 +2068,7 @@ Atypic, your friendly hipster coder master.
         p_debug "content | p_getLine $name | p_getVal" darkGray
         $l_ = p_getLine $global:c_ $name
         $v_ = p_getVal $l_
-        if ($($null -eq $oper) -or $($null -eq $para) -or $($null -eq $cast) -or $($null -eq $index)) {
+        if ($($null -eq $oper) -and $($null -eq $para) -and $($null -eq $cast) -and $($null -eq $index)) {
             $cast = p_getCast $l_
             if ($null -eq $cast) {
                 return $v_
