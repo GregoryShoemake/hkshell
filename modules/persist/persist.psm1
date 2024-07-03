@@ -1542,8 +1542,11 @@ function p_index ($indexable, $index) {
 
 function Invoke-Persist {
 
-    if($args -eq "help") {
-        return '
+    ___start Invoke-Persist
+    ___debug "initial:args:$args"
+
+    if("$args" -eq "help") {
+        return ___return '
 ---
 
 ## NAME
@@ -2026,12 +2029,11 @@ Atypic, your friendly hipster coder master.
 '
     }
 
-    p_debug_function Invoke-Persist White
     
     if ($global:_debug_) {
         for ($i = 0; $i -lt $args.length; $i++) {
             $a = $args[$i]
-            p_debug "$a" darkgray
+            ___debug "args[$i] >>> $a"
         }
     }
 
@@ -2039,7 +2041,7 @@ Atypic, your friendly hipster coder master.
 
     $s_ = p_parse_syntax $a_
 
-    if ($s_ -isnot [System.Array]) { return p_throw -1 $s_ "line: ~1580" }
+    if ($s_ -isnot [System.Array]) { return ___return $( p_throw -1 $s_ "line: ~1580" ) }
 
     $cast = $s_[0]
     $name = $s_[1]
@@ -2048,12 +2050,11 @@ Atypic, your friendly hipster coder master.
     $inde = $s_[4]
 
 
-    $prompt = "cast:         $cast
-    \\ name:         $name
-    \\ operator:     $oper
-    \\ parameter:    $para
-    \\ index:        $inde"
-    p_debug $prompt darkgray
+    ___debug "cast:$cast"
+    ___debug "name:$name"
+    ___debug "operator:$operator"
+    ___debug "parameter:$parameter"
+    ___debug "index:$index"
 
 
 
@@ -2061,37 +2062,37 @@ Atypic, your friendly hipster coder master.
    $global:c_ = Get-PersistContent
 
     if ($($null -eq $name) -and $($null -eq $cast)) {
-        return $global:c_
+        return ___return $global:c_
     }   
 
     if ($null -ne $name) {
-        p_debug "content | p_getLine $name | p_getVal" darkGray
+        ___debug "content | p_getLine $name | p_getVal" 
         $l_ = p_getLine $global:c_ $name
         $v_ = p_getVal $l_
         if ($($null -eq $oper) -and $($null -eq $para) -and $($null -eq $cast) -and $($null -eq $index)) {
             $cast = p_getCast $l_
             if ($null -eq $cast) {
-                return $v_
+                return ___return $v_
             }
             else {
-                return p_cast $cast $v_
+                return ___return $(p_cast $cast $v_)
             }
         }
     }
 
     if ($Null -ne $inde) {
-        p_debug "indexing" darkGray
+        ___debug "indexing" 
         if ($null -ne $para) {
             if(__match $a_ "$para\[[0-9]+]"){
-                p_debug "      % param: $para" darkGray
+                ___debug "      % param: $para" 
                 $para = p_index $para $inde
-                p_debug "      \ param: $para" darkGray
+                ___debug "      \ param: $para"
             }
         }
         else {
-            p_debug "      % val: $val" darkGray
+            ___debug "      % val: $val"
             $v_ = p_index $v_ $inde
-            p_debug "      \ val: $val" darkGray
+            ___debug "      \ val: $val"
         }
     }
 
@@ -2100,10 +2101,10 @@ Atypic, your friendly hipster coder master.
             $cast = p_getCast $l_
         }
         if ($null -eq $cast) {
-            return $v_
+            return ___return $v_
         }
         else {
-            return p_cast $cast $v_
+            return ___return $(p_cast $cast $v_)
         }
     }
     else {
@@ -2115,11 +2116,11 @@ Atypic, your friendly hipster coder master.
                     }
                 } # getthis (command)
             "=" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator assign [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator assign [n]") } 
                 if ($v_ -eq $para) {
                     $c_ = p_getCast $l_
                     if($cast -eq $c_) {
-                        if ($global:_debug_) { Write-Host "    \ var.val is already: $para" -ForegroundColor Magenta }
+                        ___debug "    \ var.val is already: $para"
                         $res = $l_
                     } else {
                         $res = p_foo assign $cast':'$name':'$para 
@@ -2128,10 +2129,10 @@ Atypic, your friendly hipster coder master.
                 else { 
                     if($a_ -match "$name\["){
                         if($null -ne $cast -and $cast.toLower -ne "[array]"){
-                            return p_throw IllegalArgumentException "Cannot index array and cast to non-array type"
+                            return ___return $(p_throw IllegalArgumentException "Cannot index array and cast to non-array type")
                         }
                         if($null -eq $inde){
-                            return p_throw IllegalArgumentException "Cannot index cannot be null"
+                            return ___return $(p_throw IllegalArgumentException "Cannot index cannot be null")
                         }
                         $inde = $inde -replace "\[","" -replace "]",""
                         $res = p_foo insert $name':'$inde':'$para
@@ -2141,101 +2142,101 @@ Atypic, your friendly hipster coder master.
                 } 
             } # assign
             "+" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator add [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator add [n]") } 
                 $res = p_foo add $cast':'$name':'$para 
             } # add [n]
             "++" {
-                if ($null -ne $para) { return p_throw IllegalOperationSyntax "Cannot pass parameters to add~assign [1]" } 
+                if ($null -ne $para) { return ___return $(p_throw IllegalOperationSyntax "Cannot pass parameters to add~assign [1]") } 
                 $n = "1"
                 $res = p_foo add_assign $cast':'$name':'$n
             } # add~assign [1]
             "+=" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator add~assign [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator add~assign [n]") } 
                 $res = p_foo add_assign $cast':'$name':'$para 
             } # add~assign [n] 
             "-" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator minus [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator minus [n]") } 
                 $res = p_foo minus $cast':'$name':'$para 
             } # minus [n]
             "--" {
-                if ($null -ne $para) { return p_throw IllegalOperationSyntax "Cannot pass parameters to minus~assign [1]" } 
+                if ($null -ne $para) { return ___return $(p_throw IllegalOperationSyntax "Cannot pass parameters to minus~assign [1]") } 
                 $n = "1"
                 $res = p_foo minus_assign $cast':'$name':'$n 
             } # minus~assign [1]
             "-=" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator minus_assign [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator minus_assign [n]") } 
                 $res = p_foo minus_assign $cast':'$name':'$para 
             } # minus~assign [n]
             "*" {
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator multiply [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator multiply [n]") } 
                 $res = p_foo multiply $cast':'$name':'$para 
             } # multiply [n]
             "**" {
-                if ($null -ne $para) { return p_throw IllegalOperationSyntax "Cannot pass parameters to multiply~assign [x]" }
+                if ($null -ne $para) { return ___return $(p_throw IllegalOperationSyntax "Cannot pass parameters to multiply~assign [x]") }
                 $res = p_foo multiply_assign $cast':'$name':'$v_
             } # multiply~assign [x]
             "*=" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator multiply-assign [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator multiply-assign [n]") } 
                 $res = p_foo multiply_assign $cast':'$name':'$para 
             } # multiply-assign [n]
             "/" {
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator divide [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator divide [n]") } 
                 $res = p_foo divide $cast':'$name':'$para 
             } # divide [n]
             "/=" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator divide~assign [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator divide~assign [n]") } 
                 $res = p_foo divide_assign $cast':'$name':'$para 
             } # divide~assign [n]
             "//" {
-                if ($null -ne $para) { return p_throw IllegalOperationSyntax "Cannot pass parameters to divide~assign [x]" } 
+                if ($null -ne $para) { return ___return $(p_throw IllegalOperationSyntax "Cannot pass parameters to divide~assign [x]") } 
                 $res = p_foo divide_assign $cast':'$name':'$val
             } # divide~assign [x] (assigns to 1)
             "^" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator exponentiate [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator exponentiate [n]") } 
                 $res = p_foo exponentiate $cast':'$name':'$para 
             } # exponentiate [n]
             "^=" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator exponentiate~assign [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator exponentiate~assign [n]") } 
                 $res = p_foo exponentiate_assign $cast':'$name':'$para 
             } # exponentiate~assign [n]
             "^^" { 
-                if ($null -ne $para) { return p_throw IllegalOperationSyntax "Cannot pass parameters to exponentiate~assign [x]" }
+                if ($null -ne $para) { return ___return $(p_throw IllegalOperationSyntax "Cannot pass parameters to exponentiate~assign [x]") }
                 $res = p_foo exponentiate_assign $cast':'$name':'$v_ 
             } # exponentiate~assign [x]
             "==" {
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator compare~equal [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator compare~equal [n]") } 
                 $res = $v_ -eq $para
             } # compare~equal [n]
             "!=" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator compare~equal~not [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator compare~equal~not [n]") } 
                 $res = $v_ -ne $para
             } # compare~equal~not [n]
             "~=" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator compare~match [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator compare~match [n]") } 
                 $res = $v_ -match $para
             } # compare~match [n]
             "!~" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator compare~match~not [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator compare~match~not [n]") } 
                 $res = $v_ -notmatch $para
             } # compare~match~not [n]
             "~>" { 
-                if ($null -eq $para) { return p_throw IllegalOperationSyntax "Expected argument for operator compare~match~get [n]" } 
+                if ($null -eq $para) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator compare~match~get [n]") } 
                 $res = __match $v_ $para -getMatch
             } # compare~match~get [n]
             "?" { 
-                if ($null -ne $para) { return p_throw IllegalOperationSyntax "Cannot pass parameters to compare~true [x]" } 
+                if ($null -ne $para) { return ___return $(p_throw IllegalOperationSyntax "Cannot pass parameters to compare~true [x]") } 
                 $res = $v_ -eq "True"
             } # compare~true [x]
             "!?" { 
-                if ($null -ne $para) { return p_throw IllegalOperationSyntax "Cannot pass parameters to compare~not~true [x]" } 
+                if ($null -ne $para) { return ___return $(p_throw IllegalOperationSyntax "Cannot pass parameters to compare~not~true [x]") } 
                 $res = ($null -eq $v_) -or ($v_ -eq "False")
             } # compare~not~true [x]
             "->|" { 
-                if ($null -eq $name) { return p_throw IllegalOperationSyntax "Expected argument for operator push [n]" } 
+                if ($null -eq $name) { return ___return $(p_throw IllegalOperationSyntax "Expected argument for operator push [n]") } 
                 $res = Set-Scope $name
             } # push [n]
         }
-        return $res
+        return ___return $res
     }
   
 
