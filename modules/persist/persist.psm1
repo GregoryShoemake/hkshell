@@ -253,22 +253,24 @@ function p_compareVar ([string]$line, [string]$compare) {
 }
 
 function p_getVal ($line, [switch]$array) {
-    p_debug_function p_getVal darkyellow
+    ___start p_getVal
+    ___debug "initial:line:$line"
+    ___debug "switch:array:$array"
     $d = -1
+    ___debug "walking back from end of line"
     $l = $line.length
     $val = ""
-    if ($Null -eq $line) { return $null }
+    if ($Null -eq $line) { return ___return $null }
     for ($i = $l - 1; __between $i -1 $l; $i += $d) {
         if ($d -eq 1) {
             $val += $line[$i]
         }
-        elseif ($line[$i] -eq "=") { $d = 1 }
+        elseif ($line[$i] -eq "=") { $d = 1; ___debug "start of value reached, recording forward" }
     }
-    p_debug "val: $val" darkGray
     if($array){
-        return $val -split ":"
+        return ___return $($val -split ":")
     }
-    return $val
+    return ___return $val
 }
 
 function p_getLine ($content, $var) {
@@ -505,25 +507,29 @@ function p_foo_writeDate ($parameters) {
 }
 
 function Get-Scope ([string]$scope, [switch]$exists) {
+    ___start Get-Scope
+    ___debug "initial:scope:$scope"
+    ___debug "switch:exists:$exists"
     $s_ = $global:scopes
     if($s_ -isnot [System.Array]) { $s_ = $s_ -split "`n" }
+    ___debug "scopes:$s_"
     if($scope -eq "") {
-        return $global:scopes
+        return ___return $global:scopes
     }
     foreach ($s in $global:scopes) {
         if($s -match "^$scope") {
             if($exists) {
-                return $true       
+                return ___return $true       
             } else {
-                return $s
+                return ___return $s
             }
         }
     }
     if($exists) {
-        return $false
+        return ___return $false
     }
     else {
-        return $null
+        return ___return $null
     }
 }
 
@@ -604,15 +610,19 @@ function p_network_wrapper {
 }
 New-Alias -Name Use-Network -Value p_network_wrapper -Scope Global -Force
 function p_scope_wrapper {
+    ___start p_scope_wrapper
+    ___debug "args:$args"
     $wrapper = $args[0]
+    ___debug "scope:$wrapper"
     $argz = __truncate $args -FromStart 1
     if(Get-Scope $wrapper -Exists) {
         $scope_bak = ("$SCOPE" -split "::")[0]
         Invoke-Persist -> $wrapper
         $res = Invoke-Expression "$argz"
         Invoke-Persist -> $scope_bak
-        return $res
+        return ___return $res
     }
+    ___end
 }
 New-Alias -Name Use-Scope -Value p_scope_wrapper -Scope Global -Force -ErrorAction SilentlyContinue
 function Set-PersistContent ($params) {
@@ -2052,9 +2062,9 @@ Atypic, your friendly hipster coder master.
 
     ___debug "cast:$cast"
     ___debug "name:$name"
-    ___debug "operator:$operator"
-    ___debug "parameter:$parameter"
-    ___debug "index:$index"
+    ___debug "operator:$oper"
+    ___debug "parameter:$para"
+    ___debug "index:$inde"
 
 
 

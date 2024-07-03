@@ -308,10 +308,10 @@ function __truncate {
     if ($null -ne $indexAndDepth) {
         $middleStart = $indexAndDepth[0]
         $middleEnd = $indexAndDepth[0] + $indexAndDepth[1] - 1
-        $middle = $middleStart..$middleEnd
+        $middleVoid = $middleStart..$middleEnd
     }
     for ($i = 0; $i -lt $array.Length; $i ++) {
-        if (($i -gt $fromStart) -and !(__int_equal $i $middle ) -and ($i -lt $fromEnd)) {
+        if (($i -gt $fromStart) -and ($middleVoid -notcontains $i) -and ($i -lt $fromEnd)) {
             $res += $array[$i]
         }
     }
