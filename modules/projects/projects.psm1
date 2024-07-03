@@ -372,10 +372,20 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
 }
 New-Alias -name igit -Value Invoke-Git -Scope Global -Force
 
-function Start-Edit ($item,[switch]$find, [switch]$quick, [switch]$last) {
+function Start-Edit ($item,[switch]$find, [switch]$quick, [switch]$last, [switch]$leftSplit, [switch]$rightSplit) {
     ___start Start-Edit
     ___debug "item:$item"
     ___debug "last:$last"
+    ___debug "initial:leftSplit:$leftSplit"
+    ___debug "initial:rightSplit:$rightSplit"
+
+    if($leftSplit) {
+        $pop = $true
+        Push-Location $global:LeftSplitPWD
+    } elseif ($rightSplit) {
+        $pop = $true
+        Push-Location $global:RightSplitPWD
+    }
 
     if($find) {
 	$path = Get-ChildItem "$pwd" -Recurse | Where-Object { !$_.PsIsContainer -and $_.name -match $item }
@@ -418,6 +428,10 @@ function Start-Edit ($item,[switch]$find, [switch]$quick, [switch]$last) {
         if($path -notmatch "([a-zA-Z]:/|//.+?/|^/)") { $p = "$(Get-Location)/$path" } else { $p = $path }
 
 	$global:_last_edit_ = $p
+    }
+
+    if($pop) {
+        Pop-Location
     }
 
     Invoke-Expression "$global:editor $path"

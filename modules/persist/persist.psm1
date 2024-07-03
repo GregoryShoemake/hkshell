@@ -553,14 +553,14 @@ function Invoke-PullWrapper {
     Invoke-Pull
     $a_ = $args -join " "
     if ($global:_debug_) { Write-Host "pull => args: $a_" -ForegroundColor Green }
-    if (p_nullemptystr $a_) { return }
+    if (__nullemptystr $a_) { return }
     return Invoke-Expression $a_
 }
 
 function Invoke-PushWrapper {
     $a_ = $args -join " "
     if ($global:_debug_) { Write-Host "push => args: $a_" -ForegroundColor Green }
-    if (p_nullemptystr $a_) {
+    if (__nullemptystr $a_) {
         Invoke-Push
         return 
     }
@@ -912,7 +912,7 @@ function p_foo ($name, $params) {
             $v_a = p_getVal $l_ -Array
             $v_a[$split[1]] = $split[2]
             $v_a = $v_a -join ":"
-            if(p_nullemptystr $v_a){
+            if(__nullemptystr $v_a){
                 Write-Host "!_Value cannot be null_____!`n`n$_`n" -ForegroundColor Red
                 return
             }
@@ -929,7 +929,7 @@ function p_foo ($name, $params) {
             p_debug "i_b:$i_b"
             $b = $split[1] -replace "\[[0-9]+]",""
             p_debug "b:$b"
-            if(p_nullemptystr @($a,$i_a,$b,$i_b)){
+            if(__nullemptystr @($a,$i_a,$b,$i_b)){
                 Write-Host "!_Invalid parameters: $params :_____!`n`n$_`n" -ForegroundColor Red
                 return
             }
