@@ -163,7 +163,7 @@ function __prolix ($message, $messageColor) {
     Write-Host $message -ForegroundColor $messageColor
 }
 
-function __choice ($prompt) {
+function __choice ([string]$prompt = "yes or no?") {
     ___start __choice
     ___debug "prompt:$prompt"
     while((Read-Host $prompt) -notmatch "^(y|Y|yes|Yes|YES|n|N|no|No|NO)$") {
