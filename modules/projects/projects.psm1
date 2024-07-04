@@ -153,6 +153,7 @@ function Start-Project ($name) {
 	    $prj_cfg_path = "$global:projectsPath/$name/project.cfg"
 	    if(!(Test-Path $prj_cfg_path)) { return New-Project $name }
             $global:project = Invoke-Expression (Get-Content "$global:projectsPath/$name/project.cfg")
+            $global:project.LastedUpdated = "$(Get-Date)"
             Invoke-PushWrapper Invoke-Persist default>_project:$name; 
             if($null -eq $subName) {
                 $ENV:PATH += ";$($_.fullname)"
@@ -218,6 +219,7 @@ No project is currently loaded
     $name = $project.Name
     Set-Location $(Get-Path $global:project.Path)
     $global:project.GitExitAction = __default $global:project.GitExitAction "prompt"
+    $global:project.LastedUpdated = "$(Get-Date)"
     Set-Content -Path $(Get-Item "$global:projectsPath/$name/project.cfg" -Force).FullName -Value "$(Format-ProjectConfigurationString)"
     git diff
     switch ($global:project.GitExitAction) {
