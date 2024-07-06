@@ -422,7 +422,7 @@ function __match {
         [Parameter()]
         [string]$logic = "OR",
         [Parameter()]
-        [int]$index = 0
+        $index = 0
     )
     ___start __match
     ___debug "string:$string"
@@ -454,6 +454,9 @@ function __match {
     $found = $string -match $regex
     if ($found) {
         if ($getMatch) {
+            if($index -eq "all") {
+                return ___return $Matches
+            }
             return ___return $($Matches[$index])
         }
         return ___return $($logic -ne "NOT")
