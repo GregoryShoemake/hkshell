@@ -52,6 +52,68 @@ function New-Tunnel ($targetDirectory){
     ___end
 }
 
+function Invoke-NewDir ($path, [switch]$passthru, $left, $right) {
+    ___start Invoke-NewDir
+    ___debug "initial:path:$path"
+    ___debug "switch:passthru:$passthru"
+
+    if($null -ne $left) {
+        $pop = $true
+        Push-Location $global:LeftSplitPWD
+    } elseif ($null -ne $right) {
+        $pop = $false
+        Push-Location $global:RightSplitPWD
+    }
+
+    $path = Get-Path $path
+    ___debug "path:$path"
+    if(Test-Path $path) {
+    } else {
+        mkdir $path
+    }
+
+    if($pop){
+        Pop-Location
+    }
+
+    if($passthru){
+        return ___return $(Get-Item $path -Force)
+    }
+    ___end
+}
+
+function Invoke-NewItem ($path, [switch]$passthru, $left, $right) {
+    ___start Invoke-NewItem
+    ___debug "initial:path:$path"
+    ___debug "switch:passthru:$passthru"
+
+    if($null -ne $left) {
+        $pop = $true
+        Push-Location $global:LeftSplitPWD
+    } elseif ($null -ne $right) {
+        $pop = $false
+        Push-Location $global:RightSplitPWD
+    }
+
+    $path = Get-Path $path
+    ___debug "path:$path"
+    $parent = Split-Path $path
+    if(Test-Path $parent) {} else {
+        mkdir $parent
+    }
+
+    $res = New-Item $path -Force -ItemType File
+
+    if($pop){
+        Pop-Location
+    }
+
+    if($passthru){
+        return ___return $res
+    }
+    ___end
+}
+
 function m_copy ($path, $destination, [switch] $mirror, [switch] $passthru, [switch]$help) {
     
     ___start m_copy 
