@@ -2079,7 +2079,7 @@ Atypic, your friendly hipster coder master.
         ___debug "content | p_getLine $name | p_getVal" 
         $l_ = p_getLine $global:c_ $name
         $v_ = p_getVal $l_
-        if ($($null -eq $oper) -and $($null -eq $para) -and $($null -eq $cast) -and $($null -eq $index)) {
+        if ($($null -eq $oper) -and $($null -eq $para) -and $($null -eq $cast) -and $($null -eq $inde)) {
             $cast = p_getCast $l_
             if ($null -eq $cast) {
                 return ___return $v_
