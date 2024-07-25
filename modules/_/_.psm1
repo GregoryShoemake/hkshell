@@ -465,3 +465,11 @@ function __match {
     if ($getMatch) { return ___return $null }
     return ___return $false
 }
+
+function __isLinux {
+    return Test-Path '/home'
+}
+
+function __isWindows {
+    return Test-Path 'C:\'
+}

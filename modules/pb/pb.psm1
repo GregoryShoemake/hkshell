@@ -71,12 +71,16 @@ function Send-PushbulletSMS ([string]$message = "testing...", $contact) {
     if (($null -ne $contactNumber) -and ($contactNumber -match "(\+)?(\()?[0-9]{3}(\)|\-)?[0-9]{3}(\-)?[0-9]{4}")) {
         pb_debug "Sending message to contact: $contact" Blue 
         pb_debug "    \ Message contents: $message" 
+        
         pb sms -d 0 -n $contactNumber $message
 
         Invoke-PushWrapper Invoke-Persist _>_lastRecipient=.$contact
     }
     persist -> $SCOPEbak
 } 
+
+
+
 New-Alias -Name text -Value Send-PushbulletSMS
 function pb_log {
     [CmdletBinding()]

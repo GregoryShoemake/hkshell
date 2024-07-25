@@ -12,9 +12,9 @@ param (
 #These functions allow this module to be completely independent of other modules, but still have 
 #the legibility desired
 
-$global:userRoot = if($IsWindows) {
+$global:userRoot = if(__isWindows) {
     "C:/Users/$ENV:USERNAME"
-} elseif($IsLinux) {
+} elseif(__isLinux) {
     "/home/$(whoami)"
 }
 
@@ -81,9 +81,9 @@ function p_hash_to_string {
 }
 
 function p_elevated { 
-    if($IsLinux) {
+    if(__isLinux) {
 	return "$(whoami)" -eq "root"
-    } elseif ($IsWindows) {
+    } elseif (__isWindows) {
 	return (new-object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator) 
     }
 }
@@ -318,9 +318,9 @@ $global:p_error_action = "Continue"
 $global:SCOPES_PATH = "$userDir/persist.scopes.conf"
 $global:INSTANCE_PATH = "$global:_persist_module_location/persist.cfg"
 $global:INSTANCE_SCOPE = "INSTANCE::$global:INSTANCE_PATH"
-$global:HOST_PERSIST_PATH = if($IsWindows) {
+$global:HOST_PERSIST_PATH = if(__isWindows) {
     "C:/Windows/System32/WindowsPowerShell/v1.0"
-} elseif($IsLinux) {
+} elseif(__isLinux) {
     "/root/powershell/hkshell"
 }
 
