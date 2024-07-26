@@ -449,7 +449,7 @@ write-host "│ INDEX │  TYPE   │     LAST WRITE TIME     │  NAME" -Foregr
             $index = n_pad $(if($null -eq $item) { "" } else {"[$index]"}) 7 " "
             $type = n_pad $(if($null -eq $item) { "" } elseif( $isReg ){ "[reg]" }elseif($isSym) { if($isDir) {"[tun]"} else {"[link]"} }elseif($isDir){"[dir]"}else{"[file]"}) 9 " "
             $lastWrite = n_pad "$($item.lastwritetime)" 25 " " 
-            $name = $item.name
+            $name = if($columns -eq 4 -and $isDir) { "$("/" + $item.name)" + "/" } else { $item.name }
             if($isSym) {
                 $name += " -> $resolved"
             } elseif($isReg){
