@@ -31,7 +31,7 @@ function pb_debug_return {
 }
 
 function Get-Devices ($apiKey) {
-    if($null -eq $apiKey) { $apiKey = persist pushBulletAPIKey }
+    if($null -eq $apiKey) { $apiKey = Use-Scope Contacts Get-PersistentVariable pushBulletAPIKey }
     if($null -eq $apiKey) { Write-Host "No API Key" -ForegroundColor Red; return }
     $res = https "GET /v2/devices" "api.pushbullet.com" "Access-Token: $apiKey"
     $jsonString = __match $res "{.+}" -g
@@ -51,6 +51,7 @@ function Send-PushbulletSMS ([string]$message = "testing...", $contact) {
         Write-Host "Contact is null" -ForegroundColor Yellow
         return
     }
+    $target = Use-Scope Contacts Get-PersistentVariable Default>myPhone:$(Read-Host "`n`n$(Get-Devices)`n`nInput GUID:")
     if ($contact -is [System.Array]) {
         foreach ($c in $contact) {
             Send-PushbulletSMS $c $message
@@ -72,8 +73,26 @@ function Send-PushbulletSMS ([string]$message = "testing...", $contact) {
         pb_debug "Sending message to contact: $contact" Blue 
         pb_debug "    \ Message contents: $message" 
         
-        pb sms -d 0 -n $contactNumber $message
+        $headers = @{
+            "Access-Token" = "$(Use-Scope Contacts Get-PersistentVariable pushBulletAPIKey)"
+            "Content-Type" = "application/json"
+        }
 
+        $body = @{
+            data = @{
+                addresses = @($contactNumber)
+                guid = "$(Get-FileHash -InputStream $([IO.MemoryStream]::new([byte[]][char[]]$message)) -Algorithm SHA256 | Select-Object -ExpandProperty Hash)"
+                message = $message
+                target_device_iden = $target
+            }
+        } | ConvertTo-Json
+
+        $url = "https://api.pushbullet.com/v2/texts"
+
+        $response = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body
+
+        ___debug "response:$response"
+        
         Invoke-PushWrapper Invoke-Persist _>_lastRecipient=.$contact
     }
     persist -> $SCOPEbak
