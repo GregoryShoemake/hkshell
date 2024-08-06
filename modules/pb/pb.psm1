@@ -39,19 +39,23 @@ function Get-Devices ($apiKey) {
     return $json.devices
 }
 function Send-PushbulletSMS ([string]$message = "testing...", $contact) {
-    $SCOPEbak = ($global:SCOPE -split "::")[0]
-    persist -> contacts
+    Invoke-PushScope Contacts
+
     pb_debug_function Send-PushbulletSMS DarkCyan
     pb_debug "Contact: $contact" DarkGray
     pb_debug "Message: $message" DarkGray
     if($null -eq $contact) {
-        $contact = Use-Scope contacts Get-PersistentVariable lastRecipient
+        $contact = Get-PersistentVariable lastRecipient
     }
     if($null -eq $contact) {
         Write-Host "Contact is null" -ForegroundColor Yellow
         return
     }
-    $target = Use-Scope Contacts Get-PersistentVariable Default>myPhone:$(Read-Host "`n`n$(Get-Devices)`n`nInput GUID:")
+    $target = Get-PersistentVariable myPhone
+    if($null -eq $target) {
+        Write-Host "`n$(Get-Devices)`n"
+        $target = Get-PersistentVariable Default>_ myPhone:$(Read-Host "`nInput GUID:")
+    }
     if ($contact -is [System.Array]) {
         foreach ($c in $contact) {
             Send-PushbulletSMS $c $message
@@ -95,7 +99,7 @@ function Send-PushbulletSMS ([string]$message = "testing...", $contact) {
         
         Invoke-PushWrapper Invoke-Persist _>_lastRecipient=.$contact
     }
-    persist -> $SCOPEbak
+    Invoke-PopScope
 } 
 
 
@@ -131,8 +135,13 @@ function pb_log {
 }
 
 function Get-Text ($who,$expand) {
-    pb_debug "Currently this function only supports returning the last text of the thread. Trying to resolve this issue."
-    persist -> contacts
+    ___start Get-Text
+
+    ___debug "initial:who:$who"
+    ___debug "initial:expand:$expand"
+
+    ___debug "Currently this function only supports returning the last text of the thread. Trying to resolve this issue."
+    Invoke-PushScope Contacts
     $apiKey = persist pushBulletApiKey
     
     while($null -eq $apiKey) {
@@ -163,39 +172,104 @@ function Get-Text ($who,$expand) {
     }
     if($push) { pushw; $push = $false }
     $res = https "GET /v2/permanents/$($deviceID)_threads" "api.pushbullet.com" "Access-Token: $apiKey"
+    ___debug "res:$res"
     $jsonString = __match $res "{.+}" -g
+    ___debug "jsonString:$jsonString"
     try {
         $json = (ConvertFrom-Json $jsonString -ErrorAction Stop )
+        ___debug "json:$json"
+        if($json.encrypted) {
+            return ___return "$(Invoke-Decrypt $json.ciphertext)"
+        }
     }
     catch {
-        return $res
+        return ___return $res
     }
     try {
         $threads = $json.threads 
+        ___debug "threads:$threads"
     }
     catch {
-        return $json
+        return ___return $json
     }
     if($null -ne $who){
         $thread = $threads | Foreach-Object {
-            if($_.recipients.count -gt 1){return}
-            if($_.recipients[0] -match $who){return $_}
+            if($_.recipients.count -gt 1){ return }
+            if($_.recipients[0] -match $who){ return $_ }
         }
         if($null -eq $thread){
             Write-Host "No thread was found for $who. Returning all message threads"
-            return $threads
+            return ___return $threads
         }
         elseif($thread -is [System.Array]){}
         else {
             switch ($expand) {
-                {$_ -match "^b$|^body$"} { return $thread.latest.body }
-                Default {return $thread.latest}
+                {$_ -match "^b$|^body$"} { return ___return "$($thread.latest.body)" }
+                Default {return ___return "$($thread.latest)"}
             }
         }
     } else {
-        return $threads
+        return ___return $threads
     }
+    ___end
 }
+
+function Invoke-Decrypt {
+    param (
+        $message
+    )
+    Invoke-PushScope Contacts
+    $message = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($message))
+    $key = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("$(Get-PersistentVariable pushBulletEncryptionKey)"))
+
+    $version = $message.Substring(0,1)
+    if($version -ne "1") {
+        Write-Host "!_Invalid Version:$($version)____!`n`n$_`n" -ForegroundColor Red
+        return
+    }
+    $iv = $message.Substring(17,12)
+    $iv = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($iv))
+    $encrypted = $message.Substring(29)
+    $encrypted = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($encrypted))
+
+    return Start-DecryptPushbulletMessage $encrypted $key $iv
+}
+
+function Start-DecryptPushbulletMessage {
+    param (
+        [string]$encryptedMessage,
+        [string]$aesKey,
+        [string]$iv
+    )
+
+    # Convert key and IV from Base64 to byte array
+    $keyBytes = [Convert]::FromBase64String($aesKey)
+    $ivBytes = [Convert]::FromBase64String($iv)
+
+    # Convert encrypted message from Base64 to byte array
+    $encryptedBytes = [Convert]::FromBase64String($encryptedMessage)
+
+    # Create AES decryptor
+    $aes = [System.Security.Cryptography.Aes]::Create()
+    $aes.Key = $keyBytes
+    $aes.IV = $ivBytes
+
+    $decryptor = $aes.CreateDecryptor($aes.Key, $aes.IV)
+
+    # Decrypt the message
+    $memoryStream = New-Object System.IO.MemoryStream
+    $cryptoStream = New-Object System.Security.Cryptography.CryptoStream($memoryStream, $decryptor, [System.Security.Cryptography.CryptoStreamMode]::Write)
+    $cryptoStream.Write($encryptedBytes, 0, $encryptedBytes.Length)
+    $cryptoStream.FlushFinalBlock()
+
+    # Get the decrypted message
+    $decryptedBytes = $memoryStream.ToArray()
+    $cryptoStream.Close()
+    $memoryStream.Close()
+
+    return [System.Text.Encoding]::UTF8.GetString($decryptedBytes)
+}
+
 function Watch-Thread ($who,[switch]$skipSent,[int]$frequency = 750,[switch]$clear) {
     if( $clear ){ Clear-Host }
     $frequency = [Math]::Max(750,$frequency)

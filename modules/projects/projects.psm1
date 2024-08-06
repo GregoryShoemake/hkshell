@@ -215,7 +215,7 @@ No project is currently loaded
 " -ForegroundColor Yellow
         return
     }
-    $Script:projectLoop | Stop-Process
+    Use-Scope Instance Invoke-Persist [boolean] EndProject = True
     $name = $project.Name
     Set-Location $(Get-Path $global:project.Path)
     $global:project.GitExitAction = __default $global:project.GitExitAction "prompt"

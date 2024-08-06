@@ -196,6 +196,7 @@ function Start-Backup {
         $items = Get-Content "$userDir/backup.items.conf"
         ___debug "ITEMS\\`n$items`n    \\ITEMS\\" Blue
         foreach ($i in $items) {
+            if($i.StartsWith("#")) { continue }
             $i = Get-Path $i
             if(Test-Path $i) {
                 if($log) {
