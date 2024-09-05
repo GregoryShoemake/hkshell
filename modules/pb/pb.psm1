@@ -38,6 +38,40 @@ function Get-Devices ($apiKey) {
     $json = (ConvertFrom-Json $jsonString)
     return $json.devices
 }
+
+function New-PushBulletPush ([string]$message = "testing...") {
+
+    ___start New-PushBulletPush 
+
+    ___debug "initial:message:$message"
+        
+    $headers = @{
+        "Access-Token" = "$(Use-Scope Contacts Get-PersistentVariable pushBulletAPIKey)"
+        "Content-Type" = "application/json"
+    }
+
+    ___debug "headers:$headers"    
+
+    $data = @{
+        body = "$message"
+        title  = 'Push from Clank'
+        type = 'note'
+    } | ConvertTo-Json
+
+    ___debug "body:$body"    
+
+    $url = "https://api.pushbullet.com/v2/pushes"
+
+    ___debug "url:$url"    
+
+    $response = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $data
+
+    ___debug "response:$response"
+    ___end
+} 
+
+New-Alias -Name pbp -Value New-PushBulletPush -Scope Global -Force
+
 function Send-PushbulletSMS ([string]$message = "testing...", $contact) {
     Invoke-PushScope Contacts
 

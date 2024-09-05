@@ -59,6 +59,15 @@ function q_convert_bytes_string ($bytes) {
     return "$bytes bytes"
 }
 
+function Get-Resolution ([switch] $hashtable) {
+    $res = Get-CimInstance CIM_VideoController | Where-Object { $_.CurrentHorizontalResolution } | Select-Object SystemName, CurrentHorizontalResolution, CurrentVerticalResolution | Foreach-Object { return @($_.CurrentHorizontalResolution, $_.CurrentVerticalResolution) }
+    if($hashtable){
+        return @{HorizontalResolution = $res[0]; VerticalResolution = $res[1] }
+    } else {
+        return $res
+    }
+}
+
 function Get-DirectorySum {
     [CmdletBinding()]
     param (

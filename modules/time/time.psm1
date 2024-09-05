@@ -1,9 +1,10 @@
-$global:millisecond = 1
-$global:second = $global:millisecond * 1000
-$global:minute = $global:second * 60
-$global:hour = $global:minute * 60
-$global:day = $global:hour * 24
-$global:week = $global:day * 7
+Set-Variable -Name Millisecond -Value 1 -Force -Scope Global -Option Constant
+Set-Variable -Name Second -Value $($Millisecond * 1000) -Force -Scope Global -Option Constant
+Set-Variable -Name Minute -Value $($Second * 60) -Force -Scope Global -Option Constant
+Set-Variable -Name Hour -Value $($Minute * 60) -Force -Scope Global -Option Constant
+Set-Variable -Name Day -Value $($Hour * 24) -Force -Scope Global -Option Constant
+Set-Variable -Name Week -Value $($Day * 7) -Force -Scope Global -Option Constant
+
 
 function t_debug ($message, $messageColor, $meta) {
     if (!$global:_debug_) { return }
@@ -20,6 +21,26 @@ function t_debug_function ($function, $functionColor, $meta) {
     if ($null -ne $meta) {
         write-Host -NoNewline " $meta " -ForegroundColor Yellow
     }
+}
+
+function Convert-EpochMillisToDate {
+    param (
+        [Parameter()]
+        [long]$EpochMillis = -1
+    )
+
+    if($EpochMillis -eq -1) {
+        $EpochMillis = Get-Clipboard
+    }
+
+    # Define the Unix epoch start time
+    $epochStart = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0 -Millisecond 0 -AsUTC
+
+    # Add the milliseconds to the epoch start time
+    $date = $epochStart.AddMilliseconds($EpochMillis)
+
+    # Convert to local time if needed
+    return $date.ToLocalTime().AddHours(-8)
 }
 
 function ConvertTo-TimeInterval ($quantity = 0, [string]$from = "milliseconds") {

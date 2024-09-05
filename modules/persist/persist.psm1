@@ -31,7 +31,7 @@ function p_debug ($message, $messageColor, $meta) {
     if ($null -eq $messageColor) { $messageColor = "DarkYellow" }
     Write-Host "    \\ $message" -ForegroundColor $messageColor
     if ($null -ne $meta) {
-        write-Host -NoNewline " #$meta# " -ForegroundColor Yellow
+        write-Host -NoNewline  " #$meta " -ForegroundColor Yellow
     }
 }
 function p_debug_function ($function, $messageColor, $meta) {
@@ -39,7 +39,7 @@ function p_debug_function ($function, $messageColor, $meta) {
     if ($null -eq $messageColor) { $messageColor = "Yellow" }
     Write-Host ">_ $function" -ForegroundColor $messageColor
     if ($null -ne $meta) {
-        write-Host -NoNewline " #$meta# " -ForegroundColor Yellow
+        write-Host -NoNewline " #$meta " -ForegroundColor Yellow
     }
 }
 function p_debug_return {
@@ -625,6 +625,7 @@ function p_scope_wrapper {
     ___end
 }
 New-Alias -Name Use-Scope -Value p_scope_wrapper -Scope Global -Force -ErrorAction SilentlyContinue
+
 function Set-PersistContent ($params) {
     p_debug_function "Set-PersistContent"
     $cast = $params.Cast
@@ -767,21 +768,6 @@ function p_exponentiate {
     $res = [Math]::Pow($val, $n)
     p_debug "original value: $val | exponent: $n | result:$res | cast:$cast" DarkGray
     if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
-}
-
-function eep ($set) {
-    if ($set -eq "stop") {
-        $global:ErrorActionPreference = "Stop" 
-    }
-    elseif ($set -eq "go") {
-        $global:ErrorActionPreference = "Continue"
-    }
-    elseif ($ErrorActionPreference -eq "Continue") {
-        $global:ErrorActionPreference = "Stop"
-    }
-    elseif ($ErrorActionPreference -eq "Stop") {
-        $global:ErrorActionPreference = "Continue"
-    }
 }
 
 function p_not_choice ($msg, $y, $n) {
