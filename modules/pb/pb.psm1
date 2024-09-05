@@ -54,9 +54,10 @@ function New-PushBulletPush ([string]$message = "testing...") {
 
     $data = @{
         body = "$message"
-        title  = 'Push from Clank'
         type = 'note'
     } | ConvertTo-Json
+
+    #title  = 'Push from Clank'
 
     ___debug "body:$body"    
 
