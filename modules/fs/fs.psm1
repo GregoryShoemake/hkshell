@@ -364,6 +364,37 @@ function Invoke-MoveItem ([string]$path, [int]$index = -1, [switch]$force, [swit
     ___end
 }
 
+function Invoke-LinkItem ([string]$path, [int]$index = -1, [switch]$force, [switch]$all, [switch] $removeItemFromClip) {
+    ___start Invoke-LinkItem
+    if ($all) {
+        $n = $clip.count
+        for ($i = $n - 1; $i -ge 1; $i--) {
+            Invoke-LinkItem -index $i -force:$force -removeItemFromClip:$removeItemFromClip -path $path
+        }
+        Invoke-LinkItem -index 0 -force:$force -removeItemFromClip:$removeItemFromClip -path $path
+        return ___return
+    }
+    if($index -eq -1) { $index = $global:clip.Count - 1 }
+    if($path -eq "") {
+        $path = "$pwd"
+    }
+    $path = Get-Path $path
+    New-Symlink $global:clip[$index] $path
+
+    if($removeItemFromClip){
+        if($global:clip.count -eq 1) {
+            $global:clip = $null
+            return ___return
+        }
+        if($global:clip.count -eq 2) {
+            $global:clip = @($global:clip[1-$index])
+            return ___return
+        }
+        $global:clip = __truncate -array $global:clip -indexAndDepth @($index, 1)
+    }
+    ___end
+}
+
 function Invoke-CopyItem ([string]$path, [int]$index = -1, [switch]$force, [switch]$all, [switch] $removeItemFromClip) {
     ___start Invoke-CopyItem
     if ($all) {

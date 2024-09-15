@@ -1398,17 +1398,17 @@ function p_parse_syntax ($a_) {
             if ($a -eq " ") { 
                 continue 
             }
-            elseif ($null -ne $operator -and (($operator -eq ">_") -or ($operator -eq "=."))) {
+            elseif ($null -ne $operator -and (($operator -eq ">_") -or ($operator -match "\.$"))) {
                 if ($operator -eq ">_") {
                     $recording = "COMMAND"
                     $parameters = $a
                     p_debug "recording [param] as command arguments" DarkGreen
                 }
-                if ($operator -eq "=.") {
+                if ($operator -match "\.") {
                     $recording = "STRING"
                     $parameters = $a
                     p_debug "recording [param] as string" DarkGreen
-                    $operator = "="
+                    $operator = $operator -replace "\.",""
                 }
             }
             elseif ($a -eq "[") {
