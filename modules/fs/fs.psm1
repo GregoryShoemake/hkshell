@@ -379,7 +379,7 @@ function Invoke-LinkItem ([string]$path, [int]$index = -1, [switch]$force, [swit
         $path = "$pwd"
     }
     $path = Get-Path $path
-    New-Symlink $global:clip[$index] $path
+    New-Symlink $global:clip[$index] "$path\$(Split-Path $global:clip[$index] -Leaf)"
 
     if($removeItemFromClip){
         if($global:clip.count -eq 1) {
