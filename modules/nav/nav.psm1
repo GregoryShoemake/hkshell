@@ -702,6 +702,10 @@ function Invoke-Go {
         $global:LeftSplitPWD = $null
         $in = "$PWD"
     }
+
+    if(($null -ne $global:LeftSplitPWD -or $null -ne $global:RightSplitPWD) -and (!$leftSplit -and !$rightSplit)) {
+        $LeftSplit = $true
+    }
     
     if($null -ne $LeftSplit) {
         if($null -ne $global:LeftSplitPWD) {
