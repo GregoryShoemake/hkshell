@@ -43,14 +43,6 @@ if ($null -eq $global:_projects_module_location ) {
 }
 pr_debug "Populating module PROJECTS global path variable ->
     global:_projects_module_location=$global:_projects_module_location"
-function __choice ($prompt) {
-    while((Read-Host $prompt) -notmatch "[Yy]([EeSs])?|[Nn]([Oo])?") {
-            $prompt = ""
-            Write-Host "Please input a [Y]es or [N]o answer" -ForegroundColor yellow
-        }
-    if($MATCHES[0] -match "[Yy]"){ return $true }
-    return $false
-}
 function __int_equal {
     [CmdletBinding()]
     param (

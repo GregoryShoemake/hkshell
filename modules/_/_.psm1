@@ -169,7 +169,7 @@ function __choice ([string]$prompt = "yes or no?") {
     while((Read-Host $prompt) -notmatch "^(y|Y|yes|Yes|YES|n|N|no|No|NO)$") {
             $prompt = "?"
             Write-Host "Please input a [Y]es or [N]o answer" -ForegroundColor yellow
-        }
+    }
     if($MATCHES[0] -match "[Yy]"){ return ___return $true }
     return ___return $false
 }
