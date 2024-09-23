@@ -160,11 +160,13 @@ function Start-Project ($name) {
                 pr_debug "adding project directory to env:path"
                 $ENV:PATH += ";$($_.fullname)/$subname"
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath/$name"}
+                ___debug "initial:startDir:$startDir"
                 if(!(Test-Path $startDir)) { $startDir = $global:project.Path }
+                ___debug "startDir:$startDir"
                 try {
                     Invoke-Go $startDir -ErrorAction Stop
                 } catch {
-                    Write-Host "pr_!!pr_Failed to enter project directorypr__`n`n$_`n" -ForegroundColor Red -BackgroundColor DarkGray
+                    Write-Host "!!Failed to enter project directory`n`n$_`n" -ForegroundColor Red -BackgroundColor DarkGray
                     return
                 }
             }

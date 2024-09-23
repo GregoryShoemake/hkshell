@@ -174,21 +174,21 @@ function __choice ([string]$prompt = "yes or no?") {
     return ___return $false
 }
 function __eq ($a_, $b_, $logic = "OR") {
-    ___start __eq
-    ___debug "a_:$a_"
-    ___debug "b_:$b_"
-    ___debug "logic:$logic"
+    #___start __eq
+    #___debug "a_:$a_"
+    #___debug "b_:$b_"
+    #___debug "logic:$logic"
     if ($b_ -is [System.Array]) {
         foreach ($b in $b_) {
 	    switch ($logic) {
-    	    	OR {  if ($a_ -eq $b) { return ___return $true } }
-		AND { if ($a_ -ne $b) { return ___return $false } }
+    	    	OR {  if ($a_ -eq $b) { return $true } }
+		AND { if ($a_ -ne $b) { return $false } }
 	    	Default {}
 	    }
         }
-        return ___return $($logic -eq "AND")
+        return $($logic -eq "AND")
     }
-    else { return ___return $($a_ -eq $b_) }
+    else { return $($a_ -eq $b_) }
 }
 function __nullemptystr ($nullable) {
     ___start __nullemptystr
@@ -233,12 +233,12 @@ function __is ($obj, $class) {
     return ___return $($obj -is [type](__replace $class @("\[", "]") ""))
 }
 function __between ($val, $min, $max) {
-    ___start __between
-    ___debug "initial:val:$val"
-    ___debug "initial:min:$min"
-    ___debug "initial:max:$max"
-    if ($val -lt $min) { return ___return $false }
-    return ___return $($val -lt $max)
+    #___start __between
+    #___debug "initial:val:$val"
+    #___debug "initial:min:$min"
+    #___debug "initial:max:$max"
+    if ($val -lt $min) { return $false }
+    return $($val -lt $max)
 }
 
 function __int_equal {
@@ -424,20 +424,22 @@ function __match {
         [Parameter()]
         $index = 0
     )
+    <#
     ___start __match
     ___debug "string:$string"
     ___debug "regex:$regex"
     ___debug "getMatch:$getMatch"
     ___debug "logic:$logic"
     ___debug "index:$index"
+    #>
 
     if ($null -eq $string) {
-        if ($getMatch) { return ___return $null }
-        return ___return $false
+        if ($getMatch) { return $null }
+        return $false
     }
     if ($null -eq $regex) {
-        if ($getMatch) { return ___return $null }
-        return ___return $false
+        if ($getMatch) { return $null }
+        return $false
     }
     if (($string -is [System.Array])) {
         $string = $string -join "`n"
@@ -445,25 +447,25 @@ function __match {
     if ($regex -is [System.Array]) {
         foreach ($r in $regex) {
             $f = __match $string $r
-            if (($logic -eq "OR") -and $f) { return ___return $true }
-            if (($logic -eq "AND") -and !$f) { return ___return $false }
-            if (($logic -eq "NOT") -and $f) { return ___return $false }
+            if (($logic -eq "OR") -and $f) { return $true }
+            if (($logic -eq "AND") -and !$f) { return $false }
+            if (($logic -eq "NOT") -and $f) { return $false }
         }
-        return ___return $(($logic -eq "AND") -or ($logic -eq "NOT"))
+        return $(($logic -eq "AND") -or ($logic -eq "NOT"))
     }
     $found = $string -match $regex
     if ($found) {
         if ($getMatch) {
             if($index -eq "all") {
-                return ___return $Matches
+                return $Matches
             }
-            return ___return $($Matches[$index])
+            return $($Matches[$index])
         }
-        return ___return $($logic -ne "NOT")
+        return $($logic -ne "NOT")
     }
-    if ($logic -eq "NOT") { return ___return $true }
-    if ($getMatch) { return ___return $null }
-    return ___return $false
+    if ($logic -eq "NOT") { return $true }
+    if ($getMatch) { return $null }
+    return $false
 }
 
 function __isLinux {

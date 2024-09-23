@@ -703,8 +703,8 @@ function Invoke-Go {
         $in = "$PWD"
     }
 
-    if(($null -ne $global:LeftSplitPWD -or $null -ne $global:RightSplitPWD) -and (!$leftSplit -and !$rightSplit)) {
-        $LeftSplit = $true
+    if(($null -ne $global:LeftSplitPWD -or $null -ne $global:RightSplitPWD) -and ($($null -eq $leftSplit) -and $($null -eq $rightSplit))) {
+        $LeftSplit = $global:LeftSplitPWD
     }
     
     if($null -ne $LeftSplit) {
@@ -733,7 +733,7 @@ function Invoke-Go {
 
     if($global:LeftSplitPWD -or $global:RightSplitPWD) {
         $items = @($(Get-ChildItem $global:LeftSplitPWD -Force), $(Get-ChildItem $global:RightSplitPWD -Force))
-        return Format-ChildItem $items
+        return ___return $(Format-ChildItem $items)
     }
 
     if($null -ne (Get-Module persist)) {
@@ -749,7 +749,8 @@ function Invoke-Go {
             $res = Get-ChildItem -Force -Recurse $(Get-Location) | Where-Object { $_.psiscontainer } | Where-Object { $_.name -match $Until }
         }
         if ($null -eq $res) {
-            Write-Host "Directory matching $Until not found" -ForegroundColor Yellow; return
+            Write-Host "Directory matching $Until not found" -ForegroundColor Yellow; 
+            return ___return
         }
         if ($res.Count -gt 1) {
             Write-Host "Multiple matches for $Until" -ForegroundColor Yellow
@@ -971,11 +972,11 @@ function Get-PathPipe {
         $pipe
     )
 
-    return Get-Path $pipe
+    return ___return $(Get-Path $pipe)
 }
 
 function ConvertTo-LixuxPathDelimiter ($path) {
-    return $($path -replace "\\","/")
+    return ___return $($path -replace "\\","/")
 }
 
 function Get-Path {
@@ -995,7 +996,9 @@ function Get-Path {
     ___debug "resolve:$resolve"
     ___debug "a_:$a_"
     
-    if($a_ -is [System.Array]) { return $a_ | ForEach-Object { return Get-Path $_ } }
+    if($a_ -is [System.Array]) { 
+        return ___return $($a_ | ForEach-Object { return Get-Path $_ }) 
+    }
     $l_ = "$(Get-Location)"
     switch ($a_) { 
 	{ Test-Path $_ } { 
