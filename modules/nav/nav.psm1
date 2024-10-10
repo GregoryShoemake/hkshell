@@ -925,35 +925,40 @@ function Invoke-Go {
 	    return ___return
 	}
 
-        if($in -match "([0-9]+)?([a-zA-Z]+)?"){
+        if($in -match "^([0-9]+|f)?([a-zA-Z]+)?"){ 
             if($in -match "^f$"){$in = 0} 
-	    elseif($in -match "[a-zA-Z]+"){
-		if($in -notmatch "[0-9]+") {
-		    Write-Host "!_Invalid target format!    Expected [0-9]+[a-zA-Z]+   Found: $in _____!`n`n$_`n" -ForegroundColor Red
-		    return ___return
-		}
-		$in_ = n_convert_index $(__match $in "[a-zA-Z]+" -Get)
-		$in = __match $in "[0-9]+" -Get
-	    }
+            elseif($in -match "[a-zA-Z]+"){ 
+                if($in -notmatch "[0-9]+|f") {
+                    Write-Host "!_Invalid target format!    Expected [0-9|f]+[a-zA-Z]+   Found: $in _____!`n`n$_`n" -ForegroundColor Red
+                    return ___return
+                }
+                $in_ = "$(__match $in "[a-zA-Z]+" -Get)"
+                if($in_.StartsWith('f') -and $in_.Length -gt 1) {
+                    $in_ = $in_.Substring(1)
+                    $f_ = $true
+                }
+                $in_ = n_convert_index $in_
+                if($f_) { $in = 0 } else { $in = __match $in "[0-9]+" -Get }
+            }
 
-            n_debug "Parsing index: $in"
-                
-	    $children = Get-ChildItem $(Get-Location) -Force | Where-Object { $_.PSIsContainer }
-	    $in = $([int]$in) 
-	    $cin = $children[$in]
-	    $path = if("$($cin.PsProvider)" -eq "Microsoft.PowerShell.Core\Registry") { $cin.name } else { $cin.FullName }
-	    $path = Get-Path $path
-	    if($null -ne $in_){
-		$dest = $(Get-ChildItem $path -Force -ErrorAction SilentlyContinue)[[int]$in_].FullName 
-	    } else {
-		$dest = $path
-	    }
-	    ___debug " -> $dest"
-	    Invoke-Go $dest -C:$C -A:$A -Tree:$Tree
-	    if($passthru) {
-		return ___return $passthru
-	    }
-	    return ___return
+                n_debug "Parsing index: $in"
+                    
+            $children = Get-ChildItem $(Get-Location) -Force | Where-Object { $_.PSIsContainer }
+            $in = $([int]$in) 
+            $cin = $children[$in]
+            $path = if("$($cin.PsProvider)" -eq "Microsoft.PowerShell.Core\Registry") { $cin.name } else { $cin.FullName }
+            $path = Get-Path $path
+            if($null -ne $in_){
+            $dest = $(Get-ChildItem $path -Force -ErrorAction SilentlyContinue)[[int]$in_].FullName 
+            } else {
+            $dest = $path
+            }
+            ___debug " -> $dest"
+            Invoke-Go $dest -C:$C -A:$A -Tree:$Tree
+            if($passthru) {
+            return ___return $passthru
+            }
+            return ___return
         }
 
 
