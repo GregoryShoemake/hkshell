@@ -90,7 +90,7 @@ function user_set_password ([string]$name, [securestring]$password) {
 function user_delete ([string]$name, [boolean]$force) {
     try {
         $ErrorActionPreference = "Stop"
-        if ($force -or (Yes "Delete User: $name ?")) {
+        if ($force -or (__choice "Delete User: $name ?")) {
             if ($PSVersionTable.PSVersion.Major -ge 3) {
                 Remove-LocalUser $name
             }
