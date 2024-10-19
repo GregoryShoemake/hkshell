@@ -1,4 +1,2 @@
-hkshell/powershell
-modules/persist/persist.cfg
-project.cfg
-project.ps1
+*.cfg
+*.ps1
