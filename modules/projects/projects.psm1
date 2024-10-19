@@ -389,7 +389,7 @@ function Start-Edit ($item,[switch]$find, [switch]$quick, [switch]$last, [switch
             if($quick) {
                 $path = $path[0]
             } else {
-                $path = $path[$(__choose_item $path)]            
+                $path = $path[$(__choose_item $path -property fullname -substringLeft)]            
             }
         }
         $path = Get-Path $path

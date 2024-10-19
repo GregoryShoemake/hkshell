@@ -83,7 +83,7 @@ function ___debug ([string]$message, [string]$color = "Cyan") {
 .GLOBAL FUNCTIONS
 #>
 
-function __pad ($string, $length, $padChar = " " ,[switch]$left) {
+function __pad ($string, $length, $padChar = " " ,[switch]$left, [switch]$substringLeft) {
     ___start __pad
     ___debug "string:$string"
     ___debug "length:$length"
@@ -95,16 +95,22 @@ function __pad ($string, $length, $padChar = " " ,[switch]$left) {
     foreach ($i in $(1..$diff)) { $pad += $padChar }
     ___debug "pad:$pad | pad length: $($pad.length)"
     if($left) { $string = $pad + $string } else { $string = $string + $pad }
-    $res = $string.substring(0,$length)
+    if($substringLeft) {
+        if($string.Length -gt $length) {
+            $res = $string.substring($($string.Length - $length), $length)
+        }
+    } else {
+        $res = $string.substring(0,$length)
+    }
     return ___return $res
 }
 
-function __choose_item ($items, $property = "name") {
+function __choose_item ($items, $property = "name", [switch]$substringLeft) {
     ___start __choise_item
     ___debug "items:$items"
     ___debug "property:$property"
     Write-Host "│  INDEX  │ ITEM" -ForegroundColor DarkGray
-    Write-Host "├─────────┼───────────────────────────────" -ForegroundColor DarkGray
+    Write-Host "├─────────┼───────────────────────────────────────────────────" -ForegroundColor DarkGray
     for ($i = 0; $i -lt $items.Count; $i++) {
         $item = $items[$i]
         ___debug "item:$item"
@@ -118,7 +124,7 @@ function __choose_item ($items, $property = "name") {
         Write-Host "│" -NoNewline -ForegroundColor DarkGray
         Write-Host "$(__pad "$index" 9)" -NoNewline
         Write-Host "│" -NoNewline -ForegroundColor DarkGray
-        Write-Host "$(__pad "$item" 30)"
+        Write-Host "$(__pad "$item" 50 -substringLeft:$substringLeft)"
     }
     $return = Read-Host "`n`n    Enter index of desired item"
     while($return -notmatch "(f|[0-9]+)") {
