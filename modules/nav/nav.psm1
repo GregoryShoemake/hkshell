@@ -78,8 +78,8 @@ function Test-IsSymLink ($InputObject) {
     ___start Test-IsSymLink
     if(__is $InputObject @("System.IO.FileInfo","System.IO.DirectoryInfo")) {
 	$input_PATH = $InputObject.FullName
-    } elseif($InputObject -isnot [string]) {
-	Write-Host "!_Expected type System.IO or string, Found: $($InputObject.GetType())_____!`n`n$_`n" -ForegroundColor Red
+    } elseif(!$(__is $InputObject  @([string],[int]))) {
+	Write-Host "!_Expected type System.IO or string or int, Found: $($InputObject.GetType())_____!`n`n$_`n" -ForegroundColor Red
 	return ___return
     } else {
 	$input_PATH = $InputObject
@@ -168,23 +168,27 @@ Function Get-RegistryKeyPropertiesAndValues
 } #end function Get-RegistryKeyPropertiesAndValues
 
 function n_write_virtual_dirs ([int]$columns = 1, $nameLength) {
+    ___start n_write_virtual_dirs
+    ___debug "init:columns:$columns"
+    ___debug "init:nameLength:$nameLength"
+
     try {
-	$last = Get-Item $global:history[$global:history.Count -1] -Force -ErrorAction Stop
+	$back = Get-Item $global:history[$global:history_index - 1] -Force -ErrorAction Stop
 	write-host -nonewline "│" -ForegroundColor DarkBlue
-	$index = n_pad "[.<]" 7 " "
+	$index = n_pad "[.<ⁿ]" 7 " "
 	write-host -nonewline $index
 	write-host -nonewline "│" -ForegroundColor DarkGray
         if($columns -lt 4) {
-            $type = n_pad "[last]" 9 " "
+            $type = n_pad "[back]" 9 " "
             write-host -nonewline $type -ForegroundColor Cyan
             write-host -nonewline "│" -ForegroundColor DarkGray
             if($columns -lt 2) {
-                $lastWrite = n_pad "$($last.lastwritetime)" 25 " " 
+                $lastWrite = n_pad "$($back.lastwritetime)" 25 " " 
                 write-host -nonewline $lastWrite
                 write-host -nonewline "│" -ForegroundColor DarkGray
             }
         }
-	$name = n_pad $last.FullName $nameLength " "
+	$name = n_pad $back.FullName $nameLength " "
 	write-host -NoNewline:$($columns -gt 1) $name -ForegroundColor $("Gray")
     }
     catch {
@@ -192,10 +196,39 @@ function n_write_virtual_dirs ([int]$columns = 1, $nameLength) {
     }
 
     try {
+	$forward = Get-Item $global:history[$global:history_index + 1] -Force -ErrorAction Stop
+        if($null -eq $forward) {
+            throw "no forward item found"
+        }
+        $forward_skipped = $false
+    	___debug "forward_skipped:$forward_skipped"
+	write-host -nonewline "│" -ForegroundColor DarkBlue
+	$index = n_pad "[.>ⁿ]" 7 " "
+	write-host -nonewline $index
+	write-host -nonewline "│" -ForegroundColor DarkGray
+        if($columns -lt 4) {
+            $type = n_pad "[forward]" 9 " "
+            write-host -nonewline $type -ForegroundColor Cyan
+            write-host -nonewline "│" -ForegroundColor DarkGray
+            if($columns -lt 2) {
+                $lastWrite = n_pad "$($forward.lastwritetime)" 25 " " 
+                write-host -nonewline $lastWrite
+                write-host -nonewline "│" -ForegroundColor DarkGray
+            }
+        }
+	$name = n_pad $forward.FullName $nameLength " "
+	write-host -NoNewline:$($columns -gt 2) $name -ForegroundColor $("Gray")
+    }
+    catch {
+        $forward_skipped = $true
+    	___debug "$_   | >> forward_skipped:$forward_skipped"
+    }
+
+    try {
 	$current = Get-Item "$pwd" -Force -ErrorAction Stop     
 	$parent = Get-Item $current.Parent.FullName -Force -ErrorAction Stop
         write-host -nonewline "│" -ForegroundColor DarkBlue 
-        $index = n_pad "[..]" 7 " "
+        $index = n_pad "[.^ⁿ]" 7 " "
         write-host -nonewline $index
         write-host -nonewline "│" -ForegroundColor DarkGray
         if($columns -lt 4){
@@ -209,7 +242,9 @@ function n_write_virtual_dirs ([int]$columns = 1, $nameLength) {
             }
         }
         $name = n_pad $parent.Name $nameLength " "
-        write-host -NoNewline:$($columns -gt 2) $name -ForegroundColor $("Gray")
+        $nonewline = if($forward_skipped) { $columns -gt 2 } else { $columns % 2 -eq 0 -and $columns -ne 1 } 
+        ___debug "parent_nonewline:$nonewline"
+        write-host $name -NoNewline:$nonewline -ForegroundColor $("Gray")
     }
     catch {
 	<#Do this if a terminating exception happens#>
@@ -231,11 +266,17 @@ function n_write_virtual_dirs ([int]$columns = 1, $nameLength) {
                 }
         }
         $name = n_pad $current.Name $nameLength " "
-	write-host $name -ForegroundColor $("Gray")
+        ___debug "current_nonewline:$nonewline"
+        $nonewline = if($forward_skipped) { $columns -ne 3 -and $columns -ne 1 } else { $columns -eq 3 } 
+        write-host $name -NoNewline:$nonewline -ForegroundColor $("Gray")
     }
     catch {
     	<#Do this if a terminating exception happens#>
     }
+
+    $script:virtual_offset = if($forward_skipped) { 3 }  else { 4 }
+
+    ___end
 
 }
 
@@ -330,10 +371,16 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
             $items[1] = Get-ChildItem $(Get-Path $items[1]) -Force
         }
 
-        ___debug "splitting directories [$($items[0][0].Parent.Name)] | [$($items[1][0].Parent.Name)]"
+        ___debug "splitting directories [$PWDLeftSplit] | [$PWDRightSplit]"
         $len = 2 * [Math]::Max($items[0].Count, $items[1].Count)
+        if($items[0].Count -eq 0) {
+            $len += 2
+        }
         $split = $true
         $spliced = New-Object System.Object[] $len
+        if($items[0].Count -eq 0) {
+            $spliced[0] = $null
+        }
         for ($k = 0; $k -lt $len; $k++) {
             if($k % 2 -eq 0) {
                 $item = $items[0][$k/2]
@@ -355,155 +402,168 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
 
     ___debug "items:$items"
 
-    if($items.Count -gt 0) {
-    
-        if($columns -eq -1) {
-            $columns = [System.Math]::Clamp($items.Count / 35, 1, 4)
-        }
-        if($columns -gt 4) {
-            Write-Host "Column count must be between 1 and 4, defaulting to 1" -ForegroundColor Yellow
-            $columns = 1
-        }
-
-        ___debug "columns:$columns"
-
-	$Script:lastParent = $null
-
-        $i = 0
-
-        foreach ($item in $items) {
-
-            ___debug "item:$item"
-    
-	    #if($item -is [string] -and (Test-Path $item)) {
-		#try {
-		    #$item = Get-Item -Force -ErrorAction Stop
-		#}
-		#catch {
-		    #return
-		#}
-	    #}
-
-
-
-            $isReg = "$($item.PSProvider.Name)" -eq "Registry"
-            $isDir = $item.psiscontainer
-            if($null -ne $item) { $isSym = Test-IsSymLink $item }
-            if($isSym) { $resolved = $item.ResolvedTarget }
-            $parent = if( $isReg ){ $item | Select-Object -ExpandProperty Name | Split-Path | Split-Path -leaf }elseif($isDir) { $item.parent.fullname } else { $item.directory.fullname }
-            if($script:lastParent -ne $parent -and (!$split -or $null -eq $Script:lastParent)) {
-                if(!$split) { 
-Write-Host "
-                $parent
-    " -ForegroundColor DarkYellow }
-                else {
-                    $leftItem = $items[0][0]
-                    $leftParent = Format-Path $(if($leftItem.PSIsContainer) {$leftItem.Parent.FullName} else {$leftItem.Directory.FullName}) 60
-                    $leftParent = __pad $leftParent 89 " "
-                    $rightItem = $items[1][0]
-                    $rightParent = Format-Path $(if($rightItem.PSIsContainer) {$rightItem.Parent.FullName} else {$rightItem.Directory.FullName}) 60 
-                    $rightParent = __pad $rightParent 89 " "
-                    Write-Host "`n$leftParent$rightParent`n" -ForegroundColor DarkYellow
-                }
-                $script:lastParent = $parent
-                
-                switch ($columns) {
-                    2 { 
-                        $nameLength = 52
-                        if($split) { $nameLength += 18 }
-write-host "│ INDEX │  TYPE   │  NAME                                              $splitBuffer│ INDEX │  TYPE   │  NAME" -ForegroundColor DarkGray
-                        write-host "├───────┼─────────┼─────────────────────────────────────────────────── $splitBuffer├───────┼─────────┼──────" -ForegroundColor DarkGray
-                    }
-                    3 { 
-                        $nameLength = 39
-write-host "│ INDEX │  TYPE   │  NAME                                 │ INDEX │  TYPE   │  NAME                                 │ INDEX │  TYPE   │  NAME" -ForegroundColor DarkGray #34
-                        write-host "├───────┼─────────┼────────────────────────────────────── ├───────┼─────────┼────────────────────────────────────── ├───────┼─────────┼──────" -ForegroundColor DarkGray
-                    }
-                    4 { 
-                        $nameLength = 34
-write-host "│ INDEX │  NAME                            │ INDEX │  NAME                            │ INDEX │  NAME                            │ INDEX │  NAME" -ForegroundColor DarkGray #29
-                        write-host "├───────┼───────────────────────────────── ├───────┼───────────────────────────────── ├───────┼───────────────────────────────── ├───────┼──────" -ForegroundColor DarkGray
-                    }
-                    default {
-                        $nameLength = 80
-write-host "│ INDEX │  TYPE   │     LAST WRITE TIME     │  NAME" -ForegroundColor DarkGray
-                        write-host "├───────┼─────────┼─────────────────────────┼──────" -ForegroundColor DarkGray
-                    }
-                }
-            }
-
-            if(!$WrittenVirtuals -and !$split){
-                n_write_virtual_dirs $columns $nameLength
-                    $WrittenVirtuals = $true
-            }
-
-            $index = if($split) {
-                if($i % 2 -eq 0){
-                    $i / 2
-                }else {
-                    $($i - 1) / 2
-                }
-            } else {
-                $i
-            }
-            $index = n_pad $(if($null -eq $item) { "" } else {"[$index]"}) 7 " "
-            $type = n_pad $(if($null -eq $item) { "" } elseif( $isReg ){ "[reg]" }elseif($isSym) { if($isDir) {"[tun]"} else {"[link]"} }elseif($isDir){"[dir]"}else{"[file]"}) 9 " "
-            $lastWrite = n_pad "$($item.lastwritetime)" 25 " " 
-            $name = if($columns -eq 4 -and $isDir) { "$("/" + $item.name)" + "/" } else { $item.name }
-            if($isSym) {
-                $name += " -> $resolved"
-            } elseif($isReg){
-                $name = $name | Split-Path -Leaf
-            }
-            $name = n_pad $name $nameLength " "
-            if($isDir) {
-                $canAccess = Test-Access $item.fullname
-            } else {
-                try { [IO.File]::OpenWrite($item.fullname).close();$canAccess = $true }
-                catch { $canAccess = $false }
-            }
-            $sysOrHid = $item.Attributes -band $global:hidden_or_system
-            write-host -nonewline "│" -ForegroundColor DarkBlue
-            write-host -nonewline $index
-            write-host -nonewline "│" -ForegroundColor DarkGray
-            if($columns -lt 4) {
-                write-host -nonewline $type -ForegroundColor $(if( $isReg ){ "Red" }elseif($isSym){ if($isDir) {"Magenta"} else {"DarkMagenta"} }elseif($isDir){"Cyan"}else{"DarkCyan"})
-                write-host -nonewline "│" -ForegroundColor DarkGray
-                if($columns -lt 2) {
-                    write-host -nonewline $lastWrite
-                    write-host -nonewline "│" -ForegroundColor DarkGray
-                }
-            }
-            write-host -nonewline:$(($i+1)%$columns -ne 0) $name -ForegroundColor $(if($canAccess -and !$sysOrHid) { "Gray" } elseif ($canAccess -and $sysOrHidden) { "DarkGray" } elseif (!$sysOrHidden -and !$canAccess) { "Red" } else { "DarkRed" })
-            $i++
-
-            if($isDir -and $tree -and $columns -eq 1) {
-                $children = Get-ChildItem $item.FullName -Force -ErrorAction SilentlyContinue
-                    $children_COUNT = $children.Count
-                    $j = 0
-                    foreach ($child in $children){
-                        if($child.name -eq "...break"){ break }
-                        if($j -eq $children_COUNT - 1) {
-                            write-host -nonewline $(n_pad "[$(n_convert_index $j)]└── " 47 " " -Left) -ForegroundColor DarkGray
-                        } else {
-                            write-host -nonewline $(n_pad "[$(n_convert_index $j)]├── " 47 " " -Left) -ForegroundColor DarkGray
-                        }
-
-                        $child_SYSORHID = $item.Attributes -band $global:hidden_or_system
-                            if($child.PSIsContainer) {
-                                $child_CANACCESS = Test-Access $child.fullname
-                            } else {
-                                try { [IO.File]::OpenWrite($child.fullname).close();$child_CANACCESS = $true }
-                                catch { $child_CANACCESS = $false }
-                            }
-                        $c_ISDIR = $child.PSIsContainer
-                            $c_ISSYM = Test-IsSymLink $child
-                            write-host "$(if($c_ISSYM){"l"} elseif($c_ISDIR) {"d"} else {"f"}) .. $($child.Name) $(if($c_ISSYM){"-> $($child.ResolvedTarget)"} else {''} )" -ForegroundColor $(if($child_CANACCESS -and !$child_SYSORHID) { "Gray" } elseif ($child_CANACCESS -and $child_SYSORHID) { "DarkGray" } elseif (!$child_SYSORHID -and !$child_CANACCESS) { "Red" } else { "DarkRed" })
-                            $j++
-                    }
-            }
-        }  
+    if($columns -eq -1) {
+        $columns = [System.Math]::Clamp($items.Count / 35, 1, 4)
     }
+    if($columns -gt 4) {
+        Write-Host "Column count must be between 1 and 4, defaulting to 1" -ForegroundColor Yellow
+        $columns = 1
+    }
+
+    ___debug "columns:$columns"
+
+    $Script:lastParent = $null
+
+    $i = 0
+
+    if($items.Count -eq 0){
+        Write-Host "
+            $PWD
+" -ForegroundColor DarkYellow
+
+        Write-host "│ INDEX │  TYPE   │     LAST WRITE TIME     │  NAME" -ForegroundColor DarkGray
+                    write-host "├───────┼─────────┼─────────────────────────┼──────" -ForegroundColor DarkGray
+
+        n_write_virtual_dirs 1 80
+
+        Write-Host $("`n" + " "*12 + "Empty") -ForegroundColor Red
+    }
+
+    foreach ($item in $items) {
+
+        ___debug "i:$i"
+
+        ___debug "item:$item"
+
+        #if($item -is [string] -and (Test-Path $item)) {
+            #try {
+                #$item = Get-Item -Force -ErrorAction Stop
+            #}
+            #catch {
+                #return
+            #}
+        #}
+
+
+
+        $isReg = "$($item.PSProvider.Name)" -eq "Registry"
+        $isDir = $item.psiscontainer
+        if($null -ne $item) { $isSym = Test-IsSymLink $item }
+        if($isSym) { $resolved = $item.ResolvedTarget }
+        $parent = if( $isReg ){ $item | Select-Object -ExpandProperty Name | Split-Path | Split-Path -leaf }elseif($isDir) { $item.parent.fullname } else { $item.directory.fullname }
+        if($null -eq $parent) { $parent = "null parent" }
+        if(($script:lastParent -ne $parent -and (!$split -or $null -eq $Script:lastParent)) -or ($i -eq 0 -and  $null -eq $parent)){
+            if(!$split) { 
+Write-Host "
+            $parent
+" -ForegroundColor DarkYellow }
+            else {
+                Write-Host "`nPWD: $PWD" -ForegroundColor Green
+
+                $leftParent = __pad $global:PWDLeftSplit 89 " "
+                $rightParent = __pad $global:PWDRightSplit 89 " "
+                Write-Host "`n$leftParent$rightParent`n" -ForegroundColor DarkYellow
+            }
+            $script:lastParent = $parent
+            
+            switch ($columns) {
+                2 { 
+                    $nameLength = 52
+                    if($split) { $nameLength += 18 }
+write-host "│ INDEX │  TYPE   │  NAME                                              $splitBuffer│ INDEX │  TYPE   │  NAME" -ForegroundColor DarkGray
+                    write-host "├───────┼─────────┼─────────────────────────────────────────────────── $splitBuffer├───────┼─────────┼──────" -ForegroundColor DarkGray
+                }
+                3 { 
+                    $nameLength = 39
+write-host "│ INDEX │  TYPE   │  NAME                                 │ INDEX │  TYPE   │  NAME                                 │ INDEX │  TYPE   │  NAME" -ForegroundColor DarkGray #34
+                    write-host "├───────┼─────────┼────────────────────────────────────── ├───────┼─────────┼────────────────────────────────────── ├───────┼─────────┼──────" -ForegroundColor DarkGray
+                }
+                4 { 
+                    $nameLength = 34
+write-host "│ INDEX │  NAME                            │ INDEX │  NAME                            │ INDEX │  NAME                            │ INDEX │  NAME" -ForegroundColor DarkGray #29
+                    write-host "├───────┼───────────────────────────────── ├───────┼───────────────────────────────── ├───────┼───────────────────────────────── ├───────┼──────" -ForegroundColor DarkGray
+                }
+                default {
+                    $nameLength = 80
+write-host "│ INDEX │  TYPE   │     LAST WRITE TIME     │  NAME" -ForegroundColor DarkGray
+                    write-host "├───────┼─────────┼─────────────────────────┼──────" -ForegroundColor DarkGray
+                }
+            }
+        }
+
+        $virtual_offset = 0
+
+        if(!$WrittenVirtuals -and !$split){
+            n_write_virtual_dirs $columns $nameLength
+                $WrittenVirtuals = $true
+        }
+
+        $index = if($split) {
+            if($i % 2 -eq 0){
+                $i / 2
+            }else {
+                $($i - 1) / 2
+            }
+        } else {
+            $i
+        }
+        $index = n_pad $(if($null -eq $item) { "" } else {"[$index]"}) 7 " "
+        $type = n_pad $(if($null -eq $item) { "" } elseif( $isReg ){ "[reg]" }elseif($isSym) { if($isDir) {"[tun]"} else {"[link]"} }elseif($isDir){"[dir]"}else{"[file]"}) 9 " "
+        $lastWrite = n_pad "$($item.lastwritetime) " 25 " " 
+        $name = if($columns -eq 4 -and $isDir) { "$("/" + $item.name)" + "/" } else { "$($item.name) " }
+        if($isSym) {
+            $name += " -> $resolved"
+        } elseif($isReg){
+            $name = $name | Split-Path -Leaf
+        }
+        $name = n_pad $name $nameLength " "
+        if($isDir) {
+            $canAccess = Test-Access $item.fullname
+        } else {
+            try { [IO.File]::OpenWrite($item.fullname).close();$canAccess = $true }
+            catch { $canAccess = $false }
+        }
+        $sysOrHid = $item.Attributes -band $global:hidden_or_system
+        write-host -nonewline "│" -ForegroundColor DarkBlue
+        write-host -nonewline $index
+        write-host -nonewline "│" -ForegroundColor DarkGray
+        if($columns -lt 4) {
+            write-host -nonewline $type -ForegroundColor $(if( $isReg ){ "Red" }elseif($isSym){ if($isDir) {"Magenta"} else {"DarkMagenta"} }elseif($isDir){"Cyan"}else{"DarkCyan"})
+            write-host -nonewline "│" -ForegroundColor DarkGray
+            if($columns -lt 2) {
+                write-host -nonewline $lastWrite
+                write-host -nonewline "│" -ForegroundColor DarkGray
+            }
+        }
+        write-host -nonewline:$(($i + 1 + $virtual_offset)%$columns -ne 0) $name -ForegroundColor $(if($canAccess -and !$sysOrHid) { "Gray" } elseif ($canAccess -and $sysOrHidden) { "DarkGray" } elseif (!$sysOrHidden -and !$canAccess) { "Red" } else { "DarkRed" })
+        $i++
+
+        if($isDir -and $tree -and $columns -eq 1) {
+            $children = Get-ChildItem $item.FullName -Force -ErrorAction SilentlyContinue
+                $children_COUNT = $children.Count
+                $j = 0
+                foreach ($child in $children){
+                    if($child.name -eq "...break"){ break }
+                    if($j -eq $children_COUNT - 1) {
+                        write-host -nonewline $(n_pad "[$(n_convert_index $j)]└── " 47 " " -Left) -ForegroundColor DarkGray
+                    } else {
+                        write-host -nonewline $(n_pad "[$(n_convert_index $j)]├── " 47 " " -Left) -ForegroundColor DarkGray
+                    }
+
+                    $child_SYSORHID = $item.Attributes -band $global:hidden_or_system
+                        if($child.PSIsContainer) {
+                            $child_CANACCESS = Test-Access $child.fullname
+                        } else {
+                            try { [IO.File]::OpenWrite($child.fullname).close();$child_CANACCESS = $true }
+                            catch { $child_CANACCESS = $false }
+                        }
+                    $c_ISDIR = $child.PSIsContainer
+                        $c_ISSYM = Test-IsSymLink $child
+                        write-host "$(if($c_ISSYM){"l"} elseif($c_ISDIR) {"d"} else {"f"}) .. $($child.Name) $(if($c_ISSYM){"-> $($child.ResolvedTarget)"} else {''} )" -ForegroundColor $(if($child_CANACCESS -and !$child_SYSORHID) { "Gray" } elseif ($child_CANACCESS -and $child_SYSORHID) { "DarkGray" } elseif (!$child_SYSORHID -and !$child_CANACCESS) { "Red" } else { "DarkRed" })
+                        $j++
+                }
+        }
+    }  
     try {
         $t = Get-Item "$pwd" -Force -ErrorAction Stop
         if("$($t.PSProvider)" -eq "Microsoft.PowerShell.Core\Registry") {
@@ -573,12 +633,7 @@ function Show-Directories {
 
     if($null -eq $res) { $res = Get-ChildItem -Force -Path $path -Depth $dep -ErrorAction SilentlyContinue }
 
-    if($null -eq $res) {
-        Write-Host "
-            $path   is Empty!" -ForegroundColor Red
-    } else {
-        Format-ChildItem $res -Tree:$Tree
-    }
+    Format-ChildItem $res -Tree:$Tree
 
     write-host "
     "
@@ -698,41 +753,46 @@ function Invoke-Go {
     ___debug "rightSplit:$RightSplit"
 
     if($ClearSplit) {
-        $global:RightSplitPWD = $null
-        $global:LeftSplitPWD = $null
+        $global:PWDRightSplit = $null
+        $global:PWDLeftSplit = $null
         $in = "$PWD"
     }
 
-    if(($null -ne $global:LeftSplitPWD -or $null -ne $global:RightSplitPWD) -and ($($null -eq $leftSplit) -and $($null -eq $rightSplit))) {
-        $LeftSplit = $global:LeftSplitPWD
+    if(($null -ne $global:PWDLeftSplit -or $null -ne $global:PWDRightSplit) -and ($($null -eq $leftSplit) -and $($null -eq $rightSplit))) {
+        $LeftSplit = $global:PWDLeftSplit
     }
     
     if($null -ne $LeftSplit) {
-        if($null -ne $global:LeftSplitPWD) {
-            Push-Location $global:LeftSplitPWD
+        if($null -ne $global:PWDLeftSplit) {
+            Push-Location $global:PWDLeftSplit
             $pop = $true
         }
-        $global:LeftSplitPWD = Get-Path $LeftSplit
+        $global:PWDLeftSplit = Get-Path $LeftSplit
         if($pop) {
             Pop-Location
         }
-        if($null -eq $global:RightSplitPWD) { $global:RightSplitPWD = "$PWD" }
+        if($null -eq $global:PWDRightSplit) { $global:PWDRightSplit = "$PWD" }
     }
 
     if($null -ne $RightSplit) {
-        if($null -ne $global:RightSplitPWD) {
-            Push-Location $global:RightSplitPWD
+        if($null -ne $global:PWDRightSplit) {
+            Push-Location $global:PWDRightSplit
             $pop = $true
         }
-        $global:RightSplitPWD = Get-Path $RightSplit
+        $global:PWDRightSplit = Get-Path $RightSplit
         if($pop) {
             Pop-Location
         }
-        if($null -eq $global:LeftSplitPWD -and $null -ne $LeftSplit) { $global:LeftSplitPWD = "$PWD" }
+        if($null -eq $global:PWDLeftSplit -and $null -ne $LeftSplit) { $global:PWDLeftSplit = "$PWD" }
     }
 
-    if($global:LeftSplitPWD -or $global:RightSplitPWD) {
-        $items = @($(Get-ChildItem $global:LeftSplitPWD -Force), $(Get-ChildItem $global:RightSplitPWD -Force))
+    if($global:PWDLeftSplit -or $global:PWDRightSplit) {
+        $items = @($(Get-ChildItem $global:PWDLeftSplit -Force), $(Get-ChildItem $global:PWDRightSplit -Force))
+
+        ___debug "items:`n$($items[0])`n`n$($items[1])"
+
+        if($items[0] -isnot [System.Array]) { $items[0] = @( if($items.Count -gt 0) { $items[0] } else { @() } ) }
+        if($items[1] -isnot [System.Array]) { $items[1] = @( if($items.Count -gt 0) { $items[1] } else { @() } ) }
         return ___return $(Format-ChildItem $items)
     }
 
@@ -769,20 +829,40 @@ function Invoke-Go {
 
     if($null -eq $in){$in = "$(Get-Location)"}
 
+    $global:history_navigating = $false
+
     if($in -match "\.<") {
-	$num = $in.replace(".","").split("<").Count - 1
-	$in = $global:history[($global:history.Count - $num)]
-	$global:history = __truncate $global:history -FromEnd ($num)
-	$backTracking = $true
+        $in = $in -replace "\."
+        if($in -match "[0-9]+") { 
+            $num = __match $in "[0-9]+" -Get
+        } else {
+            $num = $in.replace(".","").split("<").Count - 1
+        }
+        $global:history_index -= 1 * $num
+	$in = $global:history[($global:history_index)]
+	$global:history_navigating = $true
+    } elseif($in -match "\.>") {
+        $in = $in -replace "\."
+        if($in -match "[0-9]+") { 
+            $num = __match $in "[0-9]+" -Get
+        } else {
+            $num = $ib.split(">").Count - 1
+        }
+        $global:history_index += 1 * $num
+	$in = $global:history[($global:history_index)]
+	$global:history_navigating = $true
+
     } elseif($in -match "\.\^") {
-	$num = $in.replace(".","").split("^").Count - 1
+        $in = $in -replace "\."
+        if($in -match "[0-9]+") { 
+            $num = __match $in "[0-9]+" -Get
+        } else {
+            $num = $in.split("^").Count - 1
+        }
 	$in = "$pwd"
 	for($i = 0; $i -lt $num; $i++){
 	    $in = Split-Path $in
 	}
-	$backTracking = $false
-    } else {
-	$backTracking = $false
     }
 
     $D = !$A
@@ -843,49 +923,49 @@ function Invoke-Go {
                 $in = $arr[$i].$fullname
             }
         }
-    }
-    elseif (Test-Path (Get-Path $in)) {
+    } elseif (Test-Path (Get-Path $in)) {
 	$in = Get-Path $in
-	    if($null -ne $global:project){
-		if($null -eq $global:project.LastDirectory) {
-		    $global:project.add("LastDirectory",$in)
-		} else {
-		    $global:project.LastDirectory = $in
-		}
-	    }
-	if(!$backTracking) {
-	    $global:last = "$pwd"
-		$null = $global:last
+        if($null -ne $global:project){
+            if($null -eq $global:project.LastDirectory) {
+                $global:project.add("LastDirectory",$in)
+            } else {
+                $global:project.LastDirectory = $in
+            }
+        }
+        $global:last = "$pwd"
+        $null = $global:last
 
-		if($null -eq $global:history) {
-		    [string[]]$global:history = @("$pwd")
-		} else {
-		    $global:history += "$pwd"
-		}
-	}	
+        if(!$global:history_navigating) {
+            if($null -eq $global:history) {
+                $global:history_index = 0
+                $global:history = @{$global:history_index = "$pwd"}
+            } else {
+                $global:history_index++
+                $global:history.add($global:history_index, "$pwd")
+            }
+        }
 
 	Set-Location $in
-	    $first_item = Get-ChildItem "$pwd" -Force -ErrorAction SilentlyContinue | Select-Object -First 1
-	    if($first_item.PSProvider.Name -eq "Registry") {
-		$global:first = $first_item.Name
-	    } else {
-		$global:first = $first_item.FullName
-	    }
+        $first_item = Get-ChildItem "$pwd" -Force -ErrorAction SilentlyContinue | Select-Object -First 1
+        if($first_item.PSProvider.Name -eq "Registry") {
+            $global:first = $first_item.Name
+        } else {
+            $global:first = $first_item.FullName
+        }
 	$null = $global:first
-	    Show-Directories -D:$D -Tree:$Tree
-    }
-    elseif ($C) {
+        Show-Directories -D:$D -Tree:$Tree
+    } elseif ($C) {
 	try {
 	    New-Item $in -ItemType Directory -Force -ErrorAction Stop
-		Set-Location $in -ErrorAction Stop
-		Show-Directories -D:$D -Tree:$Tree
-		if($null -ne $global:project){
-		    if($null -eq $global:project.LastDirectory) {
-			$global:project.add("LastDirectory",$in)
-		    } else {
-			$global:project.LastDirectory = $in
-		    }
-		}
+            Set-Location $in -ErrorAction Stop
+            Show-Directories -D:$D -Tree:$Tree
+            if($null -ne $global:project){
+                if($null -eq $global:project.LastDirectory) {
+                    $global:project.add("LastDirectory",$in)
+                } else {
+                    $global:project.LastDirectory = $in
+                }
+            }
 	} catch {
 	    Write-Error $_
 	}
@@ -1005,6 +1085,7 @@ function Get-Path {
         return ___return $($a_ | ForEach-Object { return Get-Path $_ }) 
     }
     $l_ = "$(Get-Location)"
+    ___Debug "l_:$PWD"
     switch ($a_) { 
 	{ Test-Path $_ } { 
 	     ___debug "Relative path passed is valid: $_"

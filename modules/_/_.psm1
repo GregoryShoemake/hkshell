@@ -83,11 +83,19 @@ function ___debug ([string]$message, [string]$color = "Cyan") {
 .GLOBAL FUNCTIONS
 #>
 
-function __pad ($string, $length, $padChar = " " ,[switch]$left, [switch]$substringLeft) {
+function __pad ([string]$string, $length, $padChar = " " ,[switch]$left, [switch]$substringLeft) {
     ___start __pad
-    ___debug "string:$string"
+    ___debug "string:[$string]"
+    $tmp___pad = $global:_debug_
+    $global:_debug_ = $false
     ___debug "length:$length"
     ___debug "left:$left"
+    if($string.Trim() -eq "") {
+        $global:_debug_ = $tmp___pad
+        ___debug "return: [$(" "*$length)]"
+        ___end
+        return " "*$length
+    }
     if($null -eq $length) { $length = $string.length }
     $diff = $length - $string.length
     ___debug "difference:$diff"
@@ -102,7 +110,10 @@ function __pad ($string, $length, $padChar = " " ,[switch]$left, [switch]$substr
     } else {
         $res = $string.substring(0,$length)
     }
-    return ___return $res
+    $global:_debug_ = $tmp___pad
+    ___debug "return: $res"
+    ___end
+    return $res
 }
 
 function __choose_item ($items, $property = "name", [switch]$substringLeft) {
