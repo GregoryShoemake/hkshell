@@ -426,7 +426,7 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
 
         n_write_virtual_dirs 1 80
 
-        Write-Host $("`n" + " "*12 + "Empty") -ForegroundColor Red
+        Write-Host $("`n" + " "*10 + "Empty") -ForegroundColor Red
     }
 
     foreach ($item in $items) {
@@ -941,7 +941,7 @@ function Invoke-Go {
                 $global:history = @{$global:history_index = "$pwd"}
             } else {
                 $global:history_index++
-                $global:history.add($global:history_index, "$pwd")
+                $global:history[$global:history_index] = "$pwd"
             }
         }
 
