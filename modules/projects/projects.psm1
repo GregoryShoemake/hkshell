@@ -377,10 +377,10 @@ function Start-Edit ($item,[switch]$find, [switch]$quick, [switch]$last, [switch
 
     if($leftSplit) {
         $pop = $true
-        Push-Location $global:LeftSplitPWD
+        Push-Location $global:PWDLeftSplit
     } elseif ($rightSplit) {
         $pop = $true
-        Push-Location $global:RightSplitPWD
+        Push-Location $global:PWDRightSplit
     }
 
     if($find) {

@@ -768,6 +768,8 @@ function Invoke-Go {
             $pop = $true
         }
         $global:PWDLeftSplit = Get-Path $LeftSplit
+        $global:PWDL = $global:PWDLeftSplit
+        $null = $global:PWDL
         if($pop) {
             Pop-Location
         }
@@ -780,6 +782,8 @@ function Invoke-Go {
             $pop = $true
         }
         $global:PWDRightSplit = Get-Path $RightSplit
+        $global:PWDR = $global:PWDRightSplit
+        $null = $global:PWDR
         if($pop) {
             Pop-Location
         }
