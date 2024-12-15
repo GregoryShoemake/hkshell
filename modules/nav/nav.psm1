@@ -23,30 +23,50 @@ if(!(Test-Path $userDir)) { mkdir $userDir }
 
 
 function Import-Shortcuts ($confPath = "") {
+    ___Start Add-Shortcut
     if($confPath -eq "") { $confPath = "$userDir/nav.shortcuts.conf" }
     if(!(Test-Path $confPath)) { $null = New-Item $confPath -ItemType File -Force }
     $global:shortcuts = Get-Content $confPath
     $null = $global:shortcuts
+    ___end
 }
 Import-Shortcuts
 
 function Add-Shortcut ([string]$shortcut, [string]$confPath = "") {
-    if($null -ne $global:project) { $confPath = "$($global:project.Path)/shortcuts.conf" }
-    elseif($confPath -eq "") { $confPath = "$userDir/nav.shortcuts.conf" }
+    ___Start Add-Shortcut
+    ___Debug "init:shortcut:$shortcut"
+    ___Debug "init:confPath:$confPath"
+
+    if($null -ne $global:project) { 
+        $confPath = "$($global:project.Path)/shortcuts.conf" 
+        ___Debug "mod:confPath:$confPath"
+    }
+    elseif($confPath -eq "") { 
+        $confPath = "$userDir/nav.shortcuts.conf" 
+        ___Debug "mod:confPath:$confPath"
+    }
+
+
     if($shortcut -eq ""){
         $shortcut = Read-Host "Input new shortcut"
+        ___Debug "mod:shortcut:$shortcut"
     } elseif ($shortcut -eq ".") {
 	$shortcut = "$pwd"
+        ___Debug "mod:shortcut:$shortcut"
     }
+
+
     $test = Get-Path $shortcut
+
 
     if(!(Test-Path $test)){
         Write-Host "!_Shortcut Path Is Invalid: $shortcut :_____!`n`n$_`n" -ForegroundColor Red
         return
     }
     Add-Content -Path $confPath -Value $shortcut
-    Import-Shortcuts
+    Import-Shortcuts $confPath
     Get-Shortcuts
+    ___End
 }
 
 function Get-Shortcuts ([switch]$Tree) {
