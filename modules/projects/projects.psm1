@@ -318,9 +318,11 @@ function Invoke-Git ([string]$path,[string]$action = "status",[switch]$defaultMe
             }
             $msg = if($defaultMessage) { "$(Get-Date) - $(git status)" }  else { $(__default "$(Read-Host 'Input message (Default: ${current date} ${git status})')" "$(Get-Date) - $(git status)") }
 	    if($defaultMessage) {
+                $null = git rm -rf --cached .
 		$null = git add .
 		$null = git commit -a -m $msg
 	    } else {
+                git rm -rf --cached .
 		git add .
 		git commit -a -m $msg
 	    }
