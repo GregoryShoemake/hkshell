@@ -23,7 +23,7 @@ if(!(Test-Path $userDir)) { mkdir $userDir }
 
 
 function Import-Shortcuts ($confPath = "") {
-    if($confPath = "") { $confPath = "$userDir/nav.shortcuts.conf" }
+    if($confPath -eq "") { $confPath = "$userDir/nav.shortcuts.conf" }
     if(!(Test-Path $confPath)) { $null = New-Item $confPath -ItemType File -Force }
     $global:shortcuts = Get-Content $confPath
     $null = $global:shortcuts
@@ -31,7 +31,8 @@ function Import-Shortcuts ($confPath = "") {
 Import-Shortcuts
 
 function Add-Shortcut ([string]$shortcut, [string]$confPath = "") {
-    if($confPath = "") { $confPath = "$userDir/nav.shortcuts.conf" }
+    if($null -ne $global:project) { $confPath = "$($global:project.Path)/shortcuts.conf" }
+    elseif($confPath -eq "") { $confPath = "$userDir/nav.shortcuts.conf" }
     if($shortcut -eq ""){
         $shortcut = Read-Host "Input new shortcut"
     } elseif ($shortcut -eq ".") {
