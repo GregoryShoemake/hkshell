@@ -261,7 +261,124 @@ function Invoke-GetItem ($item, [switch]$all) {
     ___end
 }
 
-function Invoke-Rename ($from,[string]$to,[switch]$exact) {
+[int]$global:KEBAB = 0
+[int]$global:CAMEL = 1
+[int]$global:SNAKE = 2
+
+function ConvertTo-NameFormat ([string]$inputObject, [int]$from = 1, [int]$to = 0) {
+
+    ___start ConvertTo-NameFormat
+
+    ___debug "initial:inputObject:$inputObject"
+    ___debug "from:$from"
+    ___debug "to:$to"
+    ___debug 'Note:
+[int]$global:KEBAB = 0
+[int]$global:CAMEL = 1
+[int]$global:SNAKE = 2
+    '
+
+    if($from -eq $global:KEBAB) {
+
+        if($to -eq $global:CAMEL) {
+            $words = $inputObject -split "-"
+            $newWords = @()
+            for ($i = 0; $i -lt $words.Count; $i++) {
+                if($i -eq 0) {
+                    $newWords += $words[0]
+                    continue
+                }
+                [string]$word = $words[$i]
+                [string]$newWord = "$($word[0])".toUpper() + $word.Substring(1)
+                $newWords += $newWord
+            }
+            [string]$camel = $newWords -join ""
+            return ___return $camel
+        }
+
+        if($to -eq $global:SNAKE) {
+            return ___return $($inputObject -replace "-","_")
+        }
+
+    }
+
+    if($to -eq $global:KEBAB) {
+
+        if($from -eq $global:CAMEL) {
+            for ($i = 0; $i -lt $inputObject.Length; $i++) {
+                if($i -eq 0) {
+                    [string]$kebab = "$($inputObject[0])"
+                    continue
+                }
+
+                if($inputObject[$i] -match "(?-i)[A-Z]") {
+                    $kebab += "-" + "$($inputObject[$i])".ToLower()
+                } else {
+                    $kebab += $inputObject[$i]
+                }
+            }
+        }
+
+        elseif($from -eq $global:SNAKE) {
+            for ($i = 0; $i -lt $inputObject.Length; $i++) {
+                if($i -eq 0) {
+                    [string]$kebab = "$($inputObject[0])"
+                        continue
+                }
+
+                if($inputObject[$i] -match "(?-i)[A-Z]") {
+                    $kebab += "$($inputObject[$i])".ToLower()
+                } elseif ($inputObject[$i] -eq "_") {
+                    $kebab += "-"
+                } else {
+                    $kebab += $inputObject[$i]
+                }
+            }
+        }
+
+        return ___return $kebab
+    }
+
+    if($from -eq $global:CAMEL) {
+        
+        if($to -eq $global:SNAKE) {
+            [string]$kebab = ConvertTo-NameFormat $inputObject -from $global:CAMEL -to $global:KEBAB
+            return ___return $(ConvertTo-NameFormat $kebab -from $global:KEBAB -to $global:SNAKE)
+        }
+
+    } elseif ($from -eq $global:SNAKE) {
+        
+        if($to -eq $global:CAMEL) {
+            [string]$kebab = ConvertTo-NameFormat $inputObject -from $global:SNAKE -to $global:KEBAB
+             return ___return $(ConvertTo-NameFormat $kebab -from $global:KEBAB -to $global:CAMEL)
+        }
+
+    }
+
+    ___end
+
+}
+
+function fs_rename_cargo_kebab ($InputObject) {
+    
+    ___start fs_rename_cargo_kebab
+    ___debug "InputObject:$InputObject"
+
+    switch ($InputObject.GetType()) {
+        [string] { $InputObject = Get-Item $InputObject }
+        Default {}
+    }
+    ___debug "InputObject:$InputObject"
+
+    $newname = ConvertTo-NameFormat $InputObject.Name -from $global:CAMEL -to $global:KEBAB 
+
+    Rename-Item -Path $InputObject.FullName -NewName $newname -Force -Verbose:$global:_debug_
+
+    ___end
+    
+}
+
+function Invoke-Rename ($from,[string]$to,[switch]$exact,[switch]$cargo) {
 
 	___start Invoke-Rename
 

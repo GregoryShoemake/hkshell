@@ -448,7 +448,7 @@ function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]
 
         $isReg = "$($item.PSProvider.Name)" -eq "Registry"
         $isDir = $item.psiscontainer
-        if($null -ne $item) { $isSym = Test-IsSymLink $item }
+        if($null -ne $item) { $isSym = Test-IsSymLink $item } else { $isSym = $null }
         if($isSym) { $resolved = $item.ResolvedTarget }
         $parent = if( $isReg ){ $item | Select-Object -ExpandProperty Name | Split-Path | Split-Path -leaf }elseif($isDir) { $item.parent.fullname } else { $item.directory.fullname }
         if($null -eq $parent) { $parent = "null parent" }

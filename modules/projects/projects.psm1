@@ -76,8 +76,9 @@ pr_debug "Populated user defined preferred editor ->
 
 
 
-function New-Project ($name) {
+function New-Project ([string]$name) {
     pr_debug_function "New-Project"
+    
     if($null -ne $global:project){
         Write-Host "$($global:project.name) is currently active. Run Exit-Project (eprj) to start a new project" -ForegroundColor Yellow
         return
@@ -115,10 +116,17 @@ function Get-Project ($get = "all"){
 New-Alias -name gprj -value Get-Project -Scope Global -Force
 
 function Start-Project ($name) {
+
     $name = $name -replace "\\","/"
     pr_debug_function "Start-Project"
     pr_debug "args:$args"
     pr_debug "name:$name"
+
+    if($name -eq ""){
+        $projects = Get-ChildItem $projectsPath
+        $name = $projects[$(__choose_item $projects)].Name
+    }
+
     Invoke-Persist -> user
     if($name -match "/") {
         pr_debug "Split project '/' requested"

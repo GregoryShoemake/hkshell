@@ -121,7 +121,7 @@ function Get-PublicAddress {
         }
         elseif ($global:prolix) { write-host $($url + ' didn`t connect') -foregroundcolor red }
     }
-    return $pip
+    return __getmatch $pip -get "([0-9]+(\.)?)+"
 }
 New-Alias -Name gpip -Value Get-PublicAddress -Scope Global -Force
 
