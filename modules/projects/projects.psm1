@@ -183,6 +183,7 @@ function Start-Project ($name) {
                 pr_debug "running project loop script"
                 $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $prjpth/project.ps1" -Passthru
             }
+            Import-Shortcuts "$prjpth/shortcuts.conf"
             return
         }
     }
@@ -238,6 +239,7 @@ No project is currently loaded
     }
     $global:project = $null
     $ENV:PATH = $global:originalPath
+    Import-Shortcuts
 }
 New-Alias -name eprj -value Exit-Project -Scope Global -Force
 

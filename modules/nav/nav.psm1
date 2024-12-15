@@ -22,15 +22,16 @@ if(!(Test-Path $userDir)) { mkdir $userDir }
 
 
 
-function Import-Shortcuts {
-    $conf_path = "$userDir/nav.shortcuts.conf" 
-    if(!(Test-Path $conf_path)) { New-Item $conf_path -ItemType File -Force }
-    $global:shortcuts = Get-Content "$userDir/nav.shortcuts.conf" 
+function Import-Shortcuts ($confPath = "") {
+    if($confPath = "") { $confPath = "$userDir/nav.shortcuts.conf" }
+    if(!(Test-Path $confPath)) { New-Item $confPath -ItemType File -Force }
+    $global:shortcuts = Get-Content $confPath
     $null = $global:shortcuts
 }
 Import-Shortcuts
 
-function Add-Shortcut ([string]$shortcut) {
+function Add-Shortcut ([string]$shortcut, [string]$confPath = "") {
+    if($confPath = "") { $confPath = "$userDir/nav.shortcuts.conf" }
     if($shortcut -eq ""){
         $shortcut = Read-Host "Input new shortcut"
     } elseif ($shortcut -eq ".") {
@@ -42,7 +43,7 @@ function Add-Shortcut ([string]$shortcut) {
         Write-Host "!_Shortcut Path Is Invalid: $shortcut :_____!`n`n$_`n" -ForegroundColor Red
         return
     }
-    Add-Content -Path "$userDir/nav.shortcuts.conf" -Value $shortcut
+    Add-Content -Path $confPath -Value $shortcut
     Import-Shortcuts
     Get-Shortcuts
 }
