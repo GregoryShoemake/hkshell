@@ -24,7 +24,7 @@ if(!(Test-Path $userDir)) { mkdir $userDir }
 
 function Import-Shortcuts ($confPath = "") {
     if($confPath = "") { $confPath = "$userDir/nav.shortcuts.conf" }
-    if(!(Test-Path $confPath)) { New-Item $confPath -ItemType File -Force }
+    if(!(Test-Path $confPath)) { $null = New-Item $confPath -ItemType File -Force }
     $global:shortcuts = Get-Content $confPath
     $null = $global:shortcuts
 }

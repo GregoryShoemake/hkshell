@@ -183,7 +183,7 @@ function Start-Project ($name) {
                 pr_debug "running project loop script"
                 $script:projectLoop = Start-Process powershell -WindowStyle Minimized -ArgumentList "-noprofile -file $prjpth/project.ps1" -Passthru
             }
-            Import-Shortcuts "$prjpth/shortcuts.conf"
+            Import-Shortcuts "$($global:project.Path)/shortcuts.conf"
             return
         }
     }
