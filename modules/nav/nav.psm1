@@ -992,7 +992,7 @@ function Invoke-Go {
 
 	Set-Location $in
 
-        if(!global:$history_navigating) {
+        if(!$global:history_navigating) {
             $global:history_index += 1
             $global:history[$global:history_index] = "$pwd"
         }
