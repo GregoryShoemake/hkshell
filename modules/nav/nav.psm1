@@ -195,7 +195,7 @@ function n_write_virtual_dirs ([int]$columns = 1, $nameLength) {
     ___debug "init:nameLength:$nameLength"
 
     try {
-	$back = Get-Item $global:history[$global:history_index - 1] -Force -ErrorAction Stop
+	$back = Get-Item $global:history[$global:history_index] -Force -ErrorAction Stop
 	write-host -nonewline "│" -ForegroundColor DarkBlue
 	$index = n_pad "[.<ⁿ]" 7 " "
 	write-host -nonewline $index
@@ -762,7 +762,9 @@ function Invoke-Go {
         $RightSplit,
         [Parameter()]
         [switch]
-        $ClearSplit
+        $ClearSplit,
+	[switch]
+	$Swap
     )
     ___start "Invoke-Go"
     ___debug "in:$in"
@@ -774,10 +776,19 @@ function Invoke-Go {
     ___debug "leftSplit:$LeftSplit"
     ___debug "rightSplit:$RightSplit"
 
+    if($swap) {
+	if("$pwd" -eq "$global:PWDRightSplit") {
+	    Set-Location $global:PWDLeftSplit
+	} else {
+	    Set-Location $global:PWDRightSplit
+	}
+    }
+
     if($ClearSplit) {
         $global:PWDRightSplit = $null
         $global:PWDLeftSplit = $null
         $in = "$PWD"
+	return
     }
 
     if(($null -ne $global:PWDLeftSplit -or $null -ne $global:PWDRightSplit) -and ($($null -eq $leftSplit) -and $($null -eq $rightSplit))) {
@@ -858,23 +869,36 @@ function Invoke-Go {
     $global:history_navigating = $false
 
     if($in -match "\.<") {
+        $global:history_index += 1
         $in = $in -replace "\."
         if($in -match "[0-9]+") { 
-            $num = __match $in "[0-9]+" -Get
+            $num = __match $in "[1-9]([0-9]+)?" -Get
+            if("$num" -eq "") {
+                $num = 1
+            }
         } else {
-            $num = $in.replace(".","").split("<").Count - 1
+            $num = $in.split("<").Count
         }
         $global:history_index -= 1 * $num
+        if($global:history_index -lt 0) {
+            $global:history_index = 0
+        }
 	$in = $global:history[($global:history_index)]
 	$global:history_navigating = $true
     } elseif($in -match "\.>") {
         $in = $in -replace "\."
         if($in -match "[0-9]+") { 
-            $num = __match $in "[0-9]+" -Get
+            $num = __match $in "[1-9]([0-9]+)?" -Get
+            if("$num" -eq "") {
+                $num = 1
+            }
         } else {
-            $num = $ib.split(">").Count - 1
+            $num = $in.split(">").Count
         }
         $global:history_index += 1 * $num
+        if($global:history_index -ge $global:history.keys.count) {
+            $global:history_index = $global:history.keys.count - 1
+        }
 	$in = $global:history[($global:history_index)]
 	$global:history_navigating = $true
 
@@ -964,10 +988,10 @@ function Invoke-Go {
         if(!$global:history_navigating) {
             if($null -eq $global:history) {
                 $global:history_index = 0
-                $global:history = @{$global:history_index = "$pwd"}
+                $global:history = @{$global:history_index = $global:last }
             } else {
                 $global:history_index++
-                $global:history[$global:history_index] = "$pwd"
+                $global:history[$global:history_index] = $global:last
             }
         }
 
