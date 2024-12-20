@@ -877,7 +877,7 @@ function Invoke-Go {
                 $num = 1
             }
         } else {
-            $num = $in.split("<").Count
+            $num = ([regex]::Matches($in, "<")).count
         }
         $global:history_index -= 1 * $num
         if($global:history_index -lt 0) {
@@ -893,7 +893,7 @@ function Invoke-Go {
                 $num = 1
             }
         } else {
-            $num = $in.split(">").Count
+            $num = ([regex]::Matches($in, "<")).count
         }
         $global:history_index += 1 * $num
         if($global:history_index -ge $global:history.keys.count) {
