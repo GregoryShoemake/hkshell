@@ -218,7 +218,7 @@ function n_write_virtual_dirs ([int]$columns = 1, $nameLength) {
     }
 
     try {
-	$forward = Get-Item $global:history[$global:history_index] -Force -ErrorAction Stop
+	$forward = Get-Item $global:history[$global:history_index + 1] -Force -ErrorAction Stop
         if($null -eq $forward) {
             throw "no forward item found"
         }
@@ -879,7 +879,7 @@ function Invoke-Go {
         }
         $global:history_index -= 1 * $num
         if($global:history_index -lt 0) {
-            $global:history_index = 1
+            $global:history_index = 0
         }
 	$in = $global:history[($global:history_index)]
 	$global:history_navigating = $true
@@ -892,15 +892,11 @@ function Invoke-Go {
         } else {
             $num = ([regex]::Matches($in, ">")).count
         }
-        $global:history_index += 1 * $num - 1
+        $global:history_index += 1 * $num
         if($global:history_index -gt $global:history.keys.count) {
             $global:history_index = $global:history.keys.count
         }
 	$in = $global:history[($global:history_index)]
-        $global:history_index += 1
-        if($global:history_index -gt $global:history.keys.count) {
-            $global:history_index = $global:history.keys.count
-        }
 	$global:history_navigating = $true
 
     } elseif($in -match "\.\^") {
@@ -989,17 +985,18 @@ function Invoke-Go {
         $global:last = "$pwd"
         $null = $global:last
 
-        if(!$global:history_navigating) {
-            if($null -eq $global:history) {
-                $global:history_index = 1
-                $global:history = @{($global:history_index - 1) = $global:last }
-            } else {
-                $global:history_index++
-                $global:history[$global:history_index - 1] = $global:last
-            }
+        if($null -eq $global:history) {
+            $global:history_index = 0
+            $global:history = @{ $global:history_index = $global:last }
         }
 
 	Set-Location $in
+
+        if(!global:$history_navigating) {
+            $global:history_index += 1
+            $global:history[$global:history_index] = "$pwd"
+        }
+
         $first_item = Get-ChildItem "$pwd" -Force -ErrorAction SilentlyContinue | Select-Object -First 1
         if($first_item.PSProvider.Name -eq "Registry") {
             $global:first = $first_item.Name
