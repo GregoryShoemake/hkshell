@@ -195,7 +195,7 @@ function n_write_virtual_dirs ([int]$columns = 1, $nameLength) {
     ___debug "init:nameLength:$nameLength"
 
     try {
-	$back = Get-Item $global:history[$global:history_index] -Force -ErrorAction Stop
+	$back = Get-Item $global:history[$global:history_index - 1] -Force -ErrorAction Stop
 	write-host -nonewline "│" -ForegroundColor DarkBlue
 	$index = n_pad "[.<ⁿ]" 7 " "
 	write-host -nonewline $index
@@ -218,7 +218,7 @@ function n_write_virtual_dirs ([int]$columns = 1, $nameLength) {
     }
 
     try {
-	$forward = Get-Item $global:history[$global:history_index + 1] -Force -ErrorAction Stop
+	$forward = Get-Item $global:history[$global:history_index] -Force -ErrorAction Stop
         if($null -eq $forward) {
             throw "no forward item found"
         }
