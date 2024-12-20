@@ -900,6 +900,7 @@ function Invoke-Go {
             $global:history_index = $global:history.keys.count - 1
         }
 	$in = $global:history[($global:history_index)]
+        $global:history_index -= 1
 	$global:history_navigating = $true
 
     } elseif($in -match "\.\^") {
