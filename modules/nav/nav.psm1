@@ -869,8 +869,6 @@ function Invoke-Go {
     $global:history_navigating = $false
 
     if($in -match "\.<") {
-        $global:history_index += 1
-        $in = $in -replace "\."
         if($in -match "[0-9]+") { 
             $num = __match $in "[1-9]([0-9]+)?" -Get
             if("$num" -eq "") {
@@ -881,11 +879,31 @@ function Invoke-Go {
         }
         $global:history_index -= 1 * $num
         if($global:history_index -lt 0) {
-            $global:history_index = 0
+            $global:history_index = 1
         }
 	$in = $global:history[($global:history_index)]
 	$global:history_navigating = $true
     } elseif($in -match "\.>") {
+        if($in -match "[0-9]+") { 
+            $num = __match $in "[1-9]([0-9]+)?" -Get
+            if("$num" -eq "") {
+                $num = 1
+            }
+        } else {
+            $num = ([regex]::Matches($in, ">")).count
+        }
+        $global:history_index += 1 * $num - 1
+        if($global:history_index -gt $global:history.keys.count) {
+            $global:history_index = $global:history.keys.count
+        }
+	$in = $global:history[($global:history_index)]
+        $global:history_index += 1
+        if($global:history_index -gt $global:history.keys.count) {
+            $global:history_index = $global:history.keys.count
+        }
+	$global:history_navigating = $true
+
+    } elseif($in -match "\.\^") {
         $in = $in -replace "\."
         if($in -match "[0-9]+") { 
             $num = __match $in "[1-9]([0-9]+)?" -Get
@@ -893,22 +911,7 @@ function Invoke-Go {
                 $num = 1
             }
         } else {
-            $num = ([regex]::Matches($in, "<")).count
-        }
-        $global:history_index += 1 * $num
-        if($global:history_index -ge $global:history.keys.count) {
-            $global:history_index = $global:history.keys.count - 1
-        }
-	$in = $global:history[($global:history_index)]
-        $global:history_index -= 1
-	$global:history_navigating = $true
-
-    } elseif($in -match "\.\^") {
-        $in = $in -replace "\."
-        if($in -match "[0-9]+") { 
-            $num = __match $in "[0-9]+" -Get
-        } else {
-            $num = $in.split("^").Count - 1
+            $num = ([regex]::Matches($in, "\^")).count
         }
 	$in = "$pwd"
 	for($i = 0; $i -lt $num; $i++){
@@ -988,11 +991,11 @@ function Invoke-Go {
 
         if(!$global:history_navigating) {
             if($null -eq $global:history) {
-                $global:history_index = 0
-                $global:history = @{$global:history_index = $global:last }
+                $global:history_index = 1
+                $global:history = @{($global:history_index - 1) = $global:last }
             } else {
                 $global:history_index++
-                $global:history[$global:history_index] = $global:last
+                $global:history[$global:history_index - 1] = $global:last
             }
         }
 
