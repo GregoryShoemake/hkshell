@@ -764,7 +764,9 @@ function Invoke-Go {
         [switch]
         $ClearSplit,
 	[switch]
-	$Swap
+	$Swap,
+        [switch]
+        $reset
     )
     ___start "Invoke-Go"
     ___debug "in:$in"
@@ -784,10 +786,16 @@ function Invoke-Go {
 	}
     }
 
+    if($reset) {
+        $ClearSplit = $true
+        $global:history = $null
+        $global:history_index = $null
+    }
+
     if($ClearSplit) {
         $global:PWDRightSplit = $null
         $global:PWDLeftSplit = $null
-        $in = "$PWD"
+        Invoke-Go ./
 	return
     }
 
