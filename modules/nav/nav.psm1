@@ -189,118 +189,7 @@ Function Get-RegistryKeyPropertiesAndValues
     Pop-Location
 } #end function Get-RegistryKeyPropertiesAndValues
 
-function n_write_virtual_dirs ([int]$columns = 1, $nameLength) {
-    ___start n_write_virtual_dirs
-    ___debug "init:columns:$columns"
-    ___debug "init:nameLength:$nameLength"
 
-    try {
-	$back = Get-Item $global:history[$global:history_index - 1] -Force -ErrorAction Stop
-	write-host -nonewline "│" -ForegroundColor DarkBlue
-	$index = n_pad "[.<ⁿ]" 7 " "
-	write-host -nonewline $index
-	write-host -nonewline "│" -ForegroundColor DarkGray
-        if($columns -lt 4) {
-            $type = n_pad "[back]" 9 " "
-            write-host -nonewline $type -ForegroundColor Cyan
-            write-host -nonewline "│" -ForegroundColor DarkGray
-            if($columns -lt 2) {
-                $lastWrite = n_pad "$($back.lastwritetime)" 25 " " 
-                write-host -nonewline $lastWrite
-                write-host -nonewline "│" -ForegroundColor DarkGray
-            }
-        }
-	$name = n_pad $back.FullName $nameLength " "
-	write-host -NoNewline:$($columns -gt 1) $name -ForegroundColor $("Gray")
-    }
-    catch {
-    	<#Do this if a terminating exception happens#>
-    }
-
-    try {
-	$forward = Get-Item $global:history[$global:history_index + 1] -Force -ErrorAction Stop
-        if($null -eq $forward) {
-            throw "no forward item found"
-        }
-        $forward_skipped = $false
-    	___debug "forward_skipped:$forward_skipped"
-	write-host -nonewline "│" -ForegroundColor DarkBlue
-	$index = n_pad "[.>ⁿ]" 7 " "
-	write-host -nonewline $index
-	write-host -nonewline "│" -ForegroundColor DarkGray
-        if($columns -lt 4) {
-            $type = n_pad "[forward]" 9 " "
-            write-host -nonewline $type -ForegroundColor Cyan
-            write-host -nonewline "│" -ForegroundColor DarkGray
-            if($columns -lt 2) {
-                $lastWrite = n_pad "$($forward.lastwritetime)" 25 " " 
-                write-host -nonewline $lastWrite
-                write-host -nonewline "│" -ForegroundColor DarkGray
-            }
-        }
-	$name = n_pad $forward.FullName $nameLength " "
-	write-host -NoNewline:$($columns -gt 2) $name -ForegroundColor $("Gray")
-    }
-    catch {
-        $forward_skipped = $true
-    	___debug "$_   | >> forward_skipped:$forward_skipped"
-    }
-
-    try {
-	$current = Get-Item "$pwd" -Force -ErrorAction Stop     
-	$parent = Get-Item $current.Parent.FullName -Force -ErrorAction Stop
-        write-host -nonewline "│" -ForegroundColor DarkBlue 
-        $index = n_pad "[.^ⁿ]" 7 " "
-        write-host -nonewline $index
-        write-host -nonewline "│" -ForegroundColor DarkGray
-        if($columns -lt 4){
-            $type = n_pad "[parent]" 9 " "
-            write-host -nonewline $type -ForegroundColor Cyan
-            write-host -nonewline "│" -ForegroundColor DarkGray
-            if($columns -lt 2){
-                $lastWrite = n_pad "$($parent.LastWriteTime)" 25 " " 
-                write-host -nonewline $lastWrite
-                write-host -nonewline "│" -ForegroundColor DarkGray
-            }
-        }
-        $name = n_pad $parent.Name $nameLength " "
-        $nonewline = if($forward_skipped) { $columns -gt 2 } else { $columns % 2 -eq 0 -and $columns -ne 1 } 
-        ___debug "parent_nonewline:$nonewline"
-        write-host $name -NoNewline:$nonewline -ForegroundColor $("Gray")
-    }
-    catch {
-	<#Do this if a terminating exception happens#>
-    }
-
-    try {
-	write-host -nonewline "│" -ForegroundColor DarkBlue 
-	$index = n_pad "[.]" 7 " "
-	write-host -nonewline $index
-	write-host -nonewline "│" -ForegroundColor DarkGray
-        if($columns -lt 4) {
-            $type = n_pad "[current]" 9 " "
-            write-host -nonewline $type -ForegroundColor Cyan
-            write-host -nonewline "│" -ForegroundColor DarkGray
-            if ($columns -lt 2) {
-                $lastWrite = n_pad "$($current.lastwritetime)" 25 " " 
-                write-host -nonewline $lastWrite
-                write-host -nonewline "│" -ForegroundColor DarkGray
-                }
-        }
-        $name = n_pad $current.Name $nameLength " "
-        ___debug "current_nonewline:$nonewline"
-        $nonewline = if($forward_skipped) { $columns -ne 3 -and $columns -ne 1 } else { $columns -eq 3 } 
-        write-host $name -NoNewline:$nonewline -ForegroundColor $("Gray")
-    }
-    catch {
-    	<#Do this if a terminating exception happens#>
-    }
-
-    $script:virtual_offset = if($forward_skipped) { 3 }  else { 4 }
-
-    ___end
-
-}
 
 function n_convert_index ($index) {
     ___start n_convert_index
@@ -363,6 +252,141 @@ function Format-Path ([string]$path, [int]$lengthLimit) {
     }
 
     return ___return "$root.../$leaf"
+}
+
+function n_write_virtual_dirs ([int]$columns = 1, $nameLength) {
+    ___start n_write_virtual_dirs
+    ___debug "init:columns:$columns"
+    ___debug "init:nameLength:$nameLength"
+
+    try {
+	$back = Get-Item $global:history[$global:history_index - 1] -Force -ErrorAction Stop
+        if($null -eq $back) {
+            throw "no backward item found"
+        }
+        $backward_skipped = $false
+	write-host -nonewline "│" -ForegroundColor DarkBlue
+	$index = n_pad "[.<ⁿ]" 7 " "
+	write-host -nonewline $index
+	write-host -nonewline "│" -ForegroundColor DarkGray
+        if($columns -lt 4) {
+            $type = n_pad "[back]" 9 " "
+            write-host -nonewline $type -ForegroundColor Cyan
+            write-host -nonewline "│" -ForegroundColor DarkGray
+            if($columns -lt 2) {
+                $lastWrite = n_pad "$($back.lastwritetime)" 25 " " 
+                write-host -nonewline $lastWrite
+                write-host -nonewline "│" -ForegroundColor DarkGray
+            }
+        }
+	$name = n_pad $back.FullName $nameLength " "
+	write-host -NoNewline:$($columns -gt 1) $name -ForegroundColor $("Gray")
+    }
+    catch {
+        $backward_skipped = $true
+    	___debug "$_   | >> backward_skipped:$backward_skipped"
+    	
+    }
+
+    try {
+	$forward = Get-Item $global:history[$global:history_index + 1] -Force -ErrorAction Stop
+        if($null -eq $forward) {
+            throw "no forward item found"
+        }
+        $forward_skipped = $false
+    	___debug "forward_skipped:$forward_skipped"
+	write-host -nonewline "│" -ForegroundColor DarkBlue
+	$index = n_pad "[.>ⁿ]" 7 " "
+	write-host -nonewline $index
+	write-host -nonewline "│" -ForegroundColor DarkGray
+        if($columns -lt 4) {
+            $type = n_pad "[forward]" 9 " "
+            write-host -nonewline $type -ForegroundColor Cyan
+            write-host -nonewline "│" -ForegroundColor DarkGray
+            if($columns -lt 2) {
+                $lastWrite = n_pad "$($forward.lastwritetime)" 25 " " 
+                write-host -nonewline $lastWrite
+                write-host -nonewline "│" -ForegroundColor DarkGray
+            }
+        }
+	$name = n_pad $forward.FullName $nameLength " "
+	write-host -NoNewline:$($columns -gt 2) $name -ForegroundColor $("Gray")
+    }
+    catch {
+        $forward_skipped = $true
+    	___debug "$_   | >> forward_skipped:$forward_skipped"
+    }
+
+    try {
+	$current = Get-Item "$pwd" -Force -ErrorAction Stop     
+	$parent = Get-Item $current.Parent.FullName -Force -ErrorAction Stop
+        if($null -eq $parent) {
+            throw "parent not found"
+        }
+        $parent_skipped = $false
+        write-host -nonewline "│" -ForegroundColor DarkBlue 
+        $index = n_pad "[.^ⁿ]" 7 " "
+        write-host -nonewline $index
+        write-host -nonewline "│" -ForegroundColor DarkGray
+        if($columns -lt 4){
+            $type = n_pad "[parent]" 9 " "
+            write-host -nonewline $type -ForegroundColor Cyan
+            write-host -nonewline "│" -ForegroundColor DarkGray
+            if($columns -lt 2){
+                $lastWrite = n_pad "$($parent.LastWriteTime)" 25 " " 
+                write-host -nonewline $lastWrite
+                write-host -nonewline "│" -ForegroundColor DarkGray
+            }
+        }
+        $name = n_pad $parent.Name $nameLength " "
+        $nonewline = if($forward_skipped) { $columns -gt 2 } else { $columns % 2 -eq 0 -and $columns -ne 1 } 
+        ___debug "parent_nonewline:$nonewline"
+        write-host $name -NoNewline:$nonewline -ForegroundColor $("Gray")
+    }
+    catch {
+        $parent_skipped = $true	
+    	___debug "$_   | >> parent_skipped:$parent_skipped"
+    }
+
+    try {
+	write-host -nonewline "│" -ForegroundColor DarkBlue 
+	$index = n_pad "[.]" 7 " "
+	write-host -nonewline $index
+	write-host -nonewline "│" -ForegroundColor DarkGray
+        if($columns -lt 4) {
+            $type = n_pad "[current]" 9 " "
+            write-host -nonewline $type -ForegroundColor Cyan
+            write-host -nonewline "│" -ForegroundColor DarkGray
+            if ($columns -lt 2) {
+                $lastWrite = n_pad "$($current.lastwritetime)" 25 " " 
+                write-host -nonewline $lastWrite
+                write-host -nonewline "│" -ForegroundColor DarkGray
+                }
+        }
+        $name = n_pad $current.Name $nameLength " "
+        ___debug "current_nonewline:$nonewline"
+        $nonewline = if($forward_skipped) { $columns -ne 3 -and $columns -ne 1 } else { $columns -eq 3 } 
+        write-host $name -NoNewline:$nonewline -ForegroundColor $("Gray")
+    }
+    catch {
+    	<#Do this if a terminating exception happens#>
+    }
+
+    $global:virtual_offset = 1
+    if(!$forward_skipped) {
+        $global:virtual_offset ++
+    }
+
+    if(!$backward_skipped) {
+        $global:virtual_offset ++
+    }
+
+    if(!$parent_skipped) {
+        $global:virtual_offset ++
+    }
+
+    ___end
+
 }
 
 function Format-ChildItem ($items, [switch]$cache, [switch]$clearCache, [switch]$tree, [int]$columns = -1) {
@@ -513,8 +537,7 @@ write-host "│ INDEX │  TYPE   │     LAST WRITE TIME     │  NAME" -Foregr
             }
         }
 
-        $virtual_offset = 0
-
+        $global:virtual_offset = 0
         if(!$WrittenVirtuals -and !$split){
             n_write_virtual_dirs $columns $nameLength
                 $WrittenVirtuals = $true
@@ -763,8 +786,12 @@ function Invoke-Go {
         [Parameter()]
         [switch]
         $ClearSplit,
+        [Parameter()]
 	[switch]
 	$Swap,
+        [Parameter()]
+        [string]
+	$Focus,
         [switch]
         $reset
     )
@@ -784,6 +811,18 @@ function Invoke-Go {
 	} else {
 	    Set-Location $global:PWDRightSplit
 	}
+    } elseif($focus -ne "") {
+        switch ($Focus) {
+            { __match $_.ToLower() "r(ight)?" } { 
+                Set-Location $global:PWDRightSplit
+            }
+            { __match $_.ToLower() "l(eft)?" } { 
+                Set-Location $global:PWDLeftSplit
+            }
+            Default {
+               Write-Host "!_Invalid input:  $_  ... Expected l(eft) or r(ight)_____!`n`n$_`n" -ForegroundColor Red
+            }
+        }
     }
 
     if($reset) {
