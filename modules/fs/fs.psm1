@@ -550,8 +550,8 @@ function Invoke-CopyItem ([string]$path, [int]$index = -1, [switch]$force, [swit
 function Invoke-Extract([string]$archive,[string]$destination,[string]$extractor){
     ___start Invoke-Extract
     if($extractor -eq ""){
-        $7z = "D:\Program Files\7-Zip\7z.exe"
-        $7za = "D:\Program Files\7-Zip\7za.exe"
+        $7z = "C:\Program Files\7-Zip\7z.exe"
+        $7za = "C:\Program Files\7-Zip\7za.exe"
         if(Test-Path $7z){
             $extractor = $7z
         } elseif (Test-Path $7za) {
