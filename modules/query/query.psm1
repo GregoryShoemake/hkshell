@@ -1044,3 +1044,30 @@ function Get-Block ($command) {
 
 }
 New-Alias -Name gtb -Value Get-Block -Scope Global -Force
+
+function Convert-Units {
+    param (
+        [double]$Value,
+        [string]$FromUnit,
+        [string]$ToUnit
+    )
+
+    switch ("$FromUnit-$ToUnit") {
+        "inches-mm"      { return $Value * 25.4 }
+        "mm-inches"      { return $Value / 25.4 }
+        "kg-lb"          { return $Value * 2.20462 }
+        "lb-kg"          { return $Value / 2.20462 }
+        "ml-floz"        { return $Value * 0.033814 }
+        "floz-ml"        { return $Value / 0.033814 }
+        "cm-inches"      { return $Value / 2.54 }
+        "inches-cm"      { return $Value * 2.54 }
+        "meters-feet"    { return $Value * 3.28084 }
+        "feet-meters"    { return $Value / 3.28084 }
+        "liters-gallons" { return $Value * 0.264172 }
+        "gallons-liters" { return $Value / 0.264172 }
+        default {
+            Write-Error "Conversion from $FromUnit to $ToUnit is not supported."
+            return $null
+        }
+    }
+}
