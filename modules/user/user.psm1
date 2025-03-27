@@ -150,6 +150,92 @@ function user_handle {
         [Parameter()] [switch] $isactive
     )
 
+    if($name -eq "help") {
+        return '
+### NAME
+`user_handle` - Manage user accounts on a Windows system.
+
+### SYNOPSIS
+`user_handle` `[-name <String>]` `[-changePassword <SecureString>]` `[-newPass <SecureString>]` `[-changeUsername <String>]` `[-newName <String>]` `[-refactor]` `[-isAdmin]` `[-rights <String>]` `[-active <String>]` `[-exists]` `[-create]` `[-preClient]` `[-delete]` `[-yes]` `[-no]` `[-wmi]` `[-SID]` `[-isactive]`
+
+### DESCRIPTION
+The `user_handle` function is a comprehensive PowerShell cmdlet to manage user accounts locally within a Windows environment. It provides functionality to create, delete, modify, and query user accounts using either WMI or local system commands, depending on the specified parameters.
+
+### PARAMETERS
+- `-name <String>`: Specifies the name of the user to manage. If omitted, the function will return all users.
+
+- `-changePassword <SecureString>`: The current or new secure password for the user. This will be decrypted and set for the user if specified.
+
+- `-newPass <SecureString>`: Used as an alternative switch to `-changePassword`.
+
+- `-changeUsername <String>`: Specify a new username for the user account.
+
+- `-newName <String>`: Alternative switch for `-changeUsername`.
+
+- `-refactor`: Refactor user-related directories and registry entries to match the new username. NOTE! This can break functionality of executables if they depend on a static path
+                -Changes C:\users\$oldName -> C:\users\$NewName.
+                -Changes registry user desktop directory in accordance with the line above.
+
+- `-isAdmin`: Check if the user has administrative privileges.
+
+- `-rights <String>`: Set user rights. Accepts `ADMIN` or `STANDARD` to toggle administrative privileges.
+
+- `-active <String>`: Enable or disable the user account. Accepts `ENABLE` or `DISABLE`.
+
+- `-exists`: Check if the user exists.
+
+- `-create`: Create a new user account if it does not exist.
+
+- `-preClient`: Set the user to change password at next logon.
+
+- `-delete`: Delete the specified user account.
+
+- `-yes`, `-no`: Automatic confirmations for interactive prompts.
+
+- `-wmi`: Use WMI for user management operations, especially useful for older systems.
+
+- `-SID`: Retrieve the Security Identifier (SID) for the user.
+
+- `-isactive`: Check if the user account is active.
+
+### FUNCTIONALITY
+The function performs actions based on the parameters provided:
+
+1. **User Retrieval**: Queries users using either `Get-LocalUser` or `Get-WmiObject`, depending on the presence of the `-wmi` switch.
+
+2. **User Creation**: If `-create` is specified, the function creates a new user with the provided username and password.
+
+3. **User Modification**: The function can change user passwords, usernames, rights, and active status, ensuring not to modify the current logged-in user in certain cases.
+
+4. **User Deletion**: Deletes the specified user, with an optional confirmation based on `-yes` and `-no` switches.
+
+5. **Administrative and Active Status Checks**: Checks if the user has administrative rights or if the account is active.
+
+### EXAMPLES
+- To create a new user:
+  ```powershell
+  user_handle -name "newuser" -create -changePassword (ConvertTo-SecureString "Password123" -AsPlainText -Force)
+  ```
+
+- To delete a user with confirmation:
+  ```powershell
+  user_handle -name "olduser" -delete -yes
+  ```
+
+- To change a username and refactor directories:
+  ```powershell
+  user_handle -name "oldusername" -changeUsername "newusername" -refactor
+  ```
+
+### NOTES
+This function utilizes a combination of PowerShell cmdlets and legacy command-line tools (like `net user`) for compatibility across different Windows versions. It attempts to gracefully handle errors and informs the user of the operation outcomes.
+
+---
+
+This man page provides a detailed look into the `user_handle` function, explaining its purpose, parameters, functionality, and some usage examples. It`s essential to test these functions in a controlled environment before deploying them in a production setting, as user management operations can have significant impacts on system configurations.
+        '
+    }
+
     if ($null -eq $changePassword) { $changePassword = $newPass } 
     $pass = $changePassword
 
@@ -190,7 +276,7 @@ function user_handle {
         }
     }
     
-    if ($m) { Write-Host "    << Multiple matches for $name >>`n" -ForegroundColor DarkYellow }
+    if ($m) { Write-Host "    << Multiple matches for '$name' >>`n" -ForegroundColor DarkYellow }
 
     if ($delete) {
         if ($w) { Write-Host "InvalidParameterCombination ! Cannot delete and modify in same command" -ForegroundColor Red; return $null }
