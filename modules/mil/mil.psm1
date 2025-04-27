@@ -1,3 +1,0 @@
-function ConvertTo-MilAbbr ($string) {
-
-}

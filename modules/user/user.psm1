@@ -297,6 +297,7 @@ This man page provides a detailed look into the `user_handle` function, explaini
                 return $false
             }
         }
+        return
     }
 
     if (!$r -and !$w) { return $u }

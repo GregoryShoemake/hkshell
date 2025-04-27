@@ -32,6 +32,56 @@ function Invoke-EnsureBackupScope {
 }
 
 function Format-BackupConfiguration {
+
+    if("$args" -eq "help") {
+        return '
+NAME
+    Format-BackupConfiguration - Configure backup settings for standard and bare metal backups.
+
+SYNOPSIS
+    Format-BackupConfiguration [-goto <string>] [-backupLocation <string>]
+
+DESCRIPTION
+    The `Format-BackupConfiguration` function is a PowerShell script for managing backup configurations. It supports setting up standard backups and configuring bare metal backups. The script allows users to specify or modify backup directories and validate the format of directory paths.
+
+PARAMETERS
+    -goto <string>
+        Specifies the type of backup configuration to process. Valid options include "standardbackup" or "baremetalbackup".
+
+    -backupLocation <string>
+        Specifies the location where backups will be stored. This should be a valid directory path.
+
+FUNCTIONALITY
+    1. **Standard Backup Configuration**:
+        - If `-goto` is set to "standardbackup" or unspecified, the script configures a standard backup.
+        - It checks if a backup location is provided or prompts the user to input a directory.
+        - Verifies that the directory path is valid and, if necessary, prompts the user to create a new directory.
+        - The chosen directory is persisted for future backups.
+
+    2. **Bare Metal Backup Configuration**:
+        - If `-goto` is set to "baremetalbackup", the script configures settings for full image recoveries.
+        - Prompts the user to authorize full image recoveries and input a drive letter or volume name for the backup.
+        - Ensures that the specified volume is not on the same disk as the system drive.
+        - Validates the format of the bare metal backup location and updates settings accordingly.
+
+    3. **Debugging and Validation**:
+        - The script includes extensive debugging and validation steps to ensure user inputs are correctly formatted and paths exist.
+        - Outputs debug information to assist in troubleshooting configuration issues.
+
+EXAMPLES
+    Format-BackupConfiguration -goto "standardbackup"
+        Configures a standard backup, prompting for a backup directory if not specified.
+
+    Format-BackupConfiguration -goto "baremetalbackup" -backupLocation "D:\Backup"
+        Configures a bare metal backup, specifying "D:\Backup" as the backup volume.
+
+NOTES
+    - Ensure you have necessary permissions to create directories and modify backup settings.
+    - The script uses internal helper functions like `Invoke-Persist`, `__choice`, and `__search_args` to manage state and user interactions.
+    - Pay attention to directory format requirements, especially for network paths or those not following typical drive letter syntax.
+        '
+    }
+
     ___start Format-BackupConfiguration
     ___debug "args:$args"
     $hash = __search_args $args "-goto"  
@@ -139,7 +189,82 @@ function Start-CheckDiskIntegrity ($path, $log) {
     }
     return ___return $success
 }
+
+
 function Start-Backup {
+
+    if("$args" -eq "help") {
+        return '
+## NAME
+**Start-Backup** - A PowerShell function to perform directory and bare metal backups with optional logging and validation.
+
+## SYNOPSIS
+```shell
+Start-Backup [-directories] [-quiet] [-bareMetal] [-exclude <paths>] [-validate] [-log <logPath>]
+```
+
+## DESCRIPTION
+The `Start-Backup` function orchestrates backups of specified directories and can also perform a bare metal backup of the system. It offers options for excluding certain paths, validating the integrity of the backup destination, and logging the process.
+
+## PARAMETERS
+
+**-directories**
+Specifies that directories should be backed up. This option will check the configuration and back up directories specified in a configuration file.
+
+**-quiet**
+Runs the backup process quietly, with minimal output to the console.
+
+**-bareMetal**
+Indicates a bare metal backup, which means backing up the entire system, including system volumes.
+
+**-exclude <paths>**
+Specifies paths to exclude from the backup. This option accepts a list of paths to exclude, useful for skipping unnecessary files or folders.
+
+**-validate**
+Validates the integrity of both the backup destination and the source system volumes before proceeding with the backup.
+
+**-log <logPath>**
+Enables logging of the backup process to the specified log file. If no log file exists at the specified path, one will be created.
+
+## FUNCTIONALITY
+
+1. **Argument Parsing**: The function starts by parsing the arguments for switches like `-directories`, `-quiet`, `-bareMetal`, `-exclude`, `-validate`, and `-log`.
+
+2. **Backup Configuration**: It checks if backup settings are configured using `Invoke-Persist` commands. If configuration is missing, it prompts the user to configure via `Format-BackupConfiguration`.
+
+3. **Directories Backup**: When the `-directories` switch is used, the function retrieves a list of directories from a configuration file (`backup.items.conf`) and attempts to back them up to a specified backup directory.
+
+4. **Bare Metal Backup**: If the `-bareMetal` switch is present, the function performs a system-level backup, targeting all system volumes that are formatted with NTFS.
+
+5. **Validation**: With the `-validate` switch, the function checks the integrity of both the backup destination and the source volumes, ensuring data reliability.
+
+6. **Logging**: The function logs its actions to the specified path if the `-log` switch is used, creating log entries for each successful or failed backup operation.
+
+7. **Error Handling**: The script includes try-catch blocks to handle errors during file operations, logging failures, and providing feedback to the user.
+
+8. **Debugging**: The use of `___debug` statements allows for detailed output of the function`s internal state, which can be useful for troubleshooting.
+
+## EXAMPLES
+
+```shell
+Start-Backup -directories -validate -log "/var/log/backup.log"
+```
+This command backs up the directories specified in the configuration file, validates the backup destination, and logs the process to `/var/log/backup.log`.
+
+```shell
+Start-Backup -bareMetal -quiet
+```
+Performs a quiet bare metal backup of the entire system, minimizing console output.
+
+## SEE ALSO
+- `Format-BackupConfiguration`
+- `Invoke-Persist`
+- `Start-CheckDiskIntegrity`
+- `wbadmin.exe`
+
+---
+        '
+    }
     ___start Start-Backup
     ___debug "args:$args"
     $hash = __search_args $args "-directories" -Switch
@@ -193,15 +318,20 @@ function Start-Backup {
                 }
             }
         }
+        if($null -ne $logPath) {
+            Add-Content -Path $logPath -Value "[$(Get-Date)]Pulling content from $userDir/backup.items.conf" -Force
+        }
+        Add-Content -Path $logPath -Value "[$(Get-Date)]Pulling content from $userDir/backup.items.conf" -Force
         $items = Get-Content "$userDir/backup.items.conf"
+        if($null -ne $logPath) {
+            Add-Content -Path $logPath -Value "[$(Get-Date)]\n$Items\n\n" -Force
+        }
         ___debug "ITEMS\\`n$items`n    \\ITEMS\\" Blue
         foreach ($i in $items) {
             if($i.StartsWith("#")) { continue }
             $i = Get-Path $i
             if(Test-Path $i) {
-                if($log) {
-                    $logPath = "$global:backupLogsPath/$($item.name)-$(Get-Date -Format dMMMy).log"
-                    if(!(Test-Path $logPath )) { New-Item $logPath -ItemType File }
+                if($null -ne $logPath) {
                     Add-Content -Path $logPath -Value "[$(Get-Date)]Pushing $i to $backupDirectory" -Force
                 }
                 try {
@@ -209,8 +339,6 @@ function Start-Backup {
                 } catch {
                     Write-Host "Failed to backup $i -- $_" -ForegroundColor Red -BackgroundColor DarkGray
                     if($log) {
-                        $logPath = "$global:backupLogsPath/$($item.name)-$(Get-Date -Format dMMMy).log"
-                        if(!(Test-Path $logPath )) { New-Item $logPath -ItemType File }
                         Add-Content -Path $logPath -Value "[$(Get-Date)] >> Failed to push $i to $backupDirectory" -Force
                     }
                 }  

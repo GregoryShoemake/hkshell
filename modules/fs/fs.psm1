@@ -22,7 +22,11 @@ function New-Symlink ($RealTarget, [string]$NewSymPath){
         Write-Host "The real target:$RealTarget `nexists at the path provided:$NewSymPath" -ForegroundColor Yellow
         return ___return
     }
-    New-Item -ItemType SymbolicLink -Path $NewSymPath -Value $RealTarget -Force
+    if(__isLinux) {
+        ln -s $RealTarget $NewSymPath
+    } elseif (__isWindows) {
+        New-Item -ItemType SymbolicLink -Path $NewSymPath -Value $RealTarget -Force
+    }
     ___end
 }
 
@@ -123,7 +127,7 @@ function m_copy ($path, $destination, [switch] $mirror, [switch] $passthru, [swi
     ___debug "initial:passthru:$passthru"
     ___debug "initial:help:$help"
 
-    if($help) {
+    if($help -or $("$args" -eq "help")) {
         return '
 ---
 
@@ -550,8 +554,9 @@ function Invoke-CopyItem ([string]$path, [int]$index = -1, [switch]$force, [swit
 function Invoke-Extract([string]$archive,[string]$destination,[string]$extractor){
     ___start Invoke-Extract
     if($extractor -eq ""){
-        $7z = "C:\Program Files\7-Zip\7z.exe"
-        $7za = "C:\Program Files\7-Zip\7za.exe"
+
+        $7z = "$((Get-ItemProperty HKLM:\SOFTWARE\7-Zip).path64)7z.exe"        
+        $7za = "$((Get-ItemProperty HKLM:\SOFTWARE\7-Zip).path64)7za.exe"
         if(Test-Path $7z){
             $extractor = $7z
         } elseif (Test-Path $7za) {
@@ -618,7 +623,12 @@ New-Alias -Name rem -Value Invoke-RemoveItem -Scope Global -Force -ErrorAction S
 function Invoke-Compress ( $files, [string]$destination, [string]$level = "Fastest"){
     ___start Invoke-Compress
     if($files -isnot [System.Array]){
-        $files =  @($files)
+        if($files -is [System.IO.FileSystemInfo]){
+            $files =  @($files)
+        } else {
+            Write-Host "!_Files input is invalid type: $($files.GetType())_____!`n`n$_`n" -ForegroundColor Red
+            return
+        }
     }
     if($destination -eq "") {
         $destination = "$pwd"
@@ -626,12 +636,7 @@ function Invoke-Compress ( $files, [string]$destination, [string]$level = "Faste
     ___debug "files:$files"
     ___debug "destination:$destination"
     ___debug "level/speed:$level"
-    $compress = @{
-        Path = $files
-        CompressionLevel = $level
-        DestinationPath = $destination
-    }
-    Compress-Archive $compress -Force
+    Compress-Archive -Path $files -CompressionLevel $level -DestinationPath $destination -Force
     ___end
 }
 
@@ -671,6 +676,60 @@ function Get-RelativePath ($Directory, $File) {
 }
 
 function Invoke-SyncDirectories ([System.Array]$Directories, [switch]$MirrorLatestDirectoryAfter) {
+
+    if("$args" -eq "help") {
+        return '
+NAME
+    Invoke-SyncDirectories - Synchronize directories by copying the latest files between them.
+
+SYNOPSIS
+    Invoke-SyncDirectories [[-Directories] <System.Array>] [[-MirrorLatestDirectoryAfter] <switch>]
+
+DESCRIPTION
+    The Invoke-SyncDirectories function synchronizes a list of directories by ensuring each directory contains the most up-to-date versions of files found within both directories. Optionally, it can mirror the structure and contents of the latest directory to all others.
+
+PARAMETERS
+    -Directories <System.Array>
+        Specifies an array of directories to be synchronized.
+        Each element in the array can be either a directory path in string format or a directory object.
+
+    -MirrorLatestDirectoryAfter <switch>
+        A switch parameter that, when specified, will mirror the latest directory`s structure and contents to all specified directories after the synchronization process.
+
+NOTES
+    This function relies on the following:
+    - The directories are compared based on the LastWriteTime property to determine the "latest" directory.
+    - If a directory path is provided as a string, it is converted to a directory object using Get-Item.
+    - The function uses internal debug logging to trace file states and operations.
+    - Uses a helper function Get-RelativePath to compute file paths relative to the directory.
+
+EXAMPLES
+    EXAMPLE 1
+    Invoke-SyncDirectories -Directories @(`C:\Dir1`, `C:\Dir2`, `C:\Dir3`)
+
+    Synchronizes files between the directories C:\Dir1, C:\Dir2, and C:\Dir3, ensuring all have the latest files.
+
+    EXAMPLE 2
+    Invoke-SyncDirectories -Directories @(`C:\Dir1`, `C:\Dir2`, `C:\Dir3`) -MirrorLatestDirectoryAfter
+
+    Synchronizes and then mirrors the contents of the latest directory to C:\Dir1, C:\Dir2, and C:\Dir3.
+
+SEE ALSO
+    Copy-Item, Get-Item, Get-ChildItem, Split-Path
+
+AUTHOR
+    Atypic, the chill hipster coder master
+```
+
+### Additional Insights:
+- **Error Handling**: The script uses `-ErrorAction` and `try/catch` blocks to manage errors, ensuring the process continues even if specific file operations fail. This enhances its robustness.
+
+- **Performance Considerations**: For large directories, the recursive nature of the `Get-ChildItem` command and the multiple checks within loops may impact performance. It might benefit from parallel processing if PowerShell`s `ForEach-Object -Parallel` is used.
+
+- **Debugging**: The script includes debug statements (e.g., `___debug`) to aid in troubleshooting and understanding the process flow. This is especially useful when dealing with complex directory structures or when integrating with larger systems.
+'
+    }
+
     ___start Invoke-SyncDirectories
 
     ___debug "directories:$Directories"

@@ -84,6 +84,9 @@ function monitor($target, [float]$wait = 200, [float]$duration = [float]::MaxVal
     Add-Content $logPath -Value $msg
 }
 function Get-IP ([switch]$interface) {
+    if(__isLinux) {
+        return __match "$(ip addr show)" "(192.168.[0-9]{1,3}.[0-9]{1,3}|10.10.[0-9]{1,3}.[0-9]{1,3})" -get -index 1
+    }
     $all = (ipconfig) -join "`n"
     $all = $all -split "adapter"
     $ip = @()

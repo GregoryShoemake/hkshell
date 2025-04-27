@@ -261,12 +261,18 @@ function p_getVal ($line, [switch]$array) {
     $l = $line.length
     $val = ""
     if ($Null -eq $line) { return ___return $null }
-    for ($i = $l - 1; __between $i -1 $l; $i += $d) {
-        if ($d -eq 1) {
-            $val += $line[$i]
-        }
-        elseif ($line[$i] -eq "=") { $d = 1; ___debug "start of value reached, recording forward" }
+
+    #< magic here
+    
+    $recording = $false
+
+    for ($i = 1; $i -lt $line.length; $i++) {
+        if($recording) { $val += $line[$i] }
+        elseif($line[$i] -eq "=") { $recording = $true }
     }
+
+    #>
+
     if($array){
         return ___return $($val -split ":")
     }

@@ -79,27 +79,13 @@ function Get-Shortcuts ([switch]$Tree) {
 }
 
 $global:hidden_or_system = [System.IO.FileAttributes]::Hidden -bor [System.IO.FileAttributes]::System
-function n_debug ($message, $messageColor, $meta) {
-    if (!$global:_debug_) { return }
-    if ($null -eq $messageColor) { $messageColor = "DarkYellow" }
-    Write-Host "    \\$message" -ForegroundColor $messageColor
-    if ($null -ne $meta) {
-        write-Host -NoNewline " $meta " -ForegroundColor Yellow
-    }
-}
-function n_debug_function ($function, $functionColor, $meta) {
-    if (!$global:_debug_) { return }
-    if ($null -eq $functionColor) { $functionColor = "Yellow" }
-    Write-Host ">_ $function" -ForegroundColor $functionColor
-    if ($null -ne $meta) {
-        write-Host -NoNewline " $meta " -ForegroundColor Yellow
-    }
-}
 
 function Test-IsSymLink ($InputObject) {
     ___start Test-IsSymLink
     if(__is $InputObject @("System.IO.FileInfo","System.IO.DirectoryInfo")) {
 	$input_PATH = $InputObject.FullName
+    } elseif($InputObject -is [Microsoft.Win32.RegistryKey]) {
+        return ___return $false
     } elseif(!$(__is $InputObject  @([string],[int]))) {
 	Write-Host "!_Expected type System.IO or string or int, Found: $($InputObject.GetType())_____!`n`n$_`n" -ForegroundColor Red
 	return ___return
@@ -968,7 +954,7 @@ function Invoke-Go {
         $in = Split-Path "$PWD"
     }
     elseif ($null -ne $global:QueryResult) {
-        n_debug "Parsing Query Results"
+        ___debug "Parsing Query Results"
         if($in -match "([0-9]+)?([a-zA-Z]+)?"){
             if($in -match "^f$"){$in = 0} 
 	    elseif($in -match "[a-zA-Z]+"){
@@ -1002,9 +988,9 @@ function Invoke-Go {
             if ($replaced.name -match $in) {
                 if ($null -eq $arr) { $arr = @($s) }
                 else { $arr += $s }
-                n_debug "   \ true"
+                ___debug "   \ true"
             } else {
-                n_debug "   \ false"
+                ___debug "   \ false"
             }
         }
         if ($null -ne $arr) {
@@ -1077,15 +1063,15 @@ function Invoke-Go {
         }
 
 	foreach ($s in $global:shortcuts) {
-	    n_debug "Checking shortcut: $s ~? $in"
+	    ___debug "Checking shortcut: $s ~? $in"
 		$in_regex = __stringify_regex $in
 		if ($s -match $in_regex) {
 
 		    if ($null -eq $arr) { $arr = @($s) }
 		    else { $arr += $s }
-		    n_debug "   \ true"
+		    ___debug "   \ true"
 		} else {
-		    n_debug "   \ false"
+		    ___debug "   \ false"
 		}
 	}
 
@@ -1119,7 +1105,7 @@ function Invoke-Go {
                 if($f_) { $in = 0 } else { $in = __match $in "[0-9]+" -Get }
             }
 
-                n_debug "Parsing index: $in"
+                ___debug "Parsing index: $in"
                     
             $children = Get-ChildItem $(Get-Location) -Force | Where-Object { $_.PSIsContainer }
             $in = $([int]$in) 
@@ -1289,7 +1275,7 @@ function Get-Path {
             $path = n_match $_ "vol::(.+)::(.+)" -getMatch -index 2
             $res =  "$(Get-Volume | Where-Object {$_.FileSystemLabel -eq $vol } | Select-Object -ExpandProperty DriveLetter ):$path"
             $res = $res -replace "(?!^)\\\\","\" -replace "\\","/"
-            n_debug "res:$res"
+            ___debug "res:$res"
             if ($clip) { Set-Clipboard $res } else { return ___return $res }
         }
         { !(Test-Path $_) } {
