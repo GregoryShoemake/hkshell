@@ -140,6 +140,7 @@ function Start-Project ($name) {
         Start-Project $(persist project)
     }
     $found = $false
+    $pathDelim = if(__isWindows) {";"} elseif(__isLinux) {":"}
     Get-ChildItem $projectsPath | Foreach-Object {
         pr_debug "Comparing $($_.name) -> $name"
         if ($_.name -eq $name) {
@@ -156,7 +157,7 @@ function Start-Project ($name) {
             $global:project.LastedUpdated = "$(Get-Date)"
             Invoke-PushWrapper Invoke-Persist default>_project:$name; 
             if($null -eq $subName) {
-                $ENV:PATH += ";$($_.fullname)"
+                $ENV:PATH += "$($pathDelim)$($_.fullname)"
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath/$name"}
                 if(!(Test-Path $startDir)) { $startDir = $global:project.Path }
                 Invoke-Go $startDir
@@ -166,7 +167,7 @@ function Start-Project ($name) {
             } 
             else { 
                 pr_debug "adding project directory to env:path"
-                $ENV:PATH += ";$($_.fullname)/$subname"
+                $ENV:PATH += "$($pathDelim)$($_.fullname)/$subname"
                 $startDir = if($null -ne $global:project.LastDirectory){"$($global:project.LastDirectory)"} else {"$global:projectsPath/$name"}
                 ___debug "initial:startDir:$startDir"
                 if(!(Test-Path $startDir)) { $startDir = $global:project.Path }
