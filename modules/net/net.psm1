@@ -28,8 +28,9 @@ function n_debug_return {
     return
 }
 
-function Test-Ping ($target="google.com", $wait = 1000) {
-    return [boolean]((ping -n 1 -w $wait $target) -match "Received = 1")
+function Test-Ping ($target="google.com", $wait = 1000, [switch]$not) {
+
+    return [boolean]((ping -n 1 -w $wait $target) -match "Received = 1") -xor $not
 }
 New-Alias -Name boing -Value Test-Ping -Scope Global -Force
 function Test-Request ($target = "google.com", $wait = 1000) {
