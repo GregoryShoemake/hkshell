@@ -622,10 +622,10 @@ function p_scope_wrapper {
     ___debug "scope:$wrapper"
     $argz = __truncate $args -FromStart 1
     if(Get-Scope $wrapper -Exists) {
-        $scope_bak = ("$SCOPE" -split "::")[0]
+        Invoke-PushScope $wrapper
         Invoke-Persist -> $wrapper
-        $res = Invoke-Expression "$argz"
-        Invoke-Persist -> $scope_bak
+        $res = "$(Invoke-Expression "$argz")".Trim()
+        Invoke-PopScope
         return ___return $res
     }
     ___end

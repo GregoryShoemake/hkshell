@@ -33,6 +33,16 @@ function Test-Ping ($target="google.com", $wait = 1000, [switch]$not) {
     return [boolean]((ping -n 1 -w $wait $target) -match "Received = 1") -xor $not
 }
 New-Alias -Name boing -Value Test-Ping -Scope Global -Force
+
+function Invoke-WaitConnect ([string]$ip = "8.8.8.8") {
+    while(Test-Ping $ip -not) {
+        $global:reconnecting = $true;
+        Write-HostLoading "Waiting to connect..." -Seconds 2
+    }
+    $global:reconnecting = $false
+}
+New-Alias -Name wc -Value Invoke-WaitConnect -Scope Global -Force
+
 function Test-Request ($target = "google.com", $wait = 1000) {
     return (Invoke-WebRequest $target -TimeoutSec ($wait / 1000)).statuscode -eq 200
 }
