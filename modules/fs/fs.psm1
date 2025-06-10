@@ -102,11 +102,16 @@ function Invoke-NewItem ($path, [switch]$passthru, $left, $right) {
     $path = Get-Path $path
     ___debug "path:$path"
     $parent = Split-Path $path
+    ___debug "parent:$parent"
     if(Test-Path $parent) {} else {
         mkdir $parent
     }
 
-    $res = New-Item $path -Force -ItemType File
+    try {
+        $res = Get-Item $path -Force -ErrorAction Stop
+    } catch {
+        $res = New-Item $path -Force -ItemType File
+    }
 
     if($pop){
         Pop-Location

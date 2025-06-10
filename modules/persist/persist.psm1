@@ -155,14 +155,16 @@ function p_castArray ($arrayAble) {
 }
 
 function p_castDateTime($datetimeable) {
-    if ($datetimeable -is [datetime]) { return $datetimeable }
-    if ($null -eq $datetimeable) { return $null }
+    ___start p_castDateTime
+    ___debug "datetimeable:$datetimeable"
+    if ($datetimeable -is [datetime]) { return ___return $datetimeable }
+    if ($null -eq $datetimeable) { return ___return $null }
     if ($datetimeable -isnot [string]) { 
-        return [datetime] $datetimeable
+        return ___return $([datetime] $datetimeable)
     }
-    $formats = @(
-        "ddMMMyyyy@HHmm"
-    )
+    $null = Import-HKShell conf
+    $formats = Get-ConfigurationItem datetime_formats.conf | Get-Content
+    ___debug "formats`n$formats`n"
     $ErrorActionPreference = 'STOP'
     foreach ($f in $formats) {
         try { $datetime = [datetime]::ParseExact($datetimeable, $f, $null) }
@@ -170,7 +172,7 @@ function p_castDateTime($datetimeable) {
     }
     $ErrorActionPreference = 'CONTINUE'
     if ($null -eq $datetime) { $datetime = [datetime] $datetimeable }
-    return $datetime
+    return ___return $datetime
 }
 function p_cast ($cast, $var) {
     switch (__replace $cast @("\[", "]")) {

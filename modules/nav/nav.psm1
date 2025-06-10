@@ -1152,6 +1152,10 @@ function Get-Path {
     [CmdletBinding()]
     param (
         [Parameter()]
+        [switch]$exists,
+        [Parameter()]
+        [switch]$notexists,
+        [Parameter()]
         [switch]$clip,
         [Parameter()]
         [switch]$ignoreSymlink,
@@ -1161,17 +1165,35 @@ function Get-Path {
 
     $resolve = !$ignoreSymlink
     ___start Get-Path
+    ___debug "exists:$exists"
+    ___debug "notexists:$notexists"
     ___debug "clip:$clip"
     ___debug "resolve:$resolve"
     ___debug "a_:$a_"
-    
-    if($a_ -is [System.Array]) { 
-        return ___return $($a_ | ForEach-Object { return Get-Path $_ }) 
+
+    if($exists -and $notexists) {
+Write-Host "!_Cannot use the EXISTS and NOTEXISTS switches simultasneously_____!`n`n$_`n" -ForegroundColor Red
+return
     }
+
+    if($a_ -is [System.Array]) { 
+        return ___return $($a_ | ForEach-Object {
+                if($exists) { return Test-Path $a_ }
+                elseif($notexists) { return !(Test-Path $a_) }
+                else { return Get-Path $_ }
+            }
+        ) 
+    }
+
+    $doesExist = Test-Path $a_
+
+    if($exists) { return ___return $doesExist }
+    if($notexists) { return ___return !$doesExist }
+
     $l_ = "$(Get-Location)"
     ___Debug "l_:$PWD"
     switch ($a_) { 
-	{ Test-Path $_ } { 
+	{ $doesExist } { 
 	     ___debug "Relative path passed is valid: $_"
 	     try {
 		 $item = Get-Item $_ -Force -ErrorAction Stop
