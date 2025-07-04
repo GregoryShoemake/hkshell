@@ -68,7 +68,55 @@ function Write-HostLoading {
 
 }
 
-function Write-HostColor ($message) {
+function Write-HostColor ($message, [switch]$help) {
+
+    if($help) {
+        return "
+NAME
+    Write-HostColor
+
+SYNOPSIS
+    Writes colored text to the console output based on the specified message format.
+
+SYNTAX
+    Write-HostColor [-message] <String> [[-help] <SwitchParameter>]
+
+DESCRIPTION
+    The Write-HostColor function is designed to output text to the console with color formatting.
+    The text message can contain color tags in the format \[Color\] (the exact format includes the slashes) which specify the foreground color
+    for the subsequent text. If no color is specified, the text will default to Gray.
+
+PARAMETERS
+    -message <String>
+        The message string to be output. The string can include segments enclosed in square brackets
+        to specify colors, e.g., '\[Red\]This is red text \[Green\]and this is green.'
+
+NOTES
+    - The function splits the input message using square brackets to determine color segments.
+    - If a specified color is not recognized, or if no color is defined within brackets, the function
+      defaults to using Gray as the foreground color.
+    - The implementation currently does not handle nested or overlapping color tags.
+
+AUTHOR
+    GregoryShoemake a.k.a. HomeyKrogerSage
+
+COPYRIGHT
+    © 2025 Your Company. All rights reserved.
+
+SEE ALSO
+    Write-Host
+```
+
+### Additional Insights:
+
+- **Color Handling:** The function relies on the '-ForegroundColor' parameter of the 'Write-Host' cmdlet, which supports a predefined set of colors. It's a good idea to document which colors are supported explicitly if you intend users to utilize specific colors.
+
+- **Default Behavior:** As per your function, if no color is specified or if the color is the same as the section identified, it defaults to 'Gray'. This is important for users to know in case they see unexpected results.
+
+- **Error Handling:** Consider adding error handling for unsupported colors or malformed input. Right now, it assumes the input is well-formed.
+        "
+    }
+
     $message -split "\\\[" | ForEach-Object {
         $split = $_ -split "\\]"
         $section = __default $split[1] $split[0]
