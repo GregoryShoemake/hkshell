@@ -34,12 +34,23 @@ function Test-Ping ($target="google.com", $wait = 1000, [switch]$not) {
 }
 New-Alias -Name boing -Value Test-Ping -Scope Global -Force
 
-function Invoke-WaitConnect ([string]$ip = "8.8.8.8") {
+function Invoke-WaitConnect ([string]$waitMessage= " Waiting to connect...", [string]$failMessage = " Failed to connect: Timed out", [string]$ip = "8.8.8.8",[Int]$timeout = -1) {
+    $timeoutCounter = 0
     while(Test-Ping $ip -not) {
+        if($timeout -ge 0) {
+            $timeoutCounterString = "$($timeoutCounter)s passed"
+            if($timeoutCounter -ge $timeout) {
+                Write-Host "`n"
+                Write-HostLoading $FailMessage -Seconds 2
+                return $false
+            }
+        }
         $global:reconnecting = $true;
-        Write-HostLoading "Waiting to connect..." -Seconds 2
+        Write-HostLoading "$waitMessage$timeoutCounterString" -Seconds 2
+        $timeoutCounter += 2
     }
     $global:reconnecting = $false
+    return $true
 }
 New-Alias -Name wc -Value Invoke-WaitConnect -Scope Global -Force
 

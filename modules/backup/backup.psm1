@@ -321,10 +321,12 @@ Performs a quiet bare metal backup of the entire system, minimizing console outp
         if($null -ne $logPath) {
             Add-Content -Path $logPath -Value "[$(Get-Date)]Pulling content from $userDir/backup.items.conf" -Force
         }
-        Add-Content -Path $logPath -Value "[$(Get-Date)]Pulling content from $userDir/backup.items.conf" -Force
         $items = Get-Content "$userDir/backup.items.conf"
         if($null -ne $logPath) {
-            Add-Content -Path $logPath -Value "[$(Get-Date)]\n$Items\n\n" -Force
+            Add-Content -Path $logPath -Value "[$(Get-Date)]
+            $Items
+
+            " -Force
         }
         ___debug "ITEMS\\`n$items`n    \\ITEMS\\" Blue
         foreach ($i in $items) {

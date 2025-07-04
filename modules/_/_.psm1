@@ -120,7 +120,7 @@ function __choose_item ($items, $property = "name", [switch]$substringLeft) {
     ___start __choise_item
     ___debug "items:$items"
     ___debug "property:$property"
-    Write-Host "│  INDEX  │ ITEM" -ForegroundColor DarkGray
+    Write-Host "│  INDEX  │  ITEM" -ForegroundColor DarkGray
     Write-Host "├─────────┼───────────────────────────────────────────────────" -ForegroundColor DarkGray
     for ($i = 0; $i -lt $items.Count; $i++) {
         $item = $items[$i]

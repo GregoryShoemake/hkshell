@@ -1163,17 +1163,23 @@ function Get-Path {
         $a_
     )
 
+    if($($null -eq $a_) -or $("$a_" -eq "")) {
+        $items = Get-ChildItem -Path "$PWD" -Force | Where-Object { $_.PSIsContainer }
+        $index = __choose_item $items
+        $a_ = $items[$index].FullName
+    }
+
     $resolve = !$ignoreSymlink
     ___start Get-Path
     ___debug "exists:$exists"
     ___debug "notexists:$notexists"
     ___debug "clip:$clip"
     ___debug "resolve:$resolve"
-    ___debug "a_:$a_"
+    ___debug "a_:.$a_."
 
     if($exists -and $notexists) {
-Write-Host "!_Cannot use the EXISTS and NOTEXISTS switches simultasneously_____!`n`n$_`n" -ForegroundColor Red
-return
+        Write-Host "!_Cannot use the EXISTS and NOTEXISTS switches simultaneously_____!`n`n$_`n" -ForegroundColor Red
+        return
     }
 
     if($a_ -is [System.Array]) { 
