@@ -68,5 +68,16 @@ function Write-HostLoading {
 
 }
 
-	
+function Write-HostColor ($message) {
+    $message -split "\\\[" | ForEach-Object {
+        $split = $_ -split "\\]"
+        $section = __default $split[1] $split[0]
+        $color = $split[0]
+        if($color -eq $section) {
+            $color = "Gray"
+        }
+        Write-Host -Object $section -ForegroundColor $color -NoNewline
+    }
+    Write-Host ""
+}
 

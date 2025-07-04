@@ -23,7 +23,7 @@ if(!(Test-Path $userDir)) { mkdir $userDir }
 
 
 function Import-Shortcuts ($confPath = "") {
-    ___Start Add-Shortcut
+    ___Start Import-Shortcut
     if($confPath -eq "") { $confPath = "$userDir/nav.shortcuts.conf" }
     if(!(Test-Path $confPath)) { $null = New-Item $confPath -ItemType File -Force }
     $global:shortcuts = Get-Content $confPath

@@ -287,14 +287,14 @@ function __truncate {
     param (
         # Array object passed to truncate
         [Parameter(Mandatory = $false, Position = 0)]
-        [System.Array]
         $array,
         [int]
         $fromStart = 0,
         [int]
         $fromEnd = 0,
         [int[]]
-        $indexAndDepth
+        $indexAndDepth,
+        $as
     )
 
     ___start __truncate 
@@ -304,6 +304,7 @@ function __truncate {
     ___debug "indexAndDepth:$indexAndDepth"
 
     $l = $array.Length
+    ___debug "init:arrayLength:$l"
     if ($fromStart -gt 0) {
         $l = $l - $fromStart
     }
@@ -317,6 +318,7 @@ function __truncate {
     if (($null -ne $indexAndDepth) -and ($indexAndDepth[1] -gt 0)) {
         $l = $l - $indexAndDepth[1]
     }
+    ___debug "arrayLength:$l"
     if ($l -le 0) {
         return ___return @()
     }
@@ -330,6 +332,12 @@ function __truncate {
     for ($i = 0; $i -lt $array.Length; $i ++) {
         if (($i -gt $fromStart) -and ($middleVoid -notcontains $i) -and ($i -lt $fromEnd)) {
             $res += $array[$i]
+        }
+    }
+    if($null -ne $as) {
+        ___debug "converting to ... $as"
+        if($as -eq [String]) {
+            return ___return $($res -join "")
         }
     }
     return ___return $res
