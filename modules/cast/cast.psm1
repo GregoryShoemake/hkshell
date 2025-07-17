@@ -104,7 +104,7 @@ function Invoke-Cast ($cast, $var) {
         "double" { 
             return Invoke-CastDouble $var
         }
-        { __match $_ @("u8[]", "str", "string") }{ 
+        { __match $_ @("str", "string") }{ 
             return Invoke-CastString $var
         }
         "datetime" { 
