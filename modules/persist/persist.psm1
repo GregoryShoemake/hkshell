@@ -26,6 +26,8 @@ ___debug "$userDir"
 
 if(!(Test-Path $userDir)) { mkdir $userDir }
 
+Import-HKShell cast | Out-Null
+
 function p_debug ($message, $messageColor, $meta) {
     if (!$global:_debug_) { return }
     if ($null -eq $messageColor) { $messageColor = "DarkYellow" }
@@ -87,122 +89,7 @@ function p_elevated {
 	return (new-object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator) 
     }
 }
-function p_castString ($stringable) {
-    if ($stringable -is [string]) { return $stringable }
-    if ($null -eq $stringable) { return "" }
-    if ($PSVersionTable.PSVersion.Major -ge 3) {
-        return Out-String -InputObject $stringable
-    }
-    elseif ($stringable -is [System.Array]) {
-        return $stringable -join "`n"
-    }
-    else { return [string]$stringable }
-}
 
-function p_castBool ($boolable) {
-    if ($boolable -is [boolean]) { return $boolable }
-    if ($null -eq $boolable) { return $false }
-    if ($boolable -is [string]) {
-        return __match $boolable  @("true", "yes", "y", "1")
-    }
-    if (__is $boolable @([int], [long], [float], [double])) {
-        return $boolable -gt 0
-    }
-    return $true
-}
-
-function p_castInt ($intable) {
-    if ($intable -is [int]) { return $intable }
-    if ($null -eq $intable) { return 0 }
-    if (__is $intable @([long], [float], [double], [string])) { return [int]$intable }
-    if ($intable -is [boolean]) { if ($intable) { return 1 } else { return 0 } }
-    if ($intable -is [System.Array]) { return $intable.length }
-    return [int] $intable
-}
-function p_castFloat ($floatable) {
-    if ($floatable -is [float]) { return $floatable }
-    if ($null -eq $floatable) { return 0 }
-    if (__is $floatable @([long], [int], [double], [string])) { return [float]$floatable }
-    if ($floatable -is [boolean]) { if ($floatable) { return 1 } else { return 0 } }
-    if ($floatable -is [System.Array]) { return $intable.length }
-    return [float] $floatable
-}
-function p_castLong ($longable) {
-    if ($longable -is [long]) { return $longable }
-    if ($null -eq $longable) { return 0 }
-    if (__is $longable @([int], [float], [double], [string])) { return [long]$longable }
-    if ($longable -is [boolean]) { if ($longable) { return 1 } else { return 0 } }
-    if ($longable -is [System.Array]) { return $intable.length }
-    return [long] $longable
-}
-function p_castDouble ($doubleable) {
-    if ($doubleable -is [double]) { return $doubleable }
-    if ($null -eq $doubleable) { return 0 }
-    if (__is $doubleable @([long], [float], [int], [string])) { return [double]$doubleable }
-    if ($doubleable -is [boolean]) { if ($doubleable) { return 1 } else { return 0 } }
-    if ($doubleable -is [System.Array]) { return $intable.length }
-    return [double] $doubleable
-}
-function p_castArray ($arrayAble) {
-    if ($arrayAble -is [System.Array]) { return $arrayAble }
-    if ($null -eq $arrayAble) { return $null }
-    if ($arrayAble -is [string]) { 
-        if ($arrayAble -match ":") {
-            return $arrayAble -split ":"
-        }
-    }
-    return @($arrayAble)
-}
-
-function p_castDateTime($datetimeable) {
-    ___start p_castDateTime
-    ___debug "datetimeable:$datetimeable"
-    if ($datetimeable -is [datetime]) { return ___return $datetimeable }
-    if ($null -eq $datetimeable) { return ___return $null }
-    if ($datetimeable -isnot [string]) { 
-        return ___return $([datetime] $datetimeable)
-    }
-    $null = Import-HKShell conf
-    $formats = Get-ConfigurationItem datetime_formats.conf | Get-Content
-    ___debug "formats`n$formats`n"
-    $ErrorActionPreference = 'STOP'
-    foreach ($f in $formats) {
-        try { $datetime = [datetime]::ParseExact($datetimeable, $f, $null) }
-        catch { continue }
-    }
-    $ErrorActionPreference = 'CONTINUE'
-    if ($null -eq $datetime) { $datetime = [datetime] $datetimeable }
-    return ___return $datetime
-}
-function p_cast ($cast, $var) {
-    switch (__replace $cast @("\[", "]")) {
-        "boolean" { 
-            return p_castBool $var
-        }
-        { __match $_ @("int", "integer") } { 
-            return p_castInt $var
-        }
-        "long" { 
-            return p_castLong $var
-        }
-        "float" { 
-            return p_castFloat $var
-        }
-        "double" { 
-            return p_castDouble $var
-        }
-        "string" { 
-            return p_castString $var
-        }
-        "datetime" { 
-            return p_castDateTime $var
-        }
-        "array" { 
-            return p_castArray $var
-        }
-        Default { return Invoke-Expression "$($cast + '"' + $var + '"')" }
-    }
-}
 function p_parseNumber ($numberable) {
     if ($numberable -match "^[0-9]+(\.)?([0-9]+)?$") {
         if ($numberable -match "^[0-9]+$") {
@@ -403,9 +290,9 @@ function p_foo_parse ($parameters) {
     $l_ = p_getLine $global:c_ $var
     $val = p_getVal $l_
     switch ($cast) {
-        "[datetime]" { return p_castDateTime $val }
-        "[int]" { return p_castInt $val }
-        "[boolean]" { return p_castBool $val }
+        "[datetime]" { return Invoke-CastDateTime $val }
+        "[int]" { return Invoke-CastInt $val }
+        "[boolean]" { return Invoke-CastBool $val }
         Default {
             write-host 'p_foo_parse ! Invalid cast type, here are the currently supported casts:`n[datetime]     ' -ForegroundColor Red 
         }
@@ -509,7 +396,7 @@ function p_foo_writeDate ($parameters) {
     $variable = $split[0]
     $dateString = $split[1]
 
-    $date = p_castDateTime $dateString
+    $date = Invoke-CastDateTime $dateString
     $dateString = $(($date).toString('ddMMMyyyy@HHmm'))
     Invoke-Persist [datetime]$variable='''"'$dateString'"'''
 }
@@ -690,7 +577,7 @@ function p_add {
     }
     p_debug "original value: $val | additive: $n | result:$res | cast:$cast" DarkGray
     p_debug_return
-    if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
+    if ($null -ne $cast) { return Invoke-Cast $cast $res } else { return $res }
 }
 
 function p_minus {
@@ -715,7 +602,7 @@ function p_minus {
         $res = $val - $n
     }
     p_debug "original value: $val | reductive: $n | result:$res | cast:$cast" DarkGray
-    if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
+    if ($null -ne $cast) { return Invoke-Cast $cast $res } else { return $res }
 }
 
 function p_multiply {
@@ -735,7 +622,7 @@ function p_multiply {
     $n = p_parseNumber $n
     $res = $val * $n
     p_debug "original value: $val | multiplier: $n | result:$res | cast:$cast" DarkGray
-    if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
+    if ($null -ne $cast) { return Invoke-Cast $cast $res } else { return $res }
 }
 
 function p_divide {
@@ -755,7 +642,7 @@ function p_divide {
     $n = p_parseNumber $n
     $res = $val / $n
     p_debug "original value: $val | dividend: $n | result:$res | cast:$cast" DarkGray
-    if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
+    if ($null -ne $cast) { return Invoke-Cast $cast $res } else { return $res }
 }
 
 function p_exponentiate {
@@ -775,7 +662,7 @@ function p_exponentiate {
     $n = p_parseNumber $n
     $res = [Math]::Pow($val, $n)
     p_debug "original value: $val | exponent: $n | result:$res | cast:$cast" DarkGray
-    if ($null -ne $cast) { return p_cast $cast $res } else { return $res }
+    if ($null -ne $cast) { return Invoke-Cast $cast $res } else { return $res }
 }
 
 function p_not_choice ($msg, $y, $n) {
@@ -1022,7 +909,7 @@ function p_foo ($name, $params) {
             $l_ = p_getLine $global:c_ $params
             $v_ = p_getVal $l_
             $c_ = p_getCast $l_
-            $p_ = p_cast $c_ $v_
+            $p_ = Invoke-Cast $c_ $v_
             return $p_.length
         }
         { __eq $_ @("def", "default") } {
@@ -1269,14 +1156,14 @@ function p_foo ($name, $params) {
             $a = Invoke-Persist Pop>_ "$source"
             p_debug "b;$b"
             switch ($op) {
-                gt { $res = $(p_castInt $a) -gt $(p_castInt $b) }
-                ge { $res = $(p_castInt $a) -ge $(p_castInt $b) }
-                eq { $res = $(p_castInt $a) -eq $(p_castInt $b) }
-                le { $res = $(p_castInt $a) -le $(p_castInt $b) }
-                lt { $res = $(p_castInt $a) -lt $(p_castInt $b) }
-                ne { $res = $(p_castInt $a) -ne $(p_castInt $b) }
-                or { $res = $(p_castBool $a) -or $(p_castBool $b) }
-                and { $res = $(p_castBool $a) -and $(p_castBool $b) }
+                gt { $res = $(Invoke-CastInt $a) -gt $(Invoke-CastInt $b) }
+                ge { $res = $(Invoke-CastInt $a) -ge $(Invoke-CastInt $b) }
+                eq { $res = $(Invoke-CastInt $a) -eq $(Invoke-CastInt $b) }
+                le { $res = $(Invoke-CastInt $a) -le $(Invoke-CastInt $b) }
+                lt { $res = $(Invoke-CastInt $a) -lt $(Invoke-CastInt $b) }
+                ne { $res = $(Invoke-CastInt $a) -ne $(Invoke-CastInt $b) }
+                or { $res = $(Invoke-CastBool $a) -or $(Invoke-CastBool $b) }
+                and { $res = $(Invoke-CastBool $a) -and $(Invoke-CastBool $b) }
                 Default {
                     Write-Host "!_Invalid Op: $op :_____!`n`n$_`n" -ForegroundColor Red
                     return
@@ -2079,7 +1966,7 @@ Atypic, your friendly hipster coder master.
                 return ___return $v_
             }
             else {
-                return ___return $(p_cast $cast $v_)
+                return ___return $(Invoke-Cast $cast $v_)
             }
         }
     }
@@ -2108,7 +1995,7 @@ Atypic, your friendly hipster coder master.
             return ___return $v_
         }
         else {
-            return ___return $(p_cast $cast $v_)
+            return ___return $(Invoke-Cast $cast $v_)
         }
     }
     else {
@@ -2116,7 +2003,7 @@ Atypic, your friendly hipster coder master.
             ">_" { 
                     $res = p_foo $name $para 
                     if($null -ne $cast){
-                        $res = p_cast $cast $res
+                        $res = Invoke-Cast $cast $res
                     }
                 } # getthis (command)
             "=" { 
