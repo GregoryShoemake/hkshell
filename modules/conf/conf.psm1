@@ -9,7 +9,7 @@ if ($null -eq $global:_MODNAME_module_location ) {
 
 $null = importhks fs
 
-$global:hks_conf_dir = "C:\Users\grego\.hkshell\confs"
+$global:hks_conf_dir = "~\.hkshell\confs"
 Invoke-NewDir $global:hks_conf_dir
 
 function Get-ConfigurationItem ([string]$path, [switch]$content) {

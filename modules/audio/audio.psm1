@@ -45,6 +45,17 @@ function Get-Audio ([string]$nameRegex,[switch]$start) {
 }
 New-Alias -Name aud -Value Get-Audio -Scope Global -Force -ErrorAction SilentlyContinue
 
+function _windows_start_audio($path) {
+        $mediaPlayer = New-Object system.windows.media.mediaplayer
+        $mediaPlayer.open($Path)
+        $mediaPlayer.Play()
+}
+
+function _linux_start_audio($path) {
+    Write-Host "!_LINUX MEDIA ACCESS NOT IMPLEMENTED_____!`n`n$_`n" -ForegroundColor Red
+    return
+}
+
 function Start-Audio ($Path) {
     ___start Start-Audio
     ___debug "init:Path:$Path"
@@ -54,9 +65,11 @@ function Start-Audio ($Path) {
     if($NULL -ne $checkFavorites) {
         Start-Audio $checkFavorites.FullName
     } elseif (Test-Path $Path) {
-        $mediaPlayer = New-Object system.windows.media.mediaplayer
-        $mediaPlayer.open($Path)
-        $mediaPlayer.Play()
+        if(__IsWindows) {
+            _windows_start_audio $path
+        } elseif (__IsLinux) {
+            _linux_start_audio $path
+        }
     } elseif(!$(__match "$Path".ToLower() @("\.mp3", "\.wav", "\.flac", "\.aiff", "\.aac", "\.wma"))) {
         $string = ""
         Write-Host "!_Invalid extension: --> $(__match $Path "(\..+?$)" -Get -Index 1 ) <-- _____!`n`n$_`n" -ForegroundColor Red

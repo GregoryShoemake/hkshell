@@ -129,3 +129,6 @@ SEE ALSO
     Write-Host ""
 }
 
+function Invoke-AutoCorrect ($input) {
+
+}
