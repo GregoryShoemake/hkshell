@@ -123,6 +123,30 @@ function Invoke-NewItem ($path, [switch]$passthru, $left, $right) {
     ___end
 }
 
+function LinuxRobocopy {
+    param (
+        [string]$source,
+        [string]$destination,
+        [switch]$mirror
+    )
+
+    if(__isWindows) {
+        if($mirror) {
+            Robocopy $source $destination /MT /MIR /NFL /NDL /NJH /NJS /NC /NS > NUL 
+        } else {
+            Robocopy $source $destination /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
+        }
+    }
+
+    if ($mirror) {
+        # To mirror directories, you could use rsync instead of cp
+        rsync -a --delete "$source/" "$destination"
+    } else {
+        # Use cp to copy the contents of the directory
+        cp -r "$source/"* "$destination"
+    }
+}
+
 function m_copy ($path, $destination, [switch] $mirror, [switch] $passthru, [switch]$help) {
     
     ___start m_copy 
@@ -225,17 +249,19 @@ Atypic, your chill hipster coder master.
     ___debug "destination:$destination"
     try {
 	$i = Get-Item $path -Force -ErrorAction Stop
-	if($i.psIsContainer) {
-	    if($mirror) {
-		Robocopy $i.FullName "$destination/$($i.Name)" /MT /MIR /NFL /NDL /NJH /NJS /NC /NS > NUL 
-	    } elseif ($destination -match "(.+?)@(.+?):") {
-                Copy-SFTP $i.FullName -> $destination
-            } else {
-		Robocopy $i.FullName "$destination/$($i.Name)" /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
-	    }
-	    if($passthru) { return ___return $(Get-Item $destination -Force) }
-	} elseif($destination -match "(.+?)@(.+?):") {
+        if($destination -match "(.+?)@(.+?):") {
             Copy-SFTP $path -> $destination
+        } elseif($i.psIsContainer) {
+            if(__isLinux) {
+                LinuxRobocopy -source $i.FullName -destination "$destination/$($i.Name)" -mirror:$mirror
+            } elseif (__isWindows) {
+                if($mirror) {
+                    Robocopy $i.FullName "$destination/$($i.Name)" /MT /MIR /NFL /NDL /NJH /NJS /NC /NS > NUL 
+                } else {
+                    Robocopy $i.FullName "$destination/$($i.Name)" /MT /E /NFL /NDL /NJH /NJS /NC /NS > NUL 
+                }
+            }
+	    if($passthru) { return ___return $(Get-Item $destination -Force) }
         } else {
 	    Copy-Item -Path $i.FullName -Destination $destination -Force
 	    if($passthru) { return ___return $(Get-Item "$destination\$($i.name)" -Force) }

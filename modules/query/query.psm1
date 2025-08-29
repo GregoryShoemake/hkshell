@@ -1053,6 +1053,8 @@ function Convert-Units {
     )
 
     switch ("$FromUnit-$ToUnit") {
+        "nm-cm"      { return $Value / 10000000 }
+        "cm-nm"      { return $Value * 10000000 }
         "inches-mm"      { return $Value * 25.4 }
         "mm-inches"      { return $Value / 25.4 }
         "kg-lb"          { return $Value * 2.20462 }
