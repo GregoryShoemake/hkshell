@@ -1148,6 +1148,47 @@ function ConvertTo-LixuxPathDelimiter ($path) {
     return ___return $($path -replace "\\","/")
 }
 
+function Get-DosPath {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$FilePath
+    )
+
+    try {
+        # Check if the file exists
+        if (-Not (Test-Path -Path $FilePath)) {
+            throw "File or directory not found: $FilePath"
+        }
+
+        # Load the kernel32 DLL
+        $signature = @"
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        public static extern int GetShortPathName(
+            string lpszLongPath,
+            System.Text.StringBuilder lpszShortPath,
+            int cchBuffer);
+"@
+        Add-Type -MemberDefinition $signature -Name Win32Utils -Namespace Win32
+
+        # Prepare the buffer to receive the short path name
+        $shortPath = New-Object System.Text.StringBuilder 260
+
+        # Call the GetShortPathName function and retrieve the short path
+        [Win32.Win32Utils]::GetShortPathName($FilePath, $shortPath, $shortPath.Capacity) | Out-Null
+
+        # Check if the operation was successful
+        if ($shortPath.Length -eq 0) {
+            throw "Could not retrieve short path name for file: $FilePath"
+        }
+
+        # Return the short path
+        return $shortPath.ToString()
+    }
+    catch {
+        Write-Error $_.Exception.Message
+    }
+}
+
 function Get-Path {
     [CmdletBinding()]
     param (
@@ -1159,9 +1200,15 @@ function Get-Path {
         [switch]$clip,
         [Parameter()]
         [switch]$ignoreSymlink,
+        [Parameter()]
+        [switch]$dosFormat,
         [Parameter(ValueFromRemainingArguments)]
         $a_
     )
+
+    if($dosFormat) {
+        return Get-DosPath $(Get-Path -exists:$exists -notexists:$notexists -clip:$clip -ignoreSymlink:$ignoreSymlink -a $a_)
+    }
 
     if($($null -eq $a_) -or $("$a_" -eq "")) {
         $items = Get-ChildItem -Path "$PWD" -Force | Where-Object { $_.PSIsContainer }
@@ -1316,6 +1363,7 @@ function Get-Path {
     }
     ___end
 }
+
 New-Alias -Name gtp -Value Get-Path -Scope Global -Force
 function Get-Root ($inputObject) {
     if($null -eq $inputObject) { $inputObject = "$(Get-Location)" } 
