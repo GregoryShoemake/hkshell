@@ -143,7 +143,7 @@ function LinuxRobocopy {
         rsync -a --delete "$source/" "$destination"
     } else {
         # Use cp to copy the contents of the directory
-        cp -r "$source/"* "$destination"
+        cp -r "$source" "$destination"
     }
 }
 
